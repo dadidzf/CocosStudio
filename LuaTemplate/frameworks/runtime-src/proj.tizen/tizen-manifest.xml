@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.3" package="com.yongwu.luatemplate" version="1.0.0">
+    <ui-application appid="com.yongwu.luatemplate" exec="hellolua" type="capp" multiple="false" taskmanage="true" nodisplay="false">
+        <icon>LuaTemplate.png</icon>
+        <label>LuaTemplate</label>
+	</ui-application>
+</manifest>
