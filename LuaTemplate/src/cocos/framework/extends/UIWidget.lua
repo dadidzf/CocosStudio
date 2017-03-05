@@ -41,3 +41,16 @@ function Widget:onTouch(callback)
     end)
     return self
 end
+
+function Widget:onClick(callback)
+    self:addClickEventListener(function (...)
+        if callback then
+            callback(...) 
+        end
+    end)
+end
+
+
+
+
+

@@ -1,17 +1,15 @@
 
-#include "scripting/lua-bindings/manual/network/lua_extensions.h"
+#include "scripting/lua-bindings/manual/cjson/lua_extensions.h"
 
 #if __cplusplus
 extern "C" {
 #endif
-// socket
-#include "luasocket/luasocket.h"
-#include "luasocket/luasocket_scripts.h"
-#include "luasocket/mime.h"
+    
+// lua_cjson
+#include "cjson/lua_cjson.h"
 
 static luaL_Reg luax_exts[] = {
-    {"socket.core", luaopen_socket_core},
-    {"mime.core", luaopen_mime_core},
+    {"cjson", luaopen_cjson_safe},
     {NULL, NULL}
 };
 
@@ -27,10 +25,14 @@ void luaopen_lua_extensions(lua_State *L)
         lua_setfield(L, -2, lib->name);
     }
     lua_pop(L, 2);
-
-    luaopen_luasocket_scripts(L);
 }
     
+void register_cjson_module(lua_State *L)
+{
+    luaopen_lua_extensions(L);
+}
+
+
 #if __cplusplus
 } // extern "C"
 #endif

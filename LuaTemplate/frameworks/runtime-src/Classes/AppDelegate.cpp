@@ -3,6 +3,7 @@
 #include "audio/include/SimpleAudioEngine.h"
 #include "cocos2d.h"
 #include "scripting/lua-bindings/manual/lua_module_register.h"
+#include "LuaUserBindings/lua_binding_manual.h"
 
 using namespace CocosDenshion;
 
@@ -51,7 +52,9 @@ bool AppDelegate::applicationDidFinishLaunching()
     ScriptEngineManager::getInstance()->setScriptEngine(engine);
     lua_State* L = engine->getLuaStack()->getLuaState();
     lua_module_register(L);
-
+    
+    register_user_manual(L); // lua bindings defined by myself
+    
     register_all_packages();
 
     LuaStack* stack = engine->getLuaStack();
