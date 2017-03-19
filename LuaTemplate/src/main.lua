@@ -4,6 +4,8 @@ cc.FileUtils:getInstance():setPopupNotify(false)
 require "config"
 require "cocos.init"
 
+math.randomseed(os.time())
+
 local function main()
 	local GameConfig = require("cjson").decode(cc.FileUtils:getInstance():getStringFromFile("GameConfig.json"))
 	dd.serverConfig = GameConfig.serverConfig

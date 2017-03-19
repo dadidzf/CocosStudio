@@ -4,10 +4,11 @@ import hashlib
 import json
 
 # Conig for ads module 
+_defaultURLPrefix = 'http://127.0.0.1:5000/'
 _picList = {
-	'glowball':['png', 'http://127.0.0.1:5000/flask/ads/pic/glowball.png'],
-	'paperplane':['png', 'http://127.0.0.1:5000/flask/ads/pic/paperplane.png'],
-	'tetris2':['png', 'http://127.0.0.1:5000/flask/ads/pic/tetris2.png']
+	'glowball':['png', _defaultURLPrefix + 'ads/pic/glowball'],
+	'paperplane':['png', _defaultURLPrefix + 'ads/pic/paperplane'],
+	'tetris2':['png', _defaultURLPrefix + 'ads/pic/tetris2']
 }
 
 _appMapPics = {
@@ -16,7 +17,7 @@ _appMapPics = {
 	'tetris2':['glowball']
 }
 
-_version = 1.0
+_version = 1.4
 
 ################################################
 
