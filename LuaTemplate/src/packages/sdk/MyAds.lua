@@ -45,6 +45,7 @@ function MyAds.showAds(layerOrder)
 			local picPath = _adsDownloadDir .. picAttri.picMd5
 			if _fileUtils:isFileExist(picPath) then
 				local adsImage = _createAdsImage(picPath, picAttri.jumpUrl, layerOrder)
+				adsImage:setScale(_configTable.scale)
 				adsImage:setPosition(display.cx, display.cy)
 				layer:addChild(adsImage)
 				break
@@ -62,6 +63,7 @@ function _createAdsImage(picPath, jumpUrl, layerOrder)
 
 	local closeBtn = ccui.Button:create("sdk_close_btn.png")
 	closeBtn:setPosition(cc.p(adsImage:getContentSize().width, adsImage:getContentSize().height))
+	closeBtn:setScale(1/_configTable.scale)
 	adsImage:addChild(closeBtn)
 
 	closeBtn:onClick(function ()
@@ -85,6 +87,7 @@ function _loadNativeConfig()
 		if configJsonTb then
 			_configTable = {}
 			_configTable.version = configJsonTb.version
+			_configTable.scale = configJsonTb.scale
 			if configJsonTb.picArr then
 				_configTable.picArr = {}
 				for i = 1, #configJsonTb.picArr do
@@ -136,6 +139,7 @@ function _getRemoteVersion()
 				end
 			else
 				print("~Failed to get Remote Version !")
+				_loadNativeConfig()
 			end
 		end
 	)

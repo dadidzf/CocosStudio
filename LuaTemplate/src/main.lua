@@ -1,17 +1,12 @@
-
 cc.FileUtils:getInstance():setPopupNotify(false)
 
 require "config"
 require "cocos.init"
+require "GameConfig"
 
 math.randomseed(os.time())
 
 local function main()
-	local GameConfig = require("cjson").decode(cc.FileUtils:getInstance():getStringFromFile("GameConfig.json"))
-	dd.serverConfig = GameConfig.serverConfig
-	dd.isSelfAdsEnabled = GameConfig.isSelfAdsEnabled
-	dd.appName = GameConfig.appName
-
 	if dd.isSelfAdsEnabled then
 		cc.load("sdk").MyAds.init()
 	end

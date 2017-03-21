@@ -2,9 +2,16 @@ import sys
 import os
 import hashlib
 import json
+import socket
+import const
+import logging
 
 # Conig for ads module 
-_defaultURLPrefix = 'http://127.0.0.1:5000/'
+if (const.IS_WSGI_CALL):
+	_defaultURLPrefix = 'https://www.yongwuart.com/flask/'
+else:
+	_defaultURLPrefix = 'http://127.0.0.1:5000/'
+
 _picList = {
 	'glowball':['png', _defaultURLPrefix + 'ads/pic/glowball'],
 	'paperplane':['png', _defaultURLPrefix + 'ads/pic/paperplane'],
@@ -12,12 +19,12 @@ _picList = {
 }
 
 _appMapPics = {
-	'glowball':['paperplane'],
-	'paperplane':['tetris2', 'glowball'],
-	'tetris2':['glowball']
+	'glowball':{'pics':['paperplane'], 'scale':1.0},
+	'paperplane':{'pics':['tetris2', 'glowball'], 'scale':0.8},
+	'tetris2':{'pics':['glowball'], 'scale':1.0}
 }
 
-_version = 1.4
+_version = 1.7
 
 ################################################
 
@@ -29,13 +36,11 @@ def init(fileDir):
 	global _confJsonArr
 	_confDict = _createPicMd5Dict(fileDir)
 	_confJsonArr = _createPicJsonDict(_confDict)
+	logging.debug(json.dumps(_confDict))
 
 def getJsonConf(name):
 	global _confJsonArr
-	if (name in _confJsonArr):
-		return _confJsonArr[name]
-	else:
-		return None
+	return _confJsonArr.get(name)
 
 def getJsonVersion():
 	global _version
@@ -69,7 +74,7 @@ def _createPicMd5Dict(fileDir):
 	picNameMapMd5 = {}
 	for appname, picArr in _appMapPics.iteritems():
 		confDict[appname] = []
-		for picName in picArr:
+		for picName in picArr['pics']:
 			tempDict = []
 			if (picName not in picNameMapMd5):
 				extName = picName + '.' + _picList[picName][0]
@@ -86,6 +91,7 @@ def _createPicJsonDict(md5Dic):
 	for name, md5List in md5Dic.iteritems():
 		tempJson = {}
 		tempJson['version'] = _version
+		tempJson['scale'] = _appMapPics[name]['scale']
 		tempJson['picArr'] = md5List
 		confJsonArr[name] = json.dumps(tempJson)
 
