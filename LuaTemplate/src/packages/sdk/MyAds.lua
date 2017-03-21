@@ -17,6 +17,7 @@ local _createAdsImage
 
 function MyAds.init()
 	_checkDir()
+	_loadNativeConfig()
 	_getRemoteVersion()
 end
 
@@ -107,7 +108,7 @@ end
 
 -- compare native version and remote version
 function _checkUpdate(remoteVersion)
-	local nativeVersion = _loadNativeConfig()
+	local nativeVersion = _configTable and _configTable.version
 	if (not nativeVersion) or nativeVersion < remoteVersion then
 		_downloader.downloadData(
 			dd.serverConfig.serverHost .. dd.serverConfig.adsConfURL .. dd.appName, 
@@ -139,7 +140,6 @@ function _getRemoteVersion()
 				end
 			else
 				print("~Failed to get Remote Version !")
-				_loadNativeConfig()
 			end
 		end
 	)
