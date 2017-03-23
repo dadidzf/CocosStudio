@@ -889,7 +889,11 @@ int LuaStack::luaLoadBuffer(lua_State *L, const char *chunk, int chunkSize, cons
         switch (r)
         {
             case LUA_ERRSYNTAX:
-                CCLOG("[LUA ERROR] load \"%s\", error: syntax error during pre-compilation.", chunkName);
+                {
+                    auto str = luaL_checkstring(L, -1);
+                    CCLOG("[LUA ERROR] load \"%s\", error: syntax error during pre-compilation. -- %s",chunkName, str);
+                    lua_pop(L, 1);
+                }
                 break;
 
             case LUA_ERRMEM:
