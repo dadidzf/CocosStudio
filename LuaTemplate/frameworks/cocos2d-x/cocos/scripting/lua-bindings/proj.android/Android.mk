@@ -76,6 +76,12 @@ LOCAL_SRC_FILES += ../manual/3d/lua_cocos2dx_3d_manual.cpp \
 LOCAL_SRC_FILES += ../manual/cocosdenshion/lua_cocos2dx_cocosdenshion_manual.cpp \
                    ../auto/lua_cocos2dx_cocosdenshion_auto.cpp
 
+#cjson
+LOCAL_SRC_FILES += ../manual/cjson/lua_extensions.c \
+                   ../../../../external/lua/cjson/fpconv.c \
+                   ../../../../external/lua/cjson/lua_cjson.c \
+                   ../../../../external/lua/cjson/strbuf.c 
+
 #network
 LOCAL_SRC_FILES += ../manual/network/lua_cocos2dx_network_manual.cpp \
                    ../manual/network/lua_extensions.c \

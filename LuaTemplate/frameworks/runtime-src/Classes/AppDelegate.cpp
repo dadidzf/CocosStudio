@@ -92,3 +92,23 @@ void AppDelegate::applicationWillEnterForeground()
 
     SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }
+
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID 
+double atof(const char *nptr)
+{
+    return (strtod(nptr, NULL));
+}
+
+extern "C"{
+    int rand()
+    {
+        time_t temp;
+        return time(&temp);
+    }
+    
+    void srand(unsigned int __s)
+    {
+        return srand48(__s);
+    }
+}
+#endif
