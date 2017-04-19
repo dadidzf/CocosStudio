@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.yongwu.luatemplate"
-        minSdkVersion 13
+        minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -55,4 +55,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':libcocos2dx')
+    compile 'com.google.firebase:firebase-ads:10.2.0'
 }
+
+apply plugin: 'com.google.gms.google-services'

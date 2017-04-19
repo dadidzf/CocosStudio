@@ -3,9 +3,10 @@ local MainScene = class("MainScene", cc.load("mvc").ViewBase)
 local test
 
 function MainScene:onCreate()
-	local disY = 100
+	local disY = 80
 	local inc = 1
 	local fntSize = 64
+
 	ccui.Text:create("Show My Own Ads", "", fntSize)
 		:move(display.cx, display.height - 100)
 		:addTo(self)
@@ -20,7 +21,7 @@ function MainScene:onCreate()
 		:addTo(self)
 		:setTouchEnabled(true)
 		:onClick(function ()
-			print("Show Banner")
+  			cc.load("sdk").Admob.getInstance():showBanner(0, 0)
 		end)
 
 	inc = inc + 1
@@ -29,7 +30,7 @@ function MainScene:onCreate()
 		:addTo(self)
 		:setTouchEnabled(true)
 		:onClick(function ()
-			print("Hide Banner")
+  			cc.load("sdk").Admob.getInstance():removeBanner()
 		end)
 
 	inc = inc + 1
@@ -38,7 +39,7 @@ function MainScene:onCreate()
 		:addTo(self)
 		:setTouchEnabled(true)
 		:onClick(function ()
-			print("Show Full Ads")
+  			cc.load("sdk").Admob.getInstance():showInterstitial()
 		end)
 
 	inc = inc + 1
@@ -47,7 +48,6 @@ function MainScene:onCreate()
 		:addTo(self)
 		:setTouchEnabled(true)
 		:onClick(function ()
-			print("Show Rank")
 		end)
 
 	inc = inc + 1
@@ -56,7 +56,6 @@ function MainScene:onCreate()
 		:addTo(self)
 		:setTouchEnabled(true)
 		:onClick(function ()
-			print("Show Achievement")
 		end)
 
 	inc = inc + 1
@@ -65,7 +64,6 @@ function MainScene:onCreate()
 		:addTo(self)
 		:setTouchEnabled(true)
 		:onClick(function ()
-			print("Remove Ads")
 		end)
 
 	inc = inc + 1
@@ -74,7 +72,6 @@ function MainScene:onCreate()
 		:addTo(self)
 		:setTouchEnabled(true)
 		:onClick(function ()
-			print("Share Game")
 		end)
 
 	inc = inc + 1
@@ -83,7 +80,6 @@ function MainScene:onCreate()
 		:addTo(self)
 		:setTouchEnabled(true)
 		:onClick(function (sender)
-			print("Rate Game")
 		end)
 end
 

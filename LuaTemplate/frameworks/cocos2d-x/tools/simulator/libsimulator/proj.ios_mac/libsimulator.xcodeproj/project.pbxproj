@@ -296,11 +296,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29B0F06C1EA24F030060750C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9F72142C1A5C271F00DAED06 = {
 			isa = PBXGroup;
 			children = (
 				9FD6FC0D1A5D281D0028EDC6 /* lib */,
 				9F7214361A5C271F00DAED06 /* Products */,
+				29B0F06C1EA24F030060750C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

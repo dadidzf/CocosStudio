@@ -27,6 +27,7 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
+//#import "Firebase.h"
 
 @implementation AppController
 
@@ -39,6 +40,7 @@
 static AppDelegate s_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+//    [FIRApp configure];
     
     cocos2d::Application *app = cocos2d::Application::getInstance();
     
@@ -52,7 +54,7 @@ static AppDelegate s_sharedApplication;
     window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
 
     // Use RootViewController to manage CCEAGLView
-    _viewController = [[RootViewController alloc]init];
+    _viewController = [[RootViewController alloc] init];
     _viewController.wantsFullScreenLayout = YES;
     
 
@@ -78,7 +80,7 @@ static AppDelegate s_sharedApplication;
     
     //run the cocos2d-x game scene
     app->run();
-
+    
     return YES;
 }
 

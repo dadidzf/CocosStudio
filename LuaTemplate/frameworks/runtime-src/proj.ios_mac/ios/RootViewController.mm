@@ -26,7 +26,7 @@
 #import "RootViewController.h"
 #import "cocos2d.h"
 #import "platform/ios/CCEAGLView-ios.h"
-
+#import "Ads/AdmobController.h"
 
 @implementation RootViewController
 
@@ -52,7 +52,7 @@
                                      numberOfSamples: 0 ];
     
     // Enable or disable multiple touches
-    [eaglView setMultipleTouchEnabled:NO];
+    [eaglView setMultipleTouchEnabled:YES];
     
     // Set EAGLView as view of RootViewController
     self.view = eaglView;
@@ -61,6 +61,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[AdmobController getInstance] setRootViewController:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
