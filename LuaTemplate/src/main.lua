@@ -11,6 +11,11 @@ local function initBeforeGame()
 		dd[k] = v
 	end
 	--dd.serverConfig.serverHost = "http://127.0.0.1:5000/"
+	if device.platform == "ios" then
+		dd.appCommon = dd.ios
+	elseif device.platform == "android" then
+		dd.appCommon = dd.android
+	end
 
 	cc.load("sdk").MyAds.init()
 end

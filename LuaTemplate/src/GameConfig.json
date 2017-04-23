@@ -8,11 +8,26 @@
     "isSelfAdsEnabled": "TRUE",
     "appName": "paperplane",
     "AdsConfig": {
-        "androidAdmobBannerId": "ca-app-pub-3940256099942544/2934735716",
-        "androidAdmobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
-        "iosAdmobBannerId": "ca-app-pub-3940256099942544/2934735716",
-        "iosAdmobInterstitialId": "ca-app-pub-3940256099942544/4411468910"
     },
-    "androidPackageName": "com.yongwu.luatemplate",
-    "iosBundleId": "com.yongwu.luatemplate"
+
+    "ios":
+    {
+        "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
+        "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
+        "packageName":"com.yongwu.luatemplate",
+        "version":"1.0",
+        "versionCode":"1.0",
+        "rateUrl":"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1182004800&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",
+        "shareUrl":"https://itunes.apple.com/app/classic-blocks-game/id1182004800?l=us&ls=1&mt=8"
+	},
+	"android":
+	{
+        "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
+        "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
+        "packageName":"com.yongwu.luatemplate",
+        "version":"1.0",
+        "versionCode":"1.0",
+        "rateUrl":"https://play.google.com/store/apps/details?id=com.yongwu.tetris099",
+        "shareUrl":"https://play.google.com/store/apps/details?id=com.yongwu.tetris099"
+	}
 }

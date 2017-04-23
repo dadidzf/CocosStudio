@@ -19,11 +19,11 @@ function AdmobIos:showBanner(pos, anchor)
 	self.m_luaoc.callStaticMethod("AdmobController", "initBannerLua", args)
 end
 
-function AdmobIos:initAds()
+function AdmobIos:initAds(banner, interstitial)
 	print("AdmobIos:initAds")
  	local args = {
-    	interstitialAdsId = dd.AdsConfig.iosAdmobInterstitialId,
-    	bannerAdsId = dd.AdsConfig.iosAdmobBannerId
+    	interstitialAdsId = interstitial,
+    	bannerAdsId = banner
 	}
 	self.m_luaoc.callStaticMethod("AdmobController", "initAdsLua", args)
 end
@@ -45,7 +45,7 @@ local AdmobAndroid = class("AdmobAndroid", Admob)
 
 function AdmobAndroid:ctor()
 	self.m_luaj = require("cocos.cocos2d.luaj")
-	self.m_jniClass = "org/cocos2dx/ads/GameJni"
+	self.m_jniClass = "org/cocos2dx/lua/GameJni"
 end
 
 function AdmobAndroid:showBanner(posY, anchorY)
@@ -63,10 +63,10 @@ function AdmobAndroid:removeBanner()
 	self.m_luaj.callStaticMethod(self.m_jniClass, "removeBanner", {})
 end
 
-function AdmobAndroid:initAds()
+function AdmobAndroid:initAds(banner, interstitial)
 	print("AdmobAndroid:initAds")
 	self.m_luaj.callStaticMethod(self.m_jniClass, "initAds", 
-		{dd.AdsConfig.androidAdmobBannerId, dd.AdsConfig.androidAdmobInterstitialId})
+		{banner, interstitial})
 end
 
 --[[
@@ -84,7 +84,7 @@ function Admob.getInstance()
 			assert(false, "Admob not support for ", device.platform)
 		end
 		
-		_instance:initAds()
+		_instance:initAds(dd.appCommon.admobBannerId, dd.appCommon.admobInterstitialId)
 	end
 
 	return _instance

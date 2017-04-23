@@ -1,4 +1,6 @@
-package org.cocos2dx.ads;
+package org.cocos2dx.lua;
+
+import android.content.Intent;
 
 import org.cocos2dx.lua.AppActivity;
 
@@ -31,6 +33,20 @@ public class GameJni {
         AppActivity.getInstance().runOnUiThread(new Runnable() {
             public void run() {
                 AppActivity.getInstance().getAds().initAds(bannerId, interstitialId);
+            }
+        });
+    }
+
+    public static void gameShare(final String title, final String url)
+    {
+        AppActivity.getInstance().runOnUiThread(new Runnable() {
+            public void run() {
+                Intent localIntent = new Intent("android.intent.action.SEND");
+                localIntent.setType("text/plain");
+                localIntent.putExtra("android.intent.extra.SUBJECT", "Share to friends now !");
+                localIntent.putExtra("android.intent.extra.TEXT", url);
+                localIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                AppActivity.getInstance().startActivity(Intent.createChooser(localIntent, title));
             }
         });
     }

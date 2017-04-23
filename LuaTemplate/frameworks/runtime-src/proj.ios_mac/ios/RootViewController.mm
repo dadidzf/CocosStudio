@@ -27,6 +27,7 @@
 #import "cocos2d.h"
 #import "platform/ios/CCEAGLView-ios.h"
 #import "Ads/AdmobController.h"
+#import "Tools/ToolsController.h"
 
 @implementation RootViewController
 
@@ -62,6 +63,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[AdmobController getInstance] setRootViewController:self];
+    [[ToolsController getInstance] setRootViewController:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

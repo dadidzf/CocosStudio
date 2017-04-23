@@ -55,7 +55,7 @@ public class Ads {
 
         AdRequest localAdRequest = new AdRequest.Builder().build();
         mAdView.loadAd(localAdRequest);
-        mAdView.setVisibility(View.INVISIBLE);
+        //mAdView.setVisibility(View.INVISIBLE);
     }
 
     public void initInterstitialAd() {

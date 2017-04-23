@@ -79,6 +79,7 @@ function MainScene:onCreate()
 		:addTo(self)
 		:setTouchEnabled(true)
 		:onClick(function ()
+			cc.load("sdk").Tools.share("Share Test", cc.FileUtils:getInstance():fullPathForFilename("sdk_close_btn.png"))
 		end)
 
 	inc = inc + 1
@@ -87,6 +88,7 @@ function MainScene:onCreate()
 		:addTo(self)
 		:setTouchEnabled(true)
 		:onClick(function (sender)
+			cc.load("sdk").Tools.rate()
 		end)
 end
 
