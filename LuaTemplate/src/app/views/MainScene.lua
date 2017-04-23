@@ -15,13 +15,20 @@ function MainScene:onCreate()
 			cc.load("sdk").MyAds.showAds()
 		end)
 	
-
+	local choice = 0
 	ccui.Text:create("Show Banner", "", fntSize)
 		:move(display.cx, display.height - 100 - disY*inc)
 		:addTo(self)
 		:setTouchEnabled(true)
 		:onClick(function ()
-  			cc.load("sdk").Admob.getInstance():showBanner(0, 0)
+			if choice == 0 then 	
+  				cc.load("sdk").Admob.getInstance():showBanner(0, 0)
+  			elseif choice == 1 then
+  				cc.load("sdk").Admob.getInstance():showBanner(0.5, 0.5)
+  			elseif choice == 2 then
+  				cc.load("sdk").Admob.getInstance():showBanner(1, 1)
+  			end
+  			choice = (choice + 1) % 3
 		end)
 
 	inc = inc + 1

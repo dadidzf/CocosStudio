@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "510177416357",
+    "firebase_url": "https://luatemplate-a4c27.firebaseio.com",
+    "project_id": "luatemplate-a4c27",
+    "storage_bucket": "luatemplate-a4c27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510177416357:android:74dab8a39e6ac0d9",
+        "android_client_info": {
+          "package_name": "com.yongwu.luatemplate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "510177416357-2jv6hkh3kr37cp51g4hluveqq5erk91i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsysbxybfWjD-KpSyNC2Z7nVsHhLUfzgE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

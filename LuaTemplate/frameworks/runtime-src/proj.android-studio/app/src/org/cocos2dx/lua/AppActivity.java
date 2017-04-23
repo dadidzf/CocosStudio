@@ -25,8 +25,31 @@ THE SOFTWARE.
 ****************************************************************************/
 package org.cocos2dx.lua;
 
+import android.app.Activity;
+import android.os.Bundle;
+
+import org.cocos2dx.ads.Ads;
 import org.cocos2dx.lib.Cocos2dxActivity;
 
 
-public class AppActivity extends Cocos2dxActivity{  
+public class AppActivity extends Cocos2dxActivity{
+    Ads mAds;
+    static AppActivity me;
+
+    public static AppActivity getInstance()
+    {
+        return  me;
+    }
+
+    protected void onCreate(Bundle paramBundle)
+    {
+        super.onCreate(paramBundle);
+        me = this;
+        mAds = new Ads(this);
+    }
+
+    public Ads getAds()
+    {
+       return mAds;
+    }
 }

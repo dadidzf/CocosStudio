@@ -10,22 +10,22 @@ function AdmobIos:ctor()
 end
 
 -- posY is the ratio of Y in device height, range from 0 to 1
-function AdmobIos:showBanner(posY, anchorY)
+function AdmobIos:showBanner(pos, anchor)
 	print("AdmobIos:showBanner")
  	local args = {
-    	bannerAdsId = "ca-app-pub-3940256099942544/2934735716",
-    	posY = 0,
-    	anchorY = 0
+    	posY = pos,
+    	anchorY = anchor
 	}
 	self.m_luaoc.callStaticMethod("AdmobController", "initBannerLua", args)
 end
 
-function AdmobIos:initInterstitial()
-	print("AdmobIos:initInterstitial")
+function AdmobIos:initAds()
+	print("AdmobIos:initAds")
  	local args = {
-    	interstitialAdsId = "ca-app-pub-3940256099942544/4411468910",
+    	interstitialAdsId = dd.AdsConfig.iosAdmobInterstitialId,
+    	bannerAdsId = dd.AdsConfig.iosAdmobBannerId
 	}
-	self.m_luaoc.callStaticMethod("AdmobController", "initInterstitialLua", args)
+	self.m_luaoc.callStaticMethod("AdmobController", "initAdsLua", args)
 end
 
 function AdmobIos:removeBanner()
@@ -39,28 +39,34 @@ function AdmobIos:showInterstitial()
 end
 
 --[[
-	Admob for Android
+	Admob for Androida
 --]]
 local AdmobAndroid = class("AdmobAndroid", Admob)
 
 function AdmobAndroid:ctor()
 	self.m_luaj = require("cocos.cocos2d.luaj")
+	self.m_jniClass = "org/cocos2dx/ads/GameJni"
 end
 
-function AdmobAndroid:showBanner()
+function AdmobAndroid:showBanner(posY, anchorY)
 	print("AdmobAndroid:showBanner")
+	self.m_luaj.callStaticMethod(self.m_jniClass, "showBanner", {posY, anchorY})
 end
 
 function AdmobAndroid:showInterstitial()
 	print("AdmobAndroid:showInterstitial")
+	self.m_luaj.callStaticMethod(self.m_jniClass, "showFullAd", {})
 end
 
 function AdmobAndroid:removeBanner()
 	print("AdmobAndroid:removeBanner")
+	self.m_luaj.callStaticMethod(self.m_jniClass, "removeBanner", {})
 end
 
-function AdmobAndroid:initInterstitial()
-	print("AdmobAndroid:initInterstitial")
+function AdmobAndroid:initAds()
+	print("AdmobAndroid:initAds")
+	self.m_luaj.callStaticMethod(self.m_jniClass, "initAds", 
+		{dd.AdsConfig.androidAdmobBannerId, dd.AdsConfig.androidAdmobInterstitialId})
 end
 
 --[[
@@ -78,7 +84,7 @@ function Admob.getInstance()
 			assert(false, "Admob not support for ", device.platform)
 		end
 		
-		_instance:initInterstitial()
+		_instance:initAds()
 	end
 
 	return _instance
@@ -97,7 +103,7 @@ end
 function Admob:removeBanner()
 end
 
-function Admob:initInterstitial()
+function Admob:initAds()
 	
 end
 

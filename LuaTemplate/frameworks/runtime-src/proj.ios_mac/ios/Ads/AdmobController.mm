@@ -27,27 +27,27 @@ static AdmobController* _instance = nil;
 /**
  Lua interface
  **/
-+ (void)initInterstitialLua:(NSDictionary *)dict
-{
-    [[AdmobController getInstance] setInterstitialAdsId:[dict objectForKey:@"interstitialAdsId"]];
-    [[AdmobController getInstance] createAndLoadInterstitial];
-}
-
 + (void)initBannerLua:(NSDictionary *)dict
 {
-    [[AdmobController getInstance] createBannerAds:[dict objectForKey:@"bannerAdsId"]];
     [[AdmobController getInstance] setBannerPosY:[[dict objectForKey:@"posY"] floatValue]
                                       andAnchorY:[[dict objectForKey:@"anchorY"] floatValue]];
+    [[AdmobController getInstance] showBanner];
 }
 
-+ (void)showInterstitialLua
-{
++ (void)showInterstitialLua {
     [[AdmobController getInstance] showInterstitialAd];
 }
 
 + (void)removeBannerLua
 {
     [[AdmobController getInstance] removeBanner];
+}
+
++ (void)initAdsLua:(NSDictionary *)dict
+{
+    [[AdmobController getInstance] createBannerAds:[dict objectForKey:@"bannerAdsId"]];
+    [[AdmobController getInstance] setInterstitialAdsId:[dict objectForKey:@"interstitialAdsId"]];
+    [[AdmobController getInstance] createAndLoadInterstitial];
 }
 
 /**
@@ -81,28 +81,22 @@ static AdmobController* _instance = nil;
 
 - (void)createBannerAds:(NSString*)adsId
 {
-    if (_bannerView == nil)
-    {
-        _bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
-        _bannerView.adUnitID = adsId;
-        _bannerView.rootViewController = _viewController;
+    _bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
+    _bannerView.adUnitID = adsId;
+    _bannerView.rootViewController = _viewController;
  
-        GADRequest *request = [GADRequest request];
-        // Requests test ads on devices you specify. Your test device ID is printed to the console when
-        // an ad request is made. GADBannerView automatically returns test ads when running on a
-        // simulator.
-        // request.testDevices = @[@"55f779818cb4c3f08e89b0d39a20f181"];  // Eric's iPod Touch
+    GADRequest *request = [GADRequest request];
+    // Requests test ads on devices you specify. Your test device ID is printed to the console when
+    // an ad request is made. GADBannerView automatically returns test ads when running on a
+    // simulator.
+    // request.testDevices = @[@"55f779818cb4c3f08e89b0d39a20f181"];  // Eric's iPod Touch
     
-        [_bannerView loadRequest:request];
-        [_bannerView setAutoloadEnabled:true];
-        [_viewController.view addSubview:_bannerView];
-        [_bannerView setDelegate:self];
-        [self setBannerPosY:0 andAnchorY:0];
-    }
-    else
-    {
-        [_bannerView setHidden:FALSE];
-    }
+    [_bannerView loadRequest:request];
+    [_bannerView setAutoloadEnabled:true];
+    [_viewController.view addSubview:_bannerView];
+    [_bannerView setDelegate:self];
+    [self setBannerPosY:0 andAnchorY:0];
+    [_bannerView setHidden:TRUE];
 }
 
 - (void)adViewDidReceiveAd:(GADBannerView *)view {
@@ -134,6 +128,12 @@ static AdmobController* _instance = nil;
     bannerFrame.origin.y = contentFrame.size.height*(1 - posY) - (1 - anchorY)*bannerFrame.size.height;
     _bannerView.frame = bannerFrame;
 }
+
+- (void)showBanner
+{
+    [_bannerView setHidden:FALSE];
+}
+
 
 - (void)removeBanner
 {
