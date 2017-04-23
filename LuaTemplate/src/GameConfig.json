@@ -1,0 +1,18 @@
+{
+    "serverConfig": {
+        "serverHost": "https://www.yongwuart.com/flask/",
+        "adsVerURL": "ads/version",
+        "adsConfURL": "ads/conf/",
+        "adsPicURL": "ads/pic/"
+    },
+    "isSelfAdsEnabled": "TRUE",
+    "appName": "paperplane",
+    "AdsConfig": {
+        "androidAdmobBannerId": "ca-app-pub-3940256099942544/2934735716",
+        "androidAdmobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
+        "iosAdmobBannerId": "ca-app-pub-3940256099942544/2934735716",
+        "iosAdmobInterstitialId": "ca-app-pub-3940256099942544/4411468910"
+    },
+    "androidPackageName": "com.yongwu.luatemplate",
+    "iosBundleId": "com.yongwu.luatemplate"
+}
