@@ -6,7 +6,8 @@ require "cocos.init"
 math.randomseed(os.time())
 
 local function initBeforeGame()
-	local gameConf  = require("cjson").decode(cc.FileUtils:getInstance():getStringFromFile("src/GameConfig.json"))
+	local gameConf  = require("cjson").decode(cc.FileUtils:getInstance():getStringFromFile(
+		string.format("src/%s/GameConfig.json", DD_WORKING_GAME_DIR)))
 	for k, v in pairs(gameConf) do
 		dd[k] = v
 	end
@@ -22,7 +23,7 @@ end
 
 local function main()
 	initBeforeGame()
-    require("app.MyApp"):create():run()
+    require("app.MyApp"):create({viewsRoot = "app." .. DD_WORKING_GAME_DIR}):run()
 end
 
 cc.exports.__G__TRACKBACK__ = function (msg)

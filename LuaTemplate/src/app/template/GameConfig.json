@@ -5,7 +5,6 @@
         "adsConfURL": "ads/conf/",
         "adsPicURL": "ads/pic/"
     },
-    "isSelfAdsEnabled": "TRUE",
     "appName": "paperplane",
     "AdsConfig": {
     },
