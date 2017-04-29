@@ -25,5 +25,5 @@ CC_DESIGN_RESOLUTION = {
     end
 }
 
--- the working directory for current game
-DD_WORKING_GAME_DIR = "template"
+-- name of current game, it's also the working directory for current game
+DD_WORKING_GAME_NAME = "template"

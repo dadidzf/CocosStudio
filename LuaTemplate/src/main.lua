@@ -7,7 +7,7 @@ math.randomseed(os.time())
 
 local function initBeforeGame()
 	local gameConf  = require("cjson").decode(cc.FileUtils:getInstance():getStringFromFile(
-		string.format("src/%s/GameConfig.json", DD_WORKING_GAME_DIR)))
+		string.format("src/app/%s/%s_config.json", DD_WORKING_GAME_NAME, DD_WORKING_GAME_NAME)))
 	for k, v in pairs(gameConf) do
 		dd[k] = v
 	end
@@ -23,7 +23,7 @@ end
 
 local function main()
 	initBeforeGame()
-    require("app.MyApp"):create({viewsRoot = "app." .. DD_WORKING_GAME_DIR}):run()
+    require("app.MyApp"):create({viewsRoot = "app." .. DD_WORKING_GAME_NAME}):run()
 end
 
 cc.exports.__G__TRACKBACK__ = function (msg)
