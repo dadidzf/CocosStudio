@@ -28,6 +28,7 @@
 #import "platform/ios/CCEAGLView-ios.h"
 #import "Ads/AdmobController.h"
 #import "Tools/ToolsController.h"
+#import "Tools/GameCenterHelper.h"
 
 @implementation RootViewController
 
@@ -64,6 +65,7 @@
     [super viewDidLoad];
     [[AdmobController getInstance] setRootViewController:self];
     [[ToolsController getInstance] setRootViewController:self];
+    [[GameCenterDelegate getInstance] setRootViewController:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

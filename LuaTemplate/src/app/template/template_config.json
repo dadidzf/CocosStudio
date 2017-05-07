@@ -10,7 +10,7 @@
     {
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
         "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
-        "packageName":"com.yongwu.luatemplate",
+        "packageName":"com.yongwuart.template",
         "version":"1.0",
         "versionCode":1,
         "rateUrl":"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1182004800&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",
@@ -20,10 +20,18 @@
 	{
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
         "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
-        "packageName":"com.yongwu.luatemplate",
+        "packageName":"com.yongwuart.template",
         "version":"1.0",
         "versionCode":1,
         "rateUrl":"https://play.google.com/store/apps/details?id=com.yongwu.tetris099",
         "shareUrl":"https://play.google.com/store/apps/details?id=com.yongwu.tetris099"
-	}
+	},
+    "achievement":
+    [ 
+        "luatemplate_achievement_1"
+    ],
+    "leaderboard":
+    [
+        "luatemplate_rank_1"
+    ]
 }

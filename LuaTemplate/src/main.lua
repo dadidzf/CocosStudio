@@ -62,6 +62,17 @@ cc.exports.__G__TRACKBACK__ = function (msg)
 		end)
 end
 
+cc.exports.getLuaBridge = function ()
+    if device.platform == "ios" then
+        return require("cocos.cocos2d.luaoc")
+    elseif device.platform == "android" then
+        return require("cocos.cocos2d.luaj")
+    else
+        error("not support platform")
+    end
+end
+
+
 local status, msg = xpcall(main, __G__TRACKBACK__)
 if not status then
     print(msg)

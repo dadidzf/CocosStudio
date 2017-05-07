@@ -54,6 +54,16 @@ function MainScene:onCreate()
 		:addTo(self)
 		:setTouchEnabled(true)
 		:onClick(function ()
+			cc.load("sdk").GameCenter.openGameCenterLeaderboardsUI(1)
+		end)
+
+	inc = inc + 1
+	ccui.Text:create("Submit score", "", fntSize)
+		:move(display.cx, display.height - 100 - disY*inc)
+		:addTo(self)
+		:setTouchEnabled(true)
+		:onClick(function ()
+			cc.load("sdk").GameCenter.submitScoreToLeaderboard(1, 1000)
 		end)
 
 	inc = inc + 1
@@ -62,6 +72,16 @@ function MainScene:onCreate()
 		:addTo(self)
 		:setTouchEnabled(true)
 		:onClick(function ()
+			cc.load("sdk").GameCenter.openAchievementUI()
+		end)
+
+	inc = inc + 1
+	ccui.Text:create("Unlock Achievement", "", fntSize)
+		:move(display.cx, display.height - 100 - disY*inc)
+		:addTo(self)
+		:setTouchEnabled(true)
+		:onClick(function ()
+			cc.load("sdk").GameCenter.unlockAchievement(1)
 		end)
 
 	inc = inc + 1

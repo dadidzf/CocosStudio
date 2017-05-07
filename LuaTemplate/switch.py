@@ -129,8 +129,10 @@ def applayGameConfigToProject(name):
         "versionName.*", 'versionName "%s"'%gameConfig['android']['version'])
     replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/build.gradle"),
         "applicationId.*", 'applicationId "%s"'%gameConfig['android']['packageName'])
-    shutil.copy(os.path.join(curPath, "res/%s/google-services.json"%name), 
-        os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/google-services.json"))
+
+    if os.path.exists(os.path.join(curPath, "res/%s/google-services.json"%name)):
+        shutil.copy(os.path.join(curPath, "res/%s/google-services.json"%name), 
+            os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app"))
 
     ## ios
     replacePlistKeyValue(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios/Info.plist"),
@@ -139,6 +141,10 @@ def applayGameConfigToProject(name):
         "CFBundleVersion", '<string>.*$', '<string>%s</string>'%gameConfig['ios']['version'])
     replacePlistKeyValue(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios/Info.plist"),
         "CFBundleIdentifier", '<string>.*$', '<string>%s</string>'%gameConfig['ios']['packageName'])
+
+    if os.path.exists(os.path.join(curPath, "res/%s/GoogleService-Info.plist"%name)):
+        shutil.copy(os.path.join(curPath, "res/%s/GoogleService-Info.plist"%name), 
+            os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios"))
 
 def applyGame(name):
     if isGameDirExistBoth(name):

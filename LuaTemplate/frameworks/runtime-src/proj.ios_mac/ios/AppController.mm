@@ -27,7 +27,7 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
-//#import "Firebase.h"
+#import "Firebase.h"
 
 @implementation AppController
 
@@ -40,7 +40,7 @@
 static AppDelegate s_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    [FIRApp configure];
+    [FIRApp configure];
     
     cocos2d::Application *app = cocos2d::Application::getInstance();
     
@@ -57,7 +57,6 @@ static AppDelegate s_sharedApplication;
     _viewController = [[RootViewController alloc] init];
     _viewController.wantsFullScreenLayout = YES;
     
-
     // Set RootViewController to window
     if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
     {
