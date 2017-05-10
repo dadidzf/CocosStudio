@@ -15,7 +15,6 @@
 		15A8A4881834C90F00142BE0 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A8A4871834C90E00142BE0 /* libcurl.dylib */; };
 		16E0F6C8CF5695E572B2D2C4 /* libPods-LuaTemplate-desktop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A1A901BBE5436195D8BB4A /* libPods-LuaTemplate-desktop.a */; };
 		1AF4C403178663F200122817 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C402178663F200122817 /* libz.dylib */; };
-		23104AA1839E8881EE0457E4 /* libPods-LuaTemplate-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB304189848B3E6AAC308544 /* libPods-LuaTemplate-mobile.a */; };
 		2927B5F01E9D0373001985D9 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2927B5EF1E9D0373001985D9 /* GameController.framework */; };
 		294D0D721D0D572600F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D711D0D572600F7F5D4 /* CoreText.framework */; };
 		295A85AE1E6849AF0016DEC3 /* lua_binding_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 295A85AC1E6849AF0016DEC3 /* lua_binding_manual.cpp */; };
@@ -334,7 +333,6 @@
 				F293B3D515EB7BE500256477 /* AVFoundation.framework in Frameworks */,
 				F293B3D915EB7BE500256477 /* Foundation.framework in Frameworks */,
 				F293B3DB15EB7BE500256477 /* CoreGraphics.framework in Frameworks */,
-				23104AA1839E8881EE0457E4 /* libPods-LuaTemplate-mobile.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,7 +618,7 @@
 				LastUpgradeCheck = 0500;
 				TargetAttributes = {
 					F293B3C715EB7BE500256477 = {
-						DevelopmentTeam = ZHDSE8HT3F;
+						DevelopmentTeam = 9TBCJ8NLC3;
 					};
 				};
 			};
@@ -1091,7 +1089,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
-				DEVELOPMENT_TEAM = ZHDSE8HT3F;
+				DEVELOPMENT_TEAM = 9TBCJ8NLC3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1142,7 +1140,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
-				DEVELOPMENT_TEAM = ZHDSE8HT3F;
+				DEVELOPMENT_TEAM = 9TBCJ8NLC3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;

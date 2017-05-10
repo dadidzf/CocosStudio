@@ -44,7 +44,7 @@ def get_ads_pic(picName):
 def get_ads_conf(packageName):
 	strConf = adsConf.getJsonConf(packageName)
 	if (strConf == None):
-		return 'Not found this packageName'
+		return None
 	else:
 		return strConf
 
@@ -58,5 +58,5 @@ def get_mac_address():
 _initAdsConf()
 
 if (const.IS_WSGI_CALL == False):
-	app.run(debug=True)
+	app.run(debug=True, host = '192.168.0.102')
 

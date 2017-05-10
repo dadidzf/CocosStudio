@@ -56,6 +56,8 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':libcocos2dx')
     compile 'com.google.firebase:firebase-ads:10.2.0'
+    compile 'com.google.android.gms:play-services-games:10.2.0'
+    compile 'com.google.android.gms:play-services-plus:10.2.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

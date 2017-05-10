@@ -26,4 +26,12 @@ function Tools.share(shareTitle, picPath)
 	end
 end
 
+function Tools.vibrate(t) -- ms
+	print("Tools.vibrate")
+	if device.platform == "ios" then
+	elseif device.platform == "android" then
+		getLuaBridge().callStaticMethod(_jniClass, "vibrate", {t}, "(I)V")
+	end
+end
+
 return Tools

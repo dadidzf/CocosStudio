@@ -111,7 +111,7 @@ function _checkUpdate(remoteVersion)
 	local nativeVersion = _configTable and _configTable.version
 	if (not nativeVersion) or nativeVersion < remoteVersion then
 		_downloader.downloadData(
-			dd.serverConfig.serverHost .. dd.serverConfig.adsConfURL .. dd.appName, 
+			dd.serverConfig.serverHost .. dd.serverConfig.adsConfURL .. dd.appCommon.adsRequestAppName, 
 			function (result, retData)
 				if result then
 					print("~Download remote config file success !")

@@ -8,30 +8,43 @@
     "appName":"template",
     "ios":
     {
+        "adsRequestAppName":"template_ios",
+        "appDisplayName":"Template",
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
         "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
         "packageName":"com.yongwuart.template",
         "version":"1.0",
         "versionCode":1,
         "rateUrl":"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1182004800&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",
-        "shareUrl":"https://itunes.apple.com/app/classic-blocks-game/id1182004800?l=us&ls=1&mt=8"
+        "shareUrl":"https://itunes.apple.com/app/classic-blocks-game/id1182004800?l=us&ls=1&mt=8",
+        "achievement":
+        [ 
+            "luatemplate_achievement_1"
+        ],
+        "leaderboard":
+        [
+            "luatemplate_rank_1"
+        ]
 	},
 	"android":
 	{
+        "adsRequestAppName":"template_android",
+        "appDisplayName":"Template",
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
         "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
         "packageName":"com.yongwuart.template",
         "version":"1.0",
         "versionCode":1,
         "rateUrl":"https://play.google.com/store/apps/details?id=com.yongwu.tetris099",
-        "shareUrl":"https://play.google.com/store/apps/details?id=com.yongwu.tetris099"
-	},
-    "achievement":
-    [ 
-        "luatemplate_achievement_1"
-    ],
-    "leaderboard":
-    [
-        "luatemplate_rank_1"
-    ]
+        "shareUrl":"https://play.google.com/store/apps/details?id=com.yongwu.tetris099",
+        "achievement":
+        [ 
+            "CgkImebwqYofEAIQAQ"
+        ],
+        "leaderboard":
+        [
+            "CgkImebwqYofEAIQAg"
+        ],
+        "googlePlayAppId":"1067924075289"
+	}
 }

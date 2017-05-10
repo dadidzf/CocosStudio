@@ -129,6 +129,10 @@ def applayGameConfigToProject(name):
         "versionName.*", 'versionName "%s"'%gameConfig['android']['version'])
     replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/build.gradle"),
         "applicationId.*", 'applicationId "%s"'%gameConfig['android']['packageName'])
+    replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/res/values/strings.xml"),
+        '<string name="app_name">.*', '<string name="app_name">%s</string>'%gameConfig['android']['appDisplayName'])
+    replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/res/values/strings.xml"),
+        '<string name="app_id">.*', '<string name="app_id">%s</string>'%gameConfig['android']['googlePlayAppId'])
 
     if os.path.exists(os.path.join(curPath, "res/%s/google-services.json"%name)):
         shutil.copy(os.path.join(curPath, "res/%s/google-services.json"%name), 
@@ -141,6 +145,8 @@ def applayGameConfigToProject(name):
         "CFBundleVersion", '<string>.*$', '<string>%s</string>'%gameConfig['ios']['version'])
     replacePlistKeyValue(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios/Info.plist"),
         "CFBundleIdentifier", '<string>.*$', '<string>%s</string>'%gameConfig['ios']['packageName'])
+    replacePlistKeyValue(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios/Info.plist"),
+        "CFBundleDisplayName", '<string>.*$', '<string>%s</string>'%gameConfig['ios']['appDisplayName'])
 
     if os.path.exists(os.path.join(curPath, "res/%s/GoogleService-Info.plist"%name)):
         shutil.copy(os.path.join(curPath, "res/%s/GoogleService-Info.plist"%name), 

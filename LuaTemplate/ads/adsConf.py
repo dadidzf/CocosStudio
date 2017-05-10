@@ -21,7 +21,9 @@ _picList = {
 _appMapPics = {
 	'glowball':{'pics':['paperplane'], 'scale':1.0},
 	'paperplane':{'pics':['tetris2', 'glowball'], 'scale':0.8},
-	'tetris2':{'pics':['glowball'], 'scale':1.0}
+	'tetris2':{'pics':['glowball'], 'scale':1.0},
+    'template_ios':{'pics':['glowball'], 'scale':1.0},
+    'template_android':{'pics':['tetris2'], 'scale':1.0}
 }
 
 _version = 1.7

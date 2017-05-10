@@ -101,6 +101,15 @@ function MainScene:onCreate()
 		:onClick(function (sender)
 			cc.load("sdk").Tools.rate()
 		end)
+
+	inc = inc + 1
+	ccui.Text:create("Vib...", "", fntSize)
+		:move(display.cx, display.height - 100 - disY*inc)
+		:addTo(self)
+		:setTouchEnabled(true)
+		:onClick(function (sender)
+			cc.load("sdk").Tools.vibrate(50)
+		end)
 end
 
 return MainScene

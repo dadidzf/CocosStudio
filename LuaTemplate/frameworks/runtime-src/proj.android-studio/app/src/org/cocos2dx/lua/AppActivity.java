@@ -1,55 +1,100 @@
-/****************************************************************************
-Copyright (c) 2008-2010 Ricardo Quesada
-Copyright (c) 2010-2016 cocos2d-x.org
-Copyright (c) 2013-2016 Chukong Technologies Inc.
- 
-http://www.cocos2d-x.org
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-****************************************************************************/
 package org.cocos2dx.lua;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Vibrator;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.games.Games;
 
 import org.cocos2dx.ads.Ads;
-import org.cocos2dx.lib.Cocos2dxActivity;
 
-
-public class AppActivity extends Cocos2dxActivity{
+public class AppActivity extends BaseGameActivity{
     Ads mAds;
+
     static AppActivity me;
+    static Context currentContext;
+
+    static boolean gpgAvailable;
+
 
     public static AppActivity getInstance()
     {
         return  me;
     }
 
+    private boolean checkPlayServices() {
+        int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+        GoogleApiAvailability googleAPI = GoogleApiAvailability.getInstance();
+        int result = googleAPI.isGooglePlayServicesAvailable(this);
+        if(result != ConnectionResult.SUCCESS) {
+            if(googleAPI.isUserResolvableError(result)) {
+                googleAPI.getErrorDialog(this, result,
+                        PLAY_SERVICES_RESOLUTION_REQUEST).show();
+            }
+
+            return false;
+        }
+
+        return true;
+    }
+
     protected void onCreate(Bundle paramBundle)
     {
-        super.onCreate(paramBundle);
+        currentContext = this;
         me = this;
         mAds = new Ads(this);
+        gpgAvailable = false;
+        //checkPlayServices();
+
+        super.onCreate(paramBundle);
     }
 
     public Ads getAds()
     {
        return mAds;
+    }
+
+    @Override
+    public void onSignInSucceeded(){
+        gpgAvailable = true;
+    }
+
+    @Override
+    public void onSignInFailed(){
+        gpgAvailable = false;
+    }
+
+    public void openLeaderboardUI(String leadboardId)
+    {
+        if (gpgAvailable) {
+            startActivityForResult(Games.Leaderboards.getLeaderboardIntent(
+                    getGameHelper().getApiClient(), leadboardId), 2);
+        }
+    }
+
+    public void submitScoreToLeaderboard(String leaderboardId, int score)
+    {
+        if(gpgAvailable) {
+            Games.Leaderboards.submitScore(getGameHelper().getApiClient(), leaderboardId, score);
+        }
+    }
+
+    public void showAchievements() {
+        if(gpgAvailable) {
+            startActivityForResult(Games.Achievements.getAchievementsIntent(getGameHelper().getApiClient()), 5);
+        }
+    }
+
+    public void updateAchievement(String achievementId){
+        if(gpgAvailable){
+            Games.Achievements.unlock(getGameHelper().getApiClient(), achievementId);
+        }
+    }
+
+    public void vibrate(long paramLong)
+    {
+        ((Vibrator)currentContext.getSystemService("vibrator")).vibrate(paramLong);
     }
 }

@@ -2,9 +2,12 @@ package org.cocos2dx.lua;
 
 import android.content.Intent;
 
-import org.cocos2dx.lua.AppActivity;
 
 public class GameJni {
+
+    /*
+     *  Admob  Ads
+     */
     public static void showFullAd() {
         AppActivity.getInstance().runOnUiThread(new Runnable() {
             public void run() {
@@ -37,6 +40,47 @@ public class GameJni {
         });
     }
 
+
+    /*
+     *  Game Center
+     */
+    public static void openLeaderboardUI(final String leaderboardId)
+    {
+        AppActivity.getInstance().runOnUiThread(new Runnable() {
+            public void run() {
+                AppActivity.getInstance().openLeaderboardUI(leaderboardId);
+            }
+        });
+    }
+
+    public static void submitScoreToLeaderboard(final String leaderboardId, final int score){
+        AppActivity.getInstance().runOnUiThread(new Runnable() {
+            public void run() {
+                AppActivity.getInstance().submitScoreToLeaderboard(leaderboardId, score);
+            }
+        });
+    }
+
+    public static void showAchievements(){
+        AppActivity.getInstance().runOnUiThread(new Runnable() {
+            public void run() {
+                AppActivity.getInstance().showAchievements();
+            }
+        });
+    }
+
+    public static void updateAchievement(final String achievementId){
+        AppActivity.getInstance().runOnUiThread(new Runnable() {
+            public void run() {
+                AppActivity.getInstance().updateAchievement(achievementId);
+            }
+        });
+    }
+
+
+    /*
+     * Game share
+     */
     public static void gameShare(final String title, final String url)
     {
         AppActivity.getInstance().runOnUiThread(new Runnable() {
@@ -47,6 +91,15 @@ public class GameJni {
                 localIntent.putExtra("android.intent.extra.TEXT", url);
                 localIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 AppActivity.getInstance().startActivity(Intent.createChooser(localIntent, title));
+            }
+        });
+    }
+
+    public static void vibrate(final int t)
+    {
+        AppActivity.getInstance().runOnUiThread(new Runnable() {
+            public void run() {
+                AppActivity.getInstance().vibrate(t);
             }
         });
     }
