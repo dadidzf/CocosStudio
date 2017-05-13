@@ -22,7 +22,7 @@ android {
 
     signingConfigs {
 
-       release {
+        release {
             if (project.hasProperty("RELEASE_STORE_FILE")) {
                 storeFile file(RELEASE_STORE_FILE)
                 storePassword RELEASE_STORE_PASSWORD
@@ -49,6 +49,12 @@ android {
             include 'x86', 'armeabi-v7a'
             universalApk true
         }
+    }
+    sourceSets {
+        main {
+            aidl.srcDirs = ['src/main/aidl', 'src/om.android.vending.billing/', 'src/com.android.vending.billing/', 'src/main/com.android.vending.billing', 'src/main/', 'src/main/aidl/']
+        }
+        debug { aidl.srcDirs = ['src/debug/aidl', 'src/debug/com.android.vending.billing'] }
     }
 }
 

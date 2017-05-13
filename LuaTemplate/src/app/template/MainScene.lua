@@ -110,6 +110,17 @@ function MainScene:onCreate()
 		:onClick(function (sender)
 			cc.load("sdk").Tools.vibrate(50)
 		end)
+
+	inc = inc + 1
+	ccui.Text:create("purchase", "", fntSize)
+		:move(display.cx, display.height - 100 - disY*inc)
+		:addTo(self)
+		:setTouchEnabled(true)
+		:onClick(function (sender)
+			cc.load("sdk").Billing.purchase(dd.android.skuKeys[1], function (result)
+				print("Purchase Result ~ ", result)
+			end)
+		end)
 end
 
 return MainScene

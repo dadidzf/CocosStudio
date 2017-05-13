@@ -95,6 +95,9 @@ public class GameJni {
         });
     }
 
+    /*
+     * Vibrate
+     */
     public static void vibrate(final int t)
     {
         AppActivity.getInstance().runOnUiThread(new Runnable() {
@@ -102,5 +105,55 @@ public class GameJni {
                 AppActivity.getInstance().vibrate(t);
             }
         });
+    }
+
+
+    /*
+     * Billing
+     */
+    public static void initBillings(final String publicKey, final int luaFunctionId)
+    {
+        AppActivity.getInstance().runOnUiThread(new Runnable() {
+            public void run() {
+                AppActivity.getInstance().initBillings(publicKey, luaFunctionId);
+            }
+        });
+    }
+
+    public static void purchase(final String skuKey, final int luaFunctionId)
+    {
+        AppActivity.getInstance().runOnUiThread(new Runnable() {
+            public void run() {
+                AppActivity.getInstance().purchase(skuKey, luaFunctionId);
+            }
+        });
+    }
+
+    public static void subscript(final String oldKey, final String skuKey, final int luafunctionId)
+    {
+        AppActivity.getInstance().runOnUiThread(new Runnable() {
+            public void run() {
+                AppActivity.getInstance().subscript(oldKey, skuKey, luafunctionId);
+            }
+        });
+    }
+
+    public static void consume(final String skuKey, final int luafunctionId)
+    {
+        AppActivity.getInstance().runOnUiThread(new Runnable() {
+            public void run() {
+                AppActivity.getInstance().consume(skuKey, luafunctionId);
+            }
+        });
+    }
+
+    public static boolean isItemPurchased(String skuKey)
+    {
+       return AppActivity.getInstance().isItemPurchased(skuKey);
+    }
+
+    public static boolean isSubscriptionAutoRenewEnabled(String skuKey)
+    {
+        return  AppActivity.getInstance().isSubscriptionAutoRenewEnabled(skuKey);
     }
 }

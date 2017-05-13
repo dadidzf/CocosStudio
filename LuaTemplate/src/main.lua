@@ -23,7 +23,8 @@ end
 
 local function main()
 	initBeforeGame()
-    require("app.MyApp"):create({viewsRoot = "app." .. DD_WORKING_GAME_NAME}):run()
+    local workingDir = "app." .. DD_WORKING_GAME_NAME
+    require(workingDir .. ".MyApp"):create({viewsRoot = workingDir}):run()
 end
 
 cc.exports.__G__TRACKBACK__ = function (msg)
