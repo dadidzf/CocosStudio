@@ -5,5 +5,6 @@
 @interface GameCenterDelegate : NSObject<GKGameCenterControllerDelegate>
 @property(nonatomic, weak) UIViewController *viewController;
 - (void)setRootViewController:(RootViewController*) viewCtrl;
++ (GameCenterDelegate *) getInstance;
 @end
 

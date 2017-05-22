@@ -207,6 +207,7 @@ import com.google.android.gms.common.GoogleApiAvailability;
 
     public void initBillings(String publicKey, int callBackLuaFunctionId)
     {
+        Log.d(TAG, "Public key - " + publicKey);
         /* base64EncodedPublicKey should be YOUR APPLICATION'S PUBLIC KEY
          * (that you got from the Google Play developer console). This is not your
          * developer public key, it's the *app-specific* public key.
@@ -274,7 +275,7 @@ import com.google.android.gms.common.GoogleApiAvailability;
     public void purchase(String skuKey, int luaFunctionId)
     {
         if (s_isBillingInited == false) return;
-        Log.d(TAG, "Launching purchase flow" + skuKey);
+        Log.d(TAG, "Launching purchase flow" + skuKey + " " + luaFunctionId);
 
         /* TODO: for security, generate your payload here for verification. See the comments on
          *        verifyDeveloperPayload() for more info. Since this is a SAMPLE, we just use
@@ -328,9 +329,11 @@ import com.google.android.gms.common.GoogleApiAvailability;
     }
 
     private void sendResult(final int luaFunctionId, final String result) {
+        Log.d(TAG, "sendResult " + result + " " + luaFunctionId);
          me.runOnGLThread(new Runnable() {
              @Override
              public void run() {
+                 Log.d(TAG, "sendResult ---  " + result + " " + luaFunctionId);
                  Cocos2dxLuaJavaBridge.callLuaFunctionWithString(luaFunctionId, result);
                  //LuaJavaBridge.releaseLuaFunction(luaFunctionId);
              }
@@ -397,23 +400,21 @@ import com.google.android.gms.common.GoogleApiAvailability;
 
             // Have we been disposed of in the meantime? If so, quit.
             if (mHelper == null) {
-                if (mHelper == null) {
-                    sendResult(s_billingInitLuaFunctionId, FAILED_RESULT);
-                    return;
-                }
-
-                // Is it a failure?
-                if (result.isFailure()) {
-                    sendResult(s_billingInitLuaFunctionId, FAILED_RESULT);
-                    complain("Failed to query inventory: " + result);
-                    return;
-                }
-
-                sendResult(s_billingInitLuaFunctionId, SUCCESS_RESULT);
-                Log.d(TAG, "Query inventory was successful.");
-                s_queryResult = inventory;
-                s_isBillingInited = true;
+                sendResult(s_billingInitLuaFunctionId, FAILED_RESULT);
+                return;
             }
+
+            // Is it a failure?
+            if (result.isFailure()) {
+                sendResult(s_billingInitLuaFunctionId, FAILED_RESULT);
+                complain("Failed to query inventory: " + result);
+                return;
+            }
+
+            sendResult(s_billingInitLuaFunctionId, SUCCESS_RESULT);
+            Log.d(TAG, "Query inventory was successful.");
+            s_queryResult = inventory;
+            s_isBillingInited = true;
         }
     };
 

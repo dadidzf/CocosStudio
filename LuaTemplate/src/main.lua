@@ -11,12 +11,18 @@ local function initBeforeGame()
 	for k, v in pairs(gameConf) do
 		dd[k] = v
 	end
-	dd.serverConfig.serverHost = "http://192.168.0.102:5000/"
+	dd.serverConfig.serverHost = "http://192.168.0.100:5000/"
 	if device.platform == "ios" then
 		dd.appCommon = dd.ios
 	elseif device.platform == "android" then
 		dd.appCommon = dd.android
 	end
+
+    if not cc.load("sdk").Tools.verifyPackage() then
+        print("verifyPackage Error !")
+        while(true) do
+        end
+    end
 
 	cc.load("sdk").MyAds.init()
 end

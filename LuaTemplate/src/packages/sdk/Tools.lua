@@ -2,6 +2,20 @@ local Tools = {}
 
 local _jniClass = "org/cocos2dx/lua/GameJni"
 
+function Tools.verifyPackage()
+	if device.platform == "android" then
+		local ret, packageName = getLuaBridge().callStaticMethod(_jniClass, "getPackageName", {}, "()Ljava/lang/String;")
+		print("Tools.verifyPackage - ", packageName)
+		if packageName ~= dd.appCommon.packageName then
+			return false
+		else
+			return true
+		end
+	else
+		return true
+	end
+end
+
 function Tools.rate()
 	print("Tools.rate")
 	if device.platform == "ios" or device.platform == "android" then

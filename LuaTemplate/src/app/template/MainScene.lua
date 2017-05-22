@@ -117,10 +117,33 @@ function MainScene:onCreate()
 		:addTo(self)
 		:setTouchEnabled(true)
 		:onClick(function (sender)
-			cc.load("sdk").Billing.purchase(dd.android.skuKeys[1], function (result)
-				print("Purchase Result ~ ", result)
+			cc.load("sdk").Billing.purchase(dd.appCommon.skuKeys[1], function (result)
+				print("Billing Purchase Result ~ ", result)
 			end)
 		end)
+
+	inc = inc + 1
+	if device.platform == "android" then
+		ccui.Text:create("consume", "", fntSize)
+			:move(display.cx, display.height - 100 - disY*inc)
+			:addTo(self)
+			:setTouchEnabled(true)
+			:onClick(function (sender)
+				cc.load("sdk").Billing.consume(dd.appCommon.skuKeys[1], function (result)
+					print("Billing Consume Result ~ ", result)
+				end)
+			end)
+	elseif device.platform == "ios" then
+		ccui.Text:create("restore", "", fntSize)
+			:move(display.cx, display.height - 100 - disY*inc)
+			:addTo(self)
+			:setTouchEnabled(true)
+			:onClick(function (sender)
+				cc.load("sdk").Billing.restore(function (result)
+					print("Restore Ok  - ", result)
+				end)
+			end)
+	end
 end
 
 return MainScene

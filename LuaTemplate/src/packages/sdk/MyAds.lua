@@ -7,6 +7,7 @@ local _configJsonPath = _adsDownloadDir.._configJsonName
 local _configTable = nil
 local _downloader = cc.load("http").Downloader
 local _fileUtils = cc.FileUtils:getInstance()
+local _jniClass = "org/cocos2dx/lua/GameJni"
 
 local _loadNativeConfig
 local _checkUpdate
@@ -14,6 +15,7 @@ local _getRemoteVersion
 local _downloadResources
 local _checkDir
 local _createAdsImage
+local _ignoreUrl
 
 function MyAds.init()
 	_checkDir()
@@ -81,6 +83,21 @@ function _checkDir()
 	end
 end
 
+function _ignoreUrl(jumpUrl)
+	if device.platform == "android" then
+		local packageName = string.gsub(jumpUrl, [[https://play%.google%.com/store/apps/details%?id=]], "")
+		print("_ignoreUrl - ", packageName)
+		local _, isExist = getLuaBridge().callStaticMethod(_jniClass, "checkPackage", {packageName}, "(Ljava/lang/String;)Z")
+		if isExist then
+			return true
+		else
+			return false
+		end
+	end
+
+	return false
+end
+
 -- return native config version
 function _loadNativeConfig()
 	if _fileUtils:isFileExist(_configJsonPath) then
@@ -91,11 +108,15 @@ function _loadNativeConfig()
 			_configTable.scale = configJsonTb.scale
 			if configJsonTb.picArr then
 				_configTable.picArr = {}
-				for i = 1, #configJsonTb.picArr do
-					_configTable.picArr[i] = {}
-					_configTable.picArr[i].picName = configJsonTb.picArr[i][1]
-					_configTable.picArr[i].jumpUrl = configJsonTb.picArr[i][2]
-					_configTable.picArr[i].picMd5 = configJsonTb.picArr[i][3]
+				local i = 1
+				for _, v in ipairs(configJsonTb.picArr) do
+					if not _ignoreUrl(v[2]) then
+						_configTable.picArr[i] = {}
+						_configTable.picArr[i].picName = v[1]
+						_configTable.picArr[i].jumpUrl = v[2]
+						_configTable.picArr[i].picMd5 = v[3]
+						i = i + 1
+					end
 				end
 			end
 

@@ -15,7 +15,7 @@ else:
 _picList = {
 	'glowball':['png', _defaultURLPrefix + 'ads/pic/glowball'],
 	'paperplane':['png', _defaultURLPrefix + 'ads/pic/paperplane'],
-	'tetris2':['png', _defaultURLPrefix + 'ads/pic/tetris2']
+	'tetris2':['png', 'https://play.google.com/store/apps/details?id=com.yongwu.tetris099']
 }
 
 _appMapPics = {
@@ -23,10 +23,10 @@ _appMapPics = {
 	'paperplane':{'pics':['tetris2', 'glowball'], 'scale':0.8},
 	'tetris2':{'pics':['glowball'], 'scale':1.0},
     'template_ios':{'pics':['glowball'], 'scale':1.0},
-    'template_android':{'pics':['tetris2'], 'scale':1.0}
+    'template_android':{'pics':['tetris2', 'paperplane'], 'scale':1.0}
 }
 
-_version = 1.7
+_version = 1.8
 
 ################################################
 

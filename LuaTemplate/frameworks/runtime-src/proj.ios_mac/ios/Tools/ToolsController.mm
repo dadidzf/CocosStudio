@@ -24,6 +24,11 @@ static ToolsController* _instance = nil;
     _viewController = viewCtrl;
 }
 
+- (RootViewController*)getRootViewController
+{
+    return _viewController;
+}
+
 /*
  * Lua interface
  */
@@ -34,6 +39,25 @@ static ToolsController* _instance = nil;
                                     andTitle:[dict objectForKey:@"title"] andPic:[dict objectForKey:@"pic"]];
 }
 
+/*
+ * In-app Billing lua interface
+ */
++ (void)registerBillingCallBackFunc:(NSDictionary *)dict
+{
+    RootViewController* rootViewCtl = [[ToolsController getInstance] getRootViewController];
+    [rootViewCtl registerBillingCallBackFunc:[[dict objectForKey:@"functionId"] intValue]];
+}
+
++ (void)restore
+{
+    [[[ToolsController getInstance] getRootViewController] restore];
+}
+
++ (void)purchase:(NSDictionary *)dict
+{
+    RootViewController* rootViewCtl = [[ToolsController getInstance] getRootViewController];
+    [rootViewCtl purchase:[dict objectForKey:@"productId"]];
+}
 
 /*
  * ios implementation

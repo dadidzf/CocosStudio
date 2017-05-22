@@ -24,11 +24,17 @@
  ****************************************************************************/
 
 #import <UIKit/UIKit.h>
+#import <StoreKit/StoreKit.h>
+#import "SVProgressHUD.h"
 
-
-@interface RootViewController : UIViewController {
+@interface RootViewController : UIViewController <SKPaymentTransactionObserver, SKProductsRequestDelegate>{
 
 }
 - (BOOL) prefersStatusBarHidden;
+@property (nonatomic,copy) NSString *currentProId;
+@property int billingFunctionId;
 
+- (void)registerBillingCallBackFunc:(int) functionId;
+- (void)restore;
+- (void)purchase:(NSString*) productId;
 @end

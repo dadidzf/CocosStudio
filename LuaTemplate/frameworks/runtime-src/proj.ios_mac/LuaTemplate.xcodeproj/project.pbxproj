@@ -59,6 +59,7 @@
 		5200BECA1A53D9A500AC45E4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5200BEC91A53D9A500AC45E4 /* Security.framework */; };
 		521A8E7019F0C3D200D177D7 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6E19F0C3D200D177D7 /* Default-667h@2x.png */; };
 		521A8E7119F0C3D200D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6F19F0C3D200D177D7 /* Default-736h@3x.png */; };
+		67F6F2C3ED97D07AC1B3A127 /* libPods-LuaTemplate-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB304189848B3E6AAC308544 /* libPods-LuaTemplate-mobile.a */; };
 		9FA3AE4E1BE9BCC900FC9645 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */; };
 		9FF504841A5E87B100AFDA55 /* ConsoleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */; };
 		9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF504831A5E87B100AFDA55 /* ConsoleWindowController.m */; };
@@ -333,6 +334,7 @@
 				F293B3D515EB7BE500256477 /* AVFoundation.framework in Frameworks */,
 				F293B3D915EB7BE500256477 /* Foundation.framework in Frameworks */,
 				F293B3DB15EB7BE500256477 /* CoreGraphics.framework in Frameworks */,
+				67F6F2C3ED97D07AC1B3A127 /* libPods-LuaTemplate-mobile.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1115,14 +1117,7 @@
 					"$(_COCOS_LIB_IOS_END)",
 					"$(inherited)",
 				);
-				"OTHER_LDFLAGS[sdk=iphonesimulator*][arch=x86_64]" = (
-					"$(_COCOS_LIB_IOS_BEGIN)",
-					"$(_COCOS_LIB_IOS_END)",
-					"-pagezero_size",
-					10000,
-					"-image_base",
-					100000000,
-				);
+				"OTHER_LDFLAGS[sdk=iphonesimulator*][arch=x86_64]" = "$(_COCOS_LIB_IOS_BEGIN) $(_COCOS_LIB_IOS_END) -pagezero_size 10000 -image_base 100000000";
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1169,14 +1164,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
-				"OTHER_LDFLAGS[sdk=iphonesimulator*][arch=x86_64]" = (
-					"$(_COCOS_LIB_IOS_BEGIN)",
-					"$(_COCOS_LIB_IOS_END)",
-					"-pagezero_size",
-					10000,
-					"-image_base",
-					100000000,
-				);
+				"OTHER_LDFLAGS[sdk=iphonesimulator*][arch=x86_64]" = "$(_COCOS_LIB_IOS_BEGIN) $(_COCOS_LIB_IOS_END) -pagezero_size 10000 -image_base 100000000";
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";

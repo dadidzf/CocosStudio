@@ -2,15 +2,46 @@ local Billing = {}
 
 local _jniClass = "org/cocos2dx/lua/GameJni"
 
+local _iosPurchaseCallBackFunc = nil
+
+-- the billingKey is only for android
 function Billing.init(billingKey, callBack)
     if device.platform == "ios" then
+        local callBackFunc = function (...)
+            if _iosPurchaseCallBackFunc then
+                _iosPurchaseCallBackFunc(...)
+                _iosPurchaseCallBackFunc = nil
+            end
+        end
+
+        local args = {
+            functionId = callBackFunc
+        }
+
+        getLuaBridge().callStaticMethod("ToolsController", "registerBillingCallBackFunc", args)    
     elseif device.platform == "android" then
         getLuaBridge().callStaticMethod(_jniClass, "initBillings", {billingKey, callBack})
     end
 end
 
+function Billing.restore(callBack)
+    if callBack then
+        _iosPurchaseCallBackFunc = callBack
+    end
+
+    getLuaBridge().callStaticMethod("ToolsController", "restore")    
+end
+
 function Billing.purchase(skuKey, callBack)
     if device.platform == "ios" then
+        local args = {
+            productId = skuKey
+        }
+        if callBack then
+            _iosPurchaseCallBackFunc = callBack
+        end
+
+        getLuaBridge().callStaticMethod("ToolsController", "purchase", args)    
     elseif device.platform == "android" then
         getLuaBridge().callStaticMethod(_jniClass, "purchase", {skuKey, callBack})
     end

@@ -1,6 +1,8 @@
 package org.cocos2dx.lua;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.util.Log;
 
 
 public class GameJni {
@@ -155,5 +157,29 @@ public class GameJni {
     public static boolean isSubscriptionAutoRenewEnabled(String skuKey)
     {
         return  AppActivity.getInstance().isSubscriptionAutoRenewEnabled(skuKey);
+    }
+
+    // Package check
+    public static String getPackageName()
+    {
+        Log.i("dzf", " get packageName");
+        return AppActivity.getInstance().getApplicationInfo().packageName;
+    }
+
+    public static boolean checkPackage(String packageName)
+    {
+        Log.i("dzf", packageName);
+        if (packageName == null || "".equals(packageName))
+            return false;
+        try
+        {
+            AppActivity.getInstance().getPackageManager().getApplicationInfo(packageName, PackageManager.GET_ACTIVITIES);
+            Log.i("dzf", "package exist");
+            return true;
+        }
+        catch (PackageManager.NameNotFoundException e)
+        {
+            return false;
+        }
     }
 }

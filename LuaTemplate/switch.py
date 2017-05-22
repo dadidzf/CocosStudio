@@ -3,6 +3,7 @@ import os
 import shutil
 import json
 import re
+from Tools.tool import image_produce_run
 
 def replace_string(filepath, src_string, dst_string):
     """ From file's content replace specified string
@@ -137,6 +138,9 @@ def applayGameConfigToProject(name):
     if os.path.exists(os.path.join(curPath, "res/%s/google-services.json"%name)):
         shutil.copy(os.path.join(curPath, "res/%s/google-services.json"%name), 
             os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app"))
+    if os.path.exists(os.path.join(curPath, "res/%s/512.png"%name)):
+        shutil.copy(os.path.join(curPath, "res/%s/512.png"%name), 
+            os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/res/mipmap-xxhdpi/ic_launcher.png"))
 
     ## ios
     replacePlistKeyValue(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios/Info.plist"),
@@ -151,6 +155,18 @@ def applayGameConfigToProject(name):
     if os.path.exists(os.path.join(curPath, "res/%s/GoogleService-Info.plist"%name)):
         shutil.copy(os.path.join(curPath, "res/%s/GoogleService-Info.plist"%name), 
             os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios"))
+
+    ## common
+    applyGameIcon(name)
+
+def applyGameIcon(name):
+    curPath = get_current_path()
+    image_produce_run(
+        os.path.join(curPath, "res/%s/512.png"%name), 
+        os.path.join(curPath, "res/%s/splash.png"%name),
+        os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/res/mipmap-xxhdpi/ic_launcher.png"),
+        os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios"),
+        os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios"))
 
 def applyGame(name):
     if isGameDirExistBoth(name):
