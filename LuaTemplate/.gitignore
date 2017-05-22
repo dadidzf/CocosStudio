@@ -1,0 +1,16 @@
+*.pyc
+game.log
+*.apk
+Tools/output
+Tools/temp
+simulator
+obj
+libs
+frameworks/runtime-src/proj.android-studio/app/assets/
+frameworks/runtime-src/proj.android-studio/app/libs/
+frameworks/runtime-src/proj.android-studio/app/obj/
+frameworks/runtime-src/proj.ios_mac/Podfile.lock
+frameworks/runtime-src/proj.ios_mac/Pods/
+runtime/mac
+
+
