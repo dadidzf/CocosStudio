@@ -6,6 +6,8 @@
         "adsPicURL": "ads/pic/"
     },
     "appName":"template",
+    "luaCompileKey":"dzf",
+    "luaCompileSign":"hhh",
     "ios":
     {
         "adsRequestAppName":"template_ios",

@@ -105,6 +105,17 @@ def mergeDir(sourceDir, destDir):
 
 def recoverGameDir():
     curPath = get_current_path()
+
+    assert(len(os.listdir(os.path.join(curPath, "temp", "src"))) > 0)
+
+    for f in os.listdir(os.path.join(curPath, "src", "app")):
+        if os.path.isdir(os.path.join(curPath, "src", "app", f)):
+            shutil.rmtree(os.path.join(curPath, "src", "app", f))
+
+    for f in os.listdir(os.path.join(curPath, "res")):
+        if os.path.isdir(os.path.join(curPath, "res", f)):
+            shutil.rmtree(os.path.join(curPath, "res", f))
+
     mergeDir(os.path.join(curPath, "temp", "src"), os.path.join(curPath, "src", "app"))
     mergeDir(os.path.join(curPath, "temp", "res"), os.path.join(curPath, "res"))
 
@@ -138,9 +149,6 @@ def applayGameConfigToProject(name):
     if os.path.exists(os.path.join(curPath, "res/%s/google-services.json"%name)):
         shutil.copy(os.path.join(curPath, "res/%s/google-services.json"%name), 
             os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app"))
-    if os.path.exists(os.path.join(curPath, "res/%s/512.png"%name)):
-        shutil.copy(os.path.join(curPath, "res/%s/512.png"%name), 
-            os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/res/mipmap-xxhdpi/ic_launcher.png"))
 
     ## ios
     replacePlistKeyValue(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios/Info.plist"),
@@ -157,7 +165,6 @@ def applayGameConfigToProject(name):
             os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios"))
 
     ## common
-    applyGameIcon(name)
 
 def applyGameIcon(name):
     curPath = get_current_path()
@@ -179,13 +186,46 @@ def applyGame(name):
 
 def beforePackageGame(name):
     curPath = get_current_path()
+
+    ## move all games src and res to temp dir
     for f in os.listdir(os.path.join(curPath, "src", "app")):
-        if os.path.isdir(os.path.join(curPath, "src", "app", f)) and f != name :
+        if os.path.isdir(os.path.join(curPath, "src", "app", f)):
             shutil.move(os.path.join(curPath, "src", "app", f), os.path.join(curPath, "temp", "src"))
 
     for f in os.listdir(os.path.join(curPath, "res")):
-        if os.path.isdir(os.path.join(curPath, "res", f)) and f != name :
+        if os.path.isdir(os.path.join(curPath, "res", f)):
             shutil.move(os.path.join(curPath, "res", f), os.path.join(curPath, "temp", "res"))
+
+    ## get lua encrypt key and sign
+    f = open(os.path.join(curPath, "temp", "src", name, "%s_config.json"%name))
+    gameConfig = json.load(f)
+    f.close()
+    luaKey = gameConfig.pop('luaCompileKey')
+    luaSign = gameConfig.pop('luaCompileSign')
+
+    ## encode lua code
+    os.system('cocos luacompile -s %s -d %s -e -k %s -b %s --disable-compile'%
+        (os.path.join(curPath, 'temp', 'src', name), os.path.join(curPath, 'src', 'app', name), luaKey, luaSign))
+
+    ## copy name_config.json
+    shutil.copy(os.path.join(curPath, 'temp', 'src', name, '%s_config.json'%name), 
+        os.path.join(curPath, 'src', 'app', name, '%s_config.json'%name))
+    gameConfig['packageVersion'] = True
+    packageJson = json.dumps(gameConfig, encoding = 'utf8')
+    f2 = open(os.path.join(curPath, 'src', 'app', name, '%s_config.json'%name), "wb")
+    f2.write(packageJson)
+    f2.close()
+
+    ## set decode key and sign in AppDelegate.cpp 
+    replaceRegularString(os.path.join(curPath, 'frameworks/runtime-src/Classes/AppDelegate.cpp'), 
+            'stack->setXXTEAKeyAndSign.*', 
+            'stack->setXXTEAKeyAndSign("%s", strlen("%s"), "%s", strlen("%s"));'%(luaKey, luaKey, luaSign, luaSign)) 
+    
+    shutil.copytree(os.path.join(curPath, 'temp', 'res', name), os.path.join(curPath, 'res', name))
+    os.remove(os.path.join(curPath, 'res', name, '512.png'))
+    os.remove(os.path.join(curPath, 'res', name, 'splash.png'))
+    os.remove(os.path.join(curPath, 'res', name, 'google-services.json'))
+    os.remove(os.path.join(curPath, 'res', name, 'GoogleService-Info.plist'))
 
 def assertEnoughArgs(needCount):
     if len(sys.argv) < needCount:
@@ -207,6 +247,8 @@ def run():
             print("No args !")
         elif sys.argv[1] == 'package':
             if assertEnoughArgs(3):
+                ## make sure no temp dirs
+                assert(len(os.listdir(os.path.join(curPath, 'temp', 'src'))) <= 0) 
                 applyGame(sys.argv[2])
                 beforePackageGame(sys.argv[2])
         else:
@@ -225,6 +267,11 @@ def run():
             elif sys.argv[1] == 'apply':
                 if assertEnoughArgs(3):
                     applyGame(sys.argv[2])
+            elif sys.argv[1] == 'icon':
+                if assertEnoughArgs(3):
+                    applyGameIcon(sys.argv[2])
+            elif sys.argv[1] == 'recover':
+                print('Recover finished !')
 
 if __name__ == "__main__":
     run()

@@ -12,5 +12,6 @@ frameworks/runtime-src/proj.android-studio/app/obj/
 frameworks/runtime-src/proj.ios_mac/Podfile.lock
 frameworks/runtime-src/proj.ios_mac/Pods/
 runtime/mac
+temp/
 
 
