@@ -12,6 +12,10 @@ end
 -- posY is the ratio of Y in device height, range from 0 to 1
 function AdmobIos:showBanner(pos, anchor)
 	print("AdmobIos:showBanner")
+	
+	if self.m_isAdsRemoved then
+		return 
+	end
  	local args = {
     	posY = pos,
     	anchorY = anchor
@@ -35,6 +39,9 @@ end
 
 function AdmobIos:showInterstitial()
 	print("AdmobIos:showInterstitial")
+	if self.m_isAdsRemoved then
+		return 
+	end
 	self.m_luaoc.callStaticMethod("AdmobController", "showInterstitialLua")
 end
 
@@ -50,11 +57,17 @@ end
 
 function AdmobAndroid:showBanner(posY, anchorY)
 	print("AdmobAndroid:showBanner")
+	if self.m_isAdsRemoved then
+		return 
+	end
 	self.m_luaj.callStaticMethod(self.m_jniClass, "showBanner", {posY, anchorY})
 end
 
 function AdmobAndroid:showInterstitial()
 	print("AdmobAndroid:showInterstitial")
+	if self.m_isAdsRemoved then
+		return 
+	end
 	self.m_luaj.callStaticMethod(self.m_jniClass, "showFullAd", {})
 end
 
@@ -91,6 +104,12 @@ function Admob.getInstance()
 end
 
 function Admob:ctor()
+	self.m_isAdsRemoved = false 
+end
+
+function Admob:setAdsRemoved(val)
+	self.m_isAdsRemoved = val
+	self:removeBanner()
 end
 
 function Admob:showBanner()

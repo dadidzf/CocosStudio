@@ -6,7 +6,7 @@ DEBUG = 2
 CC_USE_FRAMEWORK = true
 
 -- show FPS on screen
-CC_SHOW_FPS = true
+CC_SHOW_FPS = false
 
 -- disable create unexpected global variable
 CC_DISABLE_GLOBAL = true
@@ -17,8 +17,8 @@ CC_DESIGN_RESOLUTION = {
     height = 960,
     autoscale = "FIXED_HEIGHT",
     callback = function(framesize)
-        local ratio = framesize.width / framesize.height
-        if ratio <= 1.34 then
+        local ratio = framesize.height / framesize.width
+        if ratio <= 1.5 then
             -- iPad 768*1024(1536*2048) is 4:3 screen
             return {autoscale = "FIXED_WIDTH"}
         end
@@ -26,4 +26,4 @@ CC_DESIGN_RESOLUTION = {
 }
 
 -- name of current game, it's also the working directory for current game
-DD_WORKING_GAME_NAME = "template"
+DD_WORKING_GAME_NAME = "onesecond"

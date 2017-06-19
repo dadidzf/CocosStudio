@@ -1,0 +1,72 @@
+{
+    "serverConfig": {
+        "serverHost": "https://www.yongwuart.com/flask/",
+        "adsVerURL": "ads/version",
+        "adsConfURL": "ads/conf/",
+        "adsPicURL": "ads/pic/"
+    },
+    "appName":"onesecond",
+    "luaCompileKey":"dzf_onesecond",
+    "luaCompileSign":"hhh_onesecond",
+    "ios":
+    {
+        "adsRequestAppName":"onesecond_ios",
+        "appDisplayName":"1 Second",
+        "admobBannerId": "ca-app-pub-5571113908507676/7717152744",
+        "admobInterstitialId": "ca-app-pub-5571113908507676/1670619144",
+        "packageName":"com.yongwuart.onesecond",
+        "version":"1.0",
+        "versionCode":1,
+        "rateUrl":"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1249925894&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",
+        "shareUrl":"https://itunes.apple.com/app/id1249925894",
+        "achievement":
+        [ 
+            "one_score_10_points",
+            "one_score_20_points",
+            "one_score_30_points",
+            "one_score_40_points",
+            "one_score_50_points"
+        ],
+        "leaderboard":
+        [
+            "one_second_high_score"
+        ],
+        "skuKeys":
+        [
+            "one_second_remove_ads"
+        ]
+	},
+	"android":
+	{
+        "adsRequestAppName":"template_android",
+        "appDisplayName":"1 Second",
+        "admobBannerId": "ca-app-pub-5571113908507676/4624085544",
+        "admobInterstitialId": "ca-app-pub-5571113908507676/6100818746",
+        "packageName":"com.yongwuart.onesecond",
+        "version":"1.0",
+        "versionCode":1,
+        "rateUrl":"https://play.google.com/store/apps/details?id=com.yongwuart.onesecond",
+        "shareUrl":"https://play.google.com/store/apps/details?id=com.yongwuart.onesecond",
+        "achievement":
+        [ 
+            "CgkI_PvQruYCEAIQAg",
+            "CgkI_PvQruYCEAIQAw",
+            "CgkI_PvQruYCEAIQBA",
+            "CgkI_PvQruYCEAIQBQ",
+            "CgkI_PvQruYCEAIQBg"
+        ],
+        "leaderboard":
+        [
+            "CgkI_PvQruYCEAIQAQ"
+        ],
+        "skuKeys":
+        [
+            "android.test.purchased",
+            "test_ads"
+        ],
+
+
+        "googlePlayAppId":"96197688828",
+        "googleRSAKey":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk5htRwKS6BxtWpN5BLfFvGjBLStCzojHFLafH9C/tZJI8WsRl0S2JfSVnP9o4k95larQ6Ct7Pw/eaZGxdxyxrXhkjCWuX0dJu4AvFUgsQE/FhwusLw/N2hkifW8zDmOkM4mFK8NJsrq11cL1FDWLdqvYF8Fv7CmWYe8EcGd3S4Q7u88P7od+Tcq/vzELCB07Q2C+Fd0+tCT08R76ic9UJ/S+B5fuhmuapCV05c3XLpualoshyTKZlzfYq5Novgsc06vCCowYliqbjsNzmhpFyLwtnkqgBKspuPLxTLTafdrdzKsPk39hB9ic6X8gG8OBsPjl8kmEvG5S/Oxbt8i5UQIDAQAB"
+    }
+}
