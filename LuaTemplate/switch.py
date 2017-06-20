@@ -106,24 +106,25 @@ def mergeDir(sourceDir, destDir):
 def recoverGameDir():
     curPath = get_current_path()
 
-    assert(len(os.listdir(os.path.join(curPath, "temp", "src"))) > 0)
+    if len(os.listdir(os.path.join(curPath, "temp", "src"))) > 0 :
+        for f in os.listdir(os.path.join(curPath, "src", "app")):
+            if os.path.isdir(os.path.join(curPath, "src", "app", f)):
+                shutil.rmtree(os.path.join(curPath, "src", "app", f))
 
-    for f in os.listdir(os.path.join(curPath, "src", "app")):
-        if os.path.isdir(os.path.join(curPath, "src", "app", f)):
-            shutil.rmtree(os.path.join(curPath, "src", "app", f))
+        for f in os.listdir(os.path.join(curPath, "res")):
+            if os.path.isdir(os.path.join(curPath, "res", f)):
+                shutil.rmtree(os.path.join(curPath, "res", f))
 
-    for f in os.listdir(os.path.join(curPath, "res")):
-        if os.path.isdir(os.path.join(curPath, "res", f)):
-            shutil.rmtree(os.path.join(curPath, "res", f))
-
-    mergeDir(os.path.join(curPath, "temp", "src"), os.path.join(curPath, "src", "app"))
-    mergeDir(os.path.join(curPath, "temp", "res"), os.path.join(curPath, "res"))
+        mergeDir(os.path.join(curPath, "temp", "src"), os.path.join(curPath, "src", "app"))
+        mergeDir(os.path.join(curPath, "temp", "res"), os.path.join(curPath, "res"))
+    else:
+        print('Nothing to recover !')
 
 def relplaceGameConfig(name, packageName):
     curPath = get_current_path()
     replace_string(os.path.join(curPath, "src", "app", name, "%s_config.json"%name), '"appName":"template"', 
         '"appName":"%s"'%name)
-    replace_string(os.path.join(curPath, "src", "app", name, "%s_config.json"%name), '"packageName":"com.yongwu.luatemplate",', 
+    replace_string(os.path.join(curPath, "src", "app", name, "%s_config.json"%name), '"packageName":"com.yongwuart.template",', 
         '"packageName":"%s",'%packageName)
 
 def applayGameConfigToProject(name):
@@ -145,6 +146,8 @@ def applayGameConfigToProject(name):
         '<string name="app_name">.*', '<string name="app_name">%s</string>'%gameConfig['android']['appDisplayName'])
     replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/res/values/strings.xml"),
         '<string name="app_id">.*', '<string name="app_id">%s</string>'%gameConfig['android']['googlePlayAppId'])
+    replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/src/org/cocos2dx/lua/GameHelperUtils.java"),
+        'import com.*.R;', 'import %s.R;'%gameConfig['android']['packageName'])
 
     if os.path.exists(os.path.join(curPath, "res/%s/google-services.json"%name)):
         shutil.copy(os.path.join(curPath, "res/%s/google-services.json"%name), 
@@ -222,7 +225,7 @@ def beforePackageGame(name):
             'stack->setXXTEAKeyAndSign("%s", strlen("%s"), "%s", strlen("%s"));'%(luaKey, luaKey, luaSign, luaSign)) 
     
     shutil.copytree(os.path.join(curPath, 'temp', 'res', name), os.path.join(curPath, 'res', name))
-    os.remove(os.path.join(curPath, 'res', name, '512.png'))
+    #os.remove(os.path.join(curPath, 'res', name, '512.png'))
     os.remove(os.path.join(curPath, 'res', name, 'splash.png'))
     os.remove(os.path.join(curPath, 'res', name, 'google-services.json'))
     os.remove(os.path.join(curPath, 'res', name, 'GoogleService-Info.plist'))

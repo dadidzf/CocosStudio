@@ -240,7 +240,7 @@
     NSData *bodyData = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
     
     //创建请求到苹果官方进行购买验证
-    NSURL *url=[NSURL URLWithString:SANDBOX];
+    NSURL *url=[NSURL URLWithString:AppStore];
     NSMutableURLRequest *requestM=[NSMutableURLRequest requestWithURL:url];
     requestM.HTTPBody=bodyData;
     requestM.HTTPMethod=@"POST";

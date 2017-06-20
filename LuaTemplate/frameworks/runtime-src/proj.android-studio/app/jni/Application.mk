@@ -5,6 +5,7 @@ APP_LDFLAGS := -latomic
 
 APP_ABI := armeabi-v7a x86
 
+APP_PLATFORM := android-17
 
 ifeq ($(NDK_DEBUG),1)
   APP_CPPFLAGS += -DCOCOS2D_DEBUG=1

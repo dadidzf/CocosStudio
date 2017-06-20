@@ -13,7 +13,7 @@ static luaL_Reg luax_exts[] = {
     {NULL, NULL}
 };
 
-void luaopen_lua_extensions(lua_State *L)
+static void luaopen_lua_extensions(lua_State *L)
 {
     // load extensions
     luaL_Reg* lib = luax_exts;

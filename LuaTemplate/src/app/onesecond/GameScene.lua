@@ -21,7 +21,7 @@ function GameScene:onCreate()
         :addTo(self)
         :setColor(cc.WHITE)
 
-    self.m_rangeLabel = ccui.Text:create("(+/- 0.1)", "", 32)
+    self.m_rangeLabel = ccui.Text:create("(+/- 0.3)", "", 32)
         :move(display.cx, display.height - 150)
         :addTo(self)
         :setColor(cc.WHITE)
@@ -31,6 +31,13 @@ function GameScene:onCreate()
         :addTo(self)
     self.m_score = 0
 
+    self.m_isGameOver = false
+
+    self:createTips()
+    self:createEffect()
+end
+
+function GameScene:createTips()
     self.m_gameTips = ccui.Text:create(StringMgr.oneSecondTips, "", 32)
         :move(display.cx, display.height*0.2)
         :addTo(self)
@@ -65,10 +72,24 @@ function GameScene:onCreate()
                 )
             )
         )
+end
 
-    self.m_isGameOver = false
+function GameScene:removeTips()
+    if self.m_gameTips then
+        self.m_gameTips:removeFromParent()
+        self.m_gameTips = nil
+    end
 
-    self:createEffect()
+    if self.m_gameFinger then
+        self.m_gameFinger:removeFromParent()
+        self.m_gameFinger = nil
+    end
+
+    if self.m_gameFinger1 then
+        self.m_gameFinger1:removeFromParent()
+        self.m_gameFinger1 = nil
+    end
+    
 end
 
 function GameScene:addTouch()
@@ -85,11 +106,28 @@ end
 
 function GameScene:update(t)
     if self.m_startPressTime then
-        local diffTime = socket.gettime() - self.m_startPressTime
+        local diffTime = socket.gettime() - self.m_startPressTime - self.m_repeateTime
+        local ratio = 1
+
+        if self:getCurrentRange() > 0.1 then
+            local totalTime = 1 + self:getCurrentRange()
+            if diffTime > totalTime then 
+                diffTime = diffTime - totalTime
+                self.m_repeateTime = self.m_repeateTime + totalTime
+            end
+            ratio = diffTime/totalTime
+        else
+            if diffTime > 1.0 then
+                diffTime = diffTime - 1.0
+                self.m_repeateTime = self.m_repeateTime + 1
+            end
+            ratio = diffTime
+        end
+
         self.m_timeLabel:setString(string.format("%.3f", diffTime))
 
         if self.m_effect then
-            self.m_effect:updateProgress(diffTime - math.floor(diffTime))
+            self.m_effect:updateProgress(ratio)
         end
     end
 end
@@ -99,21 +137,8 @@ function GameScene:onTouchBegin(touch, event)
         return false
     end
     
-    if self.m_gameTips then
-        self.m_gameTips:removeFromParent()
-        self.m_gameTips = nil
-    end
-
-    if self.m_gameFinger then
-        self.m_gameFinger:removeFromParent()
-        self.m_gameFinger = nil
-    end
-
-    if self.m_gameFinger1 then
-        self.m_gameFinger1:removeFromParent()
-        self.m_gameFinger1 = nil
-    end
-    
+    self:removeTips()
+    self.m_repeateTime = 0
     self.m_startPressTime = socket.gettime()
     self.m_timeLabel:setString("0.00")
 
@@ -141,7 +166,8 @@ function GameScene:createEffect()
         return
     end
     
-    self.m_effect = Effect:create(self.m_score <= _distance and 6 or nil)
+    local range = self:getCurrentRange()
+    self.m_effect = Effect:create(self.m_score <= _distance and 6 or nil, range > 0.1 and range or nil)
         :addTo(self, -1)
         :move(display.cx, display.cy)
 end
@@ -152,7 +178,9 @@ function GameScene:onTouchEnd(touch, event)
     self.m_timeLabel:setString(string.format("%.3f", self.m_finalPressTime))
     self.m_startPressTime = nil
 
-    if self:isGameEnd() then
+    if self.m_finalPressTime < 0.16 then
+        self:createTips()
+    elseif self:isGameEnd() then
         print("Game End !")
         local gameEndLayer = GameEndLayer:create(self.m_score)
             :addTo(self)
@@ -216,8 +244,12 @@ function GameScene:getCurrentRange()
             ret = 0.08
         elseif self.m_score > 1*distance then
             ret = 0.09
-        else
+        elseif self.m_score > 1 then
             ret = 0.1
+        elseif self.m_score > 0 then
+            ret = 0.2
+        else
+            ret = 0.3
         end
     else
         if self.m_score > 10*distance then

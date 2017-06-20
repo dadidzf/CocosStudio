@@ -10,7 +10,7 @@ iosSizes = ['Icon-29', 'Icon-40', 'Icon-50', 'Icon-57',
 androidSizes = [512]
 androidNames = ['ic_launcher']
 
-sizesiOS = [(640,960),(640, 1136),(750, 1334),(1242, 2208),(768, 1024)]
+sizesiOS = [(640,960),(640, 1136),(750, 1334),(1242, 2208),(1024, 768)]
 outFilesiOS = ['Default@2x','Default-568h@2x','Default-667h@2x','Default-736h@3x','Default-Landscape~ipad']
 
 #sizesiOS = [(640,960),(640, 1136),(750, 1334),(1242, 2208),(1536, 2048),(2048, 2732)]
@@ -75,25 +75,28 @@ def cut_by_ratio(im, outfile, iWidth, iHeight, destPath):
     shutil.copy(outfile, destPath)
 
 def produceImage(filename, platform, destPath):
-	print 'Processing:' + filename
-	img = Image.open(filename)
-	index = 0
-	ext =  os.path.splitext(filename)[1]
-	sizes = sizesiOS
-	outFile = outFilesiOS
-	outDir = 'iosSplash'
+    print 'Processing:' + filename
+    img = Image.open(filename)
+    index = 0
+    ext =  os.path.splitext(filename)[1]
+    sizes = sizesiOS
+    outFile = outFilesiOS
+    outDir = 'iosSplash'
 
-	if platform == 'android':
-		sizes = sizesAndroid
-		outFile = outFilesAndroid
-		outDir = 'androidSplash'
-	for size in sizes:
-		savePath = os.path.join(get_current_path(), 'output/' + outDir, outFile[index] + ext)
-		if img.size[0] > img.size[1]:
-			cut_by_ratio(img, savePath, size[1], size[0], destPath)
-		else:
-			cut_by_ratio(img, savePath, size[0], size[1], destPath)
-		index = index + 1
+    if platform == 'android':
+        sizes = sizesAndroid
+        outFile = outFilesAndroid
+        outDir = 'androidSplash'
+    for size in sizes:
+        savePath = os.path.join(get_current_path(), 'output/' + outDir, outFile[index] + ext)
+        if size[0] > size[1]:
+            cut_by_ratio(img, savePath, size[1], size[0], destPath)
+            pic = Image.open(savePath)
+            pic2 = pic.transpose(Image.ROTATE_270)
+            pic2.save(os.path.join(destPath, outFile[index] + ext))
+        else:
+            cut_by_ratio(img, savePath, size[0], size[1], destPath)
+        index = index + 1
 
 def image_produce_run(iconPath, screenshotPath, destAndroidIconPath, destIosIconPath, destIosSplashPath):
 	processIcon(iconPath, 'ios', destIosIconPath)	

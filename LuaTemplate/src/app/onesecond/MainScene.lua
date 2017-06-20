@@ -3,6 +3,7 @@ local StringMgr = import(".StringMgr")
 local GameScene = import(".GameScene")
 
 function MainScene:onCreate()
+    self:enableNodeEvents()
     local backGround = cc.Sprite:create("background.png")
         :move(display.cx, display.cy)
         :addTo(self, -1)
@@ -32,6 +33,16 @@ function MainScene:onCreate()
         end)
 
     startTips:runAction(cc.RepeatForever:create(cc.Blink:create(2, 1)))
+
+    local restoreLabel = ccui.Text:create("Restore", "", 32)
+        :move(display.width - 50, display.height - 50)
+        :setRotation(45)
+        :addTo(self)
+        :setColor(cc.WHITE)
+        :setTouchEnabled(true)
+    if device.platform ~= "ios" then
+        restoreLabel:setVisible(false)
+    end
 
     local noAds = ccui.ImageView:create("NoAds.png")
         :move(display.width*0.2, display.height*0.15)
@@ -88,6 +99,14 @@ function MainScene:onCreate()
     AudioEngine.getInstance():preloadEffect("over.mp3")
 end
 
+function MainScene:onEnterTransitionFinish()
+    if not cc.UserDefault:getInstance():getBoolForKey("noads", false) then
+        if cc.load("sdk").Tools.getGamePlayCount() > 5 then
+            cc.load("sdk").MyAds.showAds(100)
+        end
+    end
+end
+
 function MainScene:createRoate()
     local progressSprite = cc.Sprite:create("roate.png")
     local progress = cc.ProgressTimer:create(progressSprite)
@@ -119,6 +138,19 @@ function MainScene:addTouch()
 end
 
 function MainScene:onTouchBegin(touch, event)
+    if (touch:getLocation().y > display.height - 50) 
+        and (touch:getLocation().x > display.width - 50) 
+        and device.platform == "ios" then
+            cc.load("sdk").Billing.restore(function (result)
+                print("Billing Restore Result ~ ", result)
+                if result then
+                    cc.UserDefault:getInstance():setBoolForKey("noads", true)
+                    cc.load("sdk").Admob.getInstance():setAdsRemoved(true)
+                end
+            end)
+        return false
+    end
+    
     local gameScene = GameScene:create()
     gameScene:showWithScene()
 

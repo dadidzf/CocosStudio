@@ -1,6 +1,13 @@
 local Tools = {}
 
 local _jniClass = "org/cocos2dx/lua/GameJni"
+local _GamePlayCount = cc.UserDefault:getInstance():getIntegerForKey("gameplaycount", 0)
+_GamePlayCount = _GamePlayCount + 1
+cc.UserDefault:getInstance():setIntegerForKey("gameplaycount", _GamePlayCount)
+
+function Tools.getGamePlayCount()
+	return _GamePlayCount
+end
 
 function Tools.verifyPackage()
 	if device.platform == "android" then

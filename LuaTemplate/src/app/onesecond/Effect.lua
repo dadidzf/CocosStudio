@@ -2,7 +2,7 @@ local Effect = class("Effect", cc.Node)
 local Gear = import(".Gear")
 local _scheduler = cc.Director:getInstance():getScheduler()
 
-function Effect:ctor(index)
+function Effect:ctor(index, param)
     local createFunctions = 
     {
         self.createParticleCircle,
@@ -14,7 +14,7 @@ function Effect:ctor(index)
     }
 
     local i = index or math.random(#createFunctions)
-    self.m_updateFunction = createFunctions[i](self)
+    self.m_updateFunction = createFunctions[i](self, param)
 end
 
 function Effect:createGearPair()
@@ -46,8 +46,10 @@ function Effect:createProgressCircle()
     end
 end
 
-function Effect:createProgressBar()
+function Effect:createProgressBar(range)
     local progressSprite = cc.Sprite:create("sliderProgress.png")
+    local spriteSize = progressSprite:getContentSize()
+
     local progress = cc.ProgressTimer:create(progressSprite)
             :setType(cc.PROGRESS_TIMER_TYPE_BAR)
             :setPosition(cc.p(0, 0))
@@ -55,15 +57,54 @@ function Effect:createProgressBar()
             :setMidpoint(cc.p(0, 0))
             :setBarChangeRate(cc.p(1, 0))
 
-    local spriteSize = progressSprite:getContentSize()
     local drawNode = cc.DrawNode:create()
             :move(0, 0)
             :addTo(self)
 
-    local origin = cc.p(-spriteSize.width/2, -spriteSize.height/2)
-    local dest = cc.p(spriteSize.width/2, spriteSize.height/2)
+    if range then
+        drawNode:drawTriangle(
+            cc.p(spriteSize.width/2, spriteSize.height/2),
+            cc.p(spriteSize.width/2 - 10, spriteSize.height/2 + 10),
+            cc.p(spriteSize.width/2 + 10, spriteSize.height/2 + 10),
+            cc.c4f(0.65, 0.65, 0.65, 1)
+            )
 
-    drawNode:drawRect(origin, dest, cc.c4f(0, 0, 1, 0.5))
+        local plus = ccui.Text:create(string.format("+" .. range), "", 16)
+            :setAnchorPoint(cc.p(0.5, 0))
+            :move(spriteSize.width/2, spriteSize.height/2 + 10)
+            :addTo(drawNode)
+            :setColor(cc.WHITE)
+
+        drawNode:drawTriangle(
+            cc.p(spriteSize.width*((1 - range)/(1 + range) - 0.5), -spriteSize.height/2),
+            cc.p(spriteSize.width*((1 - range)/(1 + range) - 0.5) - 10, -spriteSize.height/2 - 10),
+            cc.p(spriteSize.width*((1 - range)/(1 + range) - 0.5) + 10, -spriteSize.height/2 - 10),
+            cc.c4f(0.65, 0.65, 0.65, 1)
+            )
+
+        local minus = ccui.Text:create(string.format("-" .. range), "", 16)
+            :setAnchorPoint(cc.p(0.5, 1))
+            :move(spriteSize.width*((1 - range)/(1 + range) - 0.5), -spriteSize.height/2 - 10)
+            :addTo(drawNode)
+            :setColor(cc.WHITE)
+
+        local origin = cc.p(spriteSize.width*((1 - range)/(1 + range) - 0.5), -spriteSize.height/2)
+        local dest = cc.p(spriteSize.width/2, spriteSize.height/2)
+        drawNode:drawRect(origin, dest, cc.c4f(1, 1, 0, 0.5))
+
+        origin = cc.p(-spriteSize.width/2, -spriteSize.height/2)
+        dest = cc.p(spriteSize.width*(1/(1 + range) - 0.5), spriteSize.height/2)
+        drawNode:drawRect(origin, dest, cc.c4f(0, 0, 1, 0.5))
+
+        local minus = ccui.Text:create("1.0", "", 16)
+            :move(spriteSize.width*(1/(1 + range) - 0.5), 0)
+            :addTo(drawNode)
+            :setColor(cc.WHITE)
+    else
+        local origin = cc.p(-spriteSize.width/2, -spriteSize.height/2)
+        local dest = cc.p(spriteSize.width/2, spriteSize.height/2)
+        drawNode:drawRect(origin, dest, cc.c4f(0, 0, 1, 0.5))
+    end
 
     return function (ratio)
         progress:setPercentage(ratio*100)

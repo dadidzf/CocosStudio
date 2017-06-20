@@ -58,7 +58,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     register_all_packages();
 
     LuaStack* stack = engine->getLuaStack();
-    stack->setXXTEAKeyAndSign("dzf", strlen("dzf"), "hhh", strlen("hhh"));
+    stack->setXXTEAKeyAndSign("dzf_onesecond", strlen("dzf_onesecond"), "hhh_onesecond", strlen("hhh_onesecond"));
 
     //register custom function
     //LuaStack* stack = engine->getLuaStack();
@@ -94,21 +94,21 @@ void AppDelegate::applicationWillEnterForeground()
 }
 
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID 
-double atof(const char *nptr)
-{
-    return (strtod(nptr, NULL));
-}
-
-extern "C"{
-    int rand()
-    {
-        time_t temp;
-        return time(&temp);
-    }
-    
-    void srand(unsigned int __s)
-    {
-        return srand48(__s);
-    }
-}
+//double atof(const char *nptr)
+//{
+//    return (strtod(nptr, NULL));
+//}
+//
+//extern "C"{
+//    int rand()
+//    {
+//        time_t temp;
+//        return time(&temp);
+//    }
+//    
+//    void srand(unsigned int __s)
+//    {
+//        return srand48(__s);
+//    }
+//}
 #endif
