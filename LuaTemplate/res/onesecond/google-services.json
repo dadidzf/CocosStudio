@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "100174380124",
+    "firebase_url": "https://one-second-86179.firebaseio.com",
+    "project_id": "one-second-86179",
+    "storage_bucket": "one-second-86179.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100174380124:android:9d3c0aa9aa4ef7d3",
+        "android_client_info": {
+          "package_name": "com.yongwuart.onesecond"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100174380124-dtgr8eb776msm1gpdka6sgdqtupdlu0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTROKnviuZHx4QDgKcKmUYeR4m3U79qPo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
