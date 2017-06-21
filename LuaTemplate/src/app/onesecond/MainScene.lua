@@ -138,8 +138,8 @@ function MainScene:addTouch()
 end
 
 function MainScene:onTouchBegin(touch, event)
-    if (touch:getLocation().y > display.height - 50) 
-        and (touch:getLocation().x > display.width - 50) 
+    if (touch:getLocation().y > display.height - 100) 
+        and (touch:getLocation().x > display.width - 100) 
         and device.platform == "ios" then
             cc.load("sdk").Billing.restore(function (result)
                 print("Billing Restore Result ~ ", result)
