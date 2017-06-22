@@ -51,7 +51,8 @@ function MainScene:onCreate()
     noAds:onClick(function ( ... )
         cc.load("sdk").Billing.purchase(dd.appCommon.skuKeys[1], function (result)
             print("Billing Purchase Result ~ ", result)
-            if result then
+            if (result and device.platform == "ios") or 
+                (result ~= "failed" and device.platform == "android") then
                 cc.UserDefault:getInstance():setBoolForKey("noads", true)
                 cc.load("sdk").Admob.getInstance():setAdsRemoved(true)
             end

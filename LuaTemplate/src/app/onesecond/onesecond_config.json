@@ -38,13 +38,13 @@
 	},
 	"android":
 	{
-        "adsRequestAppName":"template_android",
+        "adsRequestAppName":"onesecond_android",
         "appDisplayName":"1 Second",
         "admobBannerId": "ca-app-pub-5571113908507676/4624085544",
         "admobInterstitialId": "ca-app-pub-5571113908507676/6100818746",
         "packageName":"com.yongwuart.onesecond",
         "version":"1.0",
-        "versionCode":1,
+        "versionCode":2,
         "rateUrl":"https://play.google.com/store/apps/details?id=com.yongwuart.onesecond",
         "shareUrl":"https://play.google.com/store/apps/details?id=com.yongwuart.onesecond",
         "achievement":
@@ -61,10 +61,8 @@
         ],
         "skuKeys":
         [
-            "android.test.purchased",
-            "test_ads"
+            "one_second_noads"
         ],
-
 
         "googlePlayAppId":"96197688828",
         "googleRSAKey":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk5htRwKS6BxtWpN5BLfFvGjBLStCzojHFLafH9C/tZJI8WsRl0S2JfSVnP9o4k95larQ6Ct7Pw/eaZGxdxyxrXhkjCWuX0dJu4AvFUgsQE/FhwusLw/N2hkifW8zDmOkM4mFK8NJsrq11cL1FDWLdqvYF8Fv7CmWYe8EcGd3S4Q7u88P7od+Tcq/vzELCB07Q2C+Fd0+tCT08R76ic9UJ/S+B5fuhmuapCV05c3XLpualoshyTKZlzfYq5Novgsc06vCCowYliqbjsNzmhpFyLwtnkqgBKspuPLxTLTafdrdzKsPk39hB9ic6X8gG8OBsPjl8kmEvG5S/Oxbt8i5UQIDAQAB"

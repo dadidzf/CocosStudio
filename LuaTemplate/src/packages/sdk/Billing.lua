@@ -81,7 +81,8 @@ function Billing.isItemPurchased(skuKey)
 
     if device.platform == "ios" then
     elseif device.platform == "android" then
-        local isOk, ret = getLuaBridge().callStaticMethod(_jniClass, "isItemPurchased", {skuKey})
+        print("Billing.isItemPurchased", skuKey)
+        local isOk, ret = getLuaBridge().callStaticMethod(_jniClass, "isItemPurchased", {skuKey}, "(Ljava/lang/String;)Z")
         return ret
     end
 end
@@ -93,7 +94,7 @@ function Billing.isSubscriptionAutoRenewEnabled(skuKey)
     
     if device.platform == "ios" then
     elseif device.platform == "android" then
-        local isOk, ret = getLuaBridge().callStaticMethod(_jniClass, "isSubscriptionAutoRenewEnabled", {skuKey})
+        local isOk, ret = getLuaBridge().callStaticMethod(_jniClass, "isSubscriptionAutoRenewEnabled", {skuKey}, "(Ljava/lang/String;)Z")
         return ret
     end
 end
