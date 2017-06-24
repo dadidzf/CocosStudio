@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Template</string>
+    <string name="app_name">Trap Balls</string>
     <string name="app_id">1067924075289</string>
     <string name="sign_in_other_error">There was an issue with sign-in, please try again later.</string>
     <string name="sign_in_failed">Failed to sign in. Please check your network connection and try again.</string>
