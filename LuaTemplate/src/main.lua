@@ -5,7 +5,7 @@ require "config"
 require "cocos.init"
 
 local function initBeforeGame()
-  local gameConf  = require("cjson").decode(cc.FileUtils:getInstance():getStringFromFile(
+    local gameConf  = require("cjson").decode(cc.FileUtils:getInstance():getStringFromFile(
 		string.format("src/app/%s/%s_config.json", DD_WORKING_GAME_NAME, DD_WORKING_GAME_NAME)))
 	for k, v in pairs(gameConf) do
 		dd[k] = v
@@ -23,7 +23,7 @@ local function initBeforeGame()
         end
     end
 
-	cc.load("sdk").MyAds.init()
+    cc.load("sdk").MyAds.init()
 end
 
 local function main()

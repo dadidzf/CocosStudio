@@ -1,5 +1,5 @@
 
-#include "scripting/lua-bindings/manual/cjson/lua_extensions.h"
+#include "scripting/lua-bindings/manual/cjson/lua_cjson_extensions.h"
 
 #if __cplusplus
 extern "C" {
@@ -13,7 +13,7 @@ static luaL_Reg luax_exts[] = {
     {NULL, NULL}
 };
 
-static void luaopen_lua_extensions(lua_State *L)
+static void luaopen_cjson_extensions(lua_State *L)
 {
     // load extensions
     luaL_Reg* lib = luax_exts;
@@ -29,7 +29,7 @@ static void luaopen_lua_extensions(lua_State *L)
     
 void register_cjson_module(lua_State *L)
 {
-    luaopen_lua_extensions(L);
+	luaopen_cjson_extensions(L);
 }
 
 

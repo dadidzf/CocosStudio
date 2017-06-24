@@ -15,5 +15,9 @@ runtime/mac
 temp/
 Tools/iconscale/output
 art
+*.obj
+*.dll
+*.pdb
+*.tlog
 
 

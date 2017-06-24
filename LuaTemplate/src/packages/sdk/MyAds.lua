@@ -18,9 +18,11 @@ local _createAdsImage
 local _ignoreUrl
 
 function MyAds.init()
-	_checkDir()
-	_loadNativeConfig()
-	_getRemoteVersion()
+	if device.platform == "ios" or device.platform == "android" then
+		_checkDir()
+		_loadNativeConfig()
+		_getRemoteVersion()
+	end
 end
 
 function MyAds.showAds(layerOrder)

@@ -1,6 +1,6 @@
 
-#ifndef __LUA_EXTRA_H_
-#define __LUA_EXTRA_H_
+#ifndef __LUA_CJSON_EXTENSIONS_H_
+#define __LUA_CJSON_EXTENSIONS_H_
 
 #if defined(_USRDLL)
     #define LUA_EXTENSIONS_DLL     __declspec(dllexport)
@@ -22,4 +22,4 @@ void LUA_EXTENSIONS_DLL register_cjson_module(lua_State *L);
 }
 #endif
 
-#endif /* __LUA_EXTRA_H_ */
+#endif /* __LUA_CJSON_EXTENSIONS_H_ */

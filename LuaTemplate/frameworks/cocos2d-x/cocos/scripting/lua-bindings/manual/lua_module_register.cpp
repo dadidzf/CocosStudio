@@ -2,7 +2,7 @@
 
 #include "scripting/lua-bindings/manual/cocosdenshion/lua_cocos2dx_cocosdenshion_manual.h"
 #include "scripting/lua-bindings/manual/network/lua_cocos2dx_network_manual.h"
-#include "scripting/lua-bindings/manual/cjson/lua_extensions.h"
+#include "scripting/lua-bindings/manual/cjson/lua_cjson_extensions.h"
 #include "scripting/lua-bindings/manual/cocosbuilder/lua_cocos2dx_cocosbuilder_manual.h"
 #include "scripting/lua-bindings/manual/cocostudio/lua_cocos2dx_coco_studio_manual.hpp"
 #include "scripting/lua-bindings/manual/extension/lua_cocos2dx_extension_manual.h"
@@ -12,7 +12,6 @@
 #include "scripting/lua-bindings/manual/audioengine/lua_cocos2dx_audioengine_manual.h"
 #include "scripting/lua-bindings/manual/physics3d/lua_cocos2dx_physics3d_manual.h"
 #include "scripting/lua-bindings/manual/navmesh/lua_cocos2dx_navmesh_manual.h"
-
 
 int lua_module_register(lua_State* L)
 {
