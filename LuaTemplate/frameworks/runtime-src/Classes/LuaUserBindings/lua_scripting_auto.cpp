@@ -1,4 +1,4 @@
-#include "scripting/lua-bindings/auto/lua_scripting_auto.hpp"
+#include "lua_scripting_auto.hpp"
 #include "YWStrUtil.h"
 #include "YWCsvParser.h"
 #include "scripting/lua-bindings/manual/tolua_fix.h"
