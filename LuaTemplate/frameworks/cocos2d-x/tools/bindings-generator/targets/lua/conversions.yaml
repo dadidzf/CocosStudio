@@ -17,6 +17,8 @@ conversions:
     "@std::vector<int.*>.>": "std::vector<int>"
     "@cocos2d::Map<std::basic_string.*,": "cocos2d::Map<std::string,"
     "@std::map<std::basic_string.*,\\s*std::basic_string.*>": "std::map<std::string, std::string>"
+    "@std::vector<cocos2d::Vec2.*>": "std::vector<cocos2d::Vec2>"
+    "@rapidjson::GenericDocument.*": "rapidjson::Document"
   ns_map:
     "cocos2d::experimental::ui::": "ccexp."
     "cocos2d::experimental::": "ccexp."
@@ -29,10 +31,12 @@ conversions:
     "cocosbuilder::": "cc."
     "CocosDenshion::": "cc."
     "cocos2d::tweenfunc::": "cc."
+    "scripting::": "ss."
+    "rapidjson::": "json."
 
   to_native:
     # lua to native
-    int: "ok &= luaval_to_int32(tolua_S, ${arg_idx},(int *)&${out_value}, \"${lua_namespaced_class_name}:${func_name}\")"
+    int: "ok &= luaval_to_int32_handler(tolua_S, ${arg_idx},(int *)&${out_value}, \"${lua_namespaced_class_name}:${func_name}\")"
     "unsigned int": "ok &= luaval_to_uint32(tolua_S, ${arg_idx},&${out_value}, \"${lua_namespaced_class_name}:${func_name}\")"
     "unsigned char": "ok &= luaval_to_uint16(tolua_S, ${arg_idx},&${out_value}, \"${lua_namespaced_class_name}:${func_name}\")"
     short: "ok &= luaval_to_int32(tolua_S, ${arg_idx},&${out_value}, \"${lua_namespaced_class_name}:${func_name}\")"
@@ -82,7 +86,9 @@ conversions:
     "TexParams": "ok &= luaval_to_texparams(tolua_S, ${arg_idx}, &${out_value}, \"${lua_namespaced_class_name}:${func_name}\")"
     "NavMeshAgentParam": "ok &= luaval_to_navmeshagentparam(tolua_S, ${arg_idx}, &${out_value}, \"${lua_namespaced_class_name}:${func_name}\")"
     "OffMeshLinkData": "ok &= luaval_to_offmeshlinkdata(tolua_S, ${arg_idx}, &${out_value}, \"${lua_namespaced_class_name}:${func_name}\")"
-    "ListenerID": "ok &= luaval_to_std_string(tolua_S, ${arg_idx},&${out_value}, \"${lua_namespaced_class_name}:${func_name}\")"
+
+    "@vector<cocos2d::Vec2.*>": "ok &= luaval_to_std_vector_vec2(tolua_S, ${arg_idx}, &${out_value}, \"${lua_namespaced_class_name}:${func_name}\")"
+    "@GenericDocument.*": "ok &= luaval_to_json(tolua_S, ${arg_idx}, ${out_value}, ${out_value}.GetAllocator(), \"${lua_namespaced_class_name}:${func_name}\")"
 
     object: "ok &= luaval_to_object<${arg.to_string($generator).replace(\"*\", \"\")}>(tolua_S, ${arg_idx}, \"${scriptname}\",&${out_value}, \"${lua_namespaced_class_name}:${func_name}\")"
   from_native:
@@ -138,6 +144,10 @@ conversions:
     "TexParams": "texParams_to_luaval(tolua_S, ${in_value})"
     "NavMeshAgentParam": "navmeshagentparam_to_luaval(tolua_S, ${in_value})"
     "OffMeshLinkData": "offmeshlinkdata_to_luaval(tolua_S, ${in_value})"
+
+    "@vector<cocos2d::Vec2.*>": "std_vector_vec2_to_luaval(tolua_S, ${in_value})"
+    "@unordered_map<int.*,\\s*std::basic_string.*>": "std_unordered_map_int_string_to_luaval(tolua_S, ${in_value})"
+    "@GenericDocument.*": "json_to_luaval(tolua_S, ${in_value})"
 
     object: "object_to_luaval<${ntype.replace(\"*\", \"\").replace(\"const \", \"\")}>(tolua_S, \"${scriptname}\",(${ntype.replace(\"const \", \"\")})${in_value})"
 

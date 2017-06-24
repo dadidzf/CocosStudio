@@ -1,9 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: utf8 -*-
+# http://www.python-excel.org
 import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 import os
 import shutil
 import json
 import re
-from Tools.tool import image_produce_run
+from Tools.iconscale.tool import image_produce_run
+from Tools.excel2csv.excel2csv import excel2csvDir
+from Tools.texturePacker.packTextures import packagePic
 
 def replace_string(filepath, src_string, dst_string):
     """ From file's content replace specified string
@@ -169,6 +177,19 @@ def applayGameConfigToProject(name):
 
     ## common
 
+def excel2csv(name):
+    curPath = get_current_path()
+    csvDir = os.path.join(curPath, "res/%s/csv"%name)
+    if os.path.exists(csvDir):
+        shutil.rmtree(csvDir)
+
+    os.mkdir(csvDir)
+    excel2csvDir(os.path.join("/Volumes/Share-6/%s"%name, u"配置表"), csvDir)
+
+def texturepack(name):
+    curPath = get_current_path()
+    packagePic(os.path.join("/Volumes/Share-6/%s"%name, "packageRes"))
+
 def applyGameIcon(name):
     curPath = get_current_path()
     image_produce_run(
@@ -273,6 +294,12 @@ def run():
             elif sys.argv[1] == 'icon':
                 if assertEnoughArgs(3):
                     applyGameIcon(sys.argv[2])
+            elif sys.argv[1] == 'excel2csv':
+                if assertEnoughArgs(3):
+                    excel2csv(sys.argv[2])
+            elif sys.argv[1] == 'texturepack':
+                if assertEnoughArgs(3):
+                    texturepack(sys.argv[2])
             elif sys.argv[1] == 'recover':
                 print('Recover finished !')
 

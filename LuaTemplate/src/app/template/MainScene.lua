@@ -6,6 +6,8 @@ function MainScene:onCreate()
 	local inc = 1
 	local fntSize = 64
 
+	dump(cc.load("sdk").CsvUtil.parseFile("csv/ball.csv"))
+
 	ccui.Text:create("Show My Own Ads", "", fntSize)
 		:move(display.cx, display.height - 100)
 		:addTo(self)

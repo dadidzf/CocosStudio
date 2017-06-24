@@ -16,8 +16,11 @@
 		1AF4C403178663F200122817 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C402178663F200122817 /* libz.dylib */; };
 		2927B5F01E9D0373001985D9 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2927B5EF1E9D0373001985D9 /* GameController.framework */; };
 		294D0D721D0D572600F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D711D0D572600F7F5D4 /* CoreText.framework */; };
-		295A85AE1E6849AF0016DEC3 /* lua_binding_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 295A85AC1E6849AF0016DEC3 /* lua_binding_manual.cpp */; };
-		295A85AF1E6849AF0016DEC3 /* lua_binding_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 295A85AC1E6849AF0016DEC3 /* lua_binding_manual.cpp */; };
+		29B40A271EFE0EE600238ACB /* lua_binding_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A1E1EFE0EE600238ACB /* lua_binding_manual.cpp */; };
+		29B40A281EFE0EE600238ACB /* lua_scripting_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A201EFE0EE600238ACB /* lua_scripting_auto.cpp */; };
+		29B40A291EFE0EE600238ACB /* LuaCustomConversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A221EFE0EE600238ACB /* LuaCustomConversions.cpp */; };
+		29B40A2F1EFE0EFB00238ACB /* YWCsvparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A2B1EFE0EFB00238ACB /* YWCsvparser.cpp */; };
+		29B40A301EFE0EFB00238ACB /* YWStrUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A2D1EFE0EFB00238ACB /* YWStrUtil.cpp */; };
 		29B95D201E9E59DC00567316 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29B95D1F1E9E59DC00567316 /* GoogleService-Info.plist */; };
 		29C1B7361EAC9C4100813C76 /* ToolsController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29C1B7351EAC9C4100813C76 /* ToolsController.mm */; };
 		29C5BE641EBD824D00774F6A /* GameCenterHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29C5BE631EBD824D00774F6A /* GameCenterHelper.mm */; };
@@ -201,10 +204,18 @@
 		2927B5EF1E9D0373001985D9 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		29399F4D1E9A1EF9003D5267 /* libGoogleToolboxForMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleToolboxForMac.a; path = "Pods/../build/Debug-iphoneos/GoogleToolboxForMac/libGoogleToolboxForMac.a"; sourceTree = "<group>"; };
 		294D0D711D0D572600F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
-		295A85AC1E6849AF0016DEC3 /* lua_binding_manual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_binding_manual.cpp; sourceTree = "<group>"; };
-		295A85AD1E6849AF0016DEC3 /* lua_binding_manual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lua_binding_manual.h; sourceTree = "<group>"; };
 		29B0F0AE1EA30A1F0060750C /* libPods-LuaTemplate-mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-LuaTemplate-mobile.a"; path = "Build/Products/Debug-iphonesimulator/libPods-LuaTemplate-mobile.a"; sourceTree = "<group>"; };
 		29B0F0B61EA34CEA0060750C /* libPods-LuaTemplate-mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-LuaTemplate-mobile.a"; path = "Build/Products/Debug-iphoneos/libPods-LuaTemplate-mobile.a"; sourceTree = "<group>"; };
+		29B40A1E1EFE0EE600238ACB /* lua_binding_manual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_binding_manual.cpp; sourceTree = "<group>"; };
+		29B40A1F1EFE0EE600238ACB /* lua_binding_manual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lua_binding_manual.h; sourceTree = "<group>"; };
+		29B40A201EFE0EE600238ACB /* lua_scripting_auto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_scripting_auto.cpp; sourceTree = "<group>"; };
+		29B40A211EFE0EE600238ACB /* lua_scripting_auto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lua_scripting_auto.hpp; sourceTree = "<group>"; };
+		29B40A221EFE0EE600238ACB /* LuaCustomConversions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LuaCustomConversions.cpp; sourceTree = "<group>"; };
+		29B40A231EFE0EE600238ACB /* LuaCustomConversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaCustomConversions.h; sourceTree = "<group>"; };
+		29B40A2B1EFE0EFB00238ACB /* YWCsvparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YWCsvparser.cpp; sourceTree = "<group>"; };
+		29B40A2C1EFE0EFB00238ACB /* YWCsvParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWCsvParser.h; sourceTree = "<group>"; };
+		29B40A2D1EFE0EFB00238ACB /* YWStrUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YWStrUtil.cpp; sourceTree = "<group>"; };
+		29B40A2E1EFE0EFB00238ACB /* YWStrUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWStrUtil.h; sourceTree = "<group>"; };
 		29B95D1A1E9D38D100567316 /* libPods-LuaTemplate-desktop.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-LuaTemplate-desktop.a"; path = "Pods/../build/Debug/libPods-LuaTemplate-desktop.a"; sourceTree = "<group>"; };
 		29B95D1F1E9E59DC00567316 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		29C1B7341EAC9C4100813C76 /* ToolsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsController.h; sourceTree = "<group>"; };
@@ -357,14 +368,30 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		295A85AB1E6849AF0016DEC3 /* LuaUserBindings */ = {
+		29B40A191EFE0EE600238ACB /* LuaUserBindings */ = {
 			isa = PBXGroup;
 			children = (
-				295A85AC1E6849AF0016DEC3 /* lua_binding_manual.cpp */,
-				295A85AD1E6849AF0016DEC3 /* lua_binding_manual.h */,
+				29B40A1E1EFE0EE600238ACB /* lua_binding_manual.cpp */,
+				29B40A1F1EFE0EE600238ACB /* lua_binding_manual.h */,
+				29B40A201EFE0EE600238ACB /* lua_scripting_auto.cpp */,
+				29B40A211EFE0EE600238ACB /* lua_scripting_auto.hpp */,
+				29B40A221EFE0EE600238ACB /* LuaCustomConversions.cpp */,
+				29B40A231EFE0EE600238ACB /* LuaCustomConversions.h */,
 			);
 			name = LuaUserBindings;
 			path = ../Classes/LuaUserBindings;
+			sourceTree = "<group>";
+		};
+		29B40A2A1EFE0EFB00238ACB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				29B40A2B1EFE0EFB00238ACB /* YWCsvparser.cpp */,
+				29B40A2C1EFE0EFB00238ACB /* YWCsvParser.h */,
+				29B40A2D1EFE0EFB00238ACB /* YWStrUtil.cpp */,
+				29B40A2E1EFE0EFB00238ACB /* YWStrUtil.h */,
+			);
+			name = Utils;
+			path = ../Classes/Utils;
 			sourceTree = "<group>";
 		};
 		29C1B7331EAC9C4100813C76 /* Tools */ = {
@@ -552,7 +579,8 @@
 		F293BB7C15EB830F00256477 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				295A85AB1E6849AF0016DEC3 /* LuaUserBindings */,
+				29B40A2A1EFE0EFB00238ACB /* Utils */,
+				29B40A191EFE0EE600238ACB /* LuaUserBindings */,
 				15427CE2198F237300DC375D /* lua_module_register.h */,
 				F293BB7E15EB831F00256477 /* AppDelegate.cpp */,
 				F293BB7F15EB831F00256477 /* AppDelegate.h */,
@@ -888,7 +916,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				295A85AF1E6849AF0016DEC3 /* lua_binding_manual.cpp in Sources */,
 				C07828FA18B4D72E00BD2287 /* SimulatorApp.mm in Sources */,
 				5023813317EBBCE400990C9B /* AppDelegate.cpp in Sources */,
 				9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */,
@@ -900,12 +927,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				295A85AE1E6849AF0016DEC3 /* lua_binding_manual.cpp in Sources */,
+				29B40A281EFE0EE600238ACB /* lua_scripting_auto.cpp in Sources */,
+				29B40A2F1EFE0EFB00238ACB /* YWCsvparser.cpp in Sources */,
+				29B40A271EFE0EE600238ACB /* lua_binding_manual.cpp in Sources */,
 				29D231521EA3993C009ED9CF /* AdmobController.mm in Sources */,
 				5023812517EBBCAC00990C9B /* RootViewController.mm in Sources */,
 				F293BB9C15EB831F00256477 /* AppDelegate.cpp in Sources */,
+				29B40A291EFE0EE600238ACB /* LuaCustomConversions.cpp in Sources */,
 				5023812417EBBCAC00990C9B /* main.m in Sources */,
 				5023811817EBBCAC00990C9B /* AppController.mm in Sources */,
+				29B40A301EFE0EFB00238ACB /* YWStrUtil.cpp in Sources */,
 				29C5BE641EBD824D00774F6A /* GameCenterHelper.mm in Sources */,
 				29C1B7361EAC9C4100813C76 /* ToolsController.mm in Sources */,
 			);

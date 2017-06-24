@@ -5,10 +5,10 @@ android {
     buildToolsVersion '26.0.0'
 
     defaultConfig {
-        applicationId "com.yongwuart.onesecond"
+        applicationId "com.yongwuart.template"
         minSdkVersion 17
         targetSdkVersion 26
-        versionCode 2
+        versionCode 1
         versionName "1.0"
     }
 

@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "100174380124",
-    "firebase_url": "https://one-second-86179.firebaseio.com",
-    "project_id": "one-second-86179",
-    "storage_bucket": "one-second-86179.appspot.com"
+    "project_number": "39604137931",
+    "firebase_url": "https://luatemplate-7c656.firebaseio.com",
+    "project_id": "luatemplate-7c656",
+    "storage_bucket": "luatemplate-7c656.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:100174380124:android:9d3c0aa9aa4ef7d3",
+        "mobilesdk_app_id": "1:39604137931:android:957e7ecfb1c7a498",
         "android_client_info": {
-          "package_name": "com.yongwuart.onesecond"
+          "package_name": "com.yongwuart.template"
         }
       },
       "oauth_client": [
         {
-          "client_id": "100174380124-dtgr8eb776msm1gpdka6sgdqtupdlu0a.apps.googleusercontent.com",
+          "client_id": "39604137931-4ir6j7md17tu9i4k072kaecu08fv8655.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDTROKnviuZHx4QDgKcKmUYeR4m3U79qPo"
+          "current_key": "AIzaSyAFOlNix6mhiC54oJMOsu1Vjyr6kYYtmU0"
         }
       ],
       "services": {

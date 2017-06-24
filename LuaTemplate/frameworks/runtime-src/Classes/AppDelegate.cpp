@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "scripting/lua-bindings/manual/lua_module_register.h"
 #include "LuaUserBindings/lua_binding_manual.h"
+#include "LuaUserBindings/lua_scripting_auto.hpp"
 
 using namespace CocosDenshion;
 
@@ -54,7 +55,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     lua_module_register(L);
     
     register_user_manual(L); // lua bindings defined by myself
-    
+    register_all_scripting(L);
     register_all_packages();
 
     LuaStack* stack = engine->getLuaStack();

@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>100174380124-61kse5usfqgkestnoqtfh6qhh1v06rc4.apps.googleusercontent.com</string>
+	<string>39604137931-oec33vc1mns41o9tkukiuc9t5jgih0r8.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.100174380124-61kse5usfqgkestnoqtfh6qhh1v06rc4</string>
+	<string>com.googleusercontent.apps.39604137931-oec33vc1mns41o9tkukiuc9t5jgih0r8</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDVpL5duGVDYo66Z8GWNd_CYxa7lxTU4Yo</string>
+	<string>AIzaSyDVclWaWJL1qUjbbQ3tFoImUWJdsZwLOSo</string>
 	<key>GCM_SENDER_ID</key>
-	<string>100174380124</string>
+	<string>39604137931</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.yongwuart.onesecond</string>
+	<string>com.yongwuart.template</string>
 	<key>PROJECT_ID</key>
-	<string>one-second-86179</string>
+	<string>luatemplate-7c656</string>
 	<key>STORAGE_BUCKET</key>
-	<string>one-second-86179.appspot.com</string>
+	<string>luatemplate-7c656.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:100174380124:ios:9d3c0aa9aa4ef7d3</string>
+	<string>1:39604137931:ios:957e7ecfb1c7a498</string>
 	<key>DATABASE_URL</key>
-	<string>https://one-second-86179.firebaseio.com</string>
+	<string>https://luatemplate-7c656.firebaseio.com</string>
 </dict>
 </plist>

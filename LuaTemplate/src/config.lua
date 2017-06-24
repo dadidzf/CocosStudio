@@ -26,4 +26,4 @@ CC_DESIGN_RESOLUTION = {
 }
 
 -- name of current game, it's also the working directory for current game
-DD_WORKING_GAME_NAME = "onesecond"
+DD_WORKING_GAME_NAME = "template"
