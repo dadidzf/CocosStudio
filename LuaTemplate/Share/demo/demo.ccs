@@ -1,0 +1,30 @@
+<Solution>
+  <PropertyGroup Name="demo" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <PlistImageFolder Image="gui.png" PListFile="gui.plist" Name=".gui_PList.Dir">
+          <PlistImageFile Name="512.png" Key="512.png" />
+          <PlistImageFile Name="NoAds.png" Key="NoAds.png" />
+          <PlistImageFile Name="background.png" Key="background.png" />
+          <PlistImageFile Name="finger.png" Key="finger.png" />
+          <PlistImageFile Name="finger1.png" Key="finger1.png" />
+          <PlistImageFile Name="gameEndScoreBg.png" Key="gameEndScoreBg.png" />
+          <PlistImageFile Name="gear.png" Key="gear.png" />
+          <PlistImageFile Name="potentiometerProgress.png" Key="potentiometerProgress.png" />
+          <PlistImageFile Name="rankbtn.png" Key="rankbtn.png" />
+          <PlistImageFile Name="rate.png" Key="rate.png" />
+          <PlistImageFile Name="return.png" Key="return.png" />
+          <PlistImageFile Name="roate.png" Key="roate.png" />
+          <PlistImageFile Name="sharebtn.png" Key="sharebtn.png" />
+          <PlistImageFile Name="sliderProgress.png" Key="sliderProgress.png" />
+          <PlistImageFile Name="soundOff.png" Key="soundOff.png" />
+          <PlistImageFile Name="soundOn.png" Key="soundOn.png" />
+        </PlistImageFolder>
+        <Folder Name="trapballs" />
+        <Image Name="HelloWorld.png" />
+        <Project Name="MainScene.csd" Type="Scene" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>
