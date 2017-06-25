@@ -23,7 +23,9 @@ outFilesAndroid = ['480x800','720x1280','1080x1920']
 def get_current_path():
     return os.path.dirname(__file__)
 
-shutil.rmtree(os.path.join(get_current_path(), 'output'))
+if os.path.exists(os.path.join(get_current_path(), 'output')):
+    shutil.rmtree(os.path.join(get_current_path(), 'output'))
+    
 os.mkdir(os.path.join(get_current_path(), 'output'))
 os.mkdir(os.path.join(get_current_path(), 'output/androidIcon'))
 os.mkdir(os.path.join(get_current_path(), 'output/androidSplash'))
