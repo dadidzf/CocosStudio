@@ -184,11 +184,11 @@ def excel2csv(name):
         shutil.rmtree(csvDir)
 
     os.mkdir(csvDir)
-    excel2csvDir(os.path.join("/Volumes/Share-6/%s"%name, u"配置表"), csvDir)
+    excel2csvDir(os.path.join(curPath, "Share/%s"%name, u"配置表"), csvDir)
 
 def texturepack(name):
     curPath = get_current_path()
-    packagePic(os.path.join("/Volumes/Share-6/%s"%name, "packageRes"))
+    packagePic(os.path.join(curPath, "Share/%s"%name, "packageRes"))
 
 def applyGameIcon(name):
     curPath = get_current_path()

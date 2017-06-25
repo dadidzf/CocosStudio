@@ -10,6 +10,12 @@
     <Filter Include="resource">
       <UniqueIdentifier>{2d1d0979-58cd-4ab6-b91c-13650158f1fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Utils">
+      <UniqueIdentifier>{60b4111d-7f6e-489c-a4f5-d20dc031c581}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\LuaUserBindings">
+      <UniqueIdentifier>{f19930c6-6a88-49e6-af37-1ad98edac526}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h">
@@ -26,6 +32,21 @@
     <ClInclude Include="targetver.h">
       <Filter>win32</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\LuaUserBindings\lua_binding_manual.h">
+      <Filter>Classes\LuaUserBindings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LuaUserBindings\lua_scripting_auto.hpp">
+      <Filter>Classes\LuaUserBindings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LuaUserBindings\LuaCustomConversions.h">
+      <Filter>Classes\LuaUserBindings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utils\YWCsvParser.h">
+      <Filter>Classes\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utils\YWStrUtil.h">
+      <Filter>Classes\Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -37,6 +58,21 @@
     <ClCompile Include="SimulatorWin.cpp" />
     <ClCompile Include="stdafx.cpp">
       <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LuaUserBindings\lua_scripting_auto.cpp">
+      <Filter>Classes\LuaUserBindings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LuaUserBindings\LuaCustomConversions.cpp">
+      <Filter>Classes\LuaUserBindings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LuaUserBindings\lua_binding_manual.cpp">
+      <Filter>Classes\LuaUserBindings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utils\YWStrUtil.cpp">
+      <Filter>Classes\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utils\YWCsvparser.cpp">
+      <Filter>Classes\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -19,5 +19,5 @@ art
 *.dll
 *.pdb
 *.tlog
-
+*.Dir
 

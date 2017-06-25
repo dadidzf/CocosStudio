@@ -79,6 +79,12 @@
     <Filter Include="manual\navmesh">
       <UniqueIdentifier>{fa8be49e-8b79-4dc5-8f28-febde1347eda}</UniqueIdentifier>
     </Filter>
+    <Filter Include="cjson">
+      <UniqueIdentifier>{3b3efb06-666a-4e59-a06b-b82b635dc438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="manual\cjson">
+      <UniqueIdentifier>{3b1a9f2f-c258-4773-87df-bdd9d9447613}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\auto\lua_cocos2dx_auto.cpp">
@@ -299,6 +305,18 @@
     </ClCompile>
     <ClCompile Include="..\manual\lua_module_register.cpp">
       <Filter>manual</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\external\lua\cjson\lua_cjson.c">
+      <Filter>cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\external\lua\cjson\strbuf.c">
+      <Filter>cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\external\lua\cjson\fpconv.c">
+      <Filter>cjson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\manual\cjson\lua_cjson_extensions.c">
+      <Filter>manual\cjson</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -529,6 +547,18 @@
     </ClInclude>
     <ClInclude Include="..\manual\Lua-BindingsExport.h">
       <Filter>manual</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\external\lua\cjson\fpconv.h">
+      <Filter>cjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\external\lua\cjson\lua_cjson.h">
+      <Filter>cjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\external\lua\cjson\strbuf.h">
+      <Filter>cjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\manual\cjson\lua_cjson_extensions.h">
+      <Filter>manual\cjson</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
