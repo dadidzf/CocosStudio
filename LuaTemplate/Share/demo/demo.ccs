@@ -3,24 +3,6 @@
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
-        <PlistImageFolder Image="gui.png" PListFile="gui.plist" Name=".gui_PList.Dir">
-          <PlistImageFile Name="512.png" Key="512.png" />
-          <PlistImageFile Name="background.png" Key="background.png" />
-          <PlistImageFile Name="finger.png" Key="finger.png" />
-          <PlistImageFile Name="finger1.png" Key="finger1.png" />
-          <PlistImageFile Name="gameEndScoreBg.png" Key="gameEndScoreBg.png" />
-          <PlistImageFile Name="gear.png" Key="gear.png" />
-          <PlistImageFile Name="NoAds.png" Key="NoAds.png" />
-          <PlistImageFile Name="potentiometerProgress.png" Key="potentiometerProgress.png" />
-          <PlistImageFile Name="rankbtn.png" Key="rankbtn.png" />
-          <PlistImageFile Name="rate.png" Key="rate.png" />
-          <PlistImageFile Name="return.png" Key="return.png" />
-          <PlistImageFile Name="roate.png" Key="roate.png" />
-          <PlistImageFile Name="sharebtn.png" Key="sharebtn.png" />
-          <PlistImageFile Name="sliderProgress.png" Key="sliderProgress.png" />
-          <PlistImageFile Name="soundOff.png" Key="soundOff.png" />
-          <PlistImageFile Name="soundOn.png" Key="soundOn.png" />
-        </PlistImageFolder>
         <Folder Name="trapballs">
           <PlistImageFolder Image="di.png" PListFile="di.plist" Name=".di_PList.Dir">
             <PlistImageFile Name="di_blue.png" Key="di_blue.png" />
@@ -31,21 +13,23 @@
           <PlistImageFolder Image="gui.png" PListFile="gui.plist" Name=".gui_PList.Dir">
             <PlistImageFile Name="btn_buy.png" Key="btn_buy.png" />
             <PlistImageFile Name="btn_chart.png" Key="btn_chart.png" />
+            <PlistImageFile Name="btn_green.png" Key="btn_green.png" />
             <PlistImageFile Name="btn_musicoff.png" Key="btn_musicoff.png" />
             <PlistImageFile Name="btn_musicon.png" Key="btn_musicon.png" />
             <PlistImageFile Name="btn_noadds.png" Key="btn_noadds.png" />
+            <PlistImageFile Name="btn_orange.png" Key="btn_orange.png" />
+            <PlistImageFile Name="btn_purple.png" Key="btn_purple.png" />
+            <PlistImageFile Name="btn_red.png" Key="btn_red.png" />
             <PlistImageFile Name="btn_share.png" Key="btn_share.png" />
-            <PlistImageFile Name="button_play_diblack.png" Key="button_play_diblack.png" />
-            <PlistImageFile Name="button_play_diblue.png" Key="button_play_diblue.png" />
-            <PlistImageFile Name="button_play_dired_green.png" Key="button_play_dired_green.png" />
-            <PlistImageFile Name="button_play_diyellow.png" Key="button_play_diyellow.png" />
             <PlistImageFile Name="di_black.png" Key="di_black.png" />
+            <PlistImageFile Name="line_white.png" Key="line_white.png" />
             <PlistImageFile Name="money.png" Key="money.png" />
             <PlistImageFile Name="trapballs.png" Key="trapballs.png" />
           </PlistImageFolder>
+          <Project Name="menu.csd" Type="Layer" />
+          <Project Name="selectlevel.csd" Type="Layer" />
         </Folder>
         <Image Name="HelloWorld.png" />
-        <Project Name="MainScene.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>
