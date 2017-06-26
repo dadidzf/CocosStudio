@@ -4,6 +4,19 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>ball.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{510,1902},{25,25}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{25,25}}</string>
+                <key>sourceSize</key>
+                <string>{25,25}</string>
+            </dict>
             <key>btn_buy.png</key>
             <dict>
                 <key>frame</key>
@@ -33,7 +46,7 @@
             <key>btn_green.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1320,2},{172,86}}</string>
+                <string>{{904,2},{172,86}}</string>
                 <key>offset</key>
                 <string>{-3,-2}</string>
                 <key>rotated</key>
@@ -98,7 +111,7 @@
             <key>btn_orange.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{904,2},{172,86}}</string>
+                <string>{{730,2},{172,86}}</string>
                 <key>offset</key>
                 <string>{-3,-2}</string>
                 <key>rotated</key>
@@ -111,7 +124,7 @@
             <key>btn_purple.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{730,2},{172,86}}</string>
+                <string>{{1862,2},{172,86}}</string>
                 <key>offset</key>
                 <string>{-3,-2}</string>
                 <key>rotated</key>
@@ -124,7 +137,7 @@
             <key>btn_red.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1146,2},{172,86}}</string>
+                <string>{{1688,2},{172,86}}</string>
                 <key>offset</key>
                 <string>{-3,-2}</string>
                 <key>rotated</key>
@@ -159,6 +172,19 @@
                 <string>{{0,0},{720,1080}}</string>
                 <key>sourceSize</key>
                 <string>{720,1080}</string>
+            </dict>
+            <key>di_daoju.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{1146,2},{540,80}}</string>
+                <key>offset</key>
+                <string>{2,2}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{92,8},{540,80}}</string>
+                <key>sourceSize</key>
+                <string>{720,100}</string>
             </dict>
             <key>di_level_blue.png</key>
             <dict>
@@ -300,7 +326,7 @@
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:54aa1de00be68bcafad73884d766f6c3$</string>
+            <string>$TexturePacker:SmartUpdate:b23e78eac316a2b52af87e0a04610b66$</string>
             <key>textureFileName</key>
             <string>gui.png</string>
         </dict>

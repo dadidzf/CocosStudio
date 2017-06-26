@@ -25,11 +25,21 @@
             <PlistImageFile Name="line_white.png" Key="line_white.png" />
             <PlistImageFile Name="money.png" Key="money.png" />
             <PlistImageFile Name="trapballs.png" Key="trapballs.png" />
+            <PlistImageFile Name="btn_noaddsoff.png" Key="btn_noaddsoff.png" />
+            <PlistImageFile Name="di_level_blue.png" Key="di_level_blue.png" />
+            <PlistImageFile Name="di_level_cyan.png" Key="di_level_cyan.png" />
+            <PlistImageFile Name="di_level_green.png" Key="di_level_green.png" />
+            <PlistImageFile Name="di_level_orange.png" Key="di_level_orange.png" />
+            <PlistImageFile Name="di_level_purple.png" Key="di_level_purple.png" />
+            <PlistImageFile Name="di_level_red.png" Key="di_level_red.png" />
+            <PlistImageFile Name="di_level_yellow.png" Key="di_level_yellow.png" />
           </PlistImageFolder>
           <Project Name="menu.csd" Type="Layer" />
           <Project Name="selectlevel.csd" Type="Layer" />
+          <Project Name="Node_level.csd" Type="Node" />
         </Folder>
         <Image Name="HelloWorld.png" />
+        <Fnt Name="white_32.fnt" />
       </RootFolder>
     </Group>
   </SolutionFolder>

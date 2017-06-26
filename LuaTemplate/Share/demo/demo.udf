@@ -1,0 +1,39 @@
+<UserData Version="3.10.0.0">
+  <Properties>
+    <Item Key="PackageParamsKey">
+      <Value ctype="PackageParams">
+        <LuaIsEncrypt Value="False" />
+        <LuaEncryptKey Value="" />
+        <LuaEncryptSign Value="" />
+        <Android_PackageName Value="org.cocos.demo" />
+        <AndroidkeyStore Value="" />
+        <AndroidVersion Value="" />
+        <iOS_Target Value="demo iOS" />
+        <iOS_BundleID Value="iPhone Developer: 464874358@qq.com (D35C9QFLQA)" />
+        <Platform Value="None" />
+        <RunPlatform Value="None" />
+        <FrameworkVersion Value="cocos2d-x-3.10" />
+        <IsDebugKeystore Value="True" />
+        <EnableSourceMap Value="False" />
+        <EnableHTML5Advanced Value="False" />
+      </Value>
+    </Item>
+    <Item Key="CocosRecentOperation">
+      <Value ctype="CocosRecentOperation">
+        <LastPublishType Value="Resource" />
+        <IsLastPublish Value="True" />
+        <LastRunType Value="Windows" />
+      </Value>
+    </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="trapballs/selectlevel.csd" />
+          <FilePathData Path="trapballs/menu.csd" />
+          <FilePathData Path="trapballs/Node_level.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="trapballs/selectlevel.csd" />
+      </Value>
+    </Item>
+  </Properties>
+</UserData>
