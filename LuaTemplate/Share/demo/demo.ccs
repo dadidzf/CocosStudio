@@ -11,21 +11,20 @@
             <PlistImageFile Name="di_yellow.png" Key="di_yellow.png" />
           </PlistImageFolder>
           <PlistImageFolder Image="gui.png" PListFile="gui.plist" Name=".gui_PList.Dir">
+            <PlistImageFile Name="ball.png" Key="ball.png" />
             <PlistImageFile Name="btn_buy.png" Key="btn_buy.png" />
             <PlistImageFile Name="btn_chart.png" Key="btn_chart.png" />
             <PlistImageFile Name="btn_green.png" Key="btn_green.png" />
             <PlistImageFile Name="btn_musicoff.png" Key="btn_musicoff.png" />
             <PlistImageFile Name="btn_musicon.png" Key="btn_musicon.png" />
             <PlistImageFile Name="btn_noadds.png" Key="btn_noadds.png" />
+            <PlistImageFile Name="btn_noaddsoff.png" Key="btn_noaddsoff.png" />
             <PlistImageFile Name="btn_orange.png" Key="btn_orange.png" />
             <PlistImageFile Name="btn_purple.png" Key="btn_purple.png" />
             <PlistImageFile Name="btn_red.png" Key="btn_red.png" />
             <PlistImageFile Name="btn_share.png" Key="btn_share.png" />
             <PlistImageFile Name="di_black.png" Key="di_black.png" />
-            <PlistImageFile Name="line_white.png" Key="line_white.png" />
-            <PlistImageFile Name="money.png" Key="money.png" />
-            <PlistImageFile Name="trapballs.png" Key="trapballs.png" />
-            <PlistImageFile Name="btn_noaddsoff.png" Key="btn_noaddsoff.png" />
+            <PlistImageFile Name="di_daoju.png" Key="di_daoju.png" />
             <PlistImageFile Name="di_level_blue.png" Key="di_level_blue.png" />
             <PlistImageFile Name="di_level_cyan.png" Key="di_level_cyan.png" />
             <PlistImageFile Name="di_level_green.png" Key="di_level_green.png" />
@@ -33,10 +32,13 @@
             <PlistImageFile Name="di_level_purple.png" Key="di_level_purple.png" />
             <PlistImageFile Name="di_level_red.png" Key="di_level_red.png" />
             <PlistImageFile Name="di_level_yellow.png" Key="di_level_yellow.png" />
+            <PlistImageFile Name="line_white.png" Key="line_white.png" />
+            <PlistImageFile Name="money.png" Key="money.png" />
+            <PlistImageFile Name="trapballs.png" Key="trapballs.png" />
           </PlistImageFolder>
           <Project Name="menu.csd" Type="Layer" />
-          <Project Name="selectlevel.csd" Type="Layer" />
           <Project Name="Node_level.csd" Type="Node" />
+          <Project Name="selectlevel.csd" Type="Layer" />
         </Folder>
         <Image Name="HelloWorld.png" />
         <Fnt Name="white_32.fnt" />
