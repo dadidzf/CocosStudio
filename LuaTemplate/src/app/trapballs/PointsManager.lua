@@ -1,7 +1,7 @@
 local PointsManager = class("PointsManager")
 local Cjson = require("cjson")
 
-local _ONE_POINT_DISTANCE = 3
+local _ONE_POINT_DISTANCE = 1
 
 function PointsManager:ctor()
     self.m_pointList = {} -- points list (hash table)
@@ -65,6 +65,8 @@ end
     add one new line logic
 --]]
 function PointsManager:addLine(pt1, pt2)
+    local startTime = socket.gettime()
+
     local pt1Index = self:getPtIndex(pt1)
     local pt1LineIndex, crossPt1 = self:getPtLine(pt1)
 
@@ -91,6 +93,8 @@ function PointsManager:addLine(pt1, pt2)
     self:linkTwoPoints(pt1Index, pt2Index)
 
     self:updateList()
+
+    print("PointsManager:addLine cost time", socket.gettime() - startTime)
 end
 
 -- is this point alreay in self.m_pointList
@@ -154,7 +158,7 @@ function PointsManager:insertPointToLine(newPt, lineIndex)
 end
 
 function PointsManager:linkTwoPoints(ptIndex1, ptIndex2)
-    self:adjustLinkLine(ptIndex1, ptIndex2)
+    --self:adjustLinkLine(ptIndex1, ptIndex2)
     table.insert(self.m_lineList, {ptIndex1, ptIndex2})
 end
 
