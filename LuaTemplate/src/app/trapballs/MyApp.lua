@@ -2,6 +2,7 @@ local MyApp = class("MyApp", cc.load("mvc").AppBase)
 
 cc.FileUtils:getInstance():addSearchPath("res/trapballs")
 
+import(".Constant")
 function MyApp:onCreate()
     math.randomseed(os.time())
 

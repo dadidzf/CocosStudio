@@ -17,6 +17,8 @@ local function initBeforeGame()
 		dd.appCommon = dd.android
 	end
 
+    dd.scheduler = cc.Director:getInstance():getScheduler()
+
     if not cc.load("sdk").Tools.verifyPackage() then
         print("verifyPackage Error !")
         while(true) do
