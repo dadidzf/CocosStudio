@@ -19,16 +19,7 @@ function ExtendLine:onCleanup()
 end
 
 function ExtendLine:getOffsets()
-    local posPt, negPt 
-    if self.m_isVertical then
-        posPt = cc.p(self.m_positivePt.x + self.m_endsBallRadius, 0)
-        negPt = cc.p(self.m_negativePt.x - self.m_endsBallRadius, 0)
-    else
-        posPt = cc.p(0, self.m_positivePt.y + self.m_endsBallRadius) 
-        negPt = cc.p(0, self.m_negativePt.y - self.m_endsBallRadius)
-    end
-
-    return {posPt, negPt}
+    return {self.m_positivePt, self.m_negativePt}
 end
 
 function ExtendLine:startExtend()
@@ -67,17 +58,21 @@ function ExtendLine:updatePhysicBody(t)
     shapeLine:setCollisionBitmask(0)
     body:addShape(shapeLine)
 
-    local shapeCircle1 = cc.PhysicsShapeCircle:create(6, cc.PhysicsMaterial(1, 1, 0), pt1)
-    shapeCircle1:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
-    shapeCircle1:setContactTestBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT + dd.Constants.CATEGORY.BALL)
-    shapeCircle1:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
-    body:addShape(shapeCircle1)
+    if not self.m_negativePt then
+        local shapeCircle1 = cc.PhysicsShapeCircle:create(self.m_endsBallRadius, cc.PhysicsMaterial(1, 1, 0), pt1)
+        shapeCircle1:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
+        shapeCircle1:setContactTestBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT + dd.Constants.CATEGORY.BALL)
+        shapeCircle1:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
+        body:addShape(shapeCircle1)
+    end
 
-    local shapeCircle2 = cc.PhysicsShapeCircle:create(6, cc.PhysicsMaterial(1, 1, 0), pt2)
-    shapeCircle2:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
-    shapeCircle2:setContactTestBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT + dd.Constants.CATEGORY.BALL)
-    shapeCircle2:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
-    body:addShape(shapeCircle2)
+    if not self.m_positivePt then
+        local shapeCircle2 = cc.PhysicsShapeCircle:create(self.m_endsBallRadius, cc.PhysicsMaterial(1, 1, 0), pt2)
+        shapeCircle2:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
+        shapeCircle2:setContactTestBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT + dd.Constants.CATEGORY.BALL)
+        shapeCircle2:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
+        body:addShape(shapeCircle2)
+    end
     
     body:setDynamic(false)
 end
@@ -91,10 +86,18 @@ end
 
 function ExtendLine:collision(shape)
     local offset = shape:getOffset()
-    if offset.x + offset.y > 0 then
-        self.m_positivePt = offset
+    local radius = self.m_endsBallRadius
+
+    if offset.x > 0 then
+        self.m_positivePt = cc.p(offset.x + radius, 0)
+    elseif offset.y > 0 then
+        self.m_positivePt = cc.p(0, offset.y + radius)
+    elseif offset.x < 0 then
+        self.m_negativePt = cc.p(offset.x - radius, 0)
+    elseif offset.y < 0 then
+        self.m_negativePt = cc.p(0, offset.y - radius)
     else
-        self.m_negativePt = offset
+        assert(false)
     end
 
     if self.m_positivePt and self.m_negativePt then

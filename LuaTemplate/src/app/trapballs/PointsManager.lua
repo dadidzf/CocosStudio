@@ -1,7 +1,7 @@
 local PointsManager = class("PointsManager")
 local Cjson = require("cjson")
 
-local _ONE_POINT_DISTANCE = 1
+local _ONE_POINT_DISTANCE = 2
 
 function PointsManager:ctor()
     self.m_pointList = {} -- points list (hash table)

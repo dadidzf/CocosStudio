@@ -45,33 +45,7 @@ function GameNode:onContactBegin(contact)
 
     -- segment with extend line ends
     if cateGoryAdd == dd.Constants.CATEGORY.EDGE_SEGMENT + dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS then
-        local shape 
-        if shapeACategory == dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS then
-            shape = shapeA
-        else
-            shape = shapeB
-        end
-
-        self.m_extendLine:collision(shape)
-        if not self.m_extendLine:isExtend() then
-            local pts = self.m_extendLine:getOffsets()
-            local pos = cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())
-            self.m_pointsMgr:addLine(cc.pAdd(pts[1], pos), cc.pAdd(pts[2], pos))
-            self.m_extendLine:removeFromParent()
-            self.m_extendLine = nil
-
-            local scheduler
-            local segment = self.m_edgeSegments
-            local callBack = function ()
-                if not tolua.isnull(segment) then
-                    segment:updatePhysicBody()
-                end
-                dd.scheduler:unscheduleScriptEntry(scheduler)
-            end
-
-            scheduler = dd.scheduler:scheduleScriptFunc(callBack, 0, false)
-        end
-
+        self:dealExtendlineCollision(shapeA, shapeB)
         return false
     end
 
@@ -82,12 +56,44 @@ function GameNode:onContactBegin(contact)
 
     -- ball with extend line ends
     if cateGoryAdd == dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS + dd.Constants.CATEGORY.BALL then
+        self:dealExtendlineCollision(shapeA, shapeB)
         return true
     end
 
     -- ball with extend line
     if cateGoryAdd == dd.Constants.CATEGORY.EXTENDLINE + dd.Constants.CATEGORY.BALL then
+        print("Game Over !")
         return false
+    end
+end
+
+function GameNode:dealExtendlineCollision(shapeA, shapeB)
+    local shape
+    local shapeACategory = shapeA:getCategoryBitmask()
+    if shapeACategory == dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS then
+        shape = shapeA
+    else
+        shape = shapeB
+    end
+        
+    self.m_extendLine:collision(shape)
+    if not self.m_extendLine:isExtend() then
+        local pts = self.m_extendLine:getOffsets()
+        local pos = cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())
+        self.m_pointsMgr:addLine(cc.pAdd(pts[1], pos), cc.pAdd(pts[2], pos))
+        self.m_extendLine:removeFromParent()
+        self.m_extendLine = nil
+
+        local scheduler
+        local segment = self.m_edgeSegments
+        local callBack = function ()
+            if not tolua.isnull(segment) then
+                segment:updatePhysicBody()
+            end
+            dd.scheduler:unscheduleScriptEntry(scheduler)
+        end
+
+        scheduler = dd.scheduler:scheduleScriptFunc(callBack, 0, false)
     end
 end
 

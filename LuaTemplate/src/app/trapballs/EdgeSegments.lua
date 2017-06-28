@@ -17,7 +17,7 @@ function EdgeSegments:updatePhysicBody()
         local shape = cc.PhysicsShapeEdgeSegment:create(ptPair[1], ptPair[2], cc.PhysicsMaterial(1, 1, 0), 1)
         body:addShape(shape)
         body:setCategoryBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT)
-        body:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
+        body:setContactTestBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
         body:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
         body:setDynamic(false)
     end
