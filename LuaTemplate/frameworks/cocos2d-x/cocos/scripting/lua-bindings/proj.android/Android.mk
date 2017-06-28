@@ -77,7 +77,7 @@ LOCAL_SRC_FILES += ../manual/cocosdenshion/lua_cocos2dx_cocosdenshion_manual.cpp
                    ../auto/lua_cocos2dx_cocosdenshion_auto.cpp
 
 #cjson
-LOCAL_SRC_FILES += ../manual/cjson/lua_extensions.c \
+LOCAL_SRC_FILES += ../manual/cjson/lua_cjson_extensions.c \
                    ../../../../external/lua/cjson/fpconv.c \
                    ../../../../external/lua/cjson/lua_cjson.c \
                    ../../../../external/lua/cjson/strbuf.c 
