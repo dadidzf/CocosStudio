@@ -10,11 +10,28 @@
             <PlistImageFile Name="di_red.png" Key="di_red.png" />
             <PlistImageFile Name="di_yellow.png" Key="di_yellow.png" />
           </PlistImageFolder>
+          <PlistImageFolder Image="di2.png" PListFile="di2.plist" Name=".di2_PList.Dir">
+            <PlistImageFile Name="di_black.png" Key="di_black.png" />
+            <PlistImageFile Name="di_cyan.png" Key="di_cyan.png" />
+            <PlistImageFile Name="di_orange.png" Key="di_orange.png" />
+            <PlistImageFile Name="di_purple.png" Key="di_purple.png" />
+          </PlistImageFolder>
           <PlistImageFolder Image="gui.png" PListFile="gui.plist" Name=".gui_PList.Dir">
-            <PlistImageFile Name="ball.png" Key="ball.png" />
+            <PlistImageFile Name="bal_yellow.png" Key="bal_yellow.png" />
+            <PlistImageFile Name="ball_blue.png" Key="ball_blue.png" />
+            <PlistImageFile Name="ball_cyan.png" Key="ball_cyan.png" />
+            <PlistImageFile Name="ball_green.png" Key="ball_green.png" />
+            <PlistImageFile Name="ball_orange.png" Key="ball_orange.png" />
+            <PlistImageFile Name="ball_purple.png" Key="ball_purple.png" />
+            <PlistImageFile Name="ball_red.png" Key="ball_red.png" />
+            <PlistImageFile Name="ball_white.png" Key="ball_white.png" />
+            <PlistImageFile Name="btn_back.png" Key="btn_back.png" />
+            <PlistImageFile Name="btn_blue.png" Key="btn_blue.png" />
             <PlistImageFile Name="btn_buy.png" Key="btn_buy.png" />
             <PlistImageFile Name="btn_chart.png" Key="btn_chart.png" />
+            <PlistImageFile Name="btn_cyan.png" Key="btn_cyan.png" />
             <PlistImageFile Name="btn_green.png" Key="btn_green.png" />
+            <PlistImageFile Name="btn_like.png" Key="btn_like.png" />
             <PlistImageFile Name="btn_musicoff.png" Key="btn_musicoff.png" />
             <PlistImageFile Name="btn_musicon.png" Key="btn_musicon.png" />
             <PlistImageFile Name="btn_noadds.png" Key="btn_noadds.png" />
@@ -23,7 +40,11 @@
             <PlistImageFile Name="btn_purple.png" Key="btn_purple.png" />
             <PlistImageFile Name="btn_red.png" Key="btn_red.png" />
             <PlistImageFile Name="btn_share.png" Key="btn_share.png" />
-            <PlistImageFile Name="di_black.png" Key="di_black.png" />
+            <PlistImageFile Name="btn_yellow.png" Key="btn_yellow.png" />
+            <PlistImageFile Name="circle_halfblack.png" Key="circle_halfblack.png" />
+            <PlistImageFile Name="circle_halfwhite.png" Key="circle_halfwhite.png" />
+            <PlistImageFile Name="circle_white.png" Key="circle_white.png" />
+            <PlistImageFile Name="daoju.png" Key="daoju.png" />
             <PlistImageFile Name="di_daoju.png" Key="di_daoju.png" />
             <PlistImageFile Name="di_level_blue.png" Key="di_level_blue.png" />
             <PlistImageFile Name="di_level_cyan.png" Key="di_level_cyan.png" />
@@ -32,10 +53,13 @@
             <PlistImageFile Name="di_level_purple.png" Key="di_level_purple.png" />
             <PlistImageFile Name="di_level_red.png" Key="di_level_red.png" />
             <PlistImageFile Name="di_level_yellow.png" Key="di_level_yellow.png" />
+            <PlistImageFile Name="drawline_horizontal.png" Key="drawline_horizontal.png" />
+            <PlistImageFile Name="drawline_vertical.png" Key="drawline_vertical.png" />
             <PlistImageFile Name="line_white.png" Key="line_white.png" />
             <PlistImageFile Name="money.png" Key="money.png" />
             <PlistImageFile Name="trapballs.png" Key="trapballs.png" />
           </PlistImageFolder>
+          <Project Name="game.csd" Type="Layer" />
           <Project Name="menu.csd" Type="Layer" />
           <Project Name="Node_level.csd" Type="Node" />
           <Project Name="selectlevel.csd" Type="Layer" />
