@@ -7,7 +7,7 @@
             <key>bal_yellow.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{636,1082},{25,25}}</string>
+                <string>{{636,1124},{25,25}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +20,7 @@
             <key>ball_blue.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{636,1055},{25,25}}</string>
+                <string>{{636,1097},{25,25}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +33,7 @@
             <key>ball_cyan.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{636,1028},{25,25}}</string>
+                <string>{{636,1070},{25,25}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -722,6 +722,19 @@
             <key>space.png</key>
             <dict>
                 <key>frame</key>
+                <string>{{636,1028},{40,40}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{40,40}}</string>
+                <key>sourceSize</key>
+                <string>{40,40}</string>
+            </dict>
+            <key>stop.png</key>
+            <dict>
+                <key>frame</key>
                 <string>{{818,458},{40,40}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
@@ -755,7 +768,7 @@
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:64cadf6ef59ebf0f821a37c8d7acbe4a$</string>
+            <string>$TexturePacker:SmartUpdate:49d1f7cecc8ade30c08097e032a10b0c$</string>
             <key>textureFileName</key>
             <string>gui.png</string>
         </dict>
