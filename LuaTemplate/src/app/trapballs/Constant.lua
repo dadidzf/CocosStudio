@@ -8,6 +8,7 @@ Constants.CATEGORY = {
     EXTENDLINE_BOTH_ENDS = 0x8
 }
 
+Constants.EDGE_SEG_WIDTH = 4
 
 return Constants
 
