@@ -44,8 +44,8 @@ function GameNode:onContactBegin(contact)
     local cateGoryAdd = shapeACategory + shapeBCategory
 
     -- segment with extend line ends
-    if cateGoryAdd == dd.Constants.CATEGORY.EDGE_SEGMENT + dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS then
-        self:dealExtendlineCollision(shapeA, shapeB)
+    if cateGoryAdd == dd.Constants.CATEGORY.EDGE_SEGMENT + dd.Constants.CATEGORY.EXTENDLINE then
+        self:dealExtendlineCollision(self:getExtendLineSegmentCollisionPt(shapeA, shapeB))
         return false
     end
 
@@ -56,7 +56,7 @@ function GameNode:onContactBegin(contact)
 
     -- ball with extend line ends
     if cateGoryAdd == dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS + dd.Constants.CATEGORY.BALL then
-        self:dealExtendlineCollision(shapeA, shapeB)
+        self:dealExtendlineCollision(self:getExtendLineBallCollisionPt(shapeA, shapeB))
         return true
     end
 
@@ -67,20 +67,52 @@ function GameNode:onContactBegin(contact)
     end
 end
 
-function GameNode:dealExtendlineCollision(shapeA, shapeB)
-    local shape
+function GameNode:getExtendLineSegmentCollisionPt(shapeA, shapeB)
     local shapeACategory = shapeA:getCategoryBitmask()
-    if shapeACategory == dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS then
-        shape = shapeA
+    local shapeExtend, shapeSegment
+
+    if shapeACategory == dd.Constants.CATEGORY.EDGE_SEGMENT then
+        shapeExtend = shapeB
+        shapeSegment = shapeA
     else
-        shape = shapeB
+        shapeExtend = shapeA
+        shapeSegment = shapeB
     end
-        
-    self.m_extendLine:collision(shape)
+
+    local segPtA = shapeSegment:getPointA()      
+    local extendPos = cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())
+
+    if self.m_extendLine:isHorizontal() then
+        return cc.p(segPtA.x, extendPos.y)
+    else
+        return cc.p(extendPos.x, segPtA.y)
+    end
+end
+
+function GameNode:getExtendLineBallCollisionPt(shapeA, shapeB)
+    local shapeACategory = shapeA:getCategoryBitmask()
+    local extendPos = cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())
+
+    if shapeACategory == dd.Constants.CATEGORY.BALL then
+        local pt = shapeB:getOffset()
+        return cc.pAdd(extendPos, pt)
+    else
+        local pt = shapeA:getOffset()
+        return cc.pAdd(extendPos, pt)
+    end
+end
+
+function GameNode:dealExtendlineCollision(collisionPt)
+    local extendPos = cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())
+    self.m_extendLine:collision(cc.pSub(collisionPt, extendPos))
+
     if not self.m_extendLine:isExtend() then
         local pts = self.m_extendLine:getOffsets()
         local pos = cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())
-        self.m_pointsMgr:addLine(cc.pAdd(pts[1], pos), cc.pAdd(pts[2], pos))
+        local pt1 = cc.pAdd(pts[1], pos)
+        local pt2 = cc.pAdd(pts[2], pos)
+        self.m_pointsMgr:adjustLine(pt1, pt2)
+        self.m_pointsMgr:addLine(pt1, pt2)
         self.m_extendLine:removeFromParent()
         self.m_extendLine = nil
 
@@ -110,6 +142,10 @@ function GameNode:addTouch()
 end
 
 function GameNode:onTouchBegin(touch, event)
+    if self.m_extendLine then
+        return false
+    end
+    
     local pt = self:convertToNodeSpace(touch:getLocation())
     self.m_extendLine = ExtendLine:create(pt.x < 0, 300)
         :addTo(self)
@@ -124,12 +160,30 @@ end
 
 function GameNode:onTouchEnd(touch, event)
     self:updateExtendLinePos(touch)
-    self.m_extendLine:startExtend()
+
+    if self.m_pointsMgr:isPointValid(cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())) then
+        self.m_extendLine:startExtend()
+    else
+        self.m_extendLine:runAction(
+            cc.Sequence:create(
+                cc.MoveTo:create(2, cc.p(0, -300)),
+                cc.CallFunc:create(function ( ... )
+                    if not tolua.isnull(self.m_extendLine) then
+                        self.m_extendLine:removeFromParent()
+                    end
+                    self.m_extendLine = nil
+                end),
+                nil
+                )
+        )  
+    end
+    self.m_balls:applyVelocity()
 end
 
 function GameNode:updateExtendLinePos(touch)
     local pt = self:convertToNodeSpace(touch:getLocation())
-    pt.y = pt.y + 100
+    pt.y = pt.y + 200
+    self.m_pointsMgr:adjustPoint(pt)
 
     self.m_extendLine:setPosition(pt.x, pt.y)
 end
