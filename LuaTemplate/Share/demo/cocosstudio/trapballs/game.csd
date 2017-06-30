@@ -129,25 +129,25 @@
             <PreSize X="0.1563" Y="0.1042" />
             <FileData Type="PlistSubImage" Path="circle_halfwhite.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="-840508371" Tag="70" IconVisible="False" LeftMargin="22.8001" RightMargin="517.1999" TopMargin="28.1785" BottomMargin="893.8215" LabelText="Round" ctype="TextBMFontObjectData">
-            <Size X="100.0000" Y="38.0000" />
+          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="-840508371" Tag="70" IconVisible="False" LeftMargin="19.8002" RightMargin="468.1998" TopMargin="19.2869" BottomMargin="884.7131" LabelText="Round" ctype="TextBMFontObjectData">
+            <Size X="152.0000" Y="56.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="72.8001" Y="912.8215" />
+            <Position X="95.8002" Y="912.7131" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1138" Y="0.9509" />
-            <PreSize X="0.1563" Y="0.0396" />
-            <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
+            <PrePosition X="0.1497" Y="0.9507" />
+            <PreSize X="0.2375" Y="0.0583" />
+            <LabelBMFontFile_CNB Type="Normal" Path="white_48.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="926249938" Tag="71" IconVisible="False" LeftMargin="144.8738" RightMargin="479.1262" TopMargin="30.0353" BottomMargin="891.9647" LabelText="1" ctype="TextBMFontObjectData">
-            <Size X="16.0000" Y="38.0000" />
+          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="926249938" Tag="71" IconVisible="False" LeftMargin="200.1202" RightMargin="417.8798" TopMargin="19.2869" BottomMargin="884.7131" LabelText="1" ctype="TextBMFontObjectData">
+            <Size X="22.0000" Y="56.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="152.8738" Y="910.9647" />
+            <Position X="211.1202" Y="912.7131" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2389" Y="0.9489" />
-            <PreSize X="0.0250" Y="0.0396" />
-            <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
+            <PrePosition X="0.3299" Y="0.9507" />
+            <PreSize X="0.0344" Y="0.0583" />
+            <LabelBMFontFile_CNB Type="Normal" Path="white_48.fnt" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="BitmapFontLabel_1_0" ActionTag="-456975929" Tag="43" IconVisible="False" LeftMargin="22.8001" RightMargin="549.1999" TopMargin="124.1907" BottomMargin="797.8093" LabelText="step" ctype="TextBMFontObjectData">
             <Size X="68.0000" Y="38.0000" />
@@ -249,13 +249,13 @@
             <PreSize X="0.1250" Y="0.0833" />
             <FileData Type="PlistSubImage" Path="daoju.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_stop" ActionTag="-382667737" Tag="61" IconVisible="False" LeftMargin="574.3882" RightMargin="25.6118" TopMargin="27.1785" BottomMargin="892.8215" LeftEage="13" RightEage="13" TopEage="13" BottomEage="13" Scale9OriginX="13" Scale9OriginY="13" Scale9Width="14" Scale9Height="14" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_stop" ActionTag="-382667737" Tag="61" IconVisible="False" LeftMargin="574.3882" RightMargin="25.6118" TopMargin="27.2869" BottomMargin="892.7131" LeftEage="13" RightEage="13" TopEage="13" BottomEage="13" Scale9OriginX="13" Scale9OriginY="13" Scale9Width="14" Scale9Height="14" ctype="ImageViewObjectData">
             <Size X="40.0000" Y="40.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="594.3882" Y="912.8215" />
+            <Position X="594.3882" Y="912.7131" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9287" Y="0.9509" />
+            <PrePosition X="0.9287" Y="0.9507" />
             <PreSize X="0.0625" Y="0.0417" />
             <FileData Type="PlistSubImage" Path="stop.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>

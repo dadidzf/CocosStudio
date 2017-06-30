@@ -83,8 +83,11 @@
           <Project Name="Node_stop.csd" Type="Node" />
           <Project Name="selectlevel.csd" Type="Layer" />
         </Folder>
-        <Image Name="HelloWorld.png" />
+        <Fnt Name="black_32.fnt" />
+        <Fnt Name="blue_32.fnt" />
+        <Fnt Name="red_32.fnt" />
         <Fnt Name="white_32.fnt" />
+        <Fnt Name="white_48.fnt" />
       </RootFolder>
     </Group>
   </SolutionFolder>
