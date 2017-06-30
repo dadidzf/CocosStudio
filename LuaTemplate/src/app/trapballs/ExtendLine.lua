@@ -5,7 +5,7 @@ end)
 function ExtendLine:ctor(isHorizontal, speed, endsBallRadius)
     self:enableNodeEvents()
 
-    self.m_endsBallRadius = endsBallRadius or 6
+    self.m_endsBallRadius = endsBallRadius or 8
     self.m_isHorizontal = isHorizontal
     self.m_speed = speed
     self:drawPoint(cc.p(0, 0), self.m_endsBallRadius, cc.c4f(0, 0, 1, 1))
@@ -72,6 +72,8 @@ function ExtendLine:updatePhysicBody(t)
         shapeCircle1:setContactTestBitmask(dd.Constants.CATEGORY.BALL)
         shapeCircle1:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
         body:addShape(shapeCircle1)
+
+        self:drawCircle(pt1, self.m_endsBallRadius, 0, 20, false, cc.c4f(1, 1, 1, 1))
     end
 
     local shapeLine2 = cc.PhysicsShapeEdgeSegment:create(pt2, cc.p(0, 0), cc.PhysicsMaterial(1, 1, 0), 1)
@@ -86,6 +88,8 @@ function ExtendLine:updatePhysicBody(t)
         shapeCircle2:setContactTestBitmask(dd.Constants.CATEGORY.BALL)
         shapeCircle2:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
         body:addShape(shapeCircle2)
+
+        self:drawCircle(pt2, self.m_endsBallRadius, 0, 20, false, cc.c4f(1, 1, 1, 1))
     end
     
     body:setDynamic(false)

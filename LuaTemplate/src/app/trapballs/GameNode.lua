@@ -103,6 +103,8 @@ function GameNode:getExtendLineBallCollisionPt(shapeA, shapeB)
 end
 
 function GameNode:dealExtendlineCollision(collisionPt)
+    local startTime = socket.gettime()
+
     local extendPos = cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())
     self.m_extendLine:collision(cc.pSub(collisionPt, extendPos))
 
@@ -127,6 +129,8 @@ function GameNode:dealExtendlineCollision(collisionPt)
 
         scheduler = dd.scheduler:scheduleScriptFunc(callBack, 0, false)
     end
+
+    print("GameNode:dealExtendlineCollision", socket.gettime() - startTime)
 end
 
 -- Touch
