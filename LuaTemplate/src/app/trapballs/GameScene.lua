@@ -25,7 +25,7 @@ function GameScene:showWithScene(transition, time, more)
     display.runScene(scene, transition, time, more)
 
     local physicWorld = scene:getPhysicsWorld()
-    --physicWorld:setDebugDrawMask(cc.PhysicsWorld.DEBUGDRAW_ALL)
+    physicWorld:setDebugDrawMask(cc.PhysicsWorld.DEBUGDRAW_ALL)
     physicWorld:setGravity(cc.p(0, 0))
     return self
 end

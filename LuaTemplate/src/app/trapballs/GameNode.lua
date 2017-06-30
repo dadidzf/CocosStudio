@@ -114,7 +114,8 @@ function GameNode:dealExtendlineCollision(collisionPt)
         local pt1 = cc.pAdd(pts[1], pos)
         local pt2 = cc.pAdd(pts[2], pos)
         self.m_pointsMgr:adjustLine(pt1, pt2)
-        self.m_pointsMgr:addLine(pt1, pt2)
+        local retLineList = self.m_pointsMgr:addLine(pt1, pt2)
+        self.m_pointsMgr:clipPolygon(self.m_balls:getBallPosList(), retLineList)
         self.m_extendLine:removeFromParent()
         self.m_extendLine = nil
 

@@ -36,4 +36,13 @@ function Balls:applyVelocity()
     end
 end
 
+function Balls:getBallPosList()
+    local retPosList = {}
+    for _, ball in ipairs(self.m_ballList) do
+        table.insert(retPosList, cc.p(ball:getPositionX(), ball:getPositionY()))
+    end
+
+    return retPosList
+end
+
 return Balls
