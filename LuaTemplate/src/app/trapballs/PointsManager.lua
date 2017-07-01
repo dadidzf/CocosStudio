@@ -96,9 +96,10 @@ end
 --[[ 
     add one new line logic
 --]]
-function PointsManager:addLine(pt1, pt2)
+function PointsManager:addLine(pt1, pt2, ballsPosList)
     print("PointsManager:addLine")
 
+    self.m_ballsPosList = ballsPosList
     local pt1Index = self:getPtIndex(pt1)
     local pt1LineIndex = self:getPtLine(pt1)
 
@@ -122,7 +123,8 @@ function PointsManager:addLine(pt1, pt2)
         pt2Index = self:addSinglePoint(pt2)
     end 
 
-    return self:linkTwoPoints(pt1Index, pt2Index)
+    self:linkTwoPoints(pt1Index, pt2Index)
+    self.m_ballsPosList = nil
 end
 
 -- is this point already in self.m_pointList
@@ -180,26 +182,33 @@ function PointsManager:insertPointToLine(newPt, lineIndex, useOldIndex)
     return newPtIndex
 end
 
-function PointsManager:linkTwoPoints(ptIndex1, ptIndex2)
-    table.insert(self.m_lineList, {ptIndex1, ptIndex2})
-    local retLineList = {}
-    self:fixOneLineDistancePoint(#self.m_lineList, retLineList)
+function PointsManager:findPtLineIndex(ptIndex1, ptIndex2)
+    self:updatePointMapLineList()
+    for lineIndex, _ in pairs(self.m_pointMapLineList[ptIndex1]) do
+        for lineIndex2, _ in pairs(self.m_pointMapLineList[ptIndex2]) do
+            if lineIndex == lineIndex2 then
+                return lineIndex
+            end
+        end
+    end
 
-    print("PointsManager:linkTwoPoints")
-    dump(retLineList)
-    return retLineList
+    return nil
 end
 
-function PointsManager:fixOneLineDistancePoint(lineIndex, retLineList) 
+function PointsManager:linkTwoPoints(ptIndex1, ptIndex2)
+    table.insert(self.m_lineList, {ptIndex1, ptIndex2})
+    self:clipPolygon(#self.m_lineList)
+    self:fixOneLineDistancePoint(ptIndex1, ptIndex2)
+end
+
+function PointsManager:fixOneLineDistancePoint(pt1Index, pt2Index) 
     self:updatePointMapPointsList()
     self:updateLineHorizontalList()
 
-    local pt1Index = self.m_lineList[lineIndex][1]
-    local pt2Index = self.m_lineList[lineIndex][2]
-
     local pt1 = self.m_pointList[pt1Index]
     local pt2 = self.m_pointList[pt2Index]
-    local isHorizontal = self.m_lineHorizontalList[lineIndex]
+    local lineIndex = self:findPtLineIndex(pt1Index, pt2Index)
+    local isHorizontal = (pt1.y == pt2.y)
     local y = pt1.y
     local x = pt1.x
     local lineWidth = dd.Constants.EDGE_SEG_WIDTH
@@ -209,7 +218,6 @@ function PointsManager:fixOneLineDistancePoint(lineIndex, retLineList)
     local linePt1
     local linePt2
 
-    local noFix = true
     for index, ptIndexPair in ipairs(self.m_lineList) do
         local isLineHorizontal = self.m_lineHorizontalList[index]
         if (isLineHorizontal and (not isHorizontal)) or (isHorizontal and (not isLineHorizontal)) then
@@ -244,49 +252,35 @@ function PointsManager:fixOneLineDistancePoint(lineIndex, retLineList)
                     if math.abs(moreCloserPt.y - y) == lineWidth then
                         if (moreCloserPt.x > pt1.x and moreCloserPt.x < pt2.x) or 
                             (moreCloserPt.x < pt1.x and moreCloserPt.x > pt2.x) then
-                        --if (moreCloserPt.x - pt1.x)*(moreCloserPt.x - pt2.x) < 0 then
                             moreCloserPt.y = y
                             self:insertPointToLine(moreCloserPt, lineIndex, moreCloserPtIndex)
-                            local topIndex = #self.m_lineList
-                            self:fixOneLineDistancePoint(topIndex - 1, retLineList)
-                            self:fixOneLineDistancePoint(topIndex, retLineList)
-                            noFix = false
-                            break
-                        elseif moreCloserPt.x == pt1.x then
-                            self.m_pointList[moreCloserPtIndex] = nil
-                            ptIndexPair[moreCloserPtNum] = pt1Index
-                        elseif moreCloserPt.x == pt2.x then
-                            self.m_pointList[moreCloserPtIndex] = nil
-                            ptIndexPair[moreCloserPtNum] = pt2Index
+                            self:clipPolygon(index)
+                            if self.m_pointList[pt1Index] then
+                                self:fixOneLineDistancePoint(pt1Index, moreCloserPtIndex)
+                            else
+                                self:fixOneLineDistancePoint(pt2Index, moreCloserPtIndex)
+                            end
+                            return
                         end
                     end
                 else
                     if math.abs(moreCloserPt.x - x) == lineWidth then
                         if (moreCloserPt.y > pt1.y and moreCloserPt.y < pt2.y) or
                             (moreCloserPt.y < pt1.y and moreCloserPt.y > pt2.y) then
-                        --if (moreCloserPt.y - pt1.y)*(moreCloserPt.y - pt2.y) < 0 then
                             moreCloserPt.x = x
                             self:insertPointToLine(moreCloserPt, lineIndex, moreCloserPtIndex)
-                            local topIndex = #self.m_lineList
-                            self:fixOneLineDistancePoint(topIndex - 1, retLineList)
-                            self:fixOneLineDistancePoint(topIndex, retLineList)
-                            noFix = false
-                            break
-                        elseif moreCloserPt.y == pt1.y then 
-                            self.m_pointList[moreCloserPtIndex] = nil
-                            ptIndexPair[moreCloserPtNum] = pt1Index
-                        elseif moreCloserPt.y == pt2.y then
-                            self.m_pointList[moreCloserPtIndex] = nil
-                            ptIndexPair[moreCloserPtNum] = pt2Index
+                            self:clipPolygon(index)
+                            if self.m_pointList[pt1Index] then
+                                self:fixOneLineDistancePoint(pt1Index, moreCloserPtIndex)
+                            else
+                                self:fixOneLineDistancePoint(pt2Index, moreCloserPtIndex)
+                            end
+                            return
                         end
                     end
                 end
             end
         end
-    end
-
-    if noFix then
-        table.insert(retLineList, lineIndex)
     end
 end
 
@@ -322,7 +316,8 @@ function PointsManager:adjustBallsPos(ballPosList)
     end 
 end
 
-function PointsManager:clipPolygon(ballPosList, retLineList)
+function PointsManager:clipPolygon(clipLineIndex)
+    local ballPosList = self.m_ballsPosList
     self:adjustBallsPos(ballPosList)
     
     local alreadyInPolygonLineList = {} -- this line is alreay in one of polygon we have find
@@ -332,36 +327,32 @@ function PointsManager:clipPolygon(ballPosList, retLineList)
 
     local pointList = self.m_pointList
 
-    for _, lineIndex in ipairs(retLineList) do
-        if true then -- not alreadyInPolygonLineList[lineIndex] then
-            local allFindList = self:findlinePolygon(lineIndex)
-            for _, polygon in ipairs(allFindList) do
-                if self:isBallsInPolygon(ballPosList, polygon) then
-                    local polygonPtPairList = {}
-                    for _, lineIndex in ipairs(polygon) do
-                        alreadyInPolygonLineList[lineIndex] = true
-                        local linePtPair = self.m_lineList[lineIndex]
-                        local pt1 = pointList[linePtPair[1]]
-                        local pt2 = pointList[linePtPair[2]]
-                        polygonHasBallsPtRecordList[linePtPair[1]] = true
-                        polygonHasBallsPtRecordList[linePtPair[2]] = true
-                        table.insert(polygonPtPairList, {pt1, pt2})
-                    end
-                    table.insert(self.m_validPolygonPtPairList, polygonPtPairList)
-                else
-                    local polygonPtPairList = {}
-                    for _, lineIndex in ipairs(polygon) do
-                        alreadyInPolygonLineList[lineIndex] = true
-                        local linePtPair = self.m_lineList[lineIndex]
-                        local pt1 = pointList[linePtPair[1]]
-                        local pt2 = pointList[linePtPair[2]]
-                        polygonTobeRemovedPtRecordList[linePtPair[1]] = true
-                        polygonTobeRemovedPtRecordList[linePtPair[2]] = true
-                        table.insert(polygonPtPairList, clone({pt1, pt2}))
-                    end
-                    table.insert(self.m_removedPolygonsPtPairList, polygonPtPairList)
-                end
+    local allFindList = self:findlinePolygon(clipLineIndex)
+    for _, polygon in ipairs(allFindList) do
+        if self:isBallsInPolygon(ballPosList, polygon) then
+            local polygonPtPairList = {}
+            for _, lineIndex in ipairs(polygon) do
+                alreadyInPolygonLineList[lineIndex] = true
+                local linePtPair = self.m_lineList[lineIndex]
+                local pt1 = pointList[linePtPair[1]]
+                local pt2 = pointList[linePtPair[2]]
+                polygonHasBallsPtRecordList[linePtPair[1]] = true
+                polygonHasBallsPtRecordList[linePtPair[2]] = true
+                table.insert(polygonPtPairList, {pt1, pt2})
             end
+            table.insert(self.m_validPolygonPtPairList, polygonPtPairList)
+        else
+            local polygonPtPairList = {}
+            for _, lineIndex in ipairs(polygon) do
+                alreadyInPolygonLineList[lineIndex] = true
+                local linePtPair = self.m_lineList[lineIndex]
+                local pt1 = pointList[linePtPair[1]]
+                local pt2 = pointList[linePtPair[2]]
+                polygonTobeRemovedPtRecordList[linePtPair[1]] = true
+                polygonTobeRemovedPtRecordList[linePtPair[2]] = true
+                table.insert(polygonPtPairList, clone({pt1, pt2}))
+            end
+            table.insert(self.m_removedPolygonsPtPairList, polygonPtPairList)
         end
     end
 
@@ -394,6 +385,17 @@ function PointsManager:removePoints(pointIndexsTobeRemovedList)
         self.m_pointList[ptIndex] = nil
 
         for index, _ in pairs(linkLineList) do
+            local ptIndexPair = self.m_lineList[index]
+            local anotherPtIndex
+            if ptIndexPair[1] == ptIndex then
+                anotherPtIndex = ptIndexPair[2]
+            else
+                anotherPtIndex = ptIndexPair[1]
+            end
+            if table.nums(self.m_pointMapLineList[anotherPtIndex]) <= 1 then
+                self.m_pointList[anotherPtIndex] = nil
+            end
+
             lineIndexTobeRemovedAll[index] = true
         end
     end
@@ -417,14 +419,14 @@ function PointsManager:findlinePolygon(lineIndex)
 
     local allFindList = {}
     local findList = {}
-    local findRecordList ={}
+    local findPtIndexRecordList ={}
     local pointMapLineList = self.m_pointMapLineList
     local lineList = self.m_lineList
 
     local dnf
     dnf = function (lineIndex, srcIndex, destIndex)
         table.insert(findList, lineIndex)
-        findRecordList[lineIndex] = true
+        findPtIndexRecordList[srcIndex] = true
         if srcIndex == destIndex then
             if #findList > 3 then
                 table.insert(allFindList, clone(findList))
@@ -432,18 +434,18 @@ function PointsManager:findlinePolygon(lineIndex)
         else
             local ptLinkLineList = pointMapLineList[srcIndex] 
             for lineIndex, _ in pairs(ptLinkLineList) do
-                if (not findRecordList[lineIndex]) then
-                    local linePtIndexPair = lineList[lineIndex]
-                    local nextPtIndex
-                    if linePtIndexPair[1] == srcIndex then
-                        nextPtIndex = linePtIndexPair[2]
-                    else
-                        nextPtIndex = linePtIndexPair[1]
-                    end
+                local linePtIndexPair = lineList[lineIndex]
+                local nextPtIndex
+                if linePtIndexPair[1] == srcIndex then
+                    nextPtIndex = linePtIndexPair[2]
+                else
+                    nextPtIndex = linePtIndexPair[1]
+                end
 
+                if (not findPtIndexRecordList[nextPtIndex]) then
                     dnf(lineIndex, nextPtIndex, destIndex)
                     table.remove(findList, #findList)
-                    findRecordList[lineIndex] = nil
+                    findPtIndexRecordList[nextPtIndex] = nil
                 end
             end
         end

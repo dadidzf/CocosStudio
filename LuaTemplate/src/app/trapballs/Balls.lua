@@ -4,7 +4,8 @@ end)
 
 function Balls:ctor()
     self.m_ballList = {}
-    self:addBall()
+    self:addBall(cc.p(20, 40))
+    self:addBall(cc.p(30, 30))
 end
 
 function Balls:addBall(velocity, picName)
@@ -42,6 +43,8 @@ function Balls:getBallPosList()
         table.insert(retPosList, cc.p(ball:getPositionX(), ball:getPositionY()))
     end
 
+    print("Balls:getBallPosList")
+    dump(retPosList)
     return retPosList
 end
 
