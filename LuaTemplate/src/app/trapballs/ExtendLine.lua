@@ -59,14 +59,15 @@ function ExtendLine:updatePhysicBody(t)
     self:clear()
     self:setLineWidth(self.m_lineWidth)
 
-    local shapeLine1 = cc.PhysicsShapeEdgeSegment:create(pt1, cc.p(0, 0), cc.PhysicsMaterial(1, 1, 0), 1)
-    shapeLine1:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE)
-    shapeLine1:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.EDGE_SEGMENT)
-    shapeLine1:setCollisionBitmask(0)
-    body:addShape(shapeLine1)
     self:drawLine(cc.p(0, 0), pt1, cc.c4f(1, 1, 1, 1))
 
     if not self.m_negativePt then
+        local shapeLine1 = cc.PhysicsShapeEdgeSegment:create(pt1, cc.p(0, 0), cc.PhysicsMaterial(1, 1, 0), 1)
+        shapeLine1:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE)
+        shapeLine1:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.EDGE_SEGMENT)
+        shapeLine1:setCollisionBitmask(0)
+        body:addShape(shapeLine1)
+
         local shapeCircle1 = cc.PhysicsShapeCircle:create(self.m_endsBallRadius, cc.PhysicsMaterial(1, 1, 0), pt1)
         shapeCircle1:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
         shapeCircle1:setContactTestBitmask(dd.Constants.CATEGORY.BALL)
@@ -76,13 +77,14 @@ function ExtendLine:updatePhysicBody(t)
         self:drawCircle(pt1, self.m_endsBallRadius, 0, 20, false, cc.c4f(1, 1, 1, 1))
     end
 
-    local shapeLine2 = cc.PhysicsShapeEdgeSegment:create(pt2, cc.p(0, 0), cc.PhysicsMaterial(1, 1, 0), 1)
-    shapeLine2:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE)
-    shapeLine2:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.EDGE_SEGMENT)
-    shapeLine2:setCollisionBitmask(0)
-    body:addShape(shapeLine2)
     self:drawLine(cc.p(0, 0), pt2, cc.c4f(1, 1, 1, 1))
     if not self.m_positivePt then
+        local shapeLine2 = cc.PhysicsShapeEdgeSegment:create(pt2, cc.p(0, 0), cc.PhysicsMaterial(1, 1, 0), 1)
+        shapeLine2:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE)
+        shapeLine2:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.EDGE_SEGMENT)
+        shapeLine2:setCollisionBitmask(0)
+        body:addShape(shapeLine2)
+        
         local shapeCircle2 = cc.PhysicsShapeCircle:create(self.m_endsBallRadius, cc.PhysicsMaterial(1, 1, 0), pt2)
         shapeCircle2:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
         shapeCircle2:setContactTestBitmask(dd.Constants.CATEGORY.BALL)

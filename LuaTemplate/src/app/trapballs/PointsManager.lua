@@ -163,13 +163,15 @@ function PointsManager:addSinglePoint(pt)
     return newPtIndex
 end
 
-function PointsManager:insertPointToLine(newPt, lineIndex)
-    local newPtIndex = #self.m_pointList + 1
+function PointsManager:insertPointToLine(newPt, lineIndex, useOldIndex)
+    local newPtIndex = useOldIndex or (#self.m_pointList + 1)
+    if not useOldIndex then
+        table.insert(self.m_pointList, newPtIndex, newPt)
+    end
+
     local line = self.m_lineList[lineIndex]
     local linePt1Index = line[1]
     local linePt2Index = line[2]
-
-    table.insert(self.m_pointList, newPtIndex, newPt)
 
     table.remove(self.m_lineList, lineIndex)
     table.insert(self.m_lineList, {newPtIndex, linePt1Index})
@@ -197,12 +199,10 @@ function PointsManager:fixOneLineDistancePoint(lineIndex, retLineList)
 
     local pt1 = self.m_pointList[pt1Index]
     local pt2 = self.m_pointList[pt2Index]
-    local isHorizontal = pt1.y == pt2.y
+    local isHorizontal = self.m_lineHorizontalList[lineIndex]
     local y = pt1.y
     local x = pt1.x
     local lineWidth = dd.Constants.EDGE_SEG_WIDTH
-
-    print("PointsManager:fixOneLineDistancePoint 1", pt1.x, pt1.y, pt2.x, pt2.y)
 
     local linePt1Index
     local linePt2Index
@@ -219,17 +219,22 @@ function PointsManager:fixOneLineDistancePoint(lineIndex, retLineList)
             linePt2 = self.m_pointList[linePt2Index]
 
             local moreCloserPtIndex
+            local moreCloserPtNum 
             if isHorizontal then
                 if math.abs(linePt1.y - y) < math.abs(linePt2.y - y) then
                     moreCloserPtIndex = linePt1Index
+                    moreCloserPtNum = 1
                 else
                     moreCloserPtIndex = linePt2Index
+                    moreCloserPtNum = 2
                 end
             else
                 if math.abs(linePt1.x - x) < math.abs(linePt2.x - x) then
                     moreCloserPtIndex = linePt1Index
+                    moreCloserPtNum = 1
                 else
                     moreCloserPtIndex = linePt2Index
+                    moreCloserPtNum = 2
                 end
             end
             local moreCloserPt = self.m_pointList[moreCloserPtIndex]
@@ -241,14 +246,18 @@ function PointsManager:fixOneLineDistancePoint(lineIndex, retLineList)
                             (moreCloserPt.x < pt1.x and moreCloserPt.x > pt2.x) then
                         --if (moreCloserPt.x - pt1.x)*(moreCloserPt.x - pt2.x) < 0 then
                             moreCloserPt.y = y
-                            local insertPt = cc.p(moreCloserPt.x, y)
-                            self:insertPointToLine(insertPt, lineIndex)
-                            self:fixOneLineDistancePoint(#self.m_lineList - 1)
-                            self:fixOneLineDistancePoint(#self.m_lineList)
+                            self:insertPointToLine(moreCloserPt, lineIndex, moreCloserPtIndex)
+                            local topIndex = #self.m_lineList
+                            self:fixOneLineDistancePoint(topIndex - 1, retLineList)
+                            self:fixOneLineDistancePoint(topIndex, retLineList)
                             noFix = false
                             break
-                        elseif (moreCloserPt.x == pt1.x or moreCloserPt.x == pt2.x) then
-                            moreCloserPt.y = y
+                        elseif moreCloserPt.x == pt1.x then
+                            self.m_pointList[moreCloserPtIndex] = nil
+                            ptIndexPair[moreCloserPtNum] = pt1Index
+                        elseif moreCloserPt.x == pt2.x then
+                            self.m_pointList[moreCloserPtIndex] = nil
+                            ptIndexPair[moreCloserPtNum] = pt2Index
                         end
                     end
                 else
@@ -257,14 +266,18 @@ function PointsManager:fixOneLineDistancePoint(lineIndex, retLineList)
                             (moreCloserPt.y < pt1.y and moreCloserPt.y > pt2.y) then
                         --if (moreCloserPt.y - pt1.y)*(moreCloserPt.y - pt2.y) < 0 then
                             moreCloserPt.x = x
-                            local insertPt = cc.p(x, moreCloserPt.y)
-                            self:insertPointToLine(insertPt, lineIndex)
-                            self:fixOneLineDistancePoint(#self.m_lineList - 1)
-                            self:fixOneLineDistancePoint(#self.m_lineList)
+                            self:insertPointToLine(moreCloserPt, lineIndex, moreCloserPtIndex)
+                            local topIndex = #self.m_lineList
+                            self:fixOneLineDistancePoint(topIndex - 1, retLineList)
+                            self:fixOneLineDistancePoint(topIndex, retLineList)
                             noFix = false
                             break
-                        elseif (moreCloserPt.y == pt1.y or moreCloserPt.y == pt2.y) then
-                            moreCloserPt.x = x
+                        elseif moreCloserPt.y == pt1.y then 
+                            self.m_pointList[moreCloserPtIndex] = nil
+                            ptIndexPair[moreCloserPtNum] = pt1Index
+                        elseif moreCloserPt.y == pt2.y then
+                            self.m_pointList[moreCloserPtIndex] = nil
+                            ptIndexPair[moreCloserPtNum] = pt2Index
                         end
                     end
                 end
