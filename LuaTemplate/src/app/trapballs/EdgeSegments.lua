@@ -27,7 +27,31 @@ function EdgeSegments:updatePhysicBody(color)
         body:setDynamic(false)
 
         self:drawLine(ptPair[1], ptPair[2], color)
+        self:drawTestLabel()
     end
+end
+
+function EdgeSegments:drawTestLabel()
+    if self.m_testLabelNode then
+        self.m_testLabelNode:removeFromParent()
+    end
+        self.m_testLabelNode = cc.Node:create()
+            :addTo(self)
+
+        for ptIndex, pt in pairs(self.m_pointsMgr.m_pointList) do
+            ccui.Text:create(string.format("%d", ptIndex), "", 32)
+                :move(pt)
+                :setColor(cc.RED)
+                :addTo(self.m_testLabelNode)
+        end
+
+
+        for _, ptPair in pairs(self.m_pointsMgr:getLinePointsList()) do
+            ccui.Text:create(string.format("%d", ptPair[3]), "", 32)
+                :move(cc.pMul(cc.pAdd(ptPair[1], ptPair[2]), 0.5))
+                :setColor(cc.YELLOW)
+                :addTo(self.m_testLabelNode)
+        end
 end
 
 

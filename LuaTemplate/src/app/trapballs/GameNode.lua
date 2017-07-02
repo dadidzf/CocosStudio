@@ -165,7 +165,7 @@ end
 function GameNode:onTouchEnd(touch, event)
     self:updateExtendLinePos(touch)
 
-    if self.m_pointsMgr:isPointValid(cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())) then
+    if self.m_pointsMgr:isPtInOneValidPolygon(cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())) then
         self.m_extendLine:startExtend()
     else
         self.m_extendLine:runAction(
