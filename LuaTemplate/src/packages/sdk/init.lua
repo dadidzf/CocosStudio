@@ -6,5 +6,6 @@ _M.Tools = import(".Tools")
 _M.GameCenter = import(".GameCenter")
 _M.Billing = import(".Billing")
 _M.CsvUtil = import(".CsvUtil")
+_M.BindingUtil = import(".BindingUtil")
 
 return _M

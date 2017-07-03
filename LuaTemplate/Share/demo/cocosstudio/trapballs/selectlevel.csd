@@ -16,13 +16,13 @@
             <PreSize X="1.1250" Y="1.1250" />
             <FileData Type="PlistSubImage" Path="di_black.png" Plist="trapballs/di2.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ListView_level" ActionTag="1637324816" Alpha="0" Tag="45" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="0.0007" RightMargin="-0.0007" TopMargin="119.9999" BottomMargin="60.0001" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
+          <AbstractNodeData Name="ListView_level" ActionTag="1637324816" Tag="45" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" TopMargin="110.0000" BottomMargin="70.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="0" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" IsBounceEnabled="True" ScrollDirectionType="0" DirectionType="Vertical" HorizontalType="Align_HorizontalCenter" ctype="ListViewObjectData">
             <Size X="640.0000" Y="780.0000" />
-            <AnchorPoint />
-            <Position X="0.0007" Y="60.0001" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="320.0000" Y="460.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0000" Y="0.0625" />
+            <PrePosition X="0.5000" Y="0.4792" />
             <PreSize X="1.0000" Y="0.8125" />
             <SingleColor A="255" R="150" G="150" B="255" />
             <FirstColor A="255" R="150" G="150" B="255" />

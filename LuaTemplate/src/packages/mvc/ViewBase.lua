@@ -43,20 +43,8 @@ function ViewBase:createResourceNode(resourceFilename)
 end
 
 function ViewBase:createResourceBinding(binding)
-    assert(self.resourceNode_, "ViewBase:createResourceBinding() - not load resource node")
-    for nodeName, nodeBinding in pairs(binding) do
-        local node = self.resourceNode_:getChildByName(nodeName)
-        if nodeBinding.varname then
-            self[nodeBinding.varname] = node
-        end
-        for _, event in ipairs(nodeBinding.events or {}) do
-            if event.event == "touch" then
-                node:onTouch(handler(self, self[event.method]))
-            elseif event.event == "click" then
-                node:onClick(handler(self, self[event.method]))
-            end
-        end
-    end
+    assert(self.resourceNode_, "ViewBase:createResoueceBinding() - not load resource node")
+    cc.load("sdk").BindingUtil.binding(self, self.resourceNode_, binding)
 end
 
 function ViewBase:showWithScene(transition, time, more)
