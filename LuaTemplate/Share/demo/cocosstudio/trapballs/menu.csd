@@ -232,7 +232,7 @@
             <NormalBackFileData Type="PlistSubImage" Path="btn_musicon.png" Plist="trapballs/gui.plist" />
             <PressedBackFileData Type="PlistSubImage" Path="btn_musicon.png" Plist="trapballs/gui.plist" />
             <DisableBackFileData Type="Default" Path="Default/CheckBox_Disable.png" Plist="" />
-            <NodeNormalFileData Type="PlistSubImage" Path="btn_musicoff.png" Plist="trapballs/gui.plist" />
+            <NodeNormalFileData Type="PlistSubImage" Path="xiexian.png" Plist="trapballs/gui.plist" />
             <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="Image_2" ActionTag="345054870" Tag="24" IconVisible="False" HorizontalEdge="BothEdge" LeftMargin="-35.9680" RightMargin="-44.0320" TopMargin="109.9999" BottomMargin="550.0001" LeftEage="237" RightEage="237" TopEage="99" BottomEage="99" Scale9OriginX="237" Scale9OriginY="99" Scale9Width="246" Scale9Height="102" ctype="ImageViewObjectData">
@@ -271,7 +271,7 @@
             <NormalBackFileData Type="PlistSubImage" Path="btn_noadds.png" Plist="trapballs/gui.plist" />
             <PressedBackFileData Type="PlistSubImage" Path="btn_noadds.png" Plist="trapballs/gui.plist" />
             <DisableBackFileData Type="Default" Path="Default/CheckBox_Disable.png" Plist="" />
-            <NodeNormalFileData Type="PlistSubImage" Path="btn_noaddsoff.png" Plist="trapballs/gui.plist" />
+            <NodeNormalFileData Type="PlistSubImage" Path="xiexian.png" Plist="trapballs/gui.plist" />
             <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="Image_4" ActionTag="88726947" Tag="28" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="494.0000" RightMargin="86.0000" TopMargin="22.0000" BottomMargin="878.0000" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">

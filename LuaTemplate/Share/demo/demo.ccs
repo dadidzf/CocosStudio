@@ -35,10 +35,8 @@
             <PlistImageFile Name="btn_help.png" Key="btn_help.png" />
             <PlistImageFile Name="btn_like.png" Key="btn_like.png" />
             <PlistImageFile Name="btn_menu.png" Key="btn_menu.png" />
-            <PlistImageFile Name="btn_musicoff.png" Key="btn_musicoff.png" />
             <PlistImageFile Name="btn_musicon.png" Key="btn_musicon.png" />
             <PlistImageFile Name="btn_noadds.png" Key="btn_noadds.png" />
-            <PlistImageFile Name="btn_noaddsoff.png" Key="btn_noaddsoff.png" />
             <PlistImageFile Name="btn_orange.png" Key="btn_orange.png" />
             <PlistImageFile Name="btn_purple.png" Key="btn_purple.png" />
             <PlistImageFile Name="btn_red.png" Key="btn_red.png" />
@@ -75,6 +73,7 @@
             <PlistImageFile Name="space.png" Key="space.png" />
             <PlistImageFile Name="stop.png" Key="stop.png" />
             <PlistImageFile Name="trapballs.png" Key="trapballs.png" />
+            <PlistImageFile Name="xiexian.png" Key="xiexian.png" />
           </PlistImageFolder>
           <Project Name="game.csd" Type="Layer" />
           <Project Name="menu.csd" Type="Layer" />
