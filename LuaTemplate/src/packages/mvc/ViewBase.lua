@@ -52,6 +52,8 @@ function ViewBase:createResourceBinding(binding)
         for _, event in ipairs(nodeBinding.events or {}) do
             if event.event == "touch" then
                 node:onTouch(handler(self, self[event.method]))
+            elseif event.event == "click" then
+                node:onClick(handler(self, self[event.method]))
             end
         end
     end

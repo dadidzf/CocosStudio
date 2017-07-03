@@ -217,8 +217,14 @@ function PointsManager:linkTwoPoints(ptIndex1, ptIndex2)
 end
 
 function PointsManager:fixOneLineDistancePoint(pt1Index, pt2Index) 
+    print("PointsManager:fixOneLineDistancePoint", pt1Index, pt2Index)
     self:updatePointMapPointsList()
     self:updateLineHorizontalList()
+    
+    for index, ptIndexPair in ipairs(self.m_lineList) do
+        print("-------------------", index)
+        dump(ptIndexPair)
+    end
 
     local pt1 = self.m_pointList[pt1Index]
     local pt2 = self.m_pointList[pt2Index]
@@ -233,7 +239,9 @@ function PointsManager:fixOneLineDistancePoint(pt1Index, pt2Index)
     local linePt1
     local linePt2
 
-    for index, ptIndexPair in ipairs(self.m_lineList) do
+    local lineList = self.m_lineList
+    for index, ptIndexPair in ipairs(lineList) do
+        print("index", index)
         local isLineHorizontal = self.m_lineHorizontalList[index]
         if (isLineHorizontal and (not isHorizontal)) or (isHorizontal and (not isLineHorizontal)) then
             linePt1Index = ptIndexPair[1]
@@ -270,11 +278,30 @@ function PointsManager:fixOneLineDistancePoint(pt1Index, pt2Index)
                             moreCloserPt.y = y
                             self:insertPointToLine(moreCloserPt, lineIndex, moreCloserPtIndex)
                             self:clipPolygon(index)
-                            if self.m_pointList[pt1Index] then
-                                self:fixOneLineDistancePoint(pt1Index, moreCloserPtIndex)
-                            else
-                                self:fixOneLineDistancePoint(pt2Index, moreCloserPtIndex)
-                            end
+                            -- if self.m_pointList[pt1Index] then
+                            --     self:fixOneLineDistancePoint(pt1Index, moreCloserPtIndex)
+                            -- end
+                            -- if self.m_pointList[pt2Index] then
+                            --     self:fixOneLineDistancePoint(pt2Index, moreCloserPtIndex)
+                            -- end
+                            return
+                        elseif (moreCloserPt.x == pt1.x) then
+                            moreCloserPt.y = y
+                            self.m_pointList[moreCloserPtIndex] = nil
+                            ptIndexPair[moreCloserPtNum] = pt1Index
+                            self:clipPolygon(index)
+                            -- if self.m_pointList[pt1Index] and self.m_pointList[pt2Index] then
+                            --     self:fixOneLineDistancePoint(pt1Index, pt2Index)
+                            -- end
+                            return
+                        elseif (moreCloserPt.x == pt2.x) then
+                            moreCloserPt.y = y
+                            self.m_pointList[moreCloserPtIndex] = nil
+                            ptIndexPair[moreCloserPtNum] = pt2Index
+                            self:clipPolygon(index)
+                            -- if self.m_pointList[pt1Index] and self.m_pointList[pt2Index] then
+                            --     self:fixOneLineDistancePoint(pt1Index, pt2Index)
+                            -- end
                             return
                         end
                     end
@@ -287,9 +314,28 @@ function PointsManager:fixOneLineDistancePoint(pt1Index, pt2Index)
                             self:clipPolygon(index)
                             if self.m_pointList[pt1Index] then
                                 self:fixOneLineDistancePoint(pt1Index, moreCloserPtIndex)
-                            else
+                            end
+                            if self.m_pointList[pt2Index] then
                                 self:fixOneLineDistancePoint(pt2Index, moreCloserPtIndex)
                             end
+                            return
+                        elseif (moreCloserPt.y == pt1.y) then
+                            moreCloserPt.x = x
+                            self.m_pointList[moreCloserPtIndex] = nil
+                            ptIndexPair[moreCloserPtNum] = pt1Index
+                            self:clipPolygon(index)
+                            -- if self.m_pointList[pt1Index] and self.m_pointList[pt2Index] then
+                            --     self:fixOneLineDistancePoint(pt1Index, pt2Index)
+                            -- end
+                            return
+                        elseif (moreCloserPt.y == pt2.y) then
+                            moreCloserPt.x = x
+                            self.m_pointList[moreCloserPtIndex] = nil
+                            ptIndexPair[moreCloserPtNum] = pt2Index
+                            self:clipPolygon(index)
+                            -- if self.m_pointList[pt1Index] and self.m_pointList[pt2Index] then
+                            --     self:fixOneLineDistancePoint(pt1Index, pt2Index)
+                            -- end
                             return
                         end
                     end
@@ -434,7 +480,7 @@ function PointsManager:clipPolygon(clipLineIndex)
     end
 
     self:updateValidPolyPtIndex(linePtIndexPair)
-    --self:updateLines()
+    self:updateLines()
 end
 
 function PointsManager:isPtBetweenLine(pt, linePt1, linePt2)
@@ -450,28 +496,32 @@ function PointsManager:isPtBetweenLine(pt, linePt1, linePt2)
 end
 
 function PointsManager:updateLines()
-    local ptIndexRefByPolygonList = {}
-    for _, polygonPtIndexList in ipairs(self.m_validPolygonPtIndexPairList) do
+    local ptIndexRefPolygonRecordList = {}
+    for polygonIndex, polygonPtIndexList in ipairs(self.m_validPolygonPtIndexPairList) do
         for _, ptIndexPair in ipairs(polygonPtIndexList) do
             local ptIndex1 = ptIndexPair[1]
             local ptIndex2 = ptIndexPair[2]
-            if not ptIndexRefByPolygonList[ptIndex1] then
-                ptIndexRefByPolygonList[ptIndex1] = 0
+            if not ptIndexRefPolygonRecordList[ptIndex1] then
+                ptIndexRefPolygonRecordList[ptIndex1] = {}
             end
-            if not ptIndexRefByPolygonList[ptIndex2] then
-                ptIndexRefByPolygonList[ptIndex2] = 0
+            if not ptIndexRefPolygonRecordList[ptIndex2] then
+                ptIndexRefPolygonRecordList[ptIndex2] = {}
             end
 
-            ptIndexRefByPolygonList[ptIndex1] = ptIndexRefByPolygonList[ptIndex1] + 1
-            ptIndexRefByPolygonList[ptIndex2] = ptIndexRefByPolygonList[ptIndex2] + 1
+            ptIndexRefPolygonRecordList[ptIndex1][polygonIndex] = true
+            ptIndexRefPolygonRecordList[ptIndex2][polygonIndex] = true
         end
     end
 
     local lineIndexToBeRemoved = {}
     for index, linePtIndexPair in ipairs(self.m_lineList) do
-        local linePt1RefByPolygonCount = ptIndexRefByPolygonList[linePtIndexPair[1]] or 0
-        local linePt2RefByPolygonCount = ptIndexRefByPolygonList[linePtIndexPair[2]] or 0
-        if linePt1RefByPolygonCount == 4 and linePt2RefByPolygonCount == 4 then
+        local pt1tb = ptIndexRefPolygonRecordList[linePtIndexPair[1]]
+        local pt2tb = ptIndexRefPolygonRecordList[linePtIndexPair[2]]
+
+        local pt1RefPolygonCount = pt1tb and table.nums(pt1tb) or 0
+        local pt2RefPolygonCount = pt2tb and table.nums(pt2tb) or 0
+
+        if pt1RefPolygonCount == 1 and pt2RefPolygonCount == 1 and next(pt1tb) ~= next(pt2tb) then
             table.insert(lineIndexToBeRemoved, index, true) 
         end
     end
@@ -483,7 +533,10 @@ function PointsManager:updateLines()
         end
     end
 
-    self.m_lineList = ptIndexPair
+    self.m_lineList = newLineList
+    print("PointsManager:updateLines")
+    dump(lineIndexToBeRemoved, "lineIndexToBeRemoved")
+    dump(self.m_lineList, "self.m_lineList")
 end
 
 function PointsManager:updateValidPolyPtIndex(linePtIndexPair)

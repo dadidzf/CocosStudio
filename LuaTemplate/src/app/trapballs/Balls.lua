@@ -4,8 +4,8 @@ end)
 
 function Balls:ctor()
     self.m_ballList = {}
-    self:addBall(cc.p(20, 40))
-    self:addBall(cc.p(30, 30))
+    --self:addBall(cc.p(40, 0))
+    self:addBall(cc.p(20, 30))
 end
 
 function Balls:addBall(velocity, picName)
