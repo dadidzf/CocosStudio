@@ -137,7 +137,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.7135" Y="0.0676" />
                 <PreSize X="0.1450" Y="0.1000" />
-                <LabelBMFontFile_CNB Type="Normal" Path="black_32.fnt" Plist="" />
+                <LabelBMFontFile_CNB Type="Normal" Path="blue_32.fnt" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="BitmapFontLabel_jia" ActionTag="-929467940" Tag="95" IconVisible="False" LeftMargin="222.8176" RightMargin="157.1824" TopMargin="336.7740" BottomMargin="5.2260" LabelText="+" ctype="TextBMFontObjectData">
                 <Size X="20.0000" Y="38.0000" />
@@ -147,7 +147,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5820" Y="0.0638" />
                 <PreSize X="0.0500" Y="0.1000" />
-                <LabelBMFontFile_CNB Type="Normal" Path="black_32.fnt" Plist="" />
+                <LabelBMFontFile_CNB Type="Normal" Path="blue_32.fnt" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="BitmapFontLabel_stepscore" ActionTag="-1004516172" Tag="74" IconVisible="False" LeftMargin="280.9937" RightMargin="42.0063" TopMargin="169.2010" BottomMargin="172.7990" LabelText="9999" ctype="TextBMFontObjectData">
                 <Size X="77.0000" Y="38.0000" />
