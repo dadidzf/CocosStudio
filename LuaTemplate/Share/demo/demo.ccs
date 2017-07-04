@@ -26,26 +26,31 @@
             <PlistImageFile Name="ball_red.png" Key="ball_red.png" />
             <PlistImageFile Name="ball_white.png" Key="ball_white.png" />
             <PlistImageFile Name="btn_back.png" Key="btn_back.png" />
+            <PlistImageFile Name="btn_backtomenu.png" Key="btn_backtomenu.png" />
             <PlistImageFile Name="btn_blue.png" Key="btn_blue.png" />
             <PlistImageFile Name="btn_buy.png" Key="btn_buy.png" />
             <PlistImageFile Name="btn_chart.png" Key="btn_chart.png" />
             <PlistImageFile Name="btn_chart2.png" Key="btn_chart2.png" />
+            <PlistImageFile Name="btn_close.png" Key="btn_close.png" />
             <PlistImageFile Name="btn_cyan.png" Key="btn_cyan.png" />
             <PlistImageFile Name="btn_green.png" Key="btn_green.png" />
             <PlistImageFile Name="btn_help.png" Key="btn_help.png" />
             <PlistImageFile Name="btn_like.png" Key="btn_like.png" />
             <PlistImageFile Name="btn_menu.png" Key="btn_menu.png" />
             <PlistImageFile Name="btn_musicon.png" Key="btn_musicon.png" />
+            <PlistImageFile Name="btn_nextround.png" Key="btn_nextround.png" />
             <PlistImageFile Name="btn_noadds.png" Key="btn_noadds.png" />
             <PlistImageFile Name="btn_orange.png" Key="btn_orange.png" />
             <PlistImageFile Name="btn_purple.png" Key="btn_purple.png" />
             <PlistImageFile Name="btn_red.png" Key="btn_red.png" />
+            <PlistImageFile Name="btn_restart.png" Key="btn_restart.png" />
             <PlistImageFile Name="btn_resume.png" Key="btn_resume.png" />
             <PlistImageFile Name="btn_share.png" Key="btn_share.png" />
             <PlistImageFile Name="btn_share2.png" Key="btn_share2.png" />
             <PlistImageFile Name="btn_soundoff.png" Key="btn_soundoff.png" />
             <PlistImageFile Name="btn_soundon.png" Key="btn_soundon.png" />
             <PlistImageFile Name="btn_yellow.png" Key="btn_yellow.png" />
+            <PlistImageFile Name="button_purple.png" Key="button_purple.png" />
             <PlistImageFile Name="circle_halfblack.png" Key="circle_halfblack.png" />
             <PlistImageFile Name="circle_halfwhite.png" Key="circle_halfwhite.png" />
             <PlistImageFile Name="circle_white.png" Key="circle_white.png" />
@@ -74,13 +79,11 @@
             <PlistImageFile Name="stop.png" Key="stop.png" />
             <PlistImageFile Name="trapballs.png" Key="trapballs.png" />
             <PlistImageFile Name="xiexian.png" Key="xiexian.png" />
-            <PlistImageFile Name="btn_close.png" Key="btn_close.png" />
-            <PlistImageFile Name="button_purple.png" Key="button_purple.png" />
-            <PlistImageFile Name="moneyblack.png" Key="moneyblack.png" />
           </PlistImageFolder>
           <Project Name="game.csd" Type="Layer" />
           <Project Name="menu.csd" Type="Layer" />
           <Project Name="Node_buy.csd" Type="Node" />
+          <Project Name="Node_gamefailed.csd" Type="Node" />
           <Project Name="Node_gamepass.csd" Type="Node" />
           <Project Name="Node_level.csd" Type="Node" />
           <Project Name="Node_stop.csd" Type="Node" />

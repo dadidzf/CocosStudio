@@ -86,33 +86,33 @@
             <PreSize X="1.1250" Y="1.1250" />
             <FileData Type="PlistSubImage" Path="di_blue.png" Plist="trapballs/di.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_circlehalfblack" ActionTag="1338863174" Tag="67" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" LeftMargin="283.0560" RightMargin="256.9440" TopMargin="46.8748" BottomMargin="813.1252" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="34" Scale9Height="34" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_circlehalfblack" ActionTag="1338863174" Tag="67" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" LeftMargin="283.0560" RightMargin="256.9440" TopMargin="68.8727" BottomMargin="791.1273" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="34" Scale9Height="34" ctype="ImageViewObjectData">
             <Size X="100.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="333.0560" Y="863.1252" />
+            <Position X="333.0560" Y="841.1273" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5204" Y="0.8991" />
+            <PrePosition X="0.5204" Y="0.8762" />
             <PreSize X="0.1563" Y="0.1042" />
             <FileData Type="PlistSubImage" Path="circle_halfblack.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_circlewhite" ActionTag="-1259558773" Tag="68" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" LeftMargin="283.0560" RightMargin="256.9440" TopMargin="46.8748" BottomMargin="813.1252" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="34" Scale9Height="34" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_circlewhite" ActionTag="-1259558773" Tag="68" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" LeftMargin="283.0560" RightMargin="256.9440" TopMargin="68.8727" BottomMargin="791.1273" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="34" Scale9Height="34" ctype="ImageViewObjectData">
             <Size X="100.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="333.0560" Y="863.1252" />
+            <Position X="333.0560" Y="841.1273" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5204" Y="0.8991" />
+            <PrePosition X="0.5204" Y="0.8762" />
             <PreSize X="0.1563" Y="0.1042" />
             <FileData Type="PlistSubImage" Path="circle_white.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_circlehalfwhite" ActionTag="644053779" Tag="66" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" LeftMargin="283.0560" RightMargin="256.9440" TopMargin="46.8748" BottomMargin="813.1252" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="34" Scale9Height="34" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_circlehalfwhite" ActionTag="644053779" Tag="66" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" LeftMargin="283.0560" RightMargin="256.9440" TopMargin="68.8727" BottomMargin="791.1273" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="34" Scale9Height="34" ctype="ImageViewObjectData">
             <Size X="100.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="333.0560" Y="863.1252" />
+            <Position X="333.0560" Y="841.1273" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5204" Y="0.8991" />
+            <PrePosition X="0.5204" Y="0.8762" />
             <PreSize X="0.1563" Y="0.1042" />
             <FileData Type="PlistSubImage" Path="circle_halfwhite.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
@@ -186,33 +186,33 @@
             <PreSize X="0.0469" Y="0.0313" />
             <FileData Type="PlistSubImage" Path="life_white.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_horizontal" ActionTag="1040236127" Tag="48" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="382.4973" RightMargin="171.5027" TopMargin="826.9836" BottomMargin="47.0164" LeftEage="28" RightEage="28" TopEage="28" BottomEage="28" Scale9OriginX="28" Scale9OriginY="28" Scale9Width="30" Scale9Height="30" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_horizontal" ActionTag="1040236127" Tag="48" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="382.4720" RightMargin="171.5280" TopMargin="817.0000" BottomMargin="57.0000" LeftEage="28" RightEage="28" TopEage="28" BottomEage="28" Scale9OriginX="28" Scale9OriginY="28" Scale9Width="30" Scale9Height="30" ctype="ImageViewObjectData">
             <Size X="86.0000" Y="86.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="425.4973" Y="90.0164" />
+            <Position X="425.4720" Y="100.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.6648" Y="0.0938" />
+            <PrePosition X="0.6648" Y="0.1042" />
             <PreSize X="0.1344" Y="0.0896" />
             <FileData Type="PlistSubImage" Path="drawline_horizontal.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_certical" ActionTag="-566498479" Tag="49" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="519.1332" RightMargin="34.8668" TopMargin="826.9836" BottomMargin="47.0164" LeftEage="28" RightEage="28" TopEage="28" BottomEage="28" Scale9OriginX="28" Scale9OriginY="28" Scale9Width="30" Scale9Height="30" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_certical" ActionTag="-566498479" Tag="49" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="519.1120" RightMargin="34.8880" TopMargin="817.0000" BottomMargin="57.0000" LeftEage="28" RightEage="28" TopEage="28" BottomEage="28" Scale9OriginX="28" Scale9OriginY="28" Scale9Width="30" Scale9Height="30" ctype="ImageViewObjectData">
             <Size X="86.0000" Y="86.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="562.1332" Y="90.0164" />
+            <Position X="562.1120" Y="100.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8783" Y="0.0938" />
+            <PrePosition X="0.8783" Y="0.1042" />
             <PreSize X="0.1344" Y="0.0896" />
             <FileData Type="PlistSubImage" Path="drawline_vertical.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_daoju1" ActionTag="-894024454" Tag="50" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="27.7530" RightMargin="532.2470" TopMargin="829.9836" BottomMargin="50.0164" LeftEage="26" RightEage="26" TopEage="26" BottomEage="26" Scale9OriginX="26" Scale9OriginY="26" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_daoju1" ActionTag="-894024454" Tag="50" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="27.7760" RightMargin="532.2240" TopMargin="820.0000" BottomMargin="60.0000" LeftEage="26" RightEage="26" TopEage="26" BottomEage="26" Scale9OriginX="26" Scale9OriginY="26" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
             <Size X="80.0000" Y="80.0000" />
             <Children>
-              <AbstractNodeData Name="Button_daoju1" ActionTag="-2053105620" Alpha="0" Tag="96" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="-0.1968" RightMargin="0.1968" TopMargin="-0.1834" BottomMargin="0.1834" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_daoju1" ActionTag="-2053105620" Alpha="0" Tag="96" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="-0.2000" RightMargin="0.2000" TopMargin="-0.1834" BottomMargin="0.1834" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="80.0000" Y="80.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="39.8032" Y="40.1834" />
+                <Position X="39.8000" Y="40.1834" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4975" Y="0.5023" />
@@ -226,20 +226,20 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="67.7530" Y="90.0164" />
+            <Position X="67.7760" Y="100.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1059" Y="0.0938" />
+            <PrePosition X="0.1059" Y="0.1042" />
             <PreSize X="0.1250" Y="0.0833" />
             <FileData Type="PlistSubImage" Path="daoju.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_daoju2" ActionTag="-1134869210" Tag="51" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="121.4786" RightMargin="438.5214" TopMargin="829.9836" BottomMargin="50.0164" LeftEage="26" RightEage="26" TopEage="26" BottomEage="26" Scale9OriginX="26" Scale9OriginY="26" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_daoju2" ActionTag="-1134869210" Tag="51" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="121.4720" RightMargin="438.5280" TopMargin="820.0000" BottomMargin="60.0000" LeftEage="26" RightEage="26" TopEage="26" BottomEage="26" Scale9OriginX="26" Scale9OriginY="26" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
             <Size X="80.0000" Y="80.0000" />
             <Children>
-              <AbstractNodeData Name="Button_daoju2" ActionTag="-1632830590" Alpha="0" Tag="97" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="0.1674" RightMargin="-0.1674" TopMargin="-0.5284" BottomMargin="0.5284" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_daoju2" ActionTag="-1632830590" Alpha="0" Tag="97" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="0.1680" RightMargin="-0.1680" TopMargin="-0.5284" BottomMargin="0.5284" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="80.0000" Y="80.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="40.1674" Y="40.5284" />
+                <Position X="40.1680" Y="40.5284" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5021" Y="0.5066" />
@@ -253,20 +253,20 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="161.4786" Y="90.0164" />
+            <Position X="161.4720" Y="100.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2523" Y="0.0938" />
+            <PrePosition X="0.2523" Y="0.1042" />
             <PreSize X="0.1250" Y="0.0833" />
             <FileData Type="PlistSubImage" Path="daoju.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_daoju3" ActionTag="1695694944" Tag="52" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="213.5774" RightMargin="346.4226" TopMargin="829.9836" BottomMargin="50.0164" LeftEage="26" RightEage="26" TopEage="26" BottomEage="26" Scale9OriginX="26" Scale9OriginY="26" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_daoju3" ActionTag="1695694944" Tag="52" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="213.5681" RightMargin="346.4319" TopMargin="820.0000" BottomMargin="60.0000" LeftEage="26" RightEage="26" TopEage="26" BottomEage="26" Scale9OriginX="26" Scale9OriginY="26" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
             <Size X="80.0000" Y="80.0000" />
             <Children>
-              <AbstractNodeData Name="Button_daoju3" ActionTag="-1194185710" Alpha="0" Tag="98" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="0.3610" RightMargin="-0.3610" TopMargin="-0.2211" BottomMargin="0.2211" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_daoju3" ActionTag="-1194185710" Alpha="0" Tag="98" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="0.3600" RightMargin="-0.3600" TopMargin="-0.2211" BottomMargin="0.2211" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="80.0000" Y="80.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="40.3610" Y="40.2211" />
+                <Position X="40.3600" Y="40.2211" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5045" Y="0.5028" />
@@ -280,10 +280,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="253.5774" Y="90.0164" />
+            <Position X="253.5681" Y="100.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.3962" Y="0.0938" />
+            <PrePosition X="0.3962" Y="0.1042" />
             <PreSize X="0.1250" Y="0.0833" />
             <FileData Type="PlistSubImage" Path="daoju.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
