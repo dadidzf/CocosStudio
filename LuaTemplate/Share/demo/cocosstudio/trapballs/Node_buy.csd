@@ -6,7 +6,7 @@
       <ObjectData Name="Node" Tag="95" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="Image_di" ActionTag="-382308397" Tag="101" IconVisible="False" LeftMargin="-180.0000" RightMargin="-180.0000" TopMargin="-225.0000" BottomMargin="-225.0000" Scale9Enable="True" LeftEage="151" RightEage="151" TopEage="217" BottomEage="217" Scale9OriginX="151" Scale9OriginY="217" Scale9Width="158" Scale9Height="226" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_di" ActionTag="-382308397" Tag="101" IconVisible="False" LeftMargin="-180.0000" RightMargin="-180.0000" TopMargin="-225.0000" BottomMargin="-225.0000" TouchEnable="True" Scale9Enable="True" LeftEage="151" RightEage="151" TopEage="217" BottomEage="217" Scale9OriginX="151" Scale9OriginY="217" Scale9Width="158" Scale9Height="226" ctype="ImageViewObjectData">
             <Size X="360.0000" Y="450.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position />
@@ -99,14 +99,14 @@
           <AbstractNodeData Name="Button_1" ActionTag="1101964478" Tag="205" IconVisible="False" LeftMargin="28.5724" RightMargin="-148.5724" TopMargin="-166.2598" BottomMargin="121.2598" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="90" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="120.0000" Y="45.0000" />
             <Children>
-              <AbstractNodeData Name="BitmapFontLabel_5" ActionTag="-1082390527" Tag="209" IconVisible="False" LeftMargin="25.9301" RightMargin="26.0699" TopMargin="4.0948" BottomMargin="2.9052" LabelText="$0.9" ctype="TextBMFontObjectData">
-                <Size X="68.0000" Y="38.0000" />
+              <AbstractNodeData Name="BitmapFontLabel_5" ActionTag="-1082390527" Tag="209" IconVisible="False" LeftMargin="16.4301" RightMargin="16.5699" TopMargin="4.0948" BottomMargin="2.9052" LabelText="$0.99" ctype="TextBMFontObjectData">
+                <Size X="87.0000" Y="38.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="59.9301" Y="21.9052" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4994" Y="0.4868" />
-                <PreSize X="0.5667" Y="0.8444" />
+                <PreSize X="0.7250" Y="0.8444" />
                 <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
               </AbstractNodeData>
             </Children>
@@ -126,14 +126,14 @@
           <AbstractNodeData Name="Button_2" ActionTag="812334389" Tag="206" IconVisible="False" LeftMargin="28.5726" RightMargin="-148.5726" TopMargin="-69.2348" BottomMargin="24.2348" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="90" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="120.0000" Y="45.0000" />
             <Children>
-              <AbstractNodeData Name="BitmapFontLabel_6" ActionTag="852581512" Tag="210" IconVisible="False" LeftMargin="25.9299" RightMargin="26.0701" TopMargin="4.1349" BottomMargin="2.8651" LabelText="$2.9" ctype="TextBMFontObjectData">
-                <Size X="68.0000" Y="38.0000" />
+              <AbstractNodeData Name="BitmapFontLabel_6" ActionTag="852581512" Tag="210" IconVisible="False" LeftMargin="16.4299" RightMargin="16.5701" TopMargin="4.1349" BottomMargin="2.8651" LabelText="$2.99" ctype="TextBMFontObjectData">
+                <Size X="87.0000" Y="38.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="59.9299" Y="21.8651" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4994" Y="0.4859" />
-                <PreSize X="0.5667" Y="0.8444" />
+                <PreSize X="0.7250" Y="0.8444" />
                 <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
               </AbstractNodeData>
             </Children>
@@ -153,14 +153,14 @@
           <AbstractNodeData Name="Button_3" ActionTag="-1263874479" Tag="207" IconVisible="False" LeftMargin="28.5726" RightMargin="-148.5726" TopMargin="27.7901" BottomMargin="-72.7901" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="90" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="120.0000" Y="45.0000" />
             <Children>
-              <AbstractNodeData Name="BitmapFontLabel_7" ActionTag="2021490417" Tag="211" IconVisible="False" LeftMargin="25.9299" RightMargin="26.0701" TopMargin="4.1749" BottomMargin="2.8251" LabelText="$9.9" ctype="TextBMFontObjectData">
-                <Size X="68.0000" Y="38.0000" />
+              <AbstractNodeData Name="BitmapFontLabel_7" ActionTag="2021490417" Tag="211" IconVisible="False" LeftMargin="16.4299" RightMargin="16.5701" TopMargin="4.1749" BottomMargin="2.8251" LabelText="$9.99" ctype="TextBMFontObjectData">
+                <Size X="87.0000" Y="38.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="59.9299" Y="21.8251" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4994" Y="0.4850" />
-                <PreSize X="0.5667" Y="0.8444" />
+                <PreSize X="0.7250" Y="0.8444" />
                 <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
               </AbstractNodeData>
             </Children>
@@ -180,14 +180,14 @@
           <AbstractNodeData Name="Button_4" ActionTag="-744525465" Tag="208" IconVisible="False" LeftMargin="28.5726" RightMargin="-148.5726" TopMargin="124.8153" BottomMargin="-169.8153" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="90" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="120.0000" Y="45.0000" />
             <Children>
-              <AbstractNodeData Name="BitmapFontLabel_8" ActionTag="1665262721" Tag="212" IconVisible="False" LeftMargin="16.4299" RightMargin="16.5701" TopMargin="4.2148" BottomMargin="2.7852" LabelText="$29.9" ctype="TextBMFontObjectData">
-                <Size X="87.0000" Y="38.0000" />
+              <AbstractNodeData Name="BitmapFontLabel_8" ActionTag="1665262721" Tag="212" IconVisible="False" LeftMargin="6.9299" RightMargin="7.0701" TopMargin="4.2148" BottomMargin="2.7852" LabelText="$29.99" ctype="TextBMFontObjectData">
+                <Size X="106.0000" Y="38.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="59.9299" Y="21.7852" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4994" Y="0.4841" />
-                <PreSize X="0.7250" Y="0.8444" />
+                <PreSize X="0.8833" Y="0.8444" />
                 <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
               </AbstractNodeData>
             </Children>
