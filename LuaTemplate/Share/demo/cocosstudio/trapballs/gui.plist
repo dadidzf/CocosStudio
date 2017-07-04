@@ -820,7 +820,7 @@
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:220a8f70727c1dab91132f8c71880814$</string>
+            <string>$TexturePacker:SmartUpdate:f64a4ea2cedaf6bcadb5f04278963fae$</string>
             <key>textureFileName</key>
             <string>gui.png</string>
         </dict>
