@@ -2,16 +2,27 @@ local ExtendLine = class("ExtendLine", function ( ... )
     return cc.DrawNode:create()
 end)
 
-function ExtendLine:ctor(isHorizontal, speed, endsBallRadius)
+function ExtendLine:ctor(pointManger, isHorizontal, spriteFrame, dropPos, speed, endsBallRadius)
     self:enableNodeEvents()
 
+    self.m_pointsMgr = pointManger
+    self.m_dropPos = dropPos
+    self.m_spriteFrame = spriteFrame
     self.m_endsBallRadius = endsBallRadius or 8
     self.m_isHorizontal = isHorizontal
-    self.m_speed = speed
-    self:drawPoint(cc.p(0, 0), self.m_endsBallRadius, cc.c4f(0, 0, 1, 1))
+    self.m_speed = speed or 300
+
+    self.m_icon = cc.Sprite:createWithSpriteFrame(spriteFrame)
+        :move(0, 0)
+        :setOpacity(80)
+        :addTo(self)
 
     self.m_positivePt = nil
     self.m_negativePt = nil
+end
+
+function ExtendLine:getDropPos()
+    return self.m_dropPos
 end
 
 function ExtendLine:onCleanup()
@@ -23,11 +34,13 @@ function ExtendLine:isHorizontal()
 end
 
 function ExtendLine:getOffsets()
-    return {self.m_positivePt, self.m_negativePt}
+    return {self.m_postiveCollisionPt, self.m_negativeCollisionPt}
 end
 
 function ExtendLine:startExtend()
-    self.m_lineWidth = dd.Constants.EDGE_SEG_WIDTH
+    self.m_icon:removeFromParent()
+    
+    self.m_lineWidth = dd.Constants.LINE_WIDTH_IN_PIXEL
     self.m_startTime = socket.gettime()
     self:clear()
 
@@ -59,10 +72,11 @@ function ExtendLine:updatePhysicBody(t)
     self:clear()
     self:setLineWidth(self.m_lineWidth)
 
-    self:drawLine(cc.p(0, 0), pt1, cc.c4f(1, 1, 1, 1))
+    local origin, dest = self.m_pointsMgr:getLineRectWithLineWidth(cc.p(0, 0), pt1)
+    self:drawSolidRect(origin, dest, cc.c4f(1, 1, 1, 1))
 
     if not self.m_negativePt then
-        local shapeLine1 = cc.PhysicsShapeEdgeSegment:create(pt1, cc.p(0, 0), cc.PhysicsMaterial(1, 1, 0), 1)
+        local shapeLine1 = cc.PhysicsShapeEdgeSegment:create(pt1, cc.p(0, 0), cc.PhysicsMaterial(1, 1, 0), 2)
         shapeLine1:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE)
         shapeLine1:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.EDGE_SEGMENT)
         shapeLine1:setCollisionBitmask(0)
@@ -77,9 +91,10 @@ function ExtendLine:updatePhysicBody(t)
         self:drawCircle(pt1, self.m_endsBallRadius, 0, 20, false, cc.c4f(1, 1, 1, 1))
     end
 
-    self:drawLine(cc.p(0, 0), pt2, cc.c4f(1, 1, 1, 1))
+    local origin, dest = self.m_pointsMgr:getLineRectWithLineWidth(cc.p(0, 0), pt2)
+    self:drawSolidRect(origin, dest, cc.c4f(1, 1, 1, 1))
     if not self.m_positivePt then
-        local shapeLine2 = cc.PhysicsShapeEdgeSegment:create(pt2, cc.p(0, 0), cc.PhysicsMaterial(1, 1, 0), 1)
+        local shapeLine2 = cc.PhysicsShapeEdgeSegment:create(pt2, cc.p(0, 0), cc.PhysicsMaterial(1, 1, 0), 2)
         shapeLine2:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE)
         shapeLine2:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.EDGE_SEGMENT)
         shapeLine2:setCollisionBitmask(0)
@@ -104,16 +119,19 @@ function ExtendLine:stopExtend()
     end
 end
 
-function ExtendLine:collision(offset)
+function ExtendLine:collision(collisionPt)
+    local offset = cc.pSub(collisionPt, cc.p(self:getPositionX(), self:getPositionY()))
     if not self.m_positivePt then
         if offset.x + offset.y >= 0 then
             self.m_positivePt = clone(offset)
+            self.m_postiveCollisionPt = collisionPt
         end
     end
 
     if not self.m_negativePt then
         if offset.x + offset.y <= 0 then
             self.m_negativePt = clone(offset)
+            self.m_negativeCollisionPt = collisionPt
         end
     end
 

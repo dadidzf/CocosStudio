@@ -4,7 +4,7 @@ local EdgeSegments = class("EdgeSegments", function ()
 end)
 
 function EdgeSegments:ctor(pointsManager, lineWidth)
-    self.m_lineWidth = lineWidth or dd.Constants.EDGE_SEG_WIDTH
+    self.m_lineWidth = lineWidth or dd.Constants.LINE_WIDTH_IN_PIXEL
     self.m_pointsMgr = pointsManager
     self:updatePhysicBody()
 end
@@ -19,14 +19,16 @@ function EdgeSegments:updatePhysicBody(color)
     self:setPhysicsBody(body)
 
     for _, ptPair in pairs(linePointsList) do
-        local shape = cc.PhysicsShapeEdgeSegment:create(ptPair[1], ptPair[2], cc.PhysicsMaterial(1, 1, 0), 1)
+        local shape = cc.PhysicsShapeEdgeSegment:create(ptPair[1], ptPair[2], cc.PhysicsMaterial(1, 1, 0), 2)
+        shape:setTag(ptPair[3])
         body:addShape(shape)
         body:setCategoryBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT)
         body:setContactTestBitmask(dd.Constants.CATEGORY.EXTENDLINE)
         body:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
         body:setDynamic(false)
 
-        self:drawLine(ptPair[1], ptPair[2], color)
+        local origin, dest = self.m_pointsMgr:getLineRectWithLineWidth(ptPair[1], ptPair[2])
+        self:drawSolidRect(origin, dest, color)
         self:drawTestLabel()
     end
 end
@@ -41,7 +43,7 @@ function EdgeSegments:drawTestLabel()
         for ptIndex, pt in pairs(self.m_pointsMgr.m_pointList) do
             ccui.Text:create(string.format("%d", ptIndex), "", 32)
                 :move(pt)
-                :setColor(cc.RED)
+                :setColor(cc.BLACK)
                 :addTo(self.m_testLabelNode)
         end
 

@@ -1,11 +1,14 @@
 local GameNode = class("GameNode", cc.Node)
 
+local MODULE_PATH = ...
 local Balls = import(".Balls")
 local ExtendLine = import(".ExtendLine")
 local EdgeSegments = import(".EdgeSegments")
 local PointsManager = import(".PointsManager")
 
-function GameNode:ctor()
+function GameNode:ctor(scene)
+    self.m_scene = scene
+
     self.m_pointsMgr = PointsManager:create()
     local jsonStr = cc.FileUtils:getInstance():getStringFromFile("level1.json")
     self.m_pointsMgr:load(jsonStr)
@@ -63,6 +66,11 @@ function GameNode:onContactBegin(contact)
     -- ball with extend line
     if cateGoryAdd == dd.Constants.CATEGORY.EXTENDLINE + dd.Constants.CATEGORY.BALL then
         print("Game Over !")
+        -- local GameEnd = import(".GameEnd", MODULE_PATH)
+        -- local gameEnd = GameEnd:create() 
+        -- self.m_extendLine:stopExtend()
+        -- self:getParent():addChild(gameEnd, 2)
+        -- gameEnd:setPosition(display.cx, display.cy)
         return false
     end
 end
@@ -79,7 +87,10 @@ function GameNode:getExtendLineSegmentCollisionPt(shapeA, shapeB)
         shapeSegment = shapeB
     end
 
-    local segPtA = shapeSegment:getPointA()      
+    local lineIndex = shapeSegment:getTag()
+    local linePtPair = self.m_pointsMgr:getOneLinePointPair(lineIndex)
+    local segPtA = linePtPair[1]
+
     local extendPos = cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())
 
     if self.m_extendLine:isHorizontal() then
@@ -95,26 +106,26 @@ function GameNode:getExtendLineBallCollisionPt(shapeA, shapeB)
 
     if shapeACategory == dd.Constants.CATEGORY.BALL then
         local pt = shapeB:getOffset()
+        pt = cc.pMul(pt, 1/self:getScale())
         return cc.pAdd(extendPos, pt)
     else
         local pt = shapeA:getOffset()
+        pt = cc.pMul(pt, 1/self:getScale())
         return cc.pAdd(extendPos, pt)
     end
 end
 
 function GameNode:dealExtendlineCollision(collisionPt)
+    print("GameNode:dealExtendlineCollision")
+    dump(collisionPt)
+    
     local startTime = socket.gettime()
-
-    local extendPos = cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())
-    self.m_extendLine:collision(cc.pSub(collisionPt, extendPos))
+    self.m_extendLine:collision(collisionPt)
 
     if not self.m_extendLine:isExtend() then
         local pts = self.m_extendLine:getOffsets()
-        local pos = cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())
-        local pt1 = cc.pAdd(pts[1], pos)
-        local pt2 = cc.pAdd(pts[2], pos)
-        self.m_pointsMgr:adjustLine(pt1, pt2)
-        self.m_pointsMgr:addLine(pt1, pt2, self.m_balls:getBallPosList())
+        self.m_pointsMgr:adjustLine(pts[1], pts[2])
+        self.m_pointsMgr:addLine(pts[1], pts[2], self.m_balls:getBallPosList())
         self.m_extendLine:removeFromParent()
         self.m_extendLine = nil
 
@@ -149,9 +160,15 @@ function GameNode:onTouchBegin(touch, event)
     if self.m_extendLine then
         return false
     end
+
+    local spriteFrame, isHorizontal, dropPos = self.m_scene:getValidSpriteFrame(touch:getLocation())
+    if not spriteFrame then
+        return false
+    end
     
+    dropPos = self:convertToNodeSpace(dropPos)
     local pt = self:convertToNodeSpace(touch:getLocation())
-    self.m_extendLine = ExtendLine:create(pt.x < 0, 300)
+    self.m_extendLine = ExtendLine:create(self.m_pointsMgr, isHorizontal, spriteFrame, dropPos)
         :addTo(self)
 
     self:updateExtendLinePos(touch)
@@ -170,7 +187,7 @@ function GameNode:onTouchEnd(touch, event)
     else
         self.m_extendLine:runAction(
             cc.Sequence:create(
-                cc.MoveTo:create(2, cc.p(0, -300)),
+                cc.MoveTo:create(1, self.m_extendLine:getDropPos()),
                 cc.CallFunc:create(function ( ... )
                     if not tolua.isnull(self.m_extendLine) then
                         self.m_extendLine:removeFromParent()
@@ -186,7 +203,7 @@ end
 
 function GameNode:updateExtendLinePos(touch)
     local pt = self:convertToNodeSpace(touch:getLocation())
-    pt.y = pt.y + 200
+    pt.y = pt.y + 100
     self.m_pointsMgr:adjustPoint(pt)
 
     self.m_extendLine:setPosition(pt.x, pt.y)

@@ -55,4 +55,27 @@ function ViewBase:showWithScene(transition, time, more)
     return self
 end
 
+function ViewBase:showMask(color, opacity)
+    color = color or cc.BLACK
+    opacity = opacity or 180
+    if self.m_maskLayer then
+        self.m_maskLayer:removeFromParent()
+    end
+    
+    self.m_maskLayer = ccui.Layout:create()
+        :setBackGroundColorType(LAYOUT_COLOR_SOLID)
+        :setBackGroundColor(color)
+        :setBackGroundColor(cc.c3b(0, 0, 0))
+        :setBackGroundColorOpacity(opacity)
+        :setTouchEnabled(true)
+        :setSwallowTouches(true)
+        :setContentSize(display.size)
+        :setAnchorPoint(cc.p(0.5, 0.5))
+        :addTo(self, -1)
+end
+
+function ViewBase:getMask()
+    return self.m_maskLayer
+end
+
 return ViewBase
