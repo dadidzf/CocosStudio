@@ -329,9 +329,6 @@ function PointsManager:clipPolygon(clipLineIndex)
     local ballPosList = self.m_ballsPosList
     self:adjustBallsPos(ballPosList)
     
-    local polygonTobeRemovedPtRecordList = {} -- record all points in polygon to be removed
-    local polygonHasBallsPtRecordList = {} -- store all polygon(which store all point pairs(one line)) which has balls
-
     local pointList = self.m_pointList
     local linePtIndexPair = self.m_lineList[clipLineIndex]
 
@@ -339,6 +336,10 @@ function PointsManager:clipPolygon(clipLineIndex)
     if self.m_clickPolygonIndex then
         if #allFindList == 2 then
             table.remove(self.m_validPolygonPtIndexPairList, self.m_clickPolygonIndex)
+        else
+            if #allFindList ~= 0 then
+                assert(false, "Should just be two polygon !")
+            end
         end
     else
         assert(false, "It should not be here ! ") 
@@ -346,15 +347,11 @@ function PointsManager:clipPolygon(clipLineIndex)
 
     for _, polygon in ipairs(allFindList) do
         if self:isBallsInPolygon(ballPosList, polygon) then
-            local polygonPtPairList = {}
             local polygonPtIndexPairList = {}
             for _, lineIndex in ipairs(polygon) do
                 local linePtPair = self.m_lineList[lineIndex]
                 local pt1 = pointList[linePtPair[1]]
                 local pt2 = pointList[linePtPair[2]]
-                polygonHasBallsPtRecordList[linePtPair[1]] = true
-                polygonHasBallsPtRecordList[linePtPair[2]] = true
-                table.insert(polygonPtPairList, {pt1, pt2})
                 table.insert(polygonPtIndexPairList, {linePtPair[1], linePtPair[2]})
             end
             table.insert(self.m_validPolygonPtIndexPairList, polygonPtIndexPairList)
@@ -364,22 +361,15 @@ function PointsManager:clipPolygon(clipLineIndex)
                 local linePtPair = self.m_lineList[lineIndex]
                 local pt1 = pointList[linePtPair[1]]
                 local pt2 = pointList[linePtPair[2]]
-                polygonTobeRemovedPtRecordList[linePtPair[1]] = true
-                polygonTobeRemovedPtRecordList[linePtPair[2]] = true
                 table.insert(polygonPtPairList, clone({pt1, pt2}))
             end
             table.insert(self.m_removedPolygonsPtPairList, polygonPtPairList)
         end
     end
 
-    if #allFindList == 2 then
-        local pointIndexsTobeRemovedList = self:getPointsTobeRemoved(polygonTobeRemovedPtRecordList, 
-            polygonHasBallsPtRecordList, self.m_otherPolygonPtIndexList)
-        self:removePoints(pointIndexsTobeRemovedList)
-    end
-
     self:updateValidPolyPtIndex(linePtIndexPair)
     self:updateLines()
+    self:updatePoints()
 end
 
 function PointsManager:isPtBetweenLine(pt, linePt1, linePt2)
@@ -387,11 +377,21 @@ function PointsManager:isPtBetweenLine(pt, linePt1, linePt2)
         ((pt.y < linePt1.y and pt.y > linePt2.y) or (pt.y < linePt2.y and pt.y > linePt1.y)) then
         return true
     elseif pt.y == linePt1.y and pt.y == linePt2.y and 
-        ((pt.x < linePt1.x and pt.x > linePt2.x) or (pt.x < linePt1.x and pt.x > linePt2.x)) then
+        ((pt.x < linePt1.x and pt.x > linePt2.x) or (pt.x > linePt1.x and pt.x < linePt2.x)) then
         return true
     end
 
     return false
+end
+
+function PointsManager:updatePoints()
+    self:updatePointMapLineList()
+
+    for ptIndex, _ in pairs(self.m_pointList) do
+        if not self.m_pointMapLineList[ptIndex] then
+            self.m_pointList[ptIndex] = nil
+        end
+    end
 end
 
 function PointsManager:updateLines()
@@ -440,12 +440,12 @@ function PointsManager:updateValidPolyPtIndex(linePtIndexPair)
             local polyLinePt2 = self.m_pointList[ptIndexPair[2]] 
             if self:isPtBetweenLine(pt1, polyLinePt1, polyLinePt2) then
                 table.remove(polygonPtIndexList, polygonIndex)
-                table.insert(polygonPtIndexList, {ptIndex1, ptIndexPair[1]})
+                table.insert(polygonPtIndexList, polygonIndex, {ptIndex1, ptIndexPair[1]})
                 table.insert(polygonPtIndexList, {ptIndex1, ptIndexPair[2]})
                 break
             elseif self:isPtBetweenLine(pt2, polyLinePt1, polyLinePt2) then
                 table.remove(polygonPtIndexList, polygonIndex)
-                table.insert(polygonPtIndexList, {ptIndex2, ptIndexPair[1]})
+                table.insert(polygonPtIndexList, polygonIndex, {ptIndex2, ptIndexPair[1]})
                 table.insert(polygonPtIndexList, {ptIndex2, ptIndexPair[2]})
                 break
             end
@@ -570,16 +570,30 @@ function PointsManager:isPointInPolygon(pt, polygon, includeOnLine)
     local x = pt.x
     local y = pt.y
 
+    local leftCount = 0
+    local rightCount = 0
     for _, polygonLine in ipairs(polygon) do
         local linePtIndexPair = self.m_lineList[polygonLine]
         local polygonPt = self.m_pointList[linePtIndexPair[1]]
         local polygonPtNext = self.m_pointList[linePtIndexPair[2]]
 
         if x == polygonPt.x and x == polygonPtNext.x and polygonPt.y > y and polygonPtNext.y > y then
-            crossCount = crossCount + 1
-        elseif (polygonPt.y == polygonPtNext.y) and (polygonPt.y > y) 
-            and ((x >= polygonPt.x and x <= polygonPtNext.x) or (x <= polygonPt.x and x >= polygonPtNext.x)) then
-            crossCount = crossCount + 1
+        elseif (polygonPt.y == polygonPtNext.y) and (polygonPt.y > y) then
+            if ((x > polygonPt.x and x < polygonPtNext.x) or (x < polygonPt.x and x > polygonPtNext.x)) then
+                crossCount = crossCount + 1
+            elseif x == polygonPt.x then
+                if polygonPtNext.x < x then
+                    leftCount = leftCount + 1
+                else
+                    rightCount = rightCount + 1
+                end
+            elseif x == polygonPtNext.x then
+                if polygonPt.x < x then
+                    leftCount = leftCount + 1
+                else
+                    rightCount = rightCount + 1
+                end
+            end
         end
 
         if includeOnLine then
@@ -594,6 +608,7 @@ function PointsManager:isPointInPolygon(pt, polygon, includeOnLine)
 
     print("PointsManager:isPointInPolygon", crossCount)
 
+    crossCount = crossCount + math.min(leftCount, rightCount)
     return crossCount%2 ~= 0
 end
 
@@ -602,17 +617,30 @@ function PointsManager:isPointInPolygonPtIndexList(pt, polygonPtIndexList, inclu
     local x = pt.x
     local y = pt.y
 
+    local leftCount = 0
+    local rightCount = 0
     for _, polygonPtIndexPair in ipairs(polygonPtIndexList) do
-        local polygonPt = self.m_pointList[polygonPtIndexPair[1]]
-        local polygonPtNext = self.m_pointList[polygonPtIndexPair[2]]
+        local ptIndex1 = polygonPtIndexPair[1]
+        local ptIndex2 = polygonPtIndexPair[2]
+        local polygonPt = self.m_pointList[ptIndex1]
+        local polygonPtNext = self.m_pointList[ptIndex2]
 
         if x == polygonPt.x and x == polygonPtNext.x and polygonPt.y > y and polygonPtNext.y > y then
-            crossCount = crossCount + 2
         elseif (polygonPt.y == polygonPtNext.y) and (polygonPt.y > y) then
             if ((x > polygonPt.x and x < polygonPtNext.x) or (x < polygonPt.x and x > polygonPtNext.x)) then
-                crossCount = crossCount + 2
-            elseif (x == polygonPt.x or x == polygonPtNext.x) then
                 crossCount = crossCount + 1
+            elseif x == polygonPt.x then
+                if polygonPtNext.x < x then
+                    leftCount = leftCount + 1
+                else
+                    rightCount = rightCount + 1
+                end
+            elseif x == polygonPtNext.x then
+                if polygonPt.x < x then
+                    leftCount = leftCount + 1
+                else
+                    rightCount = rightCount + 1
+                end
             end
         end
 
@@ -628,7 +656,8 @@ function PointsManager:isPointInPolygonPtIndexList(pt, polygonPtIndexList, inclu
 
     print("PointsManager:isPointInPolygonPtIndexList", crossCount)
 
-    return crossCount%4 ~= 0
+    crossCount = crossCount + math.min(leftCount, rightCount)
+    return crossCount%2 ~= 0
 end
 
 
