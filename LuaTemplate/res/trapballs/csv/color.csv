@@ -1,9 +1,9 @@
 id,image_di,btn_play,box_color,probability
-1,di_black,Image_btn_orange,,50
-2,di_green,Image_btn_cyan,,10
-3,di_yellow,Image_btn_green,,10
-4,di_blue,Image_btn_purple,,10
-5,di_red,Image_btn_yellow,,10
-6,di_cyan,Image_btn_green,,10
-7,di_orange,Image_btn_red,,10
-8,di_purple,Image_btn_blue,,10
+1,di_black,Image_btn_orange,"[253,179,92]",10
+2,di_green,Image_btn_cyan,"[165,230,257]",10
+3,di_yellow,Image_btn_green,"[165,255,147]",10
+4,di_blue,Image_btn_purple,"[171,176,253]",10
+5,di_red,Image_btn_yellow,"[254,165,240]",10
+6,di_cyan,Image_btn_green,"[255,203,255]",10
+7,di_orange,Image_btn_red,"[253,237,175]",10
+8,di_purple,Image_btn_blue,"[250,150,250]",10
