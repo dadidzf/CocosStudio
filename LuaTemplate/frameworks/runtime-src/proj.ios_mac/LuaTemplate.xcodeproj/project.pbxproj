@@ -22,6 +22,7 @@
 		29B40A2F1EFE0EFB00238ACB /* YWCsvparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A2B1EFE0EFB00238ACB /* YWCsvparser.cpp */; };
 		29B40A301EFE0EFB00238ACB /* YWStrUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A2D1EFE0EFB00238ACB /* YWStrUtil.cpp */; };
 		29B95D201E9E59DC00567316 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29B95D1F1E9E59DC00567316 /* GoogleService-Info.plist */; };
+		29BB9CEA1F0CE69C00F3240B /* Triangulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29BB9CE81F0CE69C00F3240B /* Triangulate.cpp */; };
 		29C1B7361EAC9C4100813C76 /* ToolsController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29C1B7351EAC9C4100813C76 /* ToolsController.mm */; };
 		29C5BE641EBD824D00774F6A /* GameCenterHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29C5BE631EBD824D00774F6A /* GameCenterHelper.mm */; };
 		29C5BE661EBD91F100774F6A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C5BE651EBD91F100774F6A /* GameKit.framework */; };
@@ -218,6 +219,8 @@
 		29B40A2E1EFE0EFB00238ACB /* YWStrUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWStrUtil.h; sourceTree = "<group>"; };
 		29B95D1A1E9D38D100567316 /* libPods-LuaTemplate-desktop.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-LuaTemplate-desktop.a"; path = "Pods/../build/Debug/libPods-LuaTemplate-desktop.a"; sourceTree = "<group>"; };
 		29B95D1F1E9E59DC00567316 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		29BB9CE81F0CE69C00F3240B /* Triangulate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangulate.cpp; sourceTree = "<group>"; };
+		29BB9CE91F0CE69C00F3240B /* Triangulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangulate.h; sourceTree = "<group>"; };
 		29C1B7341EAC9C4100813C76 /* ToolsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsController.h; sourceTree = "<group>"; };
 		29C1B7351EAC9C4100813C76 /* ToolsController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ToolsController.mm; sourceTree = "<group>"; };
 		29C5BE631EBD824D00774F6A /* GameCenterHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameCenterHelper.mm; sourceTree = "<group>"; };
@@ -385,6 +388,8 @@
 		29B40A2A1EFE0EFB00238ACB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				29BB9CE81F0CE69C00F3240B /* Triangulate.cpp */,
+				29BB9CE91F0CE69C00F3240B /* Triangulate.h */,
 				29B40A2B1EFE0EFB00238ACB /* YWCsvparser.cpp */,
 				29B40A2C1EFE0EFB00238ACB /* YWCsvParser.h */,
 				29B40A2D1EFE0EFB00238ACB /* YWStrUtil.cpp */,
@@ -935,6 +940,7 @@
 				F293BB9C15EB831F00256477 /* AppDelegate.cpp in Sources */,
 				29B40A291EFE0EE600238ACB /* LuaCustomConversions.cpp in Sources */,
 				5023812417EBBCAC00990C9B /* main.m in Sources */,
+				29BB9CEA1F0CE69C00F3240B /* Triangulate.cpp in Sources */,
 				5023811817EBBCAC00990C9B /* AppController.mm in Sources */,
 				29B40A301EFE0EFB00238ACB /* YWStrUtil.cpp in Sources */,
 				29C5BE641EBD824D00774F6A /* GameCenterHelper.mm in Sources */,

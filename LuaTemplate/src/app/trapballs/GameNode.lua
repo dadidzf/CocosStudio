@@ -6,8 +6,10 @@ local ExtendLine = import(".ExtendLine")
 local EdgeSegments = import(".EdgeSegments")
 local PointsManager = import(".PointsManager")
 
-function GameNode:ctor(scene)
+function GameNode:ctor(scene, boxColor)
+    dump(boxColor, "GameNode:ctor")
     self.m_scene = scene
+    self.m_boxColor = cc.c4f(boxColor.r/255, boxColor.g/255, boxColor.b/255, 1)
 
     self.m_pointsMgr = PointsManager:create()
     local jsonStr = cc.FileUtils:getInstance():getStringFromFile("level1.json")
@@ -21,6 +23,14 @@ function GameNode:ctor(scene)
 
     self:addTouch()
     self:addPhysicListener()
+
+    self.m_drawNode = cc.DrawNode:create()
+        :addTo(self, -1)
+    self:drawPolygon()
+end
+
+function GameNode:getValidPolygonArea()
+    return self.m_pointsMgr:getAllValidPolygonArea()
 end
 
 -- Physic Contact
@@ -66,11 +76,11 @@ function GameNode:onContactBegin(contact)
     -- ball with extend line
     if cateGoryAdd == dd.Constants.CATEGORY.EXTENDLINE + dd.Constants.CATEGORY.BALL then
         print("Game Over !")
-        -- local GameEnd = import(".GameEnd", MODULE_PATH)
-        -- local gameEnd = GameEnd:create() 
-        -- self.m_extendLine:stopExtend()
-        -- self:getParent():addChild(gameEnd, 2)
-        -- gameEnd:setPosition(display.cx, display.cy)
+        local GameFail = import(".GameFail", MODULE_PATH)
+        local gameFail = GameFail:create(self.m_scene) 
+        self.m_extendLine:stopExtend()
+        self.m_scene:addChild(gameFail, 2)
+        gameFail:setPosition(display.cx, display.cy)
         return false
     end
 end
@@ -131,6 +141,8 @@ function GameNode:dealExtendlineCollision(collisionPt)
 
         local scheduler
         local segment = self.m_edgeSegments
+        self:drawPolygon()
+        self.m_scene:updateArea()
         local callBack = function ()
             if not tolua.isnull(segment) then
                 segment:updatePhysicBody()
@@ -203,10 +215,36 @@ end
 
 function GameNode:updateExtendLinePos(touch)
     local pt = self:convertToNodeSpace(touch:getLocation())
-    pt.y = pt.y + 100
+    pt.y = pt.y + 160
     self.m_pointsMgr:adjustPoint(pt)
 
     self.m_extendLine:setPosition(pt.x, pt.y)
+end
+
+function GameNode:drawPolygon()
+    self.m_drawNode:clear()
+
+    local validPolygonTriangleLists = self.m_pointsMgr:getAllValidPolygonTriangleList()
+    for _, polygonTriangleList in ipairs(validPolygonTriangleLists) do
+        for index = 1, #polygonTriangleList/3 do
+            local pt1 = polygonTriangleList[(index - 1)*3 + 1]
+            local pt2 = polygonTriangleList[(index - 1)*3 + 2]
+            local pt3 = polygonTriangleList[(index - 1)*3 + 3]
+
+            self.m_drawNode:drawTriangle(pt1, pt2, pt3, self.m_boxColor)
+        end
+    end
+
+    local removedPolygonTriangleLists = self.m_pointsMgr:getAllRemovedPolygonTriangleList()
+    for _, polygonTriangleList in ipairs(removedPolygonTriangleLists) do
+        for index = 1, #polygonTriangleList/3 do
+            local pt1 = polygonTriangleList[(index - 1)*3 + 1]
+            local pt2 = polygonTriangleList[(index - 1)*3 + 2]
+            local pt3 = polygonTriangleList[(index - 1)*3 + 3]
+
+            self.m_drawNode:drawTriangle(pt1, pt2, pt3, cc.c4f(1, 1, 1, 0.3))
+        end
+    end
 end
 
 return GameNode

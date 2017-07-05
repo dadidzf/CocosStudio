@@ -113,6 +113,9 @@ function ExtendLine:updatePhysicBody(t)
 end
 
 function ExtendLine:stopExtend()
+    local body = cc.PhysicsBody:create()
+    self:setPhysicsBody(body)
+    
     if self.m_scheduler then
         dd.scheduler:unscheduleScriptEntry(self.m_scheduler)
         self.m_scheduler = nil

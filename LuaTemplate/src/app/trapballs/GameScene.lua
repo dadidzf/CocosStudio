@@ -14,6 +14,14 @@ GameScene.RESOURCE_BINDING = {
     ["Image_daoju1"] = {varname = "m_prop1"},
     ["Image_daoju2"] = {varname = "m_prop2"},
     ["Image_daoju3"] = {varname = "m_prop3"},
+
+    ["Image_life1"] = {varname = "m_imgLife1"},
+    ["Image_life2"] = {varname = "m_imgLife2"},
+    ["Image_life3"] = {varname = "m_imgLife3"},
+
+    ["Image_circlehalfblack"] = {varname = "m_imgCircleBlack"},
+    ["Image_circlewhite"] = {varname = "m_imgCircleWhite"},
+    ["Image_circlehalfwhite"] = {varname = "m_imgCircleGray"}
 }
 
 function GameScene:ctor(levelIndex)
@@ -21,8 +29,91 @@ function GameScene:ctor(levelIndex)
     print("GameScene:ctor", levelIndex)
     self.m_labelRoundNum:setString(tostring(levelIndex))
 
+    self.m_imgLifeList = {self.m_imgLife1, self.m_imgLife2, self.m_imgLife3}
+    self.m_imgCircleGray:setVisible(false)
+    self.m_imgCircleWhite:setVisible(false)
+    self.m_imgCircleBlack:setVisible(false)
+
     self:showRandBg()
+    self:showGameNode()
+
+    self:initGameData(levelIndex)
+    self:initGameProgress()
     self:showProps()
+    self:applyGamedataDisplay()
+end
+
+function GameScene:initGameData(levelIndex)
+    self.m_lives = 3
+    self.m_topCollisionCount = 0
+
+    local roundCfg = dd.CsvConf:getRoundCfg()[levelIndex]
+    self.m_steps = roundCfg.steps
+    self.m_gameTarget = roundCfg.fill_target
+    self.m_gameCurCut = 0
+    self.m_totalArea = math.abs(self.m_node:getValidPolygonArea())
+    self.m_curArea = self.m_totalArea
+end
+
+function GameScene:updateArea()
+    self.m_curArea = math.abs(self.m_node:getValidPolygonArea())
+    self.m_gameCurCut = math.abs(self.m_totalArea - self.m_curArea)*100/self.m_totalArea
+    self:applyGamedataDisplay()
+end
+
+function GameScene:applyGamedataDisplay()
+    self:showLives()
+    self.m_labelTopCollisionNum:setString(tostring(self.m_topCollisionCount))
+    self.m_labelStepNum:setString(tostring(self.m_steps))
+    self:showGameProgress()
+end
+
+function GameScene:initGameProgress()
+    local pos = cc.p(self.m_imgCircleBlack:getPositionX(), self.m_imgCircleBlack:getPositionY())
+    local graySprite = cc.Sprite:createWithSpriteFrameName("circle_halfblack.png")
+    self.m_progressGray = cc.ProgressTimer:create(graySprite)
+            :setType(cc.PROGRESS_TIMER_TYPE_RADIAL)
+            :setPosition(pos)
+            :setOpacity(180)
+            :setReverseDirection(true)
+            :addTo(self, 4)
+    self.m_progressGray:setPercentage(self.m_gameCurCut)
+
+
+    local whiteSprite = cc.Sprite:createWithSpriteFrameName("circle_white.png")
+    self.m_progressWhite = cc.ProgressTimer:create(whiteSprite)
+            :setType(cc.PROGRESS_TIMER_TYPE_RADIAL)
+            :setPosition(pos)
+            :setColor(self.m_boxColor)
+            :addTo(self, 2)
+
+    self.m_progressWhite:setPercentage(100)
+
+    local blackSprite = cc.Sprite:createWithSpriteFrameName("circle_white.png")
+    self.m_progressBlack = cc.ProgressTimer:create(blackSprite)
+            :setType(cc.PROGRESS_TIMER_TYPE_RADIAL)
+            :setColor(cc.BLACK)
+            :setOpacity(180)
+            :setPosition(pos)
+            :addTo(self, 3)
+
+    self.m_progressBlack:setPercentage(100 - self.m_gameTarget)
+
+end
+
+function GameScene:showGameProgress()
+    self.m_progressGray:setPercentage(self.m_gameCurCut)
+    self.m_progressWhite:setPercentage(100 - self.m_gameCurCut)
+end
+
+function GameScene:showLives()
+    for index = 1, 3 do 
+        if index <= self.m_lives then
+            self.m_imgLifeList[index]:setVisible(true)
+        else
+            self.m_imgLifeList[index]:setVisible(false)
+        end
+    end
 end
 
 function GameScene:showRandBg()
@@ -33,9 +124,8 @@ function GameScene:showRandBg()
 
     local randomShow = dd.CsvConf:getRandomBgAndBtn()
     resourceNode:getChildByName(randomShow.image_di):setVisible(true)
-
     local color = dd.YWStrUtil:parse(randomShow.box_color)
-    --self.m_boxColor = cc.c4f(color[1]/255, color[2]/255, color[3]/255, 1)
+    self.m_boxColor = cc.c3b(color[1], color[2], color[3])
 end
 
 function GameScene:showProps()
@@ -53,12 +143,12 @@ function GameScene:onPause()
     self:addChild(pauseNode, 2)
 end
 
-function GameScene:onCreate()
+function GameScene:showGameNode()
     local resourceNode = self:getResourceNode()
     resourceNode:setContentSize(display.size)
     ccui.Helper:doLayout(resourceNode)
     
-    self.m_node = GameNode:create(self)
+    self.m_node = GameNode:create(self, self.m_boxColor)
         :move(display.cx, display.cy)
         :addTo(self)
 

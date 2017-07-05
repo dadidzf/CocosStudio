@@ -11,12 +11,14 @@ function PointsManager:ctor()
     self.m_linePointsList = {}  -- every line store two points
     self.m_lineHorizontalList = {} -- every line store true - ishorizontal, false - vertical
 
-    self.m_removedPolygonsPtPairList = {} -- every polygon store all points pair(line) in this polygon
     self.m_validPolygonPtIndexPairList = {}
 
     -- once we put a clipline in the valid polygons, we create below two tables
     self.m_filterPolygonPtIndexList = {}
     self.m_otherPolygonPtIndexList = {}
+
+    -- triangle lists
+    self.m_removedPolygonTriangleLists = {}
 end
 
 function PointsManager:getLineRectWithLineWidth(p1, p2, lineWidth)
@@ -60,6 +62,8 @@ function PointsManager:load(jsonStr)
     self.m_lineList = tb[2]
     self.m_validPolygonPtIndexPairList = {tb[3]}
 
+    print("----------------------------------", dd.Triangulate:area(self:getSerialPolygonPtList(tb[3])))
+    self:getAllValidPolygonTriangleList()
     dump(tb)
 end
 
@@ -116,6 +120,11 @@ function PointsManager:updateLinePointsList()
 
         table.insert(self.m_linePointsList, ptPair)
     end
+end
+
+function PointsManager:getPointIndexMapLines()
+    self:updatePointMapLineList()
+    return self.m_pointMapLineList
 end
 
 function PointsManager:getLinePointsList()
@@ -356,14 +365,15 @@ function PointsManager:clipPolygon(clipLineIndex)
             end
             table.insert(self.m_validPolygonPtIndexPairList, polygonPtIndexPairList)
         else
-            local polygonPtPairList = {}
+            local polygonPtIndexPairList = {}
             for _, lineIndex in ipairs(polygon) do
                 local linePtPair = self.m_lineList[lineIndex]
                 local pt1 = pointList[linePtPair[1]]
                 local pt2 = pointList[linePtPair[2]]
-                table.insert(polygonPtPairList, clone({pt1, pt2}))
+                table.insert(polygonPtIndexPairList, {linePtPair[1], linePtPair[2]})
             end
-            table.insert(self.m_removedPolygonsPtPairList, polygonPtPairList)
+            table.insert(self.m_removedPolygonTriangleLists, 
+                dd.Triangulate:process(self:getSerialPolygonPtList(polygonPtIndexPairList)))
         end
     end
 
@@ -658,6 +668,80 @@ function PointsManager:isPointInPolygonPtIndexList(pt, polygonPtIndexList, inclu
 
     crossCount = crossCount + math.min(leftCount, rightCount)
     return crossCount%2 ~= 0
+end
+
+function PointsManager:getPtIndexMapPtIndexList(polygonPtIndexList)
+    local ret = {}
+    for _, ptIndexPair in ipairs(polygonPtIndexList) do
+        local index1 = ptIndexPair[1]
+        if not ret[index1] then
+            ret[index1] = {}
+        end
+
+        local index2 = ptIndexPair[2]
+        if not ret[index2] then
+            ret[index2] = {}
+        end
+
+        table.insert(ret[index1], index2)
+        table.insert(ret[index2], index1)
+    end
+
+    return ret
+end
+
+function PointsManager:serialPolygon(polygonPtIndexList)
+    local ret = {}
+    local fromIndex = polygonPtIndexList[1][1]
+    local toIndex = polygonPtIndexList[1][2]
+    local startIndex = fromIndex
+
+    local ptIndexMapPtIndex = self:getPtIndexMapPtIndexList(polygonPtIndexList)
+    repeat
+        table.insert(ret, fromIndex)
+        local ptIndexPair = ptIndexMapPtIndex[toIndex]
+        if ptIndexPair[1] == fromIndex then
+            fromIndex = toIndex
+            toIndex = ptIndexPair[2]
+        else
+            fromIndex = toIndex
+            toIndex = ptIndexPair[1]
+        end
+    until(fromIndex == startIndex)
+
+
+    return ret
+end
+
+function PointsManager:getSerialPolygonPtList(polygonPtIndexList)
+    local retPtList = {}
+    for _, ptIndex in ipairs(self:serialPolygon(polygonPtIndexList)) do
+        table.insert(retPtList, self.m_pointList[ptIndex])
+    end
+
+    return retPtList
+end
+
+function PointsManager:getAllValidPolygonTriangleList()
+    local ret = {}
+    for _, polygonPtIndexList in ipairs(self.m_validPolygonPtIndexPairList) do
+        table.insert(ret, dd.Triangulate:process(self:getSerialPolygonPtList(polygonPtIndexList)))
+    end
+
+    return ret
+end
+
+function PointsManager:getAllRemovedPolygonTriangleList()
+    return self.m_removedPolygonTriangleLists
+end
+
+function PointsManager:getAllValidPolygonArea()
+    local ret = 0
+    for _, polygonPtIndexList in ipairs(self.m_validPolygonPtIndexPairList) do
+        ret = ret + dd.Triangulate:area(self:getSerialPolygonPtList(polygonPtIndexList))
+    end
+
+    return ret
 end
 
 

@@ -29,7 +29,20 @@ function EdgeSegments:updatePhysicBody(color)
 
         local origin, dest = self.m_pointsMgr:getLineRectWithLineWidth(ptPair[1], ptPair[2])
         self:drawSolidRect(origin, dest, color)
-        self:drawTestLabel()
+        self:drawSquareInPoints()
+        --self:drawTestLabel()
+    end
+end
+
+function EdgeSegments:drawSquareInPoints()
+    local pointMapLinesList = self.m_pointsMgr:getPointIndexMapLines()
+    for ptIndex, pt in pairs(self.m_pointsMgr.m_pointList) do
+        if table.nums(pointMapLinesList[ptIndex]) > 1 then
+            local halfLineWidth = dd.Constants.LINE_WIDTH_IN_PIXEL/2
+            local origin = cc.p(pt.x + halfLineWidth, pt.y + halfLineWidth)
+            local dest = cc.p(pt.x - halfLineWidth, pt.y - halfLineWidth)
+            self:drawSolidRect(origin, dest, cc.c4f(1, 1, 1, 1))
+        end
     end
 end
 
@@ -46,7 +59,6 @@ function EdgeSegments:drawTestLabel()
                 :setColor(cc.BLACK)
                 :addTo(self.m_testLabelNode)
         end
-
 
         for _, ptPair in pairs(self.m_pointsMgr:getLinePointsList()) do
             ccui.Text:create(string.format("%d", ptPair[3]), "", 32)
