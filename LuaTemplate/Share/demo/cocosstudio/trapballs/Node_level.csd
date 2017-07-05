@@ -6,70 +6,70 @@
       <ObjectData Name="Node" Tag="36" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="Image_5" ActionTag="2127313909" Tag="38" IconVisible="False" LeftMargin="-320.6981" RightMargin="-319.3019" TopMargin="-100.9950" BottomMargin="-99.0050" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_5" ActionTag="2127313909" Tag="38" IconVisible="False" LeftMargin="-320.0000" RightMargin="-320.0000" TopMargin="-100.0000" BottomMargin="-100.0000" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
             <Size X="640.0000" Y="200.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-0.6981" Y="0.9950" />
+            <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="di_level_cyan.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_4" ActionTag="-1013124332" Tag="39" IconVisible="False" LeftMargin="-320.6981" RightMargin="-319.3019" TopMargin="-100.9950" BottomMargin="-99.0050" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_4" ActionTag="-1013124332" Tag="39" IconVisible="False" LeftMargin="-320.0000" RightMargin="-320.0000" TopMargin="-100.0000" BottomMargin="-100.0000" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
             <Size X="640.0000" Y="200.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-0.6981" Y="0.9950" />
+            <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="di_level_green.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_2" ActionTag="831011835" Tag="40" IconVisible="False" LeftMargin="-320.6981" RightMargin="-319.3019" TopMargin="-100.9950" BottomMargin="-99.0050" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_2" ActionTag="831011835" Tag="40" IconVisible="False" LeftMargin="-320.0000" RightMargin="-320.0000" TopMargin="-100.0000" BottomMargin="-100.0000" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
             <Size X="640.0000" Y="200.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-0.6981" Y="0.9950" />
+            <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="di_level_orange.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_7" ActionTag="-1139062959" Tag="41" IconVisible="False" LeftMargin="-320.6981" RightMargin="-319.3019" TopMargin="-100.9950" BottomMargin="-99.0050" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_7" ActionTag="-1139062959" Tag="41" IconVisible="False" LeftMargin="-320.0000" RightMargin="-320.0000" TopMargin="-100.0000" BottomMargin="-100.0000" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
             <Size X="640.0000" Y="200.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-0.6981" Y="0.9950" />
+            <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="di_level_purple.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_1" ActionTag="-2097541227" Tag="42" IconVisible="False" LeftMargin="-320.6981" RightMargin="-319.3019" TopMargin="-100.9950" BottomMargin="-99.0050" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_1" ActionTag="-2097541227" Tag="42" IconVisible="False" LeftMargin="-320.0000" RightMargin="-320.0000" TopMargin="-100.0000" BottomMargin="-100.0000" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
             <Size X="640.0000" Y="200.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-0.6981" Y="0.9950" />
+            <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="di_level_red.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_3" ActionTag="-47485816" Tag="43" IconVisible="False" LeftMargin="-320.6981" RightMargin="-319.3019" TopMargin="-100.9950" BottomMargin="-99.0050" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_3" ActionTag="-47485816" Tag="43" IconVisible="False" LeftMargin="-320.0000" RightMargin="-320.0000" TopMargin="-100.0000" BottomMargin="-100.0000" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
             <Size X="640.0000" Y="200.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-0.6981" Y="0.9950" />
+            <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="di_level_yellow.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_6" ActionTag="410891785" Tag="44" IconVisible="False" LeftMargin="-320.6981" RightMargin="-319.3019" TopMargin="-100.9950" BottomMargin="-99.0050" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_6" ActionTag="410891785" Tag="44" IconVisible="False" LeftMargin="-320.0000" RightMargin="-320.0000" TopMargin="-100.0000" BottomMargin="-100.0000" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
             <Size X="640.0000" Y="200.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-0.6981" Y="0.9950" />
+            <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -195,6 +195,16 @@
             <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Image_lock" ActionTag="-1884615323" Tag="99" IconVisible="False" LeftMargin="-320.0000" RightMargin="-320.0000" TopMargin="-100.0000" BottomMargin="-100.0000" LeftEage="211" RightEage="211" TopEage="66" BottomEage="66" Scale9OriginX="211" Scale9OriginY="66" Scale9Width="218" Scale9Height="68" ctype="ImageViewObjectData">
+            <Size X="640.0000" Y="200.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="PlistSubImage" Path="lock.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

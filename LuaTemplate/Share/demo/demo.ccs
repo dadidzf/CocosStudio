@@ -79,6 +79,7 @@
             <PlistImageFile Name="stop.png" Key="stop.png" />
             <PlistImageFile Name="trapballs.png" Key="trapballs.png" />
             <PlistImageFile Name="xiexian.png" Key="xiexian.png" />
+            <PlistImageFile Name="lock.png" Key="lock.png" />
           </PlistImageFolder>
           <Project Name="game.csd" Type="Layer" />
           <Project Name="menu.csd" Type="Layer" />
