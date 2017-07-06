@@ -409,7 +409,6 @@ function PointsManager:updateLines()
     for index, linePtIndexPair in ipairs(self.m_lineList) do
         local center = self:getLineCenterPt(index)
         local notInAnyPolygon = true
-        print("PointsManager:updateLines", index, center.x, center.y)
         for _, polygon in ipairs(self.m_validPolygonPtIndexPairList) do
             if self:isPointInPolygonPtIndexList(center, polygon, true) then
                 notInAnyPolygon = false
@@ -738,7 +737,7 @@ end
 function PointsManager:getAllValidPolygonArea()
     local ret = 0
     for _, polygonPtIndexList in ipairs(self.m_validPolygonPtIndexPairList) do
-        ret = ret + dd.Triangulate:area(self:getSerialPolygonPtList(polygonPtIndexList))
+        ret = ret + math.abs(dd.Triangulate:area(self:getSerialPolygonPtList(polygonPtIndexList)))
     end
 
     return ret

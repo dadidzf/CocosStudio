@@ -26,6 +26,12 @@ GameScene.RESOURCE_BINDING = {
 
 function GameScene:ctor(levelIndex)
     self.super.ctor(self)
+    self.m_levelIndex = levelIndex
+
+    local resourceNode = self:getResourceNode()
+    resourceNode:setContentSize(display.size)
+    ccui.Helper:doLayout(resourceNode)
+    
     print("GameScene:ctor", levelIndex)
     self.m_labelRoundNum:setString(tostring(levelIndex))
 
@@ -43,6 +49,20 @@ function GameScene:ctor(levelIndex)
     self:applyGamedataDisplay()
 end
 
+function GameScene:resetGame()
+    self:showRandBg()
+    self:showGameNode()
+    self:initGameData(self.m_levelIndex)
+    self:resetGameProgress()
+    self:applyGamedataDisplay()
+end
+
+function GameScene:onNext()
+    self.m_levelIndex = self.m_levelIndex + 1
+    self.m_labelRoundNum:setString(tostring(levelIndex))
+    self:resetGame()
+end
+
 function GameScene:initGameData(levelIndex)
     self.m_lives = 3
     self.m_topCollisionCount = 0
@@ -57,7 +77,31 @@ end
 
 function GameScene:updateArea()
     self.m_curArea = math.abs(self.m_node:getValidPolygonArea())
+    print("GameScene:updateArea -------", self.m_curArea, self.m_totalArea)
     self.m_gameCurCut = math.abs(self.m_totalArea - self.m_curArea)*100/self.m_totalArea
+    self:applyGamedataDisplay()
+
+    if self.m_gameCurCut >= self.m_gameTarget then
+        local GameEnd = import(".GameEnd", MODULE_PATH)
+        local gameEnd = GameEnd:create(self)
+            :move(display.cx, display.cy)
+            :addTo(self, 10)
+    end
+end
+
+function GameScene:loseLife()
+    self.m_lives = self.m_lives - 1
+    self:applyGamedataDisplay()
+
+    if self.m_lives <= 0 then
+        return true 
+    else
+        return false
+    end
+end
+
+function GameScene:oneMoreTopCollision()
+    self.m_topCollisionCount = self.m_topCollisionCount + 1
     self:applyGamedataDisplay()
 end
 
@@ -66,6 +110,10 @@ function GameScene:applyGamedataDisplay()
     self.m_labelTopCollisionNum:setString(tostring(self.m_topCollisionCount))
     self.m_labelStepNum:setString(tostring(self.m_steps))
     self:showGameProgress()
+end
+
+function GameScene:resetGameProgress()
+    self.m_progressWhite:setColor(self.m_boxColor)
 end
 
 function GameScene:initGameProgress()
@@ -144,10 +192,10 @@ function GameScene:onPause()
 end
 
 function GameScene:showGameNode()
-    local resourceNode = self:getResourceNode()
-    resourceNode:setContentSize(display.size)
-    ccui.Helper:doLayout(resourceNode)
-    
+    if self.m_node then
+        self.m_node:removeFromParent() 
+    end
+
     self.m_node = GameNode:create(self, self.m_boxColor)
         :move(display.cx, display.cy)
         :addTo(self)

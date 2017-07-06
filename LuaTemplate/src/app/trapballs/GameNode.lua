@@ -70,17 +70,21 @@ function GameNode:onContactBegin(contact)
     -- ball with extend line ends
     if cateGoryAdd == dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS + dd.Constants.CATEGORY.BALL then
         self:dealExtendlineCollision(self:getExtendLineBallCollisionPt(shapeA, shapeB))
+        self.m_scene:oneMoreTopCollision()
         return true
     end
 
     -- ball with extend line
     if cateGoryAdd == dd.Constants.CATEGORY.EXTENDLINE + dd.Constants.CATEGORY.BALL then
-        print("Game Over !")
-        local GameFail = import(".GameFail", MODULE_PATH)
-        local gameFail = GameFail:create(self.m_scene) 
-        self.m_extendLine:stopExtend()
-        self.m_scene:addChild(gameFail, 2)
-        gameFail:setPosition(display.cx, display.cy)
+        self.m_extendLine:removeFromParent()
+        self.m_extendLine = nil
+        if self.m_scene:loseLife() then
+            print("Game Over !")
+            local GameFail = import(".GameFail", MODULE_PATH)
+            local gameFail = GameFail:create(self.m_scene) 
+            self.m_scene:addChild(gameFail, 2)
+            gameFail:setPosition(display.cx, display.cy)
+        end
         return false
     end
 end
