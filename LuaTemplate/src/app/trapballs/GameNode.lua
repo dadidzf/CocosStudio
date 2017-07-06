@@ -246,7 +246,7 @@ function GameNode:drawPolygon()
             local pt2 = polygonTriangleList[(index - 1)*3 + 2]
             local pt3 = polygonTriangleList[(index - 1)*3 + 3]
 
-            self.m_drawNode:drawTriangle(pt1, pt2, pt3, cc.c4f(1, 1, 1, 0.3))
+            self.m_drawNode:drawTriangle(pt1, pt2, pt3, cc.c4f(0, 0, 0, 0.15))
         end
     end
 end
