@@ -28,7 +28,7 @@ function Balls:addBall(velocity, pos, picName)
     self:addChild(ball)
     local ballSize = ball:getContentSize()
 
-    local edgeBody = cc.PhysicsBody:createCircle(ballSize.width/2, cc.PhysicsMaterial(0,1,0), cc.p(0, 0))
+    local edgeBody = cc.PhysicsBody:createCircle(ballSize.width/2, cc.PhysicsMaterial(100000, 1, 0), cc.p(0, 0))
     edgeBody:setCategoryBitmask(dd.Constants.CATEGORY.BALL)
     edgeBody:setContactTestBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS + dd.Constants.CATEGORY.EXTENDLINE)
     edgeBody:setVelocity(vel)
@@ -44,24 +44,7 @@ function Balls:applyVelocity()
         local curVelVector = body:getVelocity()
         local curVel = cc.pGetLength(curVelVector)
         local vel = cc.pMul(curVelVector, ball.m_retoreMyVel/curVel)
-        print("Balls:applyVelocity", vel.x, vel.y)
         body:setVelocity(vel)
-    end
-end
-
-function Balls:slowDown()
-    for _, ball in ipairs(self.m_ballList) do
-        local body = ball:getPhysicsBody()
-        local curVelVector = body:getVelocity()
-        ball.m_slowDownSpeed = curVelVector
-        body:setVelocity(cc.p(0, 0))
-    end
-end
-
-function Balls:recoverSpeed()
-    for _, ball in ipairs(self.m_ballList) do
-        local body = ball:getPhysicsBody()
-        body:setVelocity(ball.m_slowDownSpeed)
     end
 end
 
@@ -71,8 +54,6 @@ function Balls:getBallPosList()
         table.insert(retPosList, cc.p(ball:getPositionX(), ball:getPositionY()))
     end
 
-    print("Balls:getBallPosList")
-    dump(retPosList)
     return retPosList
 end
 

@@ -27,7 +27,8 @@ GameScene.RESOURCE_BINDING = {
 function GameScene:ctor(levelIndex)
     self.super.ctor(self)
     self.m_levelIndex = levelIndex
-
+    self:onUpdate(handler(self, self.update))
+    
     local resourceNode = self:getResourceNode()
     resourceNode:setContentSize(display.size)
     ccui.Helper:doLayout(resourceNode)
@@ -220,6 +221,12 @@ function GameScene:getValidSpriteFrame(location)
     end
 end
 
+function GameScene:update(t)
+    -- for i = 1, 3 do 
+    --     display:getRunningScene():getPhysicsWorld():step(t/3)
+    -- end
+end
+
 function GameScene:showWithScene(transition, time, more)
     self:setVisible(true)
     local scene = display.newScene(self.name_, {physics = true})
@@ -229,6 +236,9 @@ function GameScene:showWithScene(transition, time, more)
     local physicWorld = scene:getPhysicsWorld()
     --physicWorld:setDebugDrawMask(cc.PhysicsWorld.DEBUGDRAW_ALL)
     physicWorld:setGravity(cc.p(0, 0))
+    physicWorld:setFixedUpdateRate(60)
+    --physicWorld:setAutoStep(false)
+    
     return self
 end
 

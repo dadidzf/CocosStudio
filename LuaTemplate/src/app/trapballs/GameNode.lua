@@ -139,7 +139,6 @@ function GameNode:dealExtendlineCollision(collisionPt)
     if not self.m_extendLine:isExtend() then
         local pts = self.m_extendLine:getOffsets()
         self.m_pointsMgr:adjustLine(pts[1], pts[2])
-        self.m_balls:slowDown()
         self.m_pointsMgr:addLine(pts[1], pts[2], self.m_balls:getBallPosList())
         self.m_extendLine:removeFromParent()
         self.m_extendLine = nil
@@ -152,10 +151,6 @@ function GameNode:dealExtendlineCollision(collisionPt)
             if not tolua.isnull(segment) then
                 segment:updatePhysicBody()
                 segment = nil
-                return
-            end
-            if not tolua.isnull(self.m_balls) then
-                self.m_balls:recoverSpeed()
             end
             dd.scheduler:unscheduleScriptEntry(scheduler)
         end
@@ -251,7 +246,7 @@ function GameNode:drawPolygon()
             local pt2 = polygonTriangleList[(index - 1)*3 + 2]
             local pt3 = polygonTriangleList[(index - 1)*3 + 3]
 
-            self.m_drawNode:drawTriangle(pt1, pt2, pt3, cc.c4f(0, 0, 0, 0.15))
+            self.m_drawNode:drawTriangle(pt1, pt2, pt3, cc.c4f(1, 1, 1, 0.5))
         end
     end
 end

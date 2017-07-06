@@ -19,7 +19,8 @@ function EdgeSegments:updatePhysicBody(color)
     self:setPhysicsBody(body)
 
     for _, ptPair in pairs(linePointsList) do
-        local shape = cc.PhysicsShapeEdgeSegment:create(ptPair[1], ptPair[2], cc.PhysicsMaterial(1, 1, 0), 2)
+        local shape = cc.PhysicsShapeEdgeSegment:create(ptPair[1], ptPair[2], 
+            cc.PhysicsMaterial(0, 1, 0), dd.Constants.EDGE_SEG_WIDTH/2)
         shape:setTag(ptPair[3])
         body:addShape(shape)
         body:setCategoryBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT)

@@ -19,6 +19,8 @@ function ExtendLine:ctor(pointManger, isHorizontal, spriteFrame, dropPos, speed,
 
     self.m_positivePt = nil
     self.m_negativePt = nil
+
+    self.m_extendVirtualColor = cc.c4f(0, 0, 0, 0.2)
 end
 
 function ExtendLine:getDropPos()
@@ -56,10 +58,13 @@ function ExtendLine:updatePhysicBody(t)
     local len = diffTime*self.m_speed/2
     pt1 = cc.p(-len, 0)
     pt2 = cc.p(len, 0)
+    local size = cc.size(dd.Constants.LINE_WIDTH_IN_PIXEL*2, dd.Constants.LINE_WIDTH_IN_PIXEL)
+    local sizeShow = cc.size(dd.Constants.LINE_WIDTH_IN_PIXEL, dd.Constants.LINE_WIDTH_IN_PIXEL)
 
     if not self.m_isHorizontal then
         pt1 = cc.p(0, -len)
         pt2 = cc.p(0, len)
+        size = cc.size(dd.Constants.LINE_WIDTH_IN_PIXEL, dd.Constants.LINE_WIDTH_IN_PIXEL*2)
     end
 
     if self.m_positivePt then
@@ -70,44 +75,62 @@ function ExtendLine:updatePhysicBody(t)
     end
 
     self:clear()
-    self:setLineWidth(self.m_lineWidth)
 
     local origin, dest = self.m_pointsMgr:getLineRectWithLineWidth(cc.p(0, 0), pt1)
-    self:drawSolidRect(origin, dest, cc.c4f(1, 1, 1, 1))
-
     if not self.m_negativePt then
-        local shapeLine1 = cc.PhysicsShapeEdgeSegment:create(pt1, cc.p(0, 0), cc.PhysicsMaterial(1, 1, 0), 2)
+        self:drawSolidRect(origin, dest, self.m_extendVirtualColor)
+
+        local shapeLine1 = cc.PhysicsShapeEdgeSegment:create(pt1, cc.p(0, 0), cc.PhysicsMaterial(0, 1, 0), dd.Constants.LINE_WIDTH_IN_PIXEL/2)
         shapeLine1:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE)
         shapeLine1:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.EDGE_SEGMENT)
         shapeLine1:setCollisionBitmask(0)
         body:addShape(shapeLine1)
 
-        local shapeCircle1 = cc.PhysicsShapeCircle:create(self.m_endsBallRadius, cc.PhysicsMaterial(1, 1, 0), pt1)
-        shapeCircle1:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
-        shapeCircle1:setContactTestBitmask(dd.Constants.CATEGORY.BALL)
-        shapeCircle1:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
-        body:addShape(shapeCircle1)
+        local shapeBox = cc.PhysicsShapeEdgeBox:create(size, cc.PhysicsMaterial(0, 1, 0), 0, pt1)
+        shapeBox:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
+        shapeBox:setContactTestBitmask(dd.Constants.CATEGORY.BALL)
+        shapeBox:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
+        body:addShape(shapeBox)
 
-        self:drawCircle(pt1, self.m_endsBallRadius, 0, 20, false, cc.c4f(1, 1, 1, 1))
+        self:drawSolidRect(cc.pSub(pt1, cc.p(sizeShow.width/2, sizeShow.height/2)),
+            cc.pAdd(pt1, cc.p(sizeShow.width/2, sizeShow.height/2)), cc.c4f(1, 1, 1, 1))
+    else
+        self:drawSolidRect(origin, dest, cc.c4f(1, 1, 1, 1))
+
+        local shapeLine1 = cc.PhysicsShapeEdgeSegment:create(pt1, cc.p(0, 0), cc.PhysicsMaterial(0, 1, 0), dd.Constants.LINE_WIDTH_IN_PIXEL/2)
+        shapeLine1:setCategoryBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT)
+        shapeLine1:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
+        body:addShape(shapeLine1)
     end
 
     local origin, dest = self.m_pointsMgr:getLineRectWithLineWidth(cc.p(0, 0), pt2)
-    self:drawSolidRect(origin, dest, cc.c4f(1, 1, 1, 1))
     if not self.m_positivePt then
-        local shapeLine2 = cc.PhysicsShapeEdgeSegment:create(pt2, cc.p(0, 0), cc.PhysicsMaterial(1, 1, 0), 2)
+        self:drawSolidRect(origin, dest, self.m_extendVirtualColor)
+
+        local shapeLine2 = cc.PhysicsShapeEdgeSegment:create(pt2, cc.p(0, 0), cc.PhysicsMaterial(0, 1, 0), dd.Constants.LINE_WIDTH_IN_PIXEL/2)
         shapeLine2:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE)
         shapeLine2:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.EDGE_SEGMENT)
         shapeLine2:setCollisionBitmask(0)
         body:addShape(shapeLine2)
         
-        local shapeCircle2 = cc.PhysicsShapeCircle:create(self.m_endsBallRadius, cc.PhysicsMaterial(1, 1, 0), pt2)
-        shapeCircle2:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
-        shapeCircle2:setContactTestBitmask(dd.Constants.CATEGORY.BALL)
-        shapeCircle2:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
-        body:addShape(shapeCircle2)
+        local shapeBox = cc.PhysicsShapeEdgeBox:create(size, cc.PhysicsMaterial(0, 1, 0), 0, pt2)
+        shapeBox:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
+        shapeBox:setContactTestBitmask(dd.Constants.CATEGORY.BALL)
+        shapeBox:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
+        body:addShape(shapeBox)
 
-        self:drawCircle(pt2, self.m_endsBallRadius, 0, 20, false, cc.c4f(1, 1, 1, 1))
+        self:drawSolidRect(cc.pSub(pt2, cc.p(sizeShow.width/2, sizeShow.height/2)),
+            cc.pAdd(pt2, cc.p(sizeShow.width/2, sizeShow.height/2)), cc.c4f(1, 1, 1, 1))
+    else
+        self:drawSolidRect(origin, dest, cc.c4f(1, 1, 1, 1))
+
+        local shapeLine2 = cc.PhysicsShapeEdgeSegment:create(pt1, cc.p(0, 0), cc.PhysicsMaterial(0, 1, 0), dd.Constants.LINE_WIDTH_IN_PIXEL/2)
+        shapeLine2:setCategoryBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT)
+        shapeLine2:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
+        body:addShape(shapeLine2)
     end
+    
+    self:drawSolidCircle(cc.p(0, 0), self.m_lineWidth/2, 0, 20, cc.c4f(1, 1, 1, 1))
     
     body:setDynamic(false)
 end
