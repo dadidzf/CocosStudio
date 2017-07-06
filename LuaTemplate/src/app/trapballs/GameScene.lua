@@ -196,7 +196,7 @@ function GameScene:showGameNode()
         self.m_node:removeFromParent() 
     end
 
-    self.m_node = GameNode:create(self, self.m_boxColor)
+    self.m_node = GameNode:create(self, self.m_boxColor, self.m_levelIndex)
         :move(display.cx, display.cy)
         :addTo(self)
 

@@ -4,8 +4,9 @@ end)
 
 function Balls:ctor()
     self.m_ballList = {}
-    --self:addBall(cc.p(40, 0))
-    self:addBall(cc.p(20, 30))
+    self:addBall(cc.p(200, 100))
+    self:addBall(cc.p(150, 300))
+    self:addBall(cc.p(200, -200))
 end
 
 function Balls:addBall(velocity, picName)
@@ -34,6 +35,22 @@ function Balls:applyVelocity()
         local vel = cc.pMul(curVelVector, ball.m_retoreMyVel/curVel)
         print("Balls:applyVelocity", vel.x, vel.y)
         body:setVelocity(vel)
+    end
+end
+
+function Balls:slowDown()
+    for _, ball in ipairs(self.m_ballList) do
+        local body = ball:getPhysicsBody()
+        local curVelVector = body:getVelocity()
+        ball.m_slowDownSpeed = cc.pMul(curVelVector, 0.01)
+        body:setVelocity(ball.m_slowDownSpeed)
+    end
+end
+
+function Balls:recoverSpeed()
+    for _, ball in ipairs(self.m_ballList) do
+        local body = ball:getPhysicsBody()
+        body:setVelocity(cc.pMul(ball.m_slowDownSpeed, 100))
     end
 end
 
