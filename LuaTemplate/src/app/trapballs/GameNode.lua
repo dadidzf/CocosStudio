@@ -6,13 +6,13 @@ local ExtendLine = import(".ExtendLine")
 local EdgeSegments = import(".EdgeSegments")
 local PointsManager = import(".PointsManager")
 
-function GameNode:ctor(scene, boxColor)
+function GameNode:ctor(scene, boxColor, levelIndex)
     dump(boxColor, "GameNode:ctor")
     self.m_scene = scene
     self.m_boxColor = cc.c4f(boxColor.r/255, boxColor.g/255, boxColor.b/255, 1)
 
     self.m_pointsMgr = PointsManager:create()
-    local jsonStr = cc.FileUtils:getInstance():getStringFromFile("level1.json")
+    local jsonStr = cc.FileUtils:getInstance():getStringFromFile(string.format("level%d.json", levelIndex))
     self.m_pointsMgr:load(jsonStr)
 
     self.m_edgeSegments = EdgeSegments:create(self.m_pointsMgr)
@@ -139,6 +139,7 @@ function GameNode:dealExtendlineCollision(collisionPt)
     if not self.m_extendLine:isExtend() then
         local pts = self.m_extendLine:getOffsets()
         self.m_pointsMgr:adjustLine(pts[1], pts[2])
+        self.m_balls:slowDown()
         self.m_pointsMgr:addLine(pts[1], pts[2], self.m_balls:getBallPosList())
         self.m_extendLine:removeFromParent()
         self.m_extendLine = nil
@@ -150,6 +151,9 @@ function GameNode:dealExtendlineCollision(collisionPt)
         local callBack = function ()
             if not tolua.isnull(segment) then
                 segment:updatePhysicBody()
+            end
+            if not tolua.isnull(self.m_balls) then
+                self.m_balls:recoverSpeed()
             end
             dd.scheduler:unscheduleScriptEntry(scheduler)
         end
