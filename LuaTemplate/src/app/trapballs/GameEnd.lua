@@ -13,6 +13,8 @@ GameEnd.RESOURCE_BINDING = {
 function GameEnd:ctor(gameScene, levelIndex)
     self.super.ctor(self)
     self.m_gameScene = gameScene
+
+    dd.GameData:levelPass(levelIndex)
 end
 
 function GameEnd:onCreate()

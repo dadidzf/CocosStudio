@@ -4,6 +4,7 @@ cc.FileUtils:getInstance():addSearchPath("res/trapballs")
 
 import(".Constant")
 dd.CsvConf = import(".CsvConf").new()
+dd.GameData = import(".GameData").new()
 
 function MyApp:onCreate()
     math.randomseed(os.time())

@@ -10,6 +10,7 @@ NodeLevel.RESOURCE_BINDING = {
     ["Image_5"] = {varname = "m_bg5"},
     ["Image_6"] = {varname = "m_bg6"},
     ["Image_7"] = {varname = "m_bg7"},
+    ["Image_lock"] = {varname = "m_bgLock"},
     ["BitmapFontLabel_ballnumber"] = {varname = "m_labelBallNumber"},
     ["BitmapFontLabel_roundnumber"] = {varname = "m_labelRoundNumber"},
     ["BitmapFontLabel_step1"] = {varname = "m_labelFirstScore"},
@@ -50,6 +51,14 @@ function NodeLevel:ctor(index, cfg)
             end
         end
     end)
+
+    if index > dd.GameData:getCurLevel() then
+        self.m_bgLock:setVisible(true)
+        self.m_btnSelectLevel:setTouchEnabled(false)
+        self.m_btnGlobalRank:setTouchEnabled(false)
+    else
+        self.m_bgLock:setVisible(false)
+    end
 end
 
 function NodeLevel:onGlobalRank()

@@ -83,7 +83,7 @@ function GameScene:updateArea()
 
     if self.m_gameCurCut >= self.m_gameTarget then
         local GameEnd = import(".GameEnd", MODULE_PATH)
-        local gameEnd = GameEnd:create(self)
+        local gameEnd = GameEnd:create(self, self.m_levelIndex)
             :move(display.cx, display.cy)
             :addTo(self, 10)
     end
