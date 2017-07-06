@@ -18,7 +18,7 @@ function GameNode:ctor(scene, boxColor, levelIndex)
     self.m_edgeSegments = EdgeSegments:create(self.m_pointsMgr)
         :addTo(self)
 
-    self.m_balls = Balls:create()
+    self.m_balls = Balls:create(levelIndex)
         :addTo(self)
 
     self:addTouch()
@@ -151,6 +151,8 @@ function GameNode:dealExtendlineCollision(collisionPt)
         local callBack = function ()
             if not tolua.isnull(segment) then
                 segment:updatePhysicBody()
+                segment = nil
+                return
             end
             if not tolua.isnull(self.m_balls) then
                 self.m_balls:recoverSpeed()
@@ -218,7 +220,6 @@ function GameNode:onTouchEnd(touch, event)
                 )
         )  
     end
-    self.m_balls:applyVelocity()
 end
 
 function GameNode:updateExtendLinePos(touch)

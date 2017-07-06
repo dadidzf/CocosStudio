@@ -2,18 +2,29 @@ local Balls = class("Balls", function ( ... )
     return cc.Node:create()
 end)
 
-function Balls:ctor()
+function Balls:ctor(levelIndex)
+    self.m_levelIndex = levelIndex
     self.m_ballList = {}
-    self:addBall(cc.p(200, 100))
-    self:addBall(cc.p(150, 300))
-    self:addBall(cc.p(200, -200))
+
+    self:addBalls()
 end
 
-function Balls:addBall(velocity, picName)
+function Balls:addBalls()
+    local roundCfg = dd.CsvConf:getRoundCfg()[self.m_levelIndex] 
+    for _, ballConf in ipairs(dd.YWStrUtil:parse(roundCfg.ball_setting)) do
+        local pos = cc.p(ballConf[1][1], ballConf[1][2])
+        local speed = cc.p(ballConf[2][1], ballConf[2][2])
+        self:addBall(speed, pos)
+    end
+end
+
+function Balls:addBall(velocity, pos, picName)
     local vel = velocity or cc.p(300, 300)  
     local pic = picName or "ball.png"
+    pos = pos or cc.p(0, 0)
 
     local ball = display.newSprite(pic)
+        :move(pos)
     self:addChild(ball)
     local ballSize = ball:getContentSize()
 
@@ -42,15 +53,15 @@ function Balls:slowDown()
     for _, ball in ipairs(self.m_ballList) do
         local body = ball:getPhysicsBody()
         local curVelVector = body:getVelocity()
-        ball.m_slowDownSpeed = cc.pMul(curVelVector, 0.01)
-        body:setVelocity(ball.m_slowDownSpeed)
+        ball.m_slowDownSpeed = curVelVector
+        body:setVelocity(cc.p(0, 0))
     end
 end
 
 function Balls:recoverSpeed()
     for _, ball in ipairs(self.m_ballList) do
         local body = ball:getPhysicsBody()
-        body:setVelocity(cc.pMul(ball.m_slowDownSpeed, 100))
+        body:setVelocity(ball.m_slowDownSpeed)
     end
 end
 
