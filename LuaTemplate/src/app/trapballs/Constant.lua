@@ -10,7 +10,7 @@ Constants.CATEGORY = {
 
 Constants.EDGE_SEG_WIDTH = 10
 
-if display.width < 640 then
+if display.width <= 640 then
     Constants.NODE_SCALE = display.width/640
     Constants.LEVEL_LIST_SCALE = display.width/640
 end
