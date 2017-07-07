@@ -9,7 +9,10 @@ MainScene.RESOURCE_BINDING = {
     ["Button_shangdian"] = {varname = "m_btnShop", events = {{ event = "click", method = "onShop" }}},
     ["Button_like"] = {varname = "m_btnLike", events = {{ event = "click", method = "onRate" }}},
     ["CheckBox_2"] = {varname = "m_checkBoxNoAds"},
-    ["CheckBox_jingyin"] = {varname = "m_checkBoxSound"}
+    ["CheckBox_jingyin"] = {varname = "m_checkBoxSound"},
+
+    ["Image_1"] = {varname = "m_imgLineLeft"},
+    ["Image_1_0"] = {varname = "m_imgLineRight"}
 }
 
 function MainScene:onCreate()
@@ -25,6 +28,19 @@ function MainScene:onCreate()
     local randomShow = dd.CsvConf:getRandomBgAndBtn()
     resourceNode:getChildByName(randomShow.image_di):setVisible(true)
     resourceNode:getChildByName(randomShow.btn_play):setVisible(true)
+
+    self:updateLinePos()
+end
+
+function MainScene:updateLinePos()
+    local playBtnSize = self.m_btnPlay:getContentSize()
+    local playPos = cc.p(self.m_btnPlay:getPositionX(), self.m_btnPlay:getPositionY())
+
+    local pos1 = cc.p(playPos.x - playBtnSize.width/2 + 1, playPos.y)
+    local pos2 = cc.p(playPos.x + playBtnSize.width/2, playPos.y)
+
+    self.m_imgLineLeft:setPosition(pos1)
+    self.m_imgLineRight:setPosition(pos2)
 end
 
 function MainScene:onPlay()

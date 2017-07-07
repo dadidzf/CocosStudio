@@ -191,7 +191,9 @@ function GameNode:onTouchBegin(touch, event)
     
     dropPos = self:convertToNodeSpace(dropPos)
     local pt = self:convertToNodeSpace(touch:getLocation())
-    self.m_extendLine = ExtendLine:create(self.m_pointsMgr, isHorizontal, spriteFrame, dropPos)
+    local lineLevelCfg = dd.CsvConf:getLineLevelCfg()
+    local speed = lineLevelCfg[dd.GameData:getLineLevel()]
+    self.m_extendLine = ExtendLine:create(self.m_pointsMgr, isHorizontal, spriteFrame, dropPos, speed)
         :addTo(self)
 
     self:updateExtendLinePos(touch)

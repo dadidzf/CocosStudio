@@ -39,7 +39,7 @@ function EdgeSegments:drawSquareInPoints()
     local pointMapLinesList = self.m_pointsMgr:getPointIndexMapLines()
     for ptIndex, pt in pairs(self.m_pointsMgr.m_pointList) do
         if table.nums(pointMapLinesList[ptIndex]) > 1 then
-            local halfLineWidth = dd.Constants.LINE_WIDTH_IN_PIXEL/2
+            local halfLineWidth = dd.Constants.EDGE_SEG_WIDTH/2
             local origin = cc.p(pt.x + halfLineWidth, pt.y + halfLineWidth)
             local dest = cc.p(pt.x - halfLineWidth, pt.y - halfLineWidth)
             self:drawSolidRect(origin, dest, cc.c4f(1, 1, 1, 1))

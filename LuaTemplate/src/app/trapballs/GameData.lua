@@ -14,4 +14,11 @@ function GameData:levelPass(level)
     end
 end
 
+function GameData:getLineLevel()
+    if not self.m_lineLevel then
+        self.m_lineLevel = cc.UserDefault:getInstance():getIntegerForKey("lineLevel", 1)
+    end
+    return self.m_lineLevel
+end
+
 return GameData

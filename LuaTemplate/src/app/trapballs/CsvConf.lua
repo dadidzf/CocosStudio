@@ -3,6 +3,7 @@ local CsvConf = class(CsvConf)
 function CsvConf:ctor()
     self:loadColor()
     self:loadRound()
+    self:loadLineLevelCfg()
 end
 
 function CsvConf:loadColor()
@@ -15,6 +16,18 @@ end
 
 function CsvConf:loadRound()
     self.m_round = cc.load("sdk").CsvUtil.parseFile("csv/round.csv")
+end
+
+function CsvConf:loadLineLevelCfg()
+    self.m_lineLevel = {}
+    local levelCfg = cc.load("sdk").CsvUtil.parseFile("csv/line.csv")
+    for _, levelConf in pairs(levelCfg) do
+        self.m_lineLevel[levelConf.level] = levelConf.line_speed
+    end
+end
+
+function CsvConf:getLineLevelCfg()
+    return self.m_lineLevel
 end
 
 function CsvConf:getRoundCfg()

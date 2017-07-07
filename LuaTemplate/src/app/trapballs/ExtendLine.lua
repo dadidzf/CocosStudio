@@ -2,7 +2,7 @@ local ExtendLine = class("ExtendLine", function ( ... )
     return cc.DrawNode:create()
 end)
 
-function ExtendLine:ctor(pointManger, isHorizontal, spriteFrame, dropPos, speed, endsBallRadius)
+function ExtendLine:ctor(pointManger, isHorizontal, spriteFrame, dropPos, speed)
     self:enableNodeEvents()
 
     self.m_pointsMgr = pointManger
@@ -130,7 +130,7 @@ function ExtendLine:updatePhysicBody(t)
         body:addShape(shapeLine2)
     end
     
-    self:drawSolidCircle(cc.p(0, 0), self.m_lineWidth/2, 0, 20, cc.c4f(1, 1, 1, 1))
+    self:drawSolidCircle(cc.p(0, 0), dd.Constants.EDGE_SEG_WIDTH/2, 0, 20, cc.c4f(1, 1, 1, 1))
     
     body:setDynamic(false)
 end
