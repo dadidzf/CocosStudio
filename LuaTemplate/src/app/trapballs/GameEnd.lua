@@ -7,14 +7,45 @@ GameEnd.RESOURCE_BINDING = {
     ["Button_share"] = {varname = "m_btnShare", events = {{ event = "click", method = "onShare" }}},
     ["Button_restart"] = {varname = "m_btnShop", events = {{ event = "click", method = "onReplay" }}},
     ["Button_backtomenu"] = {varname = "m_btnShare", events = {{ event = "click", method = "onMenu" }}},
-    ["Button_next"] = {varname = "m_btnShop", events = {{ event = "click", method = "onNext" }}}
+    ["Button_next"] = {varname = "m_btnShop", events = {{ event = "click", method = "onNext" }}},
+
+    ["Panel_1.BitmapFontLabel_spacenumber"] = {varname = "m_labelFillRate"},
+    ["Panel_1.BitmapFontLabel_lifenumber"] = {varname = "m_labelLives"},
+    ["Panel_1.BitmapFontLabel_stepnumber"] = {varname = "m_labelSteps"},
+    ["Panel_1.BitmapFontLabel_topnumber"] = {varname = "m_labelTopCollision"},
+
+    ["Panel_1.BitmapFontLabel_topzuanshi"] = {varname = "m_labelDiamondReward"},
+    ["Panel_1.BitmapFontLabel_stepscore"] = {varname = "m_labelStepsScore"},
+    ["Panel_1.BitmapFontLabel_lifescore"] = {varname = "m_labelLivesScore"},
+    ["Panel_1.BitmapFontLabel_spacescore"] = {varname = "m_labelFillRateScore"},
+    ["Panel_1.BitmapFontLabel_allscore"] = {varname = "m_labelTotalScore"},
 }
 
-function GameEnd:ctor(gameScene, levelIndex)
+function GameEnd:ctor(gameScene, levelIndex, param)
     self.super.ctor(self)
     self.m_gameScene = gameScene
-
+    self:updateScorePanel(param)
     dd.GameData:levelPass(levelIndex)
+end
+
+function GameEnd:updateScorePanel(param)
+    self.m_labelFillRate:setString(tostring(param.fill))
+    self.m_labelLives:setString(tostring(param.lives))
+    self.m_labelSteps:setString(tostring(param.steps))
+    self.m_labelTopCollision:setString(tostring(param.topCollision))
+
+    self.m_fillScore = 10*param.fill
+    self.m_livesScore = 200*param.lives
+    self.m_stepsScore = 100*param.steps
+    self.m_totalScore = self.m_fillScore + self.m_livesScore + self.m_stepsScore
+
+    self.m_diamondsReward = 10*param.topCollision + 100
+    self.m_labelDiamondReward:setString(tostring(self.m_diamondsReward))
+    self.m_labelStepsScore:setString(tostring(self.m_stepsScore))
+    self.m_labelFillRateScore:setString(tostring(self.m_fillScore))
+    self.m_labelLivesScore:setString(tostring(self.m_livesScore))
+    self.m_labelTotalScore:setString(tostring(self.m_totalScore))
+
 end
 
 function GameEnd:onCreate()
