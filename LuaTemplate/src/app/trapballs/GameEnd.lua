@@ -19,10 +19,14 @@ GameEnd.RESOURCE_BINDING = {
     ["Panel_1.BitmapFontLabel_lifescore"] = {varname = "m_labelLivesScore"},
     ["Panel_1.BitmapFontLabel_spacescore"] = {varname = "m_labelFillRateScore"},
     ["Panel_1.BitmapFontLabel_allscore"] = {varname = "m_labelTotalScore"},
+
+    ["BitmapFontLabel_roundnumber"] = {varname = "m_labelRoundNum"}
 }
 
 function GameEnd:ctor(gameScene, levelIndex, param)
     self.super.ctor(self)
+
+    self.m_labelRoundNum:setString(tostring(levelIndex))
     self.m_gameScene = gameScene
     self:updateScorePanel(param)
     dd.GameData:levelPass(levelIndex)

@@ -40,6 +40,11 @@ function ExtendLine:getOffsets()
 end
 
 function ExtendLine:startExtend()
+    self.m_segNode = cc.Node:create()
+        :addTo(self)
+    local body = cc.PhysicsBody:create()
+    self.m_segNode:setPhysicsBody(body)
+
     self.m_icon:removeFromParent()
     
     self.m_lineWidth = dd.Constants.LINE_WIDTH_IN_PIXEL
@@ -69,9 +74,25 @@ function ExtendLine:updatePhysicBody(t)
 
     if self.m_positivePt then
         pt2 = self.m_positivePt
+        if not self.m_positiveSeg then
+            self.m_positiveSeg = cc.PhysicsShapeEdgeSegment:create(self.m_positivePt, cc.p(0, 0), 
+                cc.PhysicsMaterial(0, 1, 0), dd.Constants.LINE_WIDTH_IN_PIXEL/2)
+            self.m_positiveSeg:setCategoryBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT)
+            self.m_positiveSeg:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
+            self.m_positiveSeg:setTag(6)
+            self.m_segNode:getPhysicsBody():addShape(self.m_positiveSeg)
+        end
     end
     if self.m_negativePt then
         pt1 = self.m_negativePt
+        if not self.m_negativeSeg then
+            self.m_negativeSeg = cc.PhysicsShapeEdgeSegment:create(self.m_negativePt, cc.p(0, 0), 
+                cc.PhysicsMaterial(0, 1, 0), dd.Constants.LINE_WIDTH_IN_PIXEL/2)
+            self.m_negativeSeg:setCategoryBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT)
+            self.m_negativeSeg:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
+            self.m_negativeSeg:setTag(5)
+            self.m_segNode:getPhysicsBody():addShape(self.m_negativeSeg)
+        end
     end
 
     self:clear()
@@ -84,23 +105,20 @@ function ExtendLine:updatePhysicBody(t)
         shapeLine1:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE)
         shapeLine1:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.EDGE_SEGMENT)
         shapeLine1:setCollisionBitmask(0)
+        shapeLine1:setTag(1)
         body:addShape(shapeLine1)
 
         local shapeBox = cc.PhysicsShapeEdgeBox:create(size, cc.PhysicsMaterial(0, 1, 0), 0, pt1)
         shapeBox:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
         shapeBox:setContactTestBitmask(dd.Constants.CATEGORY.BALL)
         shapeBox:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
+        shapeBox:setTag(2)
         body:addShape(shapeBox)
 
         self:drawSolidRect(cc.pSub(pt1, cc.p(sizeShow.width/2, sizeShow.height/2)),
             cc.pAdd(pt1, cc.p(sizeShow.width/2, sizeShow.height/2)), cc.c4f(1, 1, 1, 1))
     else
         self:drawSolidRect(origin, dest, cc.c4f(1, 1, 1, 1))
-
-        local shapeLine1 = cc.PhysicsShapeEdgeSegment:create(pt1, cc.p(0, 0), cc.PhysicsMaterial(0, 1, 0), dd.Constants.LINE_WIDTH_IN_PIXEL/2)
-        shapeLine1:setCategoryBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT)
-        shapeLine1:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
-        body:addShape(shapeLine1)
     end
 
     local origin, dest = self.m_pointsMgr:getLineRectWithLineWidth(cc.p(0, 0), pt2)
@@ -111,23 +129,20 @@ function ExtendLine:updatePhysicBody(t)
         shapeLine2:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE)
         shapeLine2:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.EDGE_SEGMENT)
         shapeLine2:setCollisionBitmask(0)
+        shapeLine2:setTag(3)
         body:addShape(shapeLine2)
         
         local shapeBox = cc.PhysicsShapeEdgeBox:create(size, cc.PhysicsMaterial(0, 1, 0), 0, pt2)
         shapeBox:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
         shapeBox:setContactTestBitmask(dd.Constants.CATEGORY.BALL)
         shapeBox:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
+        shapeBox:setTag(4)
         body:addShape(shapeBox)
 
         self:drawSolidRect(cc.pSub(pt2, cc.p(sizeShow.width/2, sizeShow.height/2)),
             cc.pAdd(pt2, cc.p(sizeShow.width/2, sizeShow.height/2)), cc.c4f(1, 1, 1, 1))
     else
         self:drawSolidRect(origin, dest, cc.c4f(1, 1, 1, 1))
-
-        local shapeLine2 = cc.PhysicsShapeEdgeSegment:create(pt1, cc.p(0, 0), cc.PhysicsMaterial(0, 1, 0), dd.Constants.LINE_WIDTH_IN_PIXEL/2)
-        shapeLine2:setCategoryBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT)
-        shapeLine2:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
-        body:addShape(shapeLine2)
     end
     
     self:drawSolidCircle(cc.p(0, 0), dd.Constants.EDGE_SEG_WIDTH/2, 0, 20, cc.c4f(1, 1, 1, 1))
@@ -147,11 +162,8 @@ end
 
 function ExtendLine:collision(collisionPt)
     local offset = cc.pSub(collisionPt, cc.p(self:getPositionX(), self:getPositionY()))
-
-    dump(offset, "------------------------ExtendLine:collision") 
     if not self.m_positivePt then
         if offset.x + offset.y >= 0 then
-            print("xxx1")
             self.m_positivePt = clone(offset)
             self.m_postiveCollisionPt = collisionPt
         end
@@ -159,7 +171,6 @@ function ExtendLine:collision(collisionPt)
 
     if not self.m_negativePt then
         if offset.x + offset.y <= 0 then
-            print("xxx2")
             self.m_negativePt = clone(offset)
             self.m_negativeCollisionPt = collisionPt
         end

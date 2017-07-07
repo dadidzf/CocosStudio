@@ -79,6 +79,7 @@ function GameNode:onContactBegin(contact)
         self.m_extendLine:removeFromParent()
         self.m_extendLine = nil
         self.m_scene:loseLife()
+        self.m_scene:checkSteps()
         return false
     end
 end
@@ -147,6 +148,7 @@ function GameNode:dealExtendlineCollision(collisionPt)
         local segment = self.m_edgeSegments
         self:drawPolygon()
         self.m_scene:updateArea()
+        self.m_scene:checkSteps()
         local callBack = function ()
             if not tolua.isnull(segment) then
                 segment:updatePhysicBody()

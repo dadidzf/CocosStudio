@@ -60,7 +60,7 @@ end
 
 function GameScene:onNext()
     self.m_levelIndex = self.m_levelIndex + 1
-    self.m_labelRoundNum:setString(tostring(levelIndex))
+    self.m_labelRoundNum:setString(tostring(self.m_levelIndex))
     self:resetGame()
 end
 
@@ -105,10 +105,12 @@ function GameScene:updateArea()
 
     if self.m_gameCurCut >= self.m_gameTarget then
         self:gameSuccess()
-    else
-        if self.m_steps <= 0 then
-            self:gameFail()
-        end
+    end
+end
+
+function GameScene:checkSteps()
+    if self.m_steps <= 0 then
+        self:gameFail()
     end
 end
 
