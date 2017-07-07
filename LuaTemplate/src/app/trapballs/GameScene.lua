@@ -78,7 +78,14 @@ end
 
 function GameScene:gameSuccess()
     local GameEnd = import(".GameEnd", MODULE_PATH)
-    local gameEnd = GameEnd:create(self, self.m_levelIndex)
+    local params = {}
+
+    params.fill = self.m_gameCurCut
+    params.lives = self.m_lives
+    params.steps = self.m_steps
+    params.topCollision = self.m_topCollisionCount
+
+    local gameEnd = GameEnd:create(self, self.m_levelIndex, params)
         :move(display.cx, display.cy)
         :addTo(self, 10)
 end
