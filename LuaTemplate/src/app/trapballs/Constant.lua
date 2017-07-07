@@ -19,7 +19,7 @@ if display.height < 960 then
     Constants.LEVEL_LIST_SCALE = display.height*0.9/960
 end
 
-Constants.LINE_WIDTH_IN_PIXEL = Constants.EDGE_SEG_WIDTH 
+Constants.LINE_WIDTH_IN_PIXEL = Constants.EDGE_SEG_WIDTH/4 
 
 return Constants
 

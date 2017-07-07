@@ -120,10 +120,16 @@ function GameNode:getExtendLineBallCollisionPt(shapeA, shapeB)
 
     if shapeACategory == dd.Constants.CATEGORY.BALL then
         local pt = shapeB:getOffset()
+        dump(pt, "--------------------------------- pt")
         pt = cc.pMul(pt, 1/self:getScale())
+        if math.abs(pt.x) < 1 then pt.x = 0 end
+        if math.abs(pt.y) < 1 then pt.y = 0 end
         return cc.pAdd(extendPos, pt)
     else
         local pt = shapeA:getOffset()
+        if math.abs(pt.x) < 1 then pt.x = 0 end
+        if math.abs(pt.y) < 1 then pt.y = 0 end
+        dump(pt, "--------------------------------- pt")
         pt = cc.pMul(pt, 1/self:getScale())
         return cc.pAdd(extendPos, pt)
     end

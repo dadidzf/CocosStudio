@@ -58,13 +58,13 @@ function ExtendLine:updatePhysicBody(t)
     local len = diffTime*self.m_speed/2
     pt1 = cc.p(-len, 0)
     pt2 = cc.p(len, 0)
-    local size = cc.size(dd.Constants.LINE_WIDTH_IN_PIXEL*2, dd.Constants.LINE_WIDTH_IN_PIXEL)
-    local sizeShow = cc.size(dd.Constants.LINE_WIDTH_IN_PIXEL, dd.Constants.LINE_WIDTH_IN_PIXEL)
+    local size = cc.size(dd.Constants.LINE_WIDTH_IN_PIXEL*8, dd.Constants.LINE_WIDTH_IN_PIXEL)
+    local sizeShow = cc.size(dd.Constants.EDGE_SEG_WIDTH, dd.Constants.EDGE_SEG_WIDTH)
 
     if not self.m_isHorizontal then
         pt1 = cc.p(0, -len)
         pt2 = cc.p(0, len)
-        size = cc.size(dd.Constants.LINE_WIDTH_IN_PIXEL, dd.Constants.LINE_WIDTH_IN_PIXEL*2)
+        size = cc.size(dd.Constants.LINE_WIDTH_IN_PIXEL, dd.Constants.LINE_WIDTH_IN_PIXEL*8)
     end
 
     if self.m_positivePt then
@@ -147,8 +147,11 @@ end
 
 function ExtendLine:collision(collisionPt)
     local offset = cc.pSub(collisionPt, cc.p(self:getPositionX(), self:getPositionY()))
+
+    dump(offset, "------------------------ExtendLine:collision") 
     if not self.m_positivePt then
         if offset.x + offset.y >= 0 then
+            print("xxx1")
             self.m_positivePt = clone(offset)
             self.m_postiveCollisionPt = collisionPt
         end
@@ -156,6 +159,7 @@ function ExtendLine:collision(collisionPt)
 
     if not self.m_negativePt then
         if offset.x + offset.y <= 0 then
+            print("xxx2")
             self.m_negativePt = clone(offset)
             self.m_negativeCollisionPt = collisionPt
         end
