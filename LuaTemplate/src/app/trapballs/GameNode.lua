@@ -78,13 +78,7 @@ function GameNode:onContactBegin(contact)
     if cateGoryAdd == dd.Constants.CATEGORY.EXTENDLINE + dd.Constants.CATEGORY.BALL then
         self.m_extendLine:removeFromParent()
         self.m_extendLine = nil
-        if self.m_scene:loseLife() then
-            print("Game Over !")
-            local GameFail = import(".GameFail", MODULE_PATH)
-            local gameFail = GameFail:create(self.m_scene) 
-            self.m_scene:addChild(gameFail, 2)
-            gameFail:setPosition(display.cx, display.cy)
-        end
+        self.m_scene:loseLife()
         return false
     end
 end
@@ -209,6 +203,7 @@ function GameNode:onTouchEnd(touch, event)
 
     if self.m_pointsMgr:isPtInOneValidPolygon(cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())) then
         self.m_extendLine:startExtend()
+        self.m_scene:costOneStep()
     else
         self.m_extendLine:runAction(
             cc.Sequence:create(

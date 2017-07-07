@@ -76,6 +76,20 @@ function GameScene:initGameData(levelIndex)
     self.m_curArea = self.m_totalArea
 end
 
+function GameScene:gameSuccess()
+    local GameEnd = import(".GameEnd", MODULE_PATH)
+    local gameEnd = GameEnd:create(self, self.m_levelIndex)
+        :move(display.cx, display.cy)
+        :addTo(self, 10)
+end
+
+function GameScene:gameFail()
+    local GameFail = import(".GameFail", MODULE_PATH)
+    local gameFail = GameFail:create(self) 
+    self:addChild(gameFail, 2)
+    gameFail:setPosition(display.cx, display.cy)
+end
+
 function GameScene:updateArea()
     self.m_curArea = math.abs(self.m_node:getValidPolygonArea())
     print("GameScene:updateArea -------", self.m_curArea, self.m_totalArea)
@@ -83,11 +97,17 @@ function GameScene:updateArea()
     self:applyGamedataDisplay()
 
     if self.m_gameCurCut >= self.m_gameTarget then
-        local GameEnd = import(".GameEnd", MODULE_PATH)
-        local gameEnd = GameEnd:create(self, self.m_levelIndex)
-            :move(display.cx, display.cy)
-            :addTo(self, 10)
+        self:gameSuccess()
+    else
+        if self.m_steps <= 0 then
+            self:gameFail()
+        end
     end
+end
+
+function GameScene:costOneStep()
+    self.m_steps = self.m_steps - 1
+    self:applyGamedataDisplay()
 end
 
 function GameScene:loseLife()
@@ -107,6 +127,7 @@ function GameScene:oneMoreTopCollision()
 end
 
 function GameScene:applyGamedataDisplay()
+    self.m_labelStepNum:setString(tostring(self.m_steps))
     self:showLives()
     self.m_labelTopCollisionNum:setString(tostring(self.m_topCollisionCount))
     self.m_labelStepNum:setString(tostring(self.m_steps))
