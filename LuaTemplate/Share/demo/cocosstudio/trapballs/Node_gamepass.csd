@@ -6,8 +6,8 @@
       <ObjectData Name="Node" Tag="63" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="Image_di" ActionTag="-139060670" Tag="64" IconVisible="False" LeftMargin="-255.0000" RightMargin="-255.0000" TopMargin="-350.0000" BottomMargin="-350.0000" LeftEage="151" RightEage="151" TopEage="217" BottomEage="217" Scale9OriginX="151" Scale9OriginY="217" Scale9Width="158" Scale9Height="226" ctype="ImageViewObjectData">
-            <Size X="510.0000" Y="700.0000" />
+          <AbstractNodeData Name="Image_di" ActionTag="-139060670" Tag="64" IconVisible="False" LeftMargin="-240.0000" RightMargin="-240.0000" TopMargin="-340.0000" BottomMargin="-340.0000" LeftEage="151" RightEage="151" TopEage="217" BottomEage="217" Scale9OriginX="151" Scale9OriginY="217" Scale9Width="158" Scale9Height="226" ctype="ImageViewObjectData">
+            <Size X="480.0000" Y="680.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -36,10 +36,10 @@
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="red_32.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_highscore" ActionTag="1625511266" Tag="82" IconVisible="False" LeftMargin="75.8168" RightMargin="-281.8168" TopMargin="-367.2404" BottomMargin="205.2404" LeftEage="67" RightEage="67" TopEage="53" BottomEage="53" Scale9OriginX="67" Scale9OriginY="53" Scale9Width="72" Scale9Height="56" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_highscore" ActionTag="1625511266" Tag="82" IconVisible="False" LeftMargin="46.3993" RightMargin="-252.3993" TopMargin="-352.3823" BottomMargin="190.3823" LeftEage="67" RightEage="67" TopEage="53" BottomEage="53" Scale9OriginX="67" Scale9OriginY="53" Scale9Width="72" Scale9Height="56" ctype="ImageViewObjectData">
             <Size X="206.0000" Y="162.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="178.8168" Y="286.2404" />
+            <Position X="149.3993" Y="271.3823" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -366,7 +366,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <PressedFileData Type="PlistSubImage" Path="btn_chart2.png" Plist="trapballs/gui.plist" />
             <NormalFileData Type="PlistSubImage" Path="btn_chart2.png" Plist="trapballs/gui.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -381,7 +381,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <PressedFileData Type="PlistSubImage" Path="btn_share2.png" Plist="trapballs/gui.plist" />
             <NormalFileData Type="PlistSubImage" Path="btn_share2.png" Plist="trapballs/gui.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />

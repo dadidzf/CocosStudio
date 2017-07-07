@@ -88,21 +88,21 @@
           </AbstractNodeData>
           <AbstractNodeData Name="Image_1_0" ActionTag="1011268113" Tag="26" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="401.3440" RightMargin="-81.3440" TopMargin="455.0000" BottomMargin="455.0000" LeftEage="105" RightEage="105" TopEage="16" BottomEage="16" Scale9OriginX="105" Scale9OriginY="16" Scale9Width="110" Scale9Height="18" ctype="ImageViewObjectData">
             <Size X="320.0000" Y="50.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="561.3440" Y="480.0000" />
+            <AnchorPoint ScaleY="0.5000" />
+            <Position X="401.3440" Y="480.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8771" Y="0.5000" />
+            <PrePosition X="0.6271" Y="0.5000" />
             <PreSize X="0.5000" Y="0.0521" />
             <FileData Type="PlistSubImage" Path="line_white.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
           <AbstractNodeData Name="Image_1" ActionTag="-700386189" Tag="25" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-87.7440" RightMargin="407.7440" TopMargin="455.0000" BottomMargin="455.0000" LeftEage="105" RightEage="105" TopEage="16" BottomEage="16" Scale9OriginX="105" Scale9OriginY="16" Scale9Width="110" Scale9Height="18" ctype="ImageViewObjectData">
             <Size X="320.0000" Y="50.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="72.2560" Y="480.0000" />
+            <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
+            <Position X="232.2560" Y="480.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1129" Y="0.5000" />
+            <PrePosition X="0.3629" Y="0.5000" />
             <PreSize X="0.5000" Y="0.0521" />
             <FileData Type="PlistSubImage" Path="line_white.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
@@ -235,13 +235,13 @@
             <NodeNormalFileData Type="PlistSubImage" Path="xiexian.png" Plist="trapballs/gui.plist" />
             <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_2" ActionTag="345054870" Tag="24" IconVisible="False" HorizontalEdge="BothEdge" LeftMargin="-35.9680" RightMargin="-44.0320" TopMargin="109.9999" BottomMargin="550.0001" LeftEage="237" RightEage="237" TopEage="99" BottomEage="99" Scale9OriginX="237" Scale9OriginY="99" Scale9Width="246" Scale9Height="102" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_2" ActionTag="345054870" Tag="24" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-40.0000" RightMargin="-40.0000" TopMargin="109.9999" BottomMargin="550.0001" LeftEage="237" RightEage="237" TopEage="99" BottomEage="99" Scale9OriginX="237" Scale9OriginY="99" Scale9Width="246" Scale9Height="102" ctype="ImageViewObjectData">
             <Size X="720.0000" Y="300.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="324.0320" Y="700.0001" />
+            <Position X="320.0000" Y="700.0001" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5063" Y="0.7292" />
+            <PrePosition X="0.5000" Y="0.7292" />
             <PreSize X="1.1250" Y="0.3125" />
             <FileData Type="PlistSubImage" Path="trapballs.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
