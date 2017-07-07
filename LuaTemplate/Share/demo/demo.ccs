@@ -80,13 +80,18 @@
             <PlistImageFile Name="stop.png" Key="stop.png" />
             <PlistImageFile Name="trapballs.png" Key="trapballs.png" />
             <PlistImageFile Name="xiexian.png" Key="xiexian.png" />
+            <PlistImageFile Name="jianduan2.png" Key="jianduan2.png" />
+            <PlistImageFile Name="life2.png" Key="life2.png" />
           </PlistImageFolder>
           <Project Name="game.csd" Type="Layer" />
           <Project Name="menu.csd" Type="Layer" />
           <Project Name="Node_buy.csd" Type="Node" />
+          <Project Name="Node_buylife.csd" Type="Node" />
+          <Project Name="Node_buysteps.csd" Type="Node" />
           <Project Name="Node_gamefailed.csd" Type="Node" />
           <Project Name="Node_gamepass.csd" Type="Node" />
           <Project Name="Node_level.csd" Type="Node" />
+          <Project Name="Node_notenoughmoney.csd" Type="Node" />
           <Project Name="Node_stop.csd" Type="Node" />
           <Project Name="selectlevel.csd" Type="Layer" />
         </Folder>

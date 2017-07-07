@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>di_blue.png</key>
+            <key>di_black.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1084,724},{720,1080}}</string>
@@ -17,7 +17,7 @@
                 <key>sourceSize</key>
                 <string>{720,1080}</string>
             </dict>
-            <key>di_green.png</key>
+            <key>di_cyan.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{724,2},{720,1080}}</string>
@@ -30,7 +30,7 @@
                 <key>sourceSize</key>
                 <string>{720,1080}</string>
             </dict>
-            <key>di_red.png</key>
+            <key>di_orange.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,1084},{720,1080}}</string>
@@ -43,7 +43,7 @@
                 <key>sourceSize</key>
                 <string>{720,1080}</string>
             </dict>
-            <key>di_yellow.png</key>
+            <key>di_purple.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,2},{720,1080}}</string>
@@ -62,13 +62,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>di.png</string>
+            <string>di2.png</string>
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ecd6a62d5ba6be2a1d8b59dbef2c826b$</string>
+            <string>$TexturePacker:SmartUpdate:7f2545d88ea82933b173347e9ad52f49$</string>
             <key>textureFileName</key>
-            <string>di.png</string>
+            <string>di2.png</string>
         </dict>
     </dict>
 </plist>
