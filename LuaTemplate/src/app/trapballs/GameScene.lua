@@ -80,7 +80,7 @@ function GameScene:gameSuccess()
     local GameEnd = import(".GameEnd", MODULE_PATH)
     local params = {}
 
-    params.fill = self.m_gameCurCut
+    params.fill = math.floor(self.m_gameCurCut*10)/10
     params.lives = self.m_lives
     params.steps = self.m_steps
     params.topCollision = self.m_topCollisionCount
@@ -122,9 +122,7 @@ function GameScene:loseLife()
     self:applyGamedataDisplay()
 
     if self.m_lives <= 0 then
-        return true 
-    else
-        return false
+        self:gameFail()
     end
 end
 

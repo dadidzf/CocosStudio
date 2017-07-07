@@ -269,23 +269,23 @@
                 <PreSize X="0.0975" Y="0.1000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="black_32.fnt" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="BitmapFontLabel_spacenumber" ActionTag="-95972999" Tag="118" IconVisible="False" LeftMargin="136.3276" RightMargin="224.6724" TopMargin="22.9535" BottomMargin="319.0465" LabelText="99" ctype="TextBMFontObjectData">
-                <Size X="39.0000" Y="38.0000" />
+              <AbstractNodeData Name="BitmapFontLabel_spacenumber" ActionTag="-95972999" Tag="118" IconVisible="False" LeftMargin="124.8277" RightMargin="207.1723" TopMargin="22.9539" BottomMargin="319.0461" LabelText="99.9" ctype="TextBMFontObjectData">
+                <Size X="68.0000" Y="38.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="155.8276" Y="338.0465" />
+                <Position X="158.8277" Y="338.0461" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.3896" Y="0.8896" />
-                <PreSize X="0.0975" Y="0.1000" />
+                <PrePosition X="0.3971" Y="0.8896" />
+                <PreSize X="0.1700" Y="0.1000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="black_32.fnt" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="BitmapFontLabel_baifenbi" ActionTag="493614410" Tag="119" IconVisible="False" LeftMargin="181.6851" RightMargin="189.3149" TopMargin="22.9535" BottomMargin="319.0465" LabelText="%" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="BitmapFontLabel_baifenbi" ActionTag="493614410" Tag="119" IconVisible="False" LeftMargin="192.6835" RightMargin="178.3165" TopMargin="22.9539" BottomMargin="319.0461" LabelText="%" ctype="TextBMFontObjectData">
                 <Size X="29.0000" Y="38.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="196.1851" Y="338.0465" />
+                <Position X="207.1835" Y="338.0461" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4905" Y="0.8896" />
+                <PrePosition X="0.5180" Y="0.8896" />
                 <PreSize X="0.0725" Y="0.1000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="black_32.fnt" Plist="" />
               </AbstractNodeData>

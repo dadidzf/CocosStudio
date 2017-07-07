@@ -29,7 +29,7 @@ function GameEnd:ctor(gameScene, levelIndex, param)
 end
 
 function GameEnd:updateScorePanel(param)
-    self.m_labelFillRate:setString(tostring(param.fill))
+    self.m_labelFillRate:setString(tostring(string.format("%.1f", param.fill)))
     self.m_labelLives:setString(tostring(param.lives))
     self.m_labelSteps:setString(tostring(param.steps))
     self.m_labelTopCollision:setString(tostring(param.topCollision))
