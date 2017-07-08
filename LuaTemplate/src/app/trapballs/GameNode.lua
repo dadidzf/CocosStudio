@@ -46,6 +46,20 @@ function GameNode:createObstacles(levelIndex)
     end
 end
 
+function GameNode:checkObstacles()
+    local destoryObstacleInRemovedPolygons = function(obstacleList)
+        for _, nodeObstacle in pairs(obstacleList) do
+            local pos = cc.p(nodeObstacle:getPositionX(), nodeObstacle:getPositionY()) 
+            if not self.m_pointsMgr:isPtInOneValidPolygon(pos) then
+                self:obstacleGearDestory(nodeObstacle)
+            end
+        end
+    end
+
+    destoryObstacleInRemovedPolygons(self.m_obstacleGears)
+    destoryObstacleInRemovedPolygons(self.m_obstaclePowers)
+end
+
 function GameNode:createObstacleGear(conf)
     local pos1 = cc.p(conf[2][1], conf[2][2])
     local pos2 = cc.p(conf[3][1], conf[3][2])
@@ -202,6 +216,7 @@ function GameNode:dealExtendlineCollision(collisionPt)
         local pts = self.m_extendLine:getOffsets()
         self.m_pointsMgr:adjustLine(pts[1], pts[2])
         self.m_pointsMgr:addLine(pts[1], pts[2], self.m_balls:getBallPosList())
+        self:checkObstacles()
 
         local extendLine = self.m_extendLine
         self.m_extendLine = nil
