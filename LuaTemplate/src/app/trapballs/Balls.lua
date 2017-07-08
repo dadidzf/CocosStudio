@@ -20,7 +20,7 @@ end
 
 function Balls:addBall(velocity, pos, picName)
     local vel = velocity or cc.p(300, 300)  
-    local pic = picName or "ball.png"
+    local pic = picName or "#ball_white.png"
     pos = pos or cc.p(0, 0)
 
     local ball = display.newSprite(pic)
