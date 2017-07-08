@@ -12,7 +12,7 @@ function GameNode:ctor(scene, boxColor, levelIndex)
     self.m_boxColor = cc.c4f(boxColor.r/255, boxColor.g/255, boxColor.b/255, 1)
 
     self.m_pointsMgr = PointsManager:create()
-    local jsonStr = cc.FileUtils:getInstance():getStringFromFile(string.format("level%d.json", levelIndex))
+    local jsonStr = cc.FileUtils:getInstance():getStringFromFile(string.format("levels/level%d.json", levelIndex))
     self.m_pointsMgr:load(jsonStr)
 
     self.m_edgeSegments = EdgeSegments:create(self.m_pointsMgr)
