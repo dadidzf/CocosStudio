@@ -51,7 +51,8 @@ function GameNode:checkObstacles()
         for _, nodeObstacle in pairs(obstacleList) do
             local pos = cc.p(nodeObstacle:getPositionX(), nodeObstacle:getPositionY()) 
             if not self.m_pointsMgr:isPtInOneValidPolygon(pos) then
-                self:obstacleGearDestory(nodeObstacle)
+                obstacleList[nodeObstacle:getTag()] = nil
+                nodeObstacle:removeFromParent()
             end
         end
     end
@@ -75,6 +76,16 @@ function GameNode:createObstacleGear(conf)
 end
 
 function GameNode:createObstaclePower(conf)
+    local pos = cc.p(conf[2][1], conf[2][2])
+    local speed = cc.p(conf[3][1], conf[3][2])
+
+    local ObstaclePower = import(".ObstaclePower", MODULE_PATH) 
+    local index = #self.m_obstaclePowers + 1
+    local obstaclePower = ObstaclePower:create(pos, speed)
+        :addTo(self, 3)
+        :setTag(index)
+
+    self.m_obstaclePowers[index] = obstaclePower
 end
 
 function GameNode:getValidPolygonArea()
@@ -111,6 +122,13 @@ function GameNode:onContactBegin(contact)
         return false
     end
 
+    -- power with extendline
+    if cateGoryAdd == dd.Constants.CATEGORY.OBSTACLE_POWER + dd.Constants.CATEGORY.EXTENDLINE or 
+        cateGoryAdd == dd.Constants.CATEGORY.OBSTACLE_POWER + dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS then
+        self:extendLineDestory()
+        return false
+    end
+
     -- gear with edgeSegment
     if cateGoryAdd == dd.Constants.CATEGORY.OBSTACLE_GEAR + dd.Constants.CATEGORY.EDGE_SEGMENT then
         if iskindof(nodeA, "ObstacleGear") then
@@ -119,6 +137,22 @@ function GameNode:onContactBegin(contact)
             self:obstacleGearDestory(nodeB)
         end
         return false
+    end
+
+    -- power with ball
+    if cateGoryAdd == dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.OBSTACLE_POWER then
+        -- if iskindof(nodeA, "ObstaclePower") then
+        --     self.m_balls:speedUp(nodeB)
+        -- else
+        --     self.m_balls:speedUp(nodeA)
+        -- end
+
+        return true
+    end
+
+    -- ball with ball
+    if cateGoryAdd == dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.BALL then
+        return true
     end
 
     -- segment with extend line ends
@@ -273,7 +307,7 @@ function GameNode:onTouchBegin(touch, event)
     local lineLevelCfg = dd.CsvConf:getLineLevelCfg()
     local speed = lineLevelCfg[dd.GameData:getLineLevel()]
     self.m_extendLine = ExtendLine:create(self.m_pointsMgr, isHorizontal, spriteFrame, dropPos, speed)
-        :addTo(self)
+        :addTo(self, 4)
 
     self:updateExtendLinePos(touch)
     return true

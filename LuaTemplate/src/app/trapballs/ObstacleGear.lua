@@ -17,6 +17,7 @@ function ObstacleGear:ctor(pos1, pos2, speed)
         )
     )
 
+    self:setScaleX(-1)
     self:runAction(cc.RepeatForever:create(
         cc.RotateBy:create(2.0, 360)
         )
@@ -29,7 +30,7 @@ function ObstacleGear:ctor(pos1, pos2, speed)
     shape:setCategoryBitmask(dd.Constants.CATEGORY.OBSTACLE_GEAR)
     shape:setContactTestBitmask(dd.Constants.CATEGORY.EXTENDLINE 
         + dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS + dd.Constants.CATEGORY.EDGE_SEGMENT)
-    shape:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
+    shape:setCollisionBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.OBSTACLE_POWER)
 
     body:addShape(shape)
     body:setDynamic(false)

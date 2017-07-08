@@ -79,7 +79,7 @@ function ExtendLine:updatePhysicBody(t)
                 cc.PhysicsMaterial(0, 1, 0), dd.Constants.LINE_WIDTH_IN_PIXEL/2)
             self.m_positiveSeg:setCategoryBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT)
             self.m_positiveSeg:setContactTestBitmask(dd.Constants.CATEGORY.OBSTACLE_GEAR)
-            self.m_positiveSeg:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
+            self.m_positiveSeg:setCollisionBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.OBSTACLE_POWER)
             self.m_positiveSeg:setTag(6)
             self.m_segNode:getPhysicsBody():addShape(self.m_positiveSeg)
         end
@@ -91,7 +91,7 @@ function ExtendLine:updatePhysicBody(t)
                 cc.PhysicsMaterial(0, 1, 0), dd.Constants.LINE_WIDTH_IN_PIXEL/2)
             self.m_negativeSeg:setCategoryBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT)
             self.m_negativeSeg:setContactTestBitmask(dd.Constants.CATEGORY.OBSTACLE_GEAR)
-            self.m_negativeSeg:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
+            self.m_negativeSeg:setCollisionBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.OBSTACLE_POWER)
             self.m_negativeSeg:setTag(5)
             self.m_segNode:getPhysicsBody():addShape(self.m_negativeSeg)
         end
@@ -105,7 +105,7 @@ function ExtendLine:updatePhysicBody(t)
 
         local shapeLine1 = cc.PhysicsShapeEdgeSegment:create(pt1, cc.p(0, 0), cc.PhysicsMaterial(0, 1, 0), dd.Constants.LINE_WIDTH_IN_PIXEL/2)
         shapeLine1:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE)
-        shapeLine1:setContactTestBitmask(dd.Constants.CATEGORY.BALL 
+        shapeLine1:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.OBSTACLE_POWER
             + dd.Constants.CATEGORY.EDGE_SEGMENT + dd.Constants.CATEGORY.OBSTACLE_GEAR)
         shapeLine1:setCollisionBitmask(0)
         shapeLine1:setTag(1)
@@ -113,7 +113,8 @@ function ExtendLine:updatePhysicBody(t)
 
         local shapeBox = cc.PhysicsShapeEdgeBox:create(size, cc.PhysicsMaterial(0, 1, 0), 0, pt1)
         shapeBox:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
-        shapeBox:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.OBSTACLE_GEAR)
+        shapeBox:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.OBSTACLE_POWER
+            + dd.Constants.CATEGORY.OBSTACLE_GEAR)
         shapeBox:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
         shapeBox:setTag(2)
         body:addShape(shapeBox)
@@ -130,7 +131,7 @@ function ExtendLine:updatePhysicBody(t)
 
         local shapeLine2 = cc.PhysicsShapeEdgeSegment:create(pt2, cc.p(0, 0), cc.PhysicsMaterial(0, 1, 0), dd.Constants.LINE_WIDTH_IN_PIXEL/2)
         shapeLine2:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE)
-        shapeLine2:setContactTestBitmask(dd.Constants.CATEGORY.BALL 
+        shapeLine2:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.OBSTACLE_POWER
             + dd.Constants.CATEGORY.EDGE_SEGMENT + dd.Constants.CATEGORY.OBSTACLE_GEAR)
         shapeLine2:setCollisionBitmask(0)
         shapeLine2:setTag(3)
@@ -138,7 +139,8 @@ function ExtendLine:updatePhysicBody(t)
         
         local shapeBox = cc.PhysicsShapeEdgeBox:create(size, cc.PhysicsMaterial(0, 1, 0), 0, pt2)
         shapeBox:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
-        shapeBox:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.OBSTACLE_GEAR)
+        shapeBox:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.OBSTACLE_POWER
+            + dd.Constants.CATEGORY.OBSTACLE_GEAR)
         shapeBox:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
         shapeBox:setTag(4)
         body:addShape(shapeBox)

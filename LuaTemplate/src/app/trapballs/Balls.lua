@@ -2,6 +2,8 @@ local Balls = class("Balls", function ( ... )
     return cc.Node:create()
 end)
 
+local MAX_SPEED = 600
+
 function Balls:ctor(levelIndex)
     self.m_levelIndex = levelIndex
     self.m_ballList = {}
@@ -30,7 +32,8 @@ function Balls:addBall(velocity, pos, picName)
 
     local edgeBody = cc.PhysicsBody:createCircle(ballSize.width/2, cc.PhysicsMaterial(100000, 1, 0), cc.p(0, 0))
     edgeBody:setCategoryBitmask(dd.Constants.CATEGORY.BALL)
-    edgeBody:setContactTestBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS + dd.Constants.CATEGORY.EXTENDLINE)
+    edgeBody:setContactTestBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS 
+        + dd.Constants.CATEGORY.EXTENDLINE + dd.Constants.CATEGORY.OBSTACLE_POWER + dd.Constants.CATEGORY.BALL)
     edgeBody:setVelocity(vel)
     ball:setPhysicsBody(edgeBody)
     ball.m_retoreMyVel = cc.pGetLength(vel)
@@ -56,5 +59,31 @@ function Balls:getBallPosList()
 
     return retPosList
 end
+
+function Balls:speedUp(ball)
+    local add = 100
+    local body = ball:getPhysicsBody()
+    local curVel = body:getVelocity()
+    local curVelLen = cc.pGetLength(curVel)
+    local afterAdd = curVelLen + add
+    if afterAdd >= MAX_SPEED then
+        afterAdd = MAX_SPEED
+    end
+
+    body:setVelocity(cc.pMul(curVel, afterAdd/curVelLen))
+end
+
+function Balls:controlSpeed(ball)
+    local mul = 1
+    local body = ball:getPhysicsBody()
+    local curVel = body:getVelocity()
+    local curVelLen = cc.pGetLength(curVel)
+    if curVelLen >= MAX_SPEED then
+        mul = MAX_SPEED/curVelLen
+    end
+
+    body:setVelocity(cc.pMul(curVel, mul))
+end
+
 
 return Balls

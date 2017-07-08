@@ -25,7 +25,7 @@ function EdgeSegments:updatePhysicBody(color)
         body:addShape(shape)
         body:setCategoryBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT)
         body:setContactTestBitmask(dd.Constants.CATEGORY.EXTENDLINE + dd.Constants.CATEGORY.OBSTACLE_GEAR)
-        body:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
+        body:setCollisionBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.OBSTACLE_POWER)
         body:setDynamic(false)
 
         local origin, dest = self.m_pointsMgr:getLineRectWithLineWidth(ptPair[1], ptPair[2])
