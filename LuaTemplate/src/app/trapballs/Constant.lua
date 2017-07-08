@@ -5,7 +5,15 @@ Constants.CATEGORY = {
     BALL = 0x1,
     EDGE_SEGMENT = 0x2,
     EXTENDLINE = 0x4,
-    EXTENDLINE_BOTH_ENDS = 0x8
+    EXTENDLINE_BOTH_ENDS = 0x8,
+
+    OBSTACLE_GEAR = 0x10,
+    OBSTACLE_POWER = 0x20
+}
+
+Constants.OBSTACLE = {
+    GEAR = 1,
+    POWER = 2 
 }
 
 Constants.EDGE_SEG_WIDTH = 10

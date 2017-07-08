@@ -24,7 +24,7 @@ function EdgeSegments:updatePhysicBody(color)
         shape:setTag(ptPair[3])
         body:addShape(shape)
         body:setCategoryBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT)
-        body:setContactTestBitmask(dd.Constants.CATEGORY.EXTENDLINE)
+        body:setContactTestBitmask(dd.Constants.CATEGORY.EXTENDLINE + dd.Constants.CATEGORY.OBSTACLE_GEAR)
         body:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
         body:setDynamic(false)
 

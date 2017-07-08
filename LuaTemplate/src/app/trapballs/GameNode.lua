@@ -27,6 +27,40 @@ function GameNode:ctor(scene, boxColor, levelIndex)
     self.m_drawNode = cc.DrawNode:create()
         :addTo(self, -1)
     self:drawPolygon()
+
+    self:createObstacles(levelIndex)
+end
+
+function GameNode:createObstacles(levelIndex)
+    self.m_obstacleGears = {}
+    self.m_obstaclePowers = {}
+
+    local obstaclesCfg = dd.YWStrUtil:parse(dd.CsvConf:getRoundCfg()[levelIndex].obstacle)
+    for _, obstacleCfg in ipairs(obstaclesCfg) do
+        local id = obstacleCfg[1]
+        if id == dd.Constants.OBSTACLE.GEAR then
+            self:createObstacleGear(obstacleCfg)
+        elseif id == dd.Constants.OBSTACLE.POWER then
+            self:createObstaclePower(obstacleCfg)
+        end
+    end
+end
+
+function GameNode:createObstacleGear(conf)
+    local pos1 = cc.p(conf[2][1], conf[2][2])
+    local pos2 = cc.p(conf[3][1], conf[3][2])
+    local speed = conf[4][1] 
+
+    local ObstacleGear = import(".ObstacleGear", MODULE_PATH)
+    local index = #self.m_obstacleGears + 1
+    local obstacleGear = ObstacleGear:create(pos1, pos2, speed) 
+        :addTo(self, 3)
+        :setTag(index)
+
+    self.m_obstacleGears[index] = obstacleGear
+end
+
+function GameNode:createObstaclePower(conf)
 end
 
 function GameNode:getValidPolygonArea()
@@ -56,6 +90,23 @@ function GameNode:onContactBegin(contact)
     local shapeBCategory = shapeB:getCategoryBitmask()
     local cateGoryAdd = shapeACategory + shapeBCategory
 
+    -- gear with extendline
+    if cateGoryAdd == dd.Constants.CATEGORY.OBSTACLE_GEAR + dd.Constants.CATEGORY.EXTENDLINE or 
+        cateGoryAdd == dd.Constants.CATEGORY.OBSTACLE_GEAR + dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS then
+        self:extendLineDestory()
+        return false
+    end
+
+    -- gear with edgeSegment
+    if cateGoryAdd == dd.Constants.CATEGORY.OBSTACLE_GEAR + dd.Constants.CATEGORY.EDGE_SEGMENT then
+        if iskindof(nodeA, "ObstacleGear") then
+            self:obstacleGearDestory(nodeA)
+        else
+            self:obstacleGearDestory(nodeB)
+        end
+        return false
+    end
+
     -- segment with extend line ends
     if cateGoryAdd == dd.Constants.CATEGORY.EDGE_SEGMENT + dd.Constants.CATEGORY.EXTENDLINE then
         self:dealExtendlineCollision(self:getExtendLineSegmentCollisionPt(shapeA, shapeB))
@@ -76,12 +127,22 @@ function GameNode:onContactBegin(contact)
 
     -- ball with extend line
     if cateGoryAdd == dd.Constants.CATEGORY.EXTENDLINE + dd.Constants.CATEGORY.BALL then
-        self.m_extendLine:removeFromParent()
-        self.m_extendLine = nil
-        self.m_scene:loseLife()
-        self.m_scene:checkSteps()
+        self:extendLineDestory()
         return false
     end
+end
+
+function GameNode:obstacleGearDestory(nodeObstacleGear)
+    local tag = nodeObstacleGear:getTag()
+    self.m_obstacleGears[tag] = nil
+    nodeObstacleGear:removeFromParent()
+end
+
+function GameNode:extendLineDestory()
+    self.m_extendLine:removeFromParent()
+    self.m_extendLine = nil
+    self.m_scene:loseLife()
+    self.m_scene:checkSteps()
 end
 
 function GameNode:getExtendLineSegmentCollisionPt(shapeA, shapeB)
