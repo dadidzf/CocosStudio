@@ -141,7 +141,8 @@ function GameNode:dealExtendlineCollision(collisionPt)
         local pts = self.m_extendLine:getOffsets()
         self.m_pointsMgr:adjustLine(pts[1], pts[2])
         self.m_pointsMgr:addLine(pts[1], pts[2], self.m_balls:getBallPosList())
-        self.m_extendLine:removeFromParent()
+
+        local extendLine = self.m_extendLine
         self.m_extendLine = nil
 
         local scheduler
@@ -153,7 +154,13 @@ function GameNode:dealExtendlineCollision(collisionPt)
             if not tolua.isnull(segment) then
                 segment:updatePhysicBody()
                 segment = nil
+                return
             end
+
+            if not tolua.isnull(extendLine) then
+                extendLine:removeFromParent()
+            end
+
             dd.scheduler:unscheduleScriptEntry(scheduler)
         end
 
