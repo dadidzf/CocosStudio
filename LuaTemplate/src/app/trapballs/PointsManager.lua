@@ -63,9 +63,13 @@ function PointsManager:load(jsonStr)
     local tb = Cjson.decode(jsonStr)
     self.m_pointList = tb[1]
     self.m_lineList = tb[2]
-    self.m_validPolygonPtIndexPairList = {tb[3]}
+    self.m_validPolygonPtIndexPairList = tb[3]
 
-    print("----------------------------------", dd.Triangulate:area(self:getSerialPolygonPtList(tb[3])))
+    for _, polygonPtIndexPairList in ipairs(tb[4]) do
+        table.insert(self.m_removedPolygonTriangleLists,
+            dd.Triangulate:process(self:getSerialPolygonPtList(polygonPtIndexPairList)))
+    end
+
     self:getAllValidPolygonTriangleList()
     dump(tb)
 end
