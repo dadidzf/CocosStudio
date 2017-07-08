@@ -27,7 +27,6 @@ GameScene.RESOURCE_BINDING = {
 function GameScene:ctor(levelIndex)
     self.super.ctor(self)
     self.m_levelIndex = levelIndex
-    self:onUpdate(handler(self, self.update))
     
     local resourceNode = self:getResourceNode()
     resourceNode:setContentSize(display.size)
@@ -56,6 +55,8 @@ function GameScene:resetGame()
     self:initGameData(self.m_levelIndex)
     self:resetGameProgress()
     self:applyGamedataDisplay()
+
+    self.m_isGameEnd = false
 end
 
 function GameScene:onNext()
@@ -88,6 +89,8 @@ function GameScene:gameSuccess()
     local gameEnd = GameEnd:create(self, self.m_levelIndex, params)
         :move(display.cx, display.cy)
         :addTo(self, 10)
+
+    self.m_isGameEnd = true
 end
 
 function GameScene:gameFail()
@@ -95,11 +98,18 @@ function GameScene:gameFail()
     local gameFail = GameFail:create(self) 
     self:addChild(gameFail, 2)
     gameFail:setPosition(display.cx, display.cy)
+    dd.PlaySound("gameFail.mp3")
+    
+    self.m_isGameEnd = true
 end
 
 function GameScene:updateArea()
+    local oldArea = self.m_curArea
     self.m_curArea = math.abs(self.m_node:getValidPolygonArea())
-    print("GameScene:updateArea -------", self.m_curArea, self.m_totalArea)
+    if oldArea - self.m_curArea > 0.1 then
+        dd.PlaySound("reduceArea.mp3")
+    end
+
     self.m_gameCurCut = math.abs(self.m_totalArea - self.m_curArea)*100/self.m_totalArea
     self:applyGamedataDisplay()
 
@@ -109,6 +119,8 @@ function GameScene:updateArea()
 end
 
 function GameScene:checkSteps()
+    if self.m_isGameEnd then return end
+
     if self.m_steps <= 0 then
         self:gameFail()
     end
@@ -120,6 +132,7 @@ function GameScene:costOneStep()
 end
 
 function GameScene:loseLife()
+    dd.PlaySound("loseLife.mp3")
     self.m_lives = self.m_lives - 1
     self:applyGamedataDisplay()
 
@@ -214,6 +227,7 @@ function GameScene:showProps()
 end
 
 function GameScene:onPause()
+    dd.PlaySound("buttonclick.mp3")
     local GamePause = import(".GamePause", MODULE_PATH)
     local pauseNode = GamePause:create()
     pauseNode:setPosition(display.cx, display.cy)
@@ -249,12 +263,6 @@ function GameScene:getValidSpriteFrame(location)
     end
 end
 
-function GameScene:update(t)
-    -- for i = 1, 3 do 
-    --     display:getRunningScene():getPhysicsWorld():step(t/3)
-    -- end
-end
-
 function GameScene:showWithScene(transition, time, more)
     self:setVisible(true)
     local scene = display.newScene(self.name_, {physics = true})
@@ -265,7 +273,6 @@ function GameScene:showWithScene(transition, time, more)
     --physicWorld:setDebugDrawMask(cc.PhysicsWorld.DEBUGDRAW_ALL)
     physicWorld:setGravity(cc.p(0, 0))
     physicWorld:setFixedUpdateRate(60)
-    --physicWorld:setAutoStep(false)
     
     return self
 end

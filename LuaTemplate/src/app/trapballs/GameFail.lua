@@ -17,11 +17,13 @@ function GameFail:onCreate()
 end
 
 function GameFail:onRestart()
+    dd.PlaySound("buttonclick.mp3")
     self.m_gameScene:resetGame()
     self:removeFromParent()
 end
 
 function GameFail:onMenu()
+    dd.PlaySound("buttonclick.mp3")
     local MainScene = import(".MainScene", MODULE_PATH)
     local mainScene = MainScene:create()
     mainScene:showWithScene()

@@ -64,6 +64,7 @@ end
 function NodeLevel:onGlobalRank()
     if not self.m_alreadyMoved then
         print("NodeLevel:onGlobalRank", self.m_index)
+        dd.PlaySound("buttonclick.mp3")
     end
 end
 
@@ -72,6 +73,7 @@ function NodeLevel:onSelectLevel()
         print("NodeLevel:onSelectLevel", self.m_index)
         local gameScene = GameScene:create(self.m_index)
         gameScene:showWithScene()
+        dd.PlaySound("buttonclick.mp3")
     end
 end
 

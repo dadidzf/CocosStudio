@@ -57,25 +57,30 @@ function GameEnd:onCreate()
 end
 
 function GameEnd:onRank()
+    dd.PlaySound("buttonclick.mp3")
 end
 
 function GameEnd:onShare()
+    dd.PlaySound("buttonclick.mp3")
     cc.load("sdk").Tools.share("Trap Balls, very funny game, play with me now !", 
         cc.FileUtils:getInstance():fullPathForFilename("512.png"))
 end
 
 function GameEnd:onReplay()
+    dd.PlaySound("buttonclick.mp3")
     self.m_gameScene:resetGame()
     self:removeFromParent()
 end
 
 function GameEnd:onMenu()
+    dd.PlaySound("buttonclick.mp3")
     local MainScene = import(".MainScene", MODULE_PATH)
     local mainScene = MainScene:create()
     mainScene:showWithScene()
 end
 
 function GameEnd:onNext()
+    dd.PlaySound("buttonclick.mp3")
     self.m_gameScene:onNext()
     self:removeFromParent()
 end

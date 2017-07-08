@@ -146,7 +146,7 @@ function GameNode:onContactBegin(contact)
         -- else
         --     self.m_balls:speedUp(nodeA)
         -- end
-
+        dd.PlaySound("powerBall.mp3")
         return true
     end
 
@@ -323,6 +323,7 @@ function GameNode:onTouchEnd(touch, event)
     if self.m_pointsMgr:isPtInOneValidPolygon(cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())) then
         self.m_extendLine:startExtend()
         self.m_scene:costOneStep()
+        dd.PlaySound("dropLine.mp3")
     else
         self.m_extendLine:runAction(
             cc.Sequence:create(

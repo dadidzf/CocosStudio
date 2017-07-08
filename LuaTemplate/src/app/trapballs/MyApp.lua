@@ -6,6 +6,12 @@ import(".Constant")
 dd.CsvConf = import(".CsvConf").new()
 dd.GameData = import(".GameData").new()
 
+dd.PlaySound = function (fileName)
+    if dd.GameData:isSoundEnable() then
+        AudioEngine.getInstance():playEffect("sounds/" .. fileName)
+    end
+end
+
 function MyApp:onCreate()
     math.randomseed(os.time())
 

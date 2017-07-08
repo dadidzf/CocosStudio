@@ -36,6 +36,7 @@ function LevelScene:initListView()
 end
 
 function LevelScene:onBack()
+    dd.PlaySound("buttonclick.mp3")
     local MainScene = import(".MainScene", MODULE_PATH)
     local mainScene = MainScene:create()
     mainScene:showWithScene()

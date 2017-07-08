@@ -30,6 +30,10 @@ function MainScene:onCreate()
     resourceNode:getChildByName(randomShow.btn_play):setVisible(true)
 
     self:updateLinePos()
+
+    self.m_checkBoxNoAds:onEvent(handler(self, self.onNoAds))
+    self.m_checkBoxSound:onEvent(handler(self, self.onSoundOnOff))
+    self.m_checkBoxSound:setSelected(not dd.GameData:isSoundEnable())
 end
 
 function MainScene:updateLinePos()
@@ -44,29 +48,36 @@ function MainScene:updateLinePos()
 end
 
 function MainScene:onPlay()
+    dd.PlaySound("buttonclick.mp3")
     local levelScene = LevelScene:create()
     levelScene:showWithScene()
 end
 
 function MainScene:onShare()
+    dd.PlaySound("buttonclick.mp3")
     cc.load("sdk").Tools.share("Trap Balls, very funny game, play with me now !", 
         cc.FileUtils:getInstance():fullPathForFilename("512.png"))
 end
 
 function MainScene:onShop()
+    dd.PlaySound("buttonclick.mp3")
     local gameShop = GameShop:create()
     self:addChild(gameShop)
     gameShop:setPosition(display.cx, display.cy)
 end
 
 function MainScene:onRate()
+    dd.PlaySound("buttonclick.mp3")
     cc.load("sdk").Tools.rate()
 end
 
 function MainScene:onNoAds()
+    dd.PlaySound("buttonclick.mp3")
 end
 
 function MainScene:onSoundOnOff()
+    dd.PlaySound("buttonclick.mp3")
+    dd.GameData:setSoundEnable(not dd.GameData:isSoundEnable())
 end
 
 return MainScene
