@@ -27,6 +27,7 @@ function NodeLevel:ctor(index, cfg)
     self.m_labelRoundNumber:setString(tostring(index))
     local ballsSetting = dd.YWStrUtil:parse(cfg.ball_setting)
     self.m_labelBallNumber:setString(#ballsSetting)
+    self.m_labelBallNumber:setVisible(false)
 
     self.m_btnGlobalRank:setSwallowTouches(false)
     self.m_btnSelectLevel:setSwallowTouches(false)
@@ -59,6 +60,11 @@ function NodeLevel:ctor(index, cfg)
     else
         self.m_bgLock:setVisible(false)
     end
+
+    local topThree = dd.GameData:getLevelTopThree(index)
+    self.m_labelFirstScore:setString(tostring(topThree[1]))
+    self.m_labelSecondScore:setString(tostring(topThree[2]))
+    self.m_labelThirdScore:setString(tostring(topThree[3]))
 end
 
 function NodeLevel:onGlobalRank()

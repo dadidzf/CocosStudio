@@ -20,12 +20,15 @@ GameEnd.RESOURCE_BINDING = {
     ["Panel_1.BitmapFontLabel_spacescore"] = {varname = "m_labelFillRateScore"},
     ["Panel_1.BitmapFontLabel_allscore"] = {varname = "m_labelTotalScore"},
 
-    ["BitmapFontLabel_roundnumber"] = {varname = "m_labelRoundNum"}
+    ["BitmapFontLabel_roundnumber"] = {varname = "m_labelRoundNum"},
+    ["BitmapFontLabel_highscorenumber"] = {varname = "m_labelHighScore"},
+    ["Image_highscore"] = {varname = "m_imgHighScoreIcon"}
 }
 
 function GameEnd:ctor(gameScene, levelIndex, param)
     self.super.ctor(self)
 
+    self.m_levelIndex = levelIndex
     self.m_labelRoundNum:setString(tostring(levelIndex))
     self.m_gameScene = gameScene
     self:updateScorePanel(param)
@@ -50,6 +53,10 @@ function GameEnd:updateScorePanel(param)
     self.m_labelLivesScore:setString(tostring(self.m_livesScore))
     self.m_labelTotalScore:setString(tostring(self.m_totalScore))
 
+    self.m_isBest = dd.GameData:refreshLevelScore(self.m_levelIndex, self.m_totalScore)
+    local topThree = dd.GameData:getLevelTopThree(self.m_levelIndex)
+    self.m_labelHighScore:setString(tostring(topThree[1]))
+    self.m_imgHighScoreIcon:setVisible(self.m_isBest)
 end
 
 function GameEnd:onCreate()
