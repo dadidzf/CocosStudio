@@ -8,37 +8,64 @@ GameShop.RESOURCE_BINDING = {
     ["Button_3"] = {varname = "m_btn099", events = {{ event = "click", method = "on999" }}},
     ["Button_4"] = {varname = "m_btn299", events = {{ event = "click", method = "on2999" }}},
     ["Button_close"] = {varname = "m_btnClose", events = {{ event = "click", method = "onClose" }}},
+
+    ["BitmapFontLabel_1"] = {varname = "m_labelDiamonds099"},
+    ["BitmapFontLabel_2"] = {varname = "m_labelDiamonds299"},
+    ["BitmapFontLabel_3"] = {varname = "m_labelDiamonds999"},
+    ["BitmapFontLabel_4"] = {varname = "m_labelDiamonds2999"},
 }
 
-function GameShop:ctor()
+
+function GameShop:ctor(callBack)
     self.super.ctor(self)
+    self.m_callBack = callBack
+
+    self.m_labelDiamonds099:setString(tostring(dd.Constants.MONEY_MAP_DIAMONDS.dollar099))
+    self.m_labelDiamonds299:setString(tostring(dd.Constants.MONEY_MAP_DIAMONDS.dollar299))
+    self.m_labelDiamonds999:setString(tostring(dd.Constants.MONEY_MAP_DIAMONDS.dollar999))
+    self.m_labelDiamonds2999:setString(tostring(dd.Constants.MONEY_MAP_DIAMONDS.dollar2999))
 end
 
 function GameShop:onCreate()
     self:showMask()
-    self:getMask():onClick(function ()
-        self:removeFromParent()
-    end)
+    self.m_curDiamodns = dd.GameData:getDiamonds() 
 end
 
 function GameShop:on099()
     print("GameShop:on099")
+    self.m_curDiamodns = self.m_curDiamodns + dd.Constants.MONEY_MAP_DIAMONDS.dollar099
+    dd.GameData:refreshDiamonds(self.m_curDiamodns)
+    self.m_callBack(true)
+    self:removeFromParent()
 end
 
 function GameShop:on299()
     print("GameShop:on299")
+    self.m_curDiamodns = self.m_curDiamodns + dd.Constants.MONEY_MAP_DIAMONDS.dollar299
+    dd.GameData:refreshDiamonds(self.m_curDiamodns)
+    self.m_callBack(true)
+    self:removeFromParent()
 end
 
 function GameShop:on999()
     print("GameShop:on999")
+    self.m_curDiamodns = self.m_curDiamodns + dd.Constants.MONEY_MAP_DIAMONDS.dollar999
+    dd.GameData:refreshDiamonds(self.m_curDiamodns)
+    self.m_callBack(true)
+    self:removeFromParent()
 end
 
 function GameShop:on2999()
     print("GameShop:on2999")
+    self.m_curDiamodns = self.m_curDiamodns + dd.Constants.MONEY_MAP_DIAMONDS.dollar2999
+    dd.GameData:refreshDiamonds(self.m_curDiamodns)
+    self.m_callBack(true)
+    self:removeFromParent()
 end
 
 function GameShop:onClose()
     print("GameShop:onClose")
+    self.m_callBack(nil)
     self:removeFromParent()
 end
 

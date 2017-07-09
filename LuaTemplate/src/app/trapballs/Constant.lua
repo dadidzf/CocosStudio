@@ -29,5 +29,22 @@ end
 
 Constants.LINE_WIDTH_IN_PIXEL = Constants.EDGE_SEG_WIDTH/4 
 
+
+
+-- 钻石购买，购买生命，购买步数配表
+Constants.MORE_RESOURCE = {
+    MORE_LIVES = {lives = 3, diamonds = 100},
+    MORE_STEPS = {steps = 3, diamonds = 100}
+}
+
+Constants.INIT_DIAMONDS = 180
+
+Constants.MONEY_MAP_DIAMONDS = {
+    dollar099 = 99,
+    dollar299 = 399,
+    dollar999 = 1999,
+    dollar2999 = 9999
+}
+
 return Constants
 

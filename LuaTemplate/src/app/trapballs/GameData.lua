@@ -26,7 +26,6 @@ function GameData:isSoundEnable()
         self.m_isSoundEnable = cc.UserDefault:getInstance():getBoolForKey("isSoundEnable", true)
     end
 
-    print("self.m_isSoundEnable", self.m_isSoundEnable)
     return self.m_isSoundEnable
 end
 
@@ -63,6 +62,21 @@ function GameData:getLevelTopThree(level)
     end
 
     return retTb
+end
+
+function GameData:getDiamonds()
+    if not self.m_diamonds then
+        self.m_diamonds = cc.UserDefault:getInstance():getIntegerForKey("diamonds", dd.Constants.INIT_DIAMONDS)
+    end
+
+    return self.m_diamonds
+end
+
+function GameData:refreshDiamonds(diamond)
+    assert(diamond >= 0, "Can not be less than 0 !")
+    cc.UserDefault:getInstance():setIntegerForKey("diamonds", diamond)
+
+    self.m_diamonds = diamond
 end
 
 return GameData

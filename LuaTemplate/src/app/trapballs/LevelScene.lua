@@ -5,13 +5,16 @@ local MODULE_PATH = ...
 LevelScene.RESOURCE_FILENAME = "selectlevel.csb"
 LevelScene.RESOURCE_BINDING = {
     ["Image_back.Button_back"] = {varname = "m_btnBack", events = {{ event = "click", method = "onBack" }}},
-    ["ListView_level"] = {varname = "m_listView"}
+    ["ListView_level"] = {varname = "m_listView"},
+    ["BitmapFontLabel_zuanshi"] = {varname = "m_lableDiamonds"}
 }
 
 function LevelScene:onCreate()
     local resourceNode = self:getResourceNode()
     resourceNode:setContentSize(display.size)
     ccui.Helper:doLayout(resourceNode)
+
+    self.m_lableDiamonds:setString(tostring(dd.GameData:getDiamonds()))
 
     self:initListView()
 end

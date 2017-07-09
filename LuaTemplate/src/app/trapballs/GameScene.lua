@@ -120,9 +120,23 @@ end
 
 function GameScene:checkSteps()
     if self.m_isGameEnd then return end
+    if self.m_isPurchasing then return end
 
     if self.m_steps <= 0 then
-        self:gameFail()
+        local BuySteps = import(".BuySteps", MODULE_PATH)
+        self.m_isPurchasing = true
+        local buySteps = BuySteps:create(function (givenSteps)
+            self.m_isPurchasing = false
+            if givenSteps then
+                self.m_steps = self.m_steps + givenSteps
+                self:applyGamedataDisplay()
+            else
+                self:gameFail()
+            end
+        end)
+        
+        buySteps:move(display.cx, display.cy)
+        buySteps:addTo(self, 10)
     end
 end
 
@@ -137,7 +151,21 @@ function GameScene:loseLife()
     self:applyGamedataDisplay()
 
     if self.m_lives <= 0 then
-        self:gameFail()
+        local BuyLives = import(".BuyLives", MODULE_PATH)
+        self.m_isPurchasing = true
+        local buyLives = BuyLives:create(function (givenLives)
+            self.m_isPurchasing = false
+            if givenLives then
+                self.m_lives = self.m_lives + givenLives
+                self:applyGamedataDisplay()
+                self:checkSteps()
+            else
+                self:gameFail()
+            end
+        end)
+        
+        buyLives:move(display.cx, display.cy)
+        buyLives:addTo(self, 10)
     end
 end
 

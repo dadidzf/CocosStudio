@@ -12,7 +12,8 @@ MainScene.RESOURCE_BINDING = {
     ["CheckBox_jingyin"] = {varname = "m_checkBoxSound"},
 
     ["Image_1"] = {varname = "m_imgLineLeft"},
-    ["Image_1_0"] = {varname = "m_imgLineRight"}
+    ["Image_1_0"] = {varname = "m_imgLineRight"},
+    ["BitmapFontLabel_1"] = {varname = "m_labelDiamonds"}
 }
 
 function MainScene:onCreate()
@@ -34,6 +35,8 @@ function MainScene:onCreate()
     self.m_checkBoxNoAds:onEvent(handler(self, self.onNoAds))
     self.m_checkBoxSound:onEvent(handler(self, self.onSoundOnOff))
     self.m_checkBoxSound:setSelected(not dd.GameData:isSoundEnable())
+
+    self.m_labelDiamonds:setString(tostring(dd.GameData:getDiamonds()))
 end
 
 function MainScene:updateLinePos()

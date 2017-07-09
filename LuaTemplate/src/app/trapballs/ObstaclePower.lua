@@ -6,7 +6,7 @@ function ObstaclePower:ctor(pos1, speedVector)
     self:initWithSpriteFrameName("zhangai_nengliangqiu1.png")
     self:setPosition(pos1)
 
-    local frames = display.newFrames("zhangai_nengliangqiu%d.png", 1, 4)
+    local frames = display.newFrames("zhangai_nengliangqiu%d.png", 1, 4, true)
     local animation = display.newAnimation(frames, 0.2)
     local action = cc.Animate:create(animation)
     self:runAction(cc.RepeatForever:create(action))

@@ -46,7 +46,7 @@ function GameEnd:updateScorePanel(param)
     self.m_stepsScore = 100*param.steps
     self.m_totalScore = self.m_fillScore + self.m_livesScore + self.m_stepsScore
 
-    self.m_diamondsReward = 10*param.topCollision + 100
+    self.m_diamondsReward = 10*param.topCollision
     self.m_labelDiamondReward:setString(tostring(self.m_diamondsReward))
     self.m_labelStepsScore:setString(tostring(self.m_stepsScore))
     self.m_labelFillRateScore:setString(tostring(self.m_fillScore))
@@ -81,9 +81,9 @@ end
 
 function GameEnd:onMenu()
     dd.PlaySound("buttonclick.mp3")
-    local MainScene = import(".MainScene", MODULE_PATH)
-    local mainScene = MainScene:create()
-    mainScene:showWithScene()
+    local LevelScene = import(".LevelScene", MODULE_PATH)
+    local levelScene = LevelScene:create()
+    levelScene:showWithScene()
 end
 
 function GameEnd:onNext()
