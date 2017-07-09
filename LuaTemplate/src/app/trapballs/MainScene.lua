@@ -64,7 +64,9 @@ end
 
 function MainScene:onShop()
     dd.PlaySound("buttonclick.mp3")
-    local gameShop = GameShop:create()
+    local gameShop = GameShop:create(function ()
+        
+    end)
     self:addChild(gameShop)
     gameShop:setPosition(display.cx, display.cy)
 end

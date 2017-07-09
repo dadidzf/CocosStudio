@@ -16,6 +16,11 @@ function Balls:addBalls()
     for _, ballConf in ipairs(dd.YWStrUtil:parse(roundCfg.ball_setting)) do
         local pos = cc.p(ballConf[1][1], ballConf[1][2])
         local speed = cc.p(ballConf[2][1], ballConf[2][2])
+        if speed.y == nil then
+            local speedLen = speed.x
+            local angle = math.random()*math.pi*2
+            speed = cc.p(speedLen*math.sin(angle), speedLen*math.cos(angle))
+        end
         self:addBall(speed, pos)
     end
 end

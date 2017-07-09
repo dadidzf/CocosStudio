@@ -857,6 +857,19 @@ function PointsManager:getAllValidPolygonArea()
     return ret
 end
 
+function PointsManager:getAllSmallPolygonArea()
+    local ret = 0
+    for _, polygonPtIndexList in ipairs(self.m_smallPolygonPtIndexLists) do
+        ret = ret + math.abs(dd.Triangulate:area(self:getSerialPolygonPtList(polygonPtIndexList)))
+    end
+
+    return ret
+end
+
+function PointsManager:getLeftArea()
+    return self:getAllValidPolygonArea() - self:getAllSmallPolygonArea()
+end
+
 function PointsManager:isPtInSmallPolygons(pt)
     for _, smallPolygonPtIndexList in ipairs(self.m_smallPolygonPtIndexLists) do
         if self:isPointInPolygonPtIndexList(pt, smallPolygonPtIndexList, true) then

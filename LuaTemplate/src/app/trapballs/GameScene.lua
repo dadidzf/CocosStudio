@@ -106,6 +106,7 @@ end
 function GameScene:updateArea()
     local oldArea = self.m_curArea
     self.m_curArea = math.abs(self.m_node:getValidPolygonArea())
+
     if oldArea - self.m_curArea > 0.1 then
         dd.PlaySound("reduceArea.mp3")
     end

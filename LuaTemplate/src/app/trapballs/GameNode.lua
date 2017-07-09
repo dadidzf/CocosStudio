@@ -78,6 +78,11 @@ end
 function GameNode:createObstaclePower(conf)
     local pos = cc.p(conf[2][1], conf[2][2])
     local speed = cc.p(conf[3][1], conf[3][2])
+    if speed.y == nil then
+        local speedLen = speed.x
+        local angle = math.random()*math.pi*2
+        speed = cc.p(speedLen*math.sin(angle), speedLen*math.cos(angle))
+    end
 
     local ObstaclePower = import(".ObstaclePower", MODULE_PATH) 
     local index = #self.m_obstaclePowers + 1
@@ -89,7 +94,7 @@ function GameNode:createObstaclePower(conf)
 end
 
 function GameNode:getValidPolygonArea()
-    return self.m_pointsMgr:getAllValidPolygonArea()
+    return self.m_pointsMgr:getLeftArea()
 end
 
 -- Physic Contact
