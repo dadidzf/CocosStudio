@@ -261,7 +261,7 @@ function GameNode:dealExtendlineCollision(collisionPt)
         local scheduler
         local segment = self.m_edgeSegments
         self.m_scene:updateArea()
-        self.m_scene:checkSteps()
+        self.m_scene:costOneStep()
         local callBack = function ()
             if not tolua.isnull(segment) then
                 segment:updatePhysicBody()
@@ -331,7 +331,6 @@ function GameNode:onTouchEnd(touch, event)
 
     if self.m_pointsMgr:isPtInOneValidPolygon(cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())) then
         self.m_extendLine:startExtend()
-        self.m_scene:costOneStep()
         dd.PlaySound("dropLine.mp3")
     else
         self.m_extendLine:runAction(

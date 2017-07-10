@@ -142,14 +142,22 @@ function GameScene:checkSteps()
 end
 
 function GameScene:costOneStep()
+    if self.m_isAlreadyLoseLife then
+        self.m_isAlreadyLoseLife = false
+        return
+    end
+
     self.m_steps = self.m_steps - 1
     self:applyGamedataDisplay()
+    
+    self:checkSteps()
 end
 
 function GameScene:loseLife()
     dd.PlaySound("loseLife.mp3")
     self.m_lives = self.m_lives - 1
     self:applyGamedataDisplay()
+    self.m_isAlreadyLoseLife = true
 
     if self.m_lives <= 0 then
         local BuyLives = import(".BuyLives", MODULE_PATH)
@@ -159,7 +167,6 @@ function GameScene:loseLife()
             if givenLives then
                 self.m_lives = self.m_lives + givenLives
                 self:applyGamedataDisplay()
-                self:checkSteps()
             else
                 self:gameFail()
             end
