@@ -77,7 +77,7 @@ end
 
 function GameNode:createObstaclePower(conf)
     local pos = cc.p(conf[2][1], conf[2][2])
-    local speed = cc.p(conf[3][1], conf[3][2])
+    local speed = {x = conf[3][1], y = conf[3][2]}
     if speed.y == nil then
         local speedLen = speed.x
         local angle = math.random()*math.pi*2
