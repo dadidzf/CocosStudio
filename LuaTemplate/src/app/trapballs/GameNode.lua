@@ -255,14 +255,11 @@ function GameNode:dealExtendlineCollision(collisionPt)
         local pts = self.m_extendLine:getOffsets()
         self.m_pointsMgr:adjustLine(pts[1], pts[2])
         self.m_pointsMgr:addLine(pts[1], pts[2], self.m_balls:getBallPosList())
-        self:checkObstacles()
-
         local extendLine = self.m_extendLine
         self.m_extendLine = nil
 
         local scheduler
         local segment = self.m_edgeSegments
-        self:drawPolygon()
         self.m_scene:updateArea()
         self.m_scene:checkSteps()
         local callBack = function ()
@@ -274,6 +271,13 @@ function GameNode:dealExtendlineCollision(collisionPt)
 
             if not tolua.isnull(extendLine) then
                 extendLine:removeFromParent()
+                extendLine = nil
+                return
+            end
+
+            if not tolua.isnull(self) then
+                self:drawPolygon()
+                self:checkObstacles()
             end
 
             dd.scheduler:unscheduleScriptEntry(scheduler)

@@ -25,15 +25,16 @@ function PointsManager:ctor()
 end
 
 function PointsManager:getLineRectWithLineWidth(p1, p2, lineWidth)
-    local halfSegWidth = dd.Constants.EDGE_SEG_WIDTH/2
+    lineWidth = lineWidth or dd.Constants.EDGE_SEG_WIDTH
+    local halfSegWidth = lineWidth/2
     local pt1 = clone(p1)
     local pt2 = clone(p2)
     if pt1.x == pt2.x then
         pt1.x = pt1.x - halfSegWidth
         pt2.x = pt2.x + halfSegWidth
     else
-        pt1.y = pt1.y - dd.Constants.EDGE_SEG_WIDTH/2
-        pt2.y = pt2.y + dd.Constants.EDGE_SEG_WIDTH/2
+        pt1.y = pt1.y - halfSegWidth
+        pt2.y = pt2.y + halfSegWidth
     end
 
     return pt1, pt2
@@ -47,7 +48,7 @@ function PointsManager:isPtInOneValidPolygon(pt)
     end
     
     self.m_clickPolygonIndex =  self:getPolygonIndexAndFilterPointList(pt)
-    if self.m_clickPolygonIndex and (not self:isPtInSmallPolygons(pt)) then
+    if self.m_clickPolygonIndex and (not self:isPtInSmallPolygons(pt, true)) then
         return true
     else
         return false
@@ -64,14 +65,12 @@ function PointsManager:load(jsonStr)
     self.m_pointList = tb[1]
     self.m_lineList = tb[2]
     self.m_validPolygonPtIndexPairList = tb[3]
+    self.m_smallPolygonPtIndexLists = tb[4]
 
     for _, polygonPtIndexPairList in ipairs(tb[4]) do
         table.insert(self.m_removedPolygonTriangleLists,
             dd.Triangulate:process(self:getSerialPolygonPtList(polygonPtIndexPairList)))
     end
-
-    self:getAllValidPolygonTriangleList()
-    dump(tb)
 end
 
 function PointsManager:updatePointMapLineList()
@@ -148,20 +147,14 @@ end
     add one new line logic
 --]]
 function PointsManager:addLine(pt1, pt2, ballsPosList)
-    print("PointsManager:addLine")
-    dump(pt1, "pt1")
-    dump(pt2, "pt2")
-
     self.m_ballsPosList = ballsPosList
     local pt1Index = self:getPtIndex(pt1)
     local pt1LineIndex = self:getPtLine(pt1)
 
     if pt1Index then
     elseif pt1LineIndex then
-        print("1")
         pt1Index = self:insertPointToLine(pt1, pt1LineIndex)
     else
-        print("2")
         pt1Index = self:addSinglePoint(pt1)
     end
 
@@ -169,10 +162,8 @@ function PointsManager:addLine(pt1, pt2, ballsPosList)
     local pt2LineIndex = self:getPtLine(pt2)
     if pt2Index then
     elseif pt2LineIndex then
-        print("3")
         pt2Index = self:insertPointToLine(pt2, pt2LineIndex)
     else
-        print("4")
         pt2Index = self:addSinglePoint(pt2)
     end 
 
@@ -213,16 +204,14 @@ end
 
 function PointsManager:addSinglePoint(pt)
     local newPtIndex = #self.m_pointList + 1
-    table.insert(self.m_pointList, newPtIndex, pt)
+    self.m_pointList[newPtIndex] = pt
 
     return newPtIndex
 end
 
-function PointsManager:insertPointToLine(newPt, lineIndex, useOldIndex)
-    local newPtIndex = useOldIndex or (#self.m_pointList + 1)
-    if not useOldIndex then
-        table.insert(self.m_pointList, newPtIndex, newPt)
-    end
+function PointsManager:insertPointToLine(newPt, lineIndex)
+    local newPtIndex = #self.m_pointList + 1
+    self.m_pointList[newPtIndex] = newPt
 
     local line = self.m_lineList[lineIndex]
     local linePt1Index = line[1]
@@ -254,7 +243,6 @@ function PointsManager:linkTwoPoints(ptIndex1, ptIndex2)
 end
 
 function PointsManager:adjustLine(pt1, pt2)
-    print("PointsManager:adjustLine")
     if math.abs(pt1.x - pt2.x) < math.abs(pt1.y - pt2.y) then
         local x = self:adjustVal(pt1.x)
         pt1.x = x
@@ -293,9 +281,6 @@ function PointsManager:adjustBallsPos(ballPosList)
 end
 
 function PointsManager:getPolygonIndexAndFilterPointList(pt)
-    print("PointsManager:getPolygonIndexAndFilterPointList")
-    dump(self.m_validPolygonPtIndexPairList, "self.m_validPolygonPtIndexPairList")
-    
     local findPolygonIndex = nil
     local polygonClickedPtIndexRecordList = {}
     local otherPolygonPtIndexRecordList = {}
@@ -323,9 +308,6 @@ function PointsManager:getPolygonIndexAndFilterPointList(pt)
     for index, _ in pairs(polygonClickedPtIndexRecordList) do
         filterPtIndexList[index] = nil
     end
-
-    dump(filterPtIndexList, "filterPtIndexList")
-    dump(otherPolygonPtIndexRecordList, "otherPolygonPtIndexRecordList")
 
     self.m_filterPolygonPtIndexList = filterPtIndexList
     self.m_otherPolygonPtIndexList = otherPolygonPtIndexRecordList
@@ -373,7 +355,7 @@ function PointsManager:updateSmallPolygonCenterPtList()
     self.m_smallPolygonCenterPtList = ret
 end
 
-function PointsManager:filterFindPolygons(allFindList)
+function PointsManager:filterFindPolygons(allFindList, lineIndex)
     local isAllInClickedPolygon = true
     local clickedPolygon = self.m_validPolygonPtIndexPairList[self.m_clickPolygonIndex]
     if #allFindList == 2 then
@@ -391,12 +373,32 @@ function PointsManager:filterFindPolygons(allFindList)
     self:updateSmallPolygonCenterPtList()
     local indexToBeRemoved = {}
     for index, polygon in ipairs(allFindList) do
+        dump(polygon)
         for smallIndex, smallPolygonPtIndexList in ipairs(self.m_smallPolygonPtIndexLists) do
             local centerPt = self.m_smallPolygonCenterPtList[smallIndex]
             local ret = self:isPointInPolygon(centerPt, polygon, true)
+
+            print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", ret)
             if ret then
-                table.insert(indexToBeRemoved, index, true)
-                break
+                local isAllInside = true
+                for _, ptIndexPair in ipairs(smallPolygonPtIndexList) do
+                    if not self:isPointInPolygon(self.m_pointList[ptIndexPair[1]], polygon) then
+                        isAllInside = false
+                        break
+                    end
+
+                    if not self:isPointInPolygon(self.m_pointList[ptIndexPair[2]], polygon) then
+                        isAllInside = false
+                        break
+                    end
+                end
+
+                print("-------------------------------------------", isAllInside)
+
+                if not isAllInside then
+                    table.insert(indexToBeRemoved, index, true)
+                    break
+                end
             end
         end
     end
@@ -408,6 +410,7 @@ function PointsManager:filterFindPolygons(allFindList)
         end
     end
 
+    dump(retFindList, "retFindList")
     return retFindList
 end
 
@@ -419,7 +422,7 @@ function PointsManager:clipPolygon(clipLineIndex)
     local linePtIndexPair = self.m_lineList[clipLineIndex]
 
     local allFindList = self:findlinePolygon(clipLineIndex, self.m_filterPolygonPtIndexList)
-    allFindList = self:filterFindPolygons(allFindList)
+    allFindList = self:filterFindPolygons(allFindList, clipLineIndex)
     
     local polygonSmallInBig = false
     if self.m_clickPolygonIndex then
@@ -470,10 +473,11 @@ function PointsManager:clipPolygon(clipLineIndex)
     self:updateValidPolyPtIndex(linePtIndexPair)
     self:updateLines()
     self:updatePoints()
-    self:updateSmallPolygonPtIndexLists()
+    self:removeSmallPolygonPtIndexLists()
+    self:updateSmallPolygonPtIndexLists(linePtIndexPair)
 end
 
-function PointsManager:updateSmallPolygonPtIndexLists()
+function PointsManager:removeSmallPolygonPtIndexLists()
     local indexToBeRemoved = {}
     for index, smallPolygonPtIndexList in ipairs(self.m_smallPolygonPtIndexLists) do
         for _, ptIndexPair in ipairs(smallPolygonPtIndexList) do
@@ -492,6 +496,35 @@ function PointsManager:updateSmallPolygonPtIndexLists()
     end
 
     self.m_smallPolygonPtIndexLists = retList
+
+end
+
+function PointsManager:updateSmallPolygonPtIndexLists(linePtIndexPair)
+    local ptIndex1 = linePtIndexPair[1]
+    local ptIndex2 = linePtIndexPair[2]
+
+    local pt1 = self.m_pointList[ptIndex1] 
+    local pt2 = self.m_pointList[ptIndex2] 
+
+    for index = 1, #self.m_smallPolygonPtIndexLists do
+        local polygonPtIndexList = self.m_smallPolygonPtIndexLists[index]
+        for polygonIndex = 1, #polygonPtIndexList do
+            local ptIndexPair = polygonPtIndexList[polygonIndex]
+            local polyLinePt1 = self.m_pointList[ptIndexPair[1]] 
+            local polyLinePt2 = self.m_pointList[ptIndexPair[2]] 
+            if self:isPtBetweenLine(pt1, polyLinePt1, polyLinePt2) then
+                table.remove(polygonPtIndexList, polygonIndex)
+                table.insert(polygonPtIndexList, polygonIndex, {ptIndex1, ptIndexPair[1]})
+                table.insert(polygonPtIndexList, {ptIndex1, ptIndexPair[2]})
+                break
+            elseif self:isPtBetweenLine(pt2, polyLinePt1, polyLinePt2) then
+                table.remove(polygonPtIndexList, polygonIndex)
+                table.insert(polygonPtIndexList, polygonIndex, {ptIndex2, ptIndexPair[1]})
+                table.insert(polygonPtIndexList, {ptIndex2, ptIndexPair[2]})
+                break
+            end
+        end
+    end
 end
 
 function PointsManager:isPtBetweenLine(pt, linePt1, linePt2)
@@ -541,9 +574,6 @@ function PointsManager:updateLines()
     end
 
     self.m_lineList = newLineList
-    print("PointsManager:updateLines")
-    dump(lineIndexToBeRemoved, "lineIndexToBeRemoved")
-    dump(self.m_lineList, "self.m_lineList")
 end
 
 function PointsManager:updateValidPolyPtIndex(linePtIndexPair)
@@ -634,7 +664,6 @@ end
 function PointsManager:findlinePolygon(lineIndex, filterPtIndexList)
     filterPtIndexList = filterPtIndexList or {}
     self:updatePointMapLineList()
-    self:updatePointMapPointsList()
 
     local allFindList = {}
     local findList = {}
@@ -693,13 +722,13 @@ function PointsManager:isPointInPolygon(pt, polygon, includeOnLine)
 
     local leftCount = 0
     local rightCount = 0
+    local pointList = self.m_pointList
     for _, polygonLine in ipairs(polygon) do
         local linePtIndexPair = self.m_lineList[polygonLine]
-        local polygonPt = self.m_pointList[linePtIndexPair[1]]
-        local polygonPtNext = self.m_pointList[linePtIndexPair[2]]
+        local polygonPt = pointList[linePtIndexPair[1]]
+        local polygonPtNext = pointList[linePtIndexPair[2]]
 
-        if x == polygonPt.x and x == polygonPtNext.x and polygonPt.y > y and polygonPtNext.y > y then
-        elseif (polygonPt.y == polygonPtNext.y) and (polygonPt.y > y) then
+        if (polygonPt.y == polygonPtNext.y) and (polygonPt.y > y) then
             if ((x > polygonPt.x and x < polygonPtNext.x) or (x < polygonPt.x and x > polygonPtNext.x)) then
                 crossCount = crossCount + 1
             elseif x == polygonPt.x then
@@ -717,17 +746,17 @@ function PointsManager:isPointInPolygon(pt, polygon, includeOnLine)
             end
         end
 
-        if includeOnLine then
-            if (x == polygonPt.x and x == polygonPtNext.x and ((y > polygonPt.y and y < polygonPtNext.y) or 
-                (y < polygonPt.y and y > polygonPtNext.y))) or
-                (y == polygonPt.y and y == polygonPtNext.y and ((x > polygonPt.x and x < polygonPtNext.x) or 
-                (x < polygonPt.x and x > polygonPtNext.x))) then
+        if (x == polygonPt.x and x == polygonPtNext.x and ((y >= polygonPt.y and y <= polygonPtNext.y) or 
+            (y <= polygonPt.y and y >= polygonPtNext.y))) or
+            (y == polygonPt.y and y == polygonPtNext.y and ((x >= polygonPt.x and x <= polygonPtNext.x) or 
+            (x <= polygonPt.x and x >= polygonPtNext.x))) then
+            if includeOnLine then
                 return 2
+            else
+                return false
             end
         end
     end
-
-    print("PointsManager:isPointInPolygon", crossCount)
 
     crossCount = crossCount + math.min(leftCount, rightCount)
     if crossCount%2 ~= 0 then
@@ -744,14 +773,14 @@ function PointsManager:isPointInPolygonPtIndexList(pt, polygonPtIndexList, inclu
 
     local leftCount = 0
     local rightCount = 0
+    local pointList = self.m_pointList
     for _, polygonPtIndexPair in ipairs(polygonPtIndexList) do
         local ptIndex1 = polygonPtIndexPair[1]
         local ptIndex2 = polygonPtIndexPair[2]
-        local polygonPt = self.m_pointList[ptIndex1]
-        local polygonPtNext = self.m_pointList[ptIndex2]
+        local polygonPt = pointList[ptIndex1]
+        local polygonPtNext = pointList[ptIndex2]
 
-        if x == polygonPt.x and x == polygonPtNext.x and polygonPt.y > y and polygonPtNext.y > y then
-        elseif (polygonPt.y == polygonPtNext.y) and (polygonPt.y > y) then
+        if (polygonPt.y == polygonPtNext.y) and (polygonPt.y > y) then
             if ((x > polygonPt.x and x < polygonPtNext.x) or (x < polygonPt.x and x > polygonPtNext.x)) then
                 crossCount = crossCount + 1
             elseif x == polygonPt.x then
@@ -769,12 +798,14 @@ function PointsManager:isPointInPolygonPtIndexList(pt, polygonPtIndexList, inclu
             end
         end
 
-        if includeOnLine then
-            if (x == polygonPt.x and x == polygonPtNext.x and ((y > polygonPt.y and y < polygonPtNext.y) or 
-                (y < polygonPt.y and y > polygonPtNext.y))) or
-                (y == polygonPt.y and y == polygonPtNext.y and ((x > polygonPt.x and x < polygonPtNext.x) or 
-                (x < polygonPt.x and x > polygonPtNext.x))) then
-                return true
+        if (x == polygonPt.x and x == polygonPtNext.x and ((y >= polygonPt.y and y <= polygonPtNext.y) or 
+            (y <= polygonPt.y and y >= polygonPtNext.y))) or
+            (y == polygonPt.y and y == polygonPtNext.y and ((x >= polygonPt.x and x <= polygonPtNext.x) or 
+            (x <= polygonPt.x and x >= polygonPtNext.x))) then
+            if includeOnLine then
+                return 2
+            else
+                return false
             end
         end
     end
@@ -870,9 +901,9 @@ function PointsManager:getLeftArea()
     return self:getAllValidPolygonArea() - self:getAllSmallPolygonArea()
 end
 
-function PointsManager:isPtInSmallPolygons(pt)
+function PointsManager:isPtInSmallPolygons(pt, includeOnLine)
     for _, smallPolygonPtIndexList in ipairs(self.m_smallPolygonPtIndexLists) do
-        if self:isPointInPolygonPtIndexList(pt, smallPolygonPtIndexList, true) then
+        if self:isPointInPolygonPtIndexList(pt, smallPolygonPtIndexList, includeOnLine) then
             return true
         end
     end
