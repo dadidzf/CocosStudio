@@ -166,12 +166,16 @@ function ExtendLine:stopExtend()
     end
 end
 
-function ExtendLine:collision(collisionPt)
+function ExtendLine:collision(collisionPt, category)
     local offset = cc.pSub(collisionPt, cc.p(self:getPositionX(), self:getPositionY()))
     if not self.m_positivePt then
         if offset.x + offset.y >= 0 then
             self.m_positivePt = clone(offset)
             self.m_postiveCollisionPt = collisionPt
+
+            if category == dd.Constants.CATEGORY.BALL then
+                self:getParent():oneMoreTopCollision()
+            end
         end
     end
 
@@ -179,6 +183,10 @@ function ExtendLine:collision(collisionPt)
         if offset.x + offset.y <= 0 then
             self.m_negativePt = clone(offset)
             self.m_negativeCollisionPt = collisionPt
+            
+            if category == dd.Constants.CATEGORY.BALL then
+                self:getParent():oneMoreTopCollision()
+            end
         end
     end
 

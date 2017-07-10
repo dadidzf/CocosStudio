@@ -162,7 +162,8 @@ function GameNode:onContactBegin(contact)
 
     -- segment with extend line ends
     if cateGoryAdd == dd.Constants.CATEGORY.EDGE_SEGMENT + dd.Constants.CATEGORY.EXTENDLINE then
-        self:dealExtendlineCollision(self:getExtendLineSegmentCollisionPt(shapeA, shapeB))
+        self:dealExtendlineCollision(self:getExtendLineSegmentCollisionPt(shapeA, shapeB), 
+            dd.Constants.CATEGORY.EXTENDLINE)
         return false
     end
 
@@ -173,8 +174,7 @@ function GameNode:onContactBegin(contact)
 
     -- ball with extend line ends
     if cateGoryAdd == dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS + dd.Constants.CATEGORY.BALL then
-        self:dealExtendlineCollision(self:getExtendLineBallCollisionPt(shapeA, shapeB))
-        self.m_scene:oneMoreTopCollision()
+        self:dealExtendlineCollision(self:getExtendLineBallCollisionPt(shapeA, shapeB), dd.Constants.CATEGORY.BALL)
         return true
     end
 
@@ -183,6 +183,10 @@ function GameNode:onContactBegin(contact)
         self:extendLineDestory()
         return false
     end
+end
+
+function GameNode:oneMoreTopCollision()
+    self.m_scene:oneMoreTopCollision()
 end
 
 function GameNode:obstacleGearDestory(nodeObstacleGear)
@@ -240,7 +244,6 @@ function GameNode:getExtendLineBallCollisionPt(shapeA, shapeB)
 
     if shapeACategory == dd.Constants.CATEGORY.BALL then
         local pt = shapeB:getOffset()
-        dump(pt, "--------------------------------- pt")
         pt = cc.pMul(pt, 1/self:getScale())
         if math.abs(pt.x) < 1 then pt.x = 0 end
         if math.abs(pt.y) < 1 then pt.y = 0 end
@@ -249,18 +252,14 @@ function GameNode:getExtendLineBallCollisionPt(shapeA, shapeB)
         local pt = shapeA:getOffset()
         if math.abs(pt.x) < 1 then pt.x = 0 end
         if math.abs(pt.y) < 1 then pt.y = 0 end
-        dump(pt, "--------------------------------- pt")
         pt = cc.pMul(pt, 1/self:getScale())
         return cc.pAdd(extendPos, pt)
     end
 end
 
-function GameNode:dealExtendlineCollision(collisionPt)
-    print("GameNode:dealExtendlineCollision")
-    dump(collisionPt)
-    
+function GameNode:dealExtendlineCollision(collisionPt, category)
     local startTime = socket.gettime()
-    self.m_extendLine:collision(collisionPt)
+    self.m_extendLine:collision(collisionPt, category)
 
     if not self.m_extendLine:isExtend() then
         local pts = self.m_extendLine:getOffsets()
