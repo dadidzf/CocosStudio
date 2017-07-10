@@ -35,6 +35,7 @@ function LevelScene:initListView()
     end
 
     self.m_listView:setScrollBarEnabled(false)
+    self.m_listView:jumpToPercentVertical((2*dd.GameData:getCurLevel() - 1)*50/#roundCfg)
     self.m_listView:setScale(dd.Constants.LEVEL_LIST_SCALE)
 end
 

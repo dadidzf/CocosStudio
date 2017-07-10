@@ -213,13 +213,24 @@ function GameNode:getExtendLineSegmentCollisionPt(shapeA, shapeB)
     local lineIndex = shapeSegment:getTag()
     local linePtPair = self.m_pointsMgr:getOneLinePointPair(lineIndex)
     local segPtA = linePtPair[1]
+    local segPtB = linePtPair[2]
+    local isSegHorizontal = segPtA.y == segPtB.y
 
     local extendPos = cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())
-
-    if self.m_extendLine:isHorizontal() then
+ 
+    if self.m_extendLine:isHorizontal() and not isSegHorizontal then
         return cc.p(segPtA.x, extendPos.y)
-    else
+    elseif not self.m_extendLine:isHorizontal() and isSegHorizontal then
         return cc.p(extendPos.x, segPtA.y)
+    else
+        local segPtAExtendPosLen = cc.pGetLength(cc.pSub(segPtA, extendPos))
+        local segPtBExtendPosLen = cc.pGetLength(cc.pSub(segPtB, extendPos))
+
+        if segPtAExtendPosLen < segPtBExtendPosLen then
+            return segPtA
+        else
+            return segPtB
+        end
     end
 end
 
