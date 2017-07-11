@@ -36,7 +36,7 @@ function GamePause:onMenu()
     dd.PlaySound("buttonclick.mp3")
     local LevelScene = import(".LevelScene", MODULE_PATH)
     local levelScene = LevelScene:create()
-    levelScene:showWithScene()
+    levelScene:showWithScene("MOVEINL", 0.3)
 end
 
 function GamePause:onSoundOnOff()

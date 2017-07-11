@@ -78,7 +78,7 @@ function NodeLevel:onSelectLevel()
     if not self.m_alreadyMoved then
         print("NodeLevel:onSelectLevel", self.m_index)
         local gameScene = GameScene:create(self.m_index)
-        gameScene:showWithScene()
+        gameScene:showWithScene("MOVEINR", 0.3)
         dd.PlaySound("buttonclick.mp3")
     end
 end
