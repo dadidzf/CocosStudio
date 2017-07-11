@@ -20,4 +20,8 @@ art
 *.pdb
 *.tlog
 *.Dir
+*.lib
+*.db
+*.log
+*.idb
 
