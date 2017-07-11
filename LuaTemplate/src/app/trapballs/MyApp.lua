@@ -20,4 +20,12 @@ function MyApp:onCreate()
     end)
 end
 
+function MyApp:run()
+    if device.platform == "android" then
+        self.super.run(self, "LoadingScene")
+    else
+        self.super.run(self)
+    end
+end
+
 return MyApp
