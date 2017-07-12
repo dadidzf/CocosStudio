@@ -470,6 +470,36 @@ function PointsManager:clipPolygon(clipLineIndex)
     self:updatePoints()
     self:removeSmallPolygonPtIndexLists()
     self:updateSmallPolygonPtIndexLists(linePtIndexPair)
+    self:removeSmallPolygonOutSideAnyValidPolygon()
+end
+
+function PointsManager:removeSmallPolygonOutSideAnyValidPolygon()
+    self:updateSmallPolygonCenterPtList()
+    local indexToBeRemoved = {}
+    for smallIndex, smallPolygonPtIndexList in ipairs(self.m_smallPolygonPtIndexLists) do
+        local centerPt = self.m_smallPolygonCenterPtList[smallIndex]
+        local isInOneValidPolygon = false
+        for index, polygon in ipairs(self.m_validPolygonPtIndexPairList) do
+            local ret = self:isPointInPolygonPtIndexList(centerPt, polygon)
+            if ret then 
+                isInOneValidPolygon = true 
+                break
+            end
+        end
+
+        if not isInOneValidPolygon then
+            table.insert(indexToBeRemoved, smallIndex, true)
+        end
+    end
+
+    local retList = {}
+    for index, list in ipairs(self.m_smallPolygonPtIndexLists) do
+        if not indexToBeRemoved[index] then
+            table.insert(retList, list)
+        end
+    end
+
+    self.m_smallPolygonPtIndexLists = retList
 end
 
 function PointsManager:updatePoints()
