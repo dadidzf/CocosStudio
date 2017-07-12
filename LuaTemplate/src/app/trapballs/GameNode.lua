@@ -360,7 +360,7 @@ end
 
 function GameNode:updateExtendLinePos(touch)
     local pt = self:convertToNodeSpace(touch:getLocation())
-    pt.y = pt.y + 160
+    pt.y = pt.y + display.height*0.2
     self.m_pointsMgr:adjustPoint(pt)
 
     self.m_extendLine:setPosition(pt.x, pt.y)
