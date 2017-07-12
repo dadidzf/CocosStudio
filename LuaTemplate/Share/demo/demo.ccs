@@ -69,8 +69,10 @@
             <PlistImageFile Name="highscore.png" Key="highscore.png" />
             <PlistImageFile Name="highscore2.png" Key="highscore2.png" />
             <PlistImageFile Name="jianduan.png" Key="jianduan.png" />
+            <PlistImageFile Name="jianduan2.png" Key="jianduan2.png" />
             <PlistImageFile Name="life_black.png" Key="life_black.png" />
             <PlistImageFile Name="life_white.png" Key="life_white.png" />
+            <PlistImageFile Name="life2.png" Key="life2.png" />
             <PlistImageFile Name="line_black1.png" Key="line_black1.png" />
             <PlistImageFile Name="line_black2.png" Key="line_black2.png" />
             <PlistImageFile Name="line_white.png" Key="line_white.png" />
@@ -80,8 +82,11 @@
             <PlistImageFile Name="stop.png" Key="stop.png" />
             <PlistImageFile Name="trapballs.png" Key="trapballs.png" />
             <PlistImageFile Name="xiexian.png" Key="xiexian.png" />
-            <PlistImageFile Name="jianduan2.png" Key="jianduan2.png" />
-            <PlistImageFile Name="life2.png" Key="life2.png" />
+            <PlistImageFile Name="zhangai_chilun.png" Key="zhangai_chilun.png" />
+            <PlistImageFile Name="zhangai_nengliangqiu1.png" Key="zhangai_nengliangqiu1.png" />
+            <PlistImageFile Name="zhangai_nengliangqiu2.png" Key="zhangai_nengliangqiu2.png" />
+            <PlistImageFile Name="zhangai_nengliangqiu3.png" Key="zhangai_nengliangqiu3.png" />
+            <PlistImageFile Name="zhangai_nengliangqiu4.png" Key="zhangai_nengliangqiu4.png" />
           </PlistImageFolder>
           <Project Name="game.csd" Type="Layer" />
           <Project Name="menu.csd" Type="Layer" />

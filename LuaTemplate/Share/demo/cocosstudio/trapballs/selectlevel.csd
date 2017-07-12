@@ -29,23 +29,23 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_zuanshi" ActionTag="-1199222789" Tag="26" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="558.0000" RightMargin="24.0000" TopMargin="32.5477" BottomMargin="889.4523" LabelText="999" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_zuanshi" ActionTag="-1199222789" Tag="26" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="550.0001" RightMargin="31.9999" TopMargin="33.0000" BottomMargin="889.0000" LabelText="999" ctype="TextBMFontObjectData">
             <Size X="58.0000" Y="38.0000" />
             <AnchorPoint ScaleY="0.5000" />
-            <Position X="558.0000" Y="908.4523" />
+            <Position X="550.0001" Y="908.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8719" Y="0.9463" />
+            <PrePosition X="0.8594" Y="0.9458" />
             <PreSize X="0.0906" Y="0.0396" />
             <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_zuanshi" ActionTag="-198965847" Tag="27" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="494.0000" RightMargin="86.0000" TopMargin="22.0000" BottomMargin="878.0000" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_zuanshi" ActionTag="-198965847" Tag="27" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="486.0001" RightMargin="93.9999" TopMargin="22.0000" BottomMargin="878.0000" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
             <Size X="60.0000" Y="60.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="524.0000" Y="908.0000" />
+            <Position X="516.0001" Y="908.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8188" Y="0.9458" />
+            <PrePosition X="0.8063" Y="0.9458" />
             <PreSize X="0.0938" Y="0.0625" />
             <FileData Type="PlistSubImage" Path="money.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
