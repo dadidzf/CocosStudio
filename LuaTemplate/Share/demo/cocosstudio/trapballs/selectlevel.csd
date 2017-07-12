@@ -29,27 +29,27 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_zuanshi" ActionTag="-1199222789" Tag="26" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="550.0001" RightMargin="31.9999" TopMargin="33.0000" BottomMargin="889.0000" LabelText="999" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_zuanshi" ActionTag="-1199222789" Tag="26" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="552.9998" RightMargin="29.0002" TopMargin="33.0005" BottomMargin="888.9995" LabelText="999" ctype="TextBMFontObjectData">
             <Size X="58.0000" Y="38.0000" />
             <AnchorPoint ScaleY="0.5000" />
-            <Position X="550.0001" Y="908.0000" />
+            <Position X="552.9998" Y="907.9995" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8594" Y="0.9458" />
+            <PrePosition X="0.8641" Y="0.9458" />
             <PreSize X="0.0906" Y="0.0396" />
             <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_zuanshi" ActionTag="-198965847" Tag="27" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="486.0001" RightMargin="93.9999" TopMargin="22.0000" BottomMargin="878.0000" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_zuanshi" ActionTag="-198965847" Tag="27" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="488.9999" RightMargin="91.0001" TopMargin="22.0005" BottomMargin="877.9995" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
             <Size X="60.0000" Y="60.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="516.0001" Y="908.0000" />
+            <Position X="518.9999" Y="907.9995" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8063" Y="0.9458" />
+            <PrePosition X="0.8109" Y="0.9458" />
             <PreSize X="0.0938" Y="0.0625" />
             <FileData Type="PlistSubImage" Path="money.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_back" ActionTag="-1892621138" Tag="52" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="4.7900" RightMargin="555.2100" TopMargin="11.5450" BottomMargin="868.4550" LeftEage="26" RightEage="26" TopEage="26" BottomEage="26" Scale9OriginX="26" Scale9OriginY="26" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_back" ActionTag="-1892621138" Tag="52" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="8.0000" RightMargin="552.0000" TopMargin="11.5450" BottomMargin="868.4550" LeftEage="26" RightEage="26" TopEage="26" BottomEage="26" Scale9OriginX="26" Scale9OriginY="26" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
             <Size X="80.0000" Y="80.0000" />
             <Children>
               <AbstractNodeData Name="Button_back" ActionTag="-90325180" Alpha="0" Tag="53" IconVisible="False" LeftMargin="-3.0002" RightMargin="-16.9998" TopMargin="2.0000" BottomMargin="-2.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -69,10 +69,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="44.7900" Y="908.4550" />
+            <Position X="48.0000" Y="908.4550" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0700" Y="0.9463" />
+            <PrePosition X="0.0750" Y="0.9463" />
             <PreSize X="0.1250" Y="0.0833" />
             <FileData Type="PlistSubImage" Path="btn_back.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>

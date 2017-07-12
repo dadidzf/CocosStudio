@@ -235,10 +235,10 @@
             <NodeNormalFileData Type="PlistSubImage" Path="xiexian.png" Plist="trapballs/gui.plist" />
             <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_2" ActionTag="345054870" Tag="24" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-34.9999" RightMargin="-45.0001" TopMargin="110.0006" BottomMargin="549.9994" LeftEage="237" RightEage="237" TopEage="99" BottomEage="99" Scale9OriginX="237" Scale9OriginY="99" Scale9Width="246" Scale9Height="102" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_2" ActionTag="345054870" Tag="24" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-35.0080" RightMargin="-44.9920" TopMargin="109.9680" BottomMargin="550.0320" LeftEage="237" RightEage="237" TopEage="99" BottomEage="99" Scale9OriginX="237" Scale9OriginY="99" Scale9Width="246" Scale9Height="102" ctype="ImageViewObjectData">
             <Size X="720.0000" Y="300.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="325.0001" Y="699.9994" />
+            <Position X="324.9920" Y="700.0320" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5078" Y="0.7292" />
@@ -274,23 +274,23 @@
             <NodeNormalFileData Type="PlistSubImage" Path="xiexian.png" Plist="trapballs/gui.plist" />
             <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_4" ActionTag="88726947" Tag="28" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="486.0001" RightMargin="93.9999" TopMargin="22.0000" BottomMargin="878.0000" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_4" ActionTag="88726947" Tag="28" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="488.9999" RightMargin="91.0001" TopMargin="22.0005" BottomMargin="877.9995" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
             <Size X="60.0000" Y="60.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="516.0001" Y="908.0000" />
+            <Position X="518.9999" Y="907.9995" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8063" Y="0.9458" />
+            <PrePosition X="0.8109" Y="0.9458" />
             <PreSize X="0.0938" Y="0.0625" />
             <FileData Type="PlistSubImage" Path="money.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="378429932" Tag="46" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="549.9999" RightMargin="32.0001" TopMargin="32.9995" BottomMargin="889.0005" LabelText="999" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="378429932" Tag="46" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="552.9996" RightMargin="29.0004" TopMargin="32.9999" BottomMargin="889.0001" LabelText="999" ctype="TextBMFontObjectData">
             <Size X="58.0000" Y="38.0000" />
             <AnchorPoint ScaleY="0.5000" />
-            <Position X="549.9999" Y="908.0005" />
+            <Position X="552.9996" Y="908.0001" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8594" Y="0.9458" />
+            <PrePosition X="0.8641" Y="0.9458" />
             <PreSize X="0.0906" Y="0.0396" />
             <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
           </AbstractNodeData>
