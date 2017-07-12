@@ -266,34 +266,32 @@ function GameNode:dealExtendlineCollision(collisionPt, category)
         self.m_pointsMgr:adjustLine(pts[1], pts[2])
         self.m_pointsMgr:addLine(pts[1], pts[2], self.m_balls:getBallPosList())
         local extendLine = self.m_extendLine
-        self.m_extendLine = nil
 
         local scheduler
         local segment = self.m_edgeSegments
-        self.m_scene:updateArea()
-        self.m_scene:costOneStep()
         local callBack = function ()
             if not tolua.isnull(segment) then
                 segment:updatePhysicBody()
                 segment = nil
-                return
             end
 
             if not tolua.isnull(extendLine) then
                 extendLine:removeFromParent()
                 extendLine = nil
-                return
             end
 
             if not tolua.isnull(self) then
+                self.m_scene:updateArea()
+                self.m_scene:costOneStep()
                 self:drawPolygon()
                 self:checkObstacles()
+                self.m_extendLine = nil
             end
 
             dd.scheduler:unscheduleScriptEntry(scheduler)
         end
 
-        scheduler = dd.scheduler:scheduleScriptFunc(callBack, 0, false)
+        scheduler = dd.scheduler:scheduleScriptFunc(callBack, 0.6, false)
     end
 
     print("GameNode:dealExtendlineCollision", socket.gettime() - startTime)

@@ -16,7 +16,11 @@ function BuyLives:ctor(callBack)
 
     self:setOpacity(0)
     self:setCascadeOpacityEnabled(true)
-    self:runAction(cc.FadeIn:create(0.3))
+    self:runAction(cc.Sequence:create(
+        cc.DelayTime:create(0.8),
+        cc.FadeIn:create(0.3),
+        nil)
+    )
 
     self:updateDiamonds()
     self.m_labelCostDiamonds:setString(tostring(dd.Constants.MORE_RESOURCE.MORE_LIVES.diamonds))

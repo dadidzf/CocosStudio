@@ -154,6 +154,8 @@ function GameScene:costOneStep()
 end
 
 function GameScene:loseLife()
+    import(".ScreenShaker", MODULE_PATH):create(self, 0.5):run()
+    
     dd.PlaySound("loseLife.mp3")
     self.m_lives = self.m_lives - 1
     self:applyGamedataDisplay()

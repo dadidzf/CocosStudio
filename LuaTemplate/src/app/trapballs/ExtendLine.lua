@@ -154,6 +154,10 @@ function ExtendLine:updatePhysicBody(t)
     self:drawSolidCircle(cc.p(0, 0), dd.Constants.EDGE_SEG_WIDTH/2, 0, 20, cc.c4f(1, 1, 1, 1))
     
     body:setDynamic(false)
+
+    if self.m_positivePt and self.m_negativePt then
+        self:stopExtend()
+    end
 end
 
 function ExtendLine:stopExtend()
@@ -175,6 +179,8 @@ function ExtendLine:collision(collisionPt, category)
 
             if category == dd.Constants.CATEGORY.BALL then
                 self:getParent():oneMoreTopCollision()
+            elseif category == dd.Constants.CATEGORY.EXTENDLINE then
+                self:showEffect(offset)
             end
         end
     end
@@ -186,17 +192,30 @@ function ExtendLine:collision(collisionPt, category)
             
             if category == dd.Constants.CATEGORY.BALL then
                 self:getParent():oneMoreTopCollision()
+            elseif category == dd.Constants.CATEGORY.EXTENDLINE then
+                self:showEffect(offset)
             end
         end
     end
+end
 
-    if self.m_positivePt and self.m_negativePt then
-        self:stopExtend()
-    end
+function ExtendLine:showEffect(pos)
+    local imgBall = display.newSprite("#ball_white.png")
+    imgBall:move(pos)
+    self:addChild(imgBall)
+    imgBall:runAction(cc.Sequence:create(
+        cc.ScaleTo:create(0.3, 1.2),
+        cc.ScaleTo:create(0.3, 0),
+        nil
+        ))
 end
 
 function ExtendLine:isExtend()
-    return self.m_scheduler
+    if self.m_positivePt and self.m_negativePt then
+        return false
+    else
+        return true
+    end
 end
 
 return ExtendLine
