@@ -10,6 +10,29 @@ GameFail.RESOURCE_BINDING = {
 function GameFail:ctor(gameScene)
     self.super.ctor(self)
     self.m_gameScene = gameScene
+
+    self:getResourceNode():setVisible(false)
+    local mask = self:getMask()
+    mask:setOpacity(0)
+    mask:runAction(cc.FadeIn:create(1.0))
+    
+    local gameOverImg = display.newSprite("#gameover.png")
+        :move(0, -display.height*0.2) 
+        :setOpacity(0)
+        :addTo(self)
+
+    gameOverImg:runAction(cc.Sequence:create(
+        cc.Spawn:create(
+            cc.FadeIn:create(1.0),
+            cc.MoveTo:create(1.0, cc.p(0, display.height*0.1))
+            ),
+        cc.DelayTime:create(0.5),
+        cc.FadeOut:create(0.5),
+        cc.CallFunc:create(function ( ... )
+            self:getResourceNode():setVisible(true)
+        end)
+        ))
+
 end
 
 function GameFail:onCreate()

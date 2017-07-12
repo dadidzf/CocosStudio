@@ -73,7 +73,9 @@ function MainScene:enterAction()
     local getScaleAction = function (delayTime)
         local scaleAction = cc.Sequence:create(
             cc.DelayTime:create(delayTime),
-            cc.ScaleTo:create(0.2, 1.1),
+            cc.ScaleTo:create(0.2, 1.2),
+            cc.ScaleTo:create(0.1, 0.9),
+            cc.ScaleTo:create(0.1, 1.1),
             cc.ScaleTo:create(0.1, 1.0),
             nil
             )

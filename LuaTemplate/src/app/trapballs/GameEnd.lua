@@ -3,22 +3,39 @@ local MODULE_PATH = ...
 
 GameEnd.RESOURCE_FILENAME = "Node_gamepass.csb"
 GameEnd.RESOURCE_BINDING = {
-    ["Button_chart"] = {varname = "m_btnPlay", events = {{ event = "click", method = "onRank" }}},
+    ["Button_chart"] = {varname = "m_btnRank", events = {{ event = "click", method = "onRank" }}},
     ["Button_share"] = {varname = "m_btnShare", events = {{ event = "click", method = "onShare" }}},
-    ["Button_restart"] = {varname = "m_btnShop", events = {{ event = "click", method = "onReplay" }}},
-    ["Button_backtomenu"] = {varname = "m_btnShare", events = {{ event = "click", method = "onMenu" }}},
-    ["Button_next"] = {varname = "m_btnShop", events = {{ event = "click", method = "onNext" }}},
+    ["Button_restart"] = {varname = "m_btnRePlay", events = {{ event = "click", method = "onReplay" }}},
+    ["Button_backtomenu"] = {varname = "m_btnMenu", events = {{ event = "click", method = "onMenu" }}},
+    ["Button_next"] = {varname = "m_btnNext", events = {{ event = "click", method = "onNext" }}},
 
     ["Panel_1.BitmapFontLabel_spacenumber"] = {varname = "m_labelFillRate"},
-    ["Panel_1.BitmapFontLabel_lifenumber"] = {varname = "m_labelLives"},
-    ["Panel_1.BitmapFontLabel_stepnumber"] = {varname = "m_labelSteps"},
-    ["Panel_1.BitmapFontLabel_topnumber"] = {varname = "m_labelTopCollision"},
-
-    ["Panel_1.BitmapFontLabel_topzuanshi"] = {varname = "m_labelDiamondReward"},
-    ["Panel_1.BitmapFontLabel_stepscore"] = {varname = "m_labelStepsScore"},
-    ["Panel_1.BitmapFontLabel_lifescore"] = {varname = "m_labelLivesScore"},
+    ["Panel_1.Image_space"] = {varname = "m_imgFillRate"},
+    ["Panel_1.BitmapFontLabel_x1"] = {varname = "m_imgFillRateMulSimbol"},
+    ["Panel_1.BitmapFontLabel_baifenbi"] = {varname = "m_imgFillRatePercentSimbol"},
     ["Panel_1.BitmapFontLabel_spacescore"] = {varname = "m_labelFillRateScore"},
+
+    ["Panel_1.BitmapFontLabel_lifenumber"] = {varname = "m_labelLives"},
+    ["Panel_1.Image_life"] = {varname = "m_imgLife"},
+    ["Panel_1.BitmapFontLabel_x2"] = {varname = "m_imgLifeMulSimbol"},
+    ["Panel_1.BitmapFontLabel_lifescore"] = {varname = "m_labelLivesScore"},
+
+
+    ["Panel_1.BitmapFontLabel_stepnumber"] = {varname = "m_labelSteps"},
+    ["Panel_1.BitmapFontLabel_step"] = {varname = "m_imgStep"},
+    ["Panel_1.BitmapFontLabel_x3"] = {varname = "m_imgStepMulSimbol"},
+    ["Panel_1.BitmapFontLabel_stepscore"] = {varname = "m_labelStepsScore"},
+
     ["Panel_1.BitmapFontLabel_allscore"] = {varname = "m_labelTotalScore"},
+    ["Panel_1.BitmapFontLabel_score"] = {varname = "m_imgTotalScore"},
+
+
+    ["Panel_1.Image_top"] = {varname = "m_imgTop"},
+    ["Panel_1.BitmapFontLabel_x4"] = {varname = "m_imgTopMulSimbol"},
+    ["Panel_1.BitmapFontLabel_jia"] = {varname = "m_imgTopAddSimbol"},
+    ["Panel_1.BitmapFontLabel_topzuanshi"] = {varname = "m_labelDiamondReward"},
+    ["Panel_1.BitmapFontLabel_topnumber"] = {varname = "m_labelTopCollision"},
+    ["Panel_1.Image_4"] = {varname = "m_imgDiamonds"},
 
     ["BitmapFontLabel_roundnumber"] = {varname = "m_labelRoundNum"},
     ["BitmapFontLabel_highscorenumber"] = {varname = "m_labelHighScore"},
@@ -29,10 +46,30 @@ function GameEnd:ctor(gameScene, levelIndex, param)
     self.super.ctor(self)
 
     self.m_levelIndex = levelIndex
-    self.m_labelRoundNum:setString(tostring(levelIndex))
     self.m_gameScene = gameScene
-    self:updateScorePanel(param)
     dd.GameData:levelPass(levelIndex)
+
+    self:getResourceNode():setVisible(false)
+
+    local gameSuccessImg = display.newSprite("#stageclear.png")
+        :move(0, 100) 
+        :addTo(self)
+
+    local mask = self:getMask()
+    mask:setOpacity(0)
+    mask:runAction(cc.FadeIn:create(1.0))
+
+    gameSuccessImg:setScale(2.0)
+    gameSuccessImg:runAction(cc.Sequence:create(
+        cc.ScaleTo:create(1.0, 1.0),
+        cc.DelayTime:create(0.5),
+        cc.FadeOut:create(0.5),
+        cc.CallFunc:create(function ( ... )
+            self:getResourceNode():setVisible(true)
+            self:updateScorePanel(param)
+        end)
+        ))
+
 end
 
 function GameEnd:updateScorePanel(param)
@@ -52,11 +89,101 @@ function GameEnd:updateScorePanel(param)
     self.m_labelFillRateScore:setString(tostring(self.m_fillScore))
     self.m_labelLivesScore:setString(tostring(self.m_livesScore))
     self.m_labelTotalScore:setString(tostring(self.m_totalScore))
-
+    self.m_imgHighScoreIcon:setVisible(false)
+    
+    self.m_labelRoundNum:setString(tostring(self.m_levelIndex))
     self.m_isBest = dd.GameData:refreshLevelScore(self.m_levelIndex, self.m_totalScore)
     local topThree = dd.GameData:getLevelTopThree(self.m_levelIndex)
     self.m_labelHighScore:setString(tostring(topThree[1]))
-    self.m_imgHighScoreIcon:setVisible(self.m_isBest)
+
+
+    local displayNodes = {
+        self.m_imgFillRate,
+        self.m_imgFillRateMulSimbol,
+        self.m_labelFillRate,
+        self.m_imgFillRatePercentSimbol,
+        self.m_labelFillRateScore,
+
+        self.m_imgLife,
+        self.m_imgLifeMulSimbol,
+        self.m_labelLives,
+        self.m_labelLivesScore,
+
+        self.m_imgStep,
+        self.m_imgStepMulSimbol,
+        self.m_labelSteps,
+        self.m_labelStepsScore,
+
+        self.m_imgTotalScore,
+        self.m_labelTotalScore,
+
+        self.m_imgTop,
+        self.m_imgTopMulSimbol,
+        self.m_labelTopCollision,
+        self.m_imgTopAddSimbol,
+        self.m_labelDiamondReward,
+        self.m_imgDiamonds,
+    }
+
+    for _, node in ipairs(displayNodes) do
+        node:setVisible(false)
+    end
+
+
+    local index = 1
+    local scheduleId
+    local showNode = function ()
+        if index <= #displayNodes then
+            displayNodes[index]:setVisible(true)
+        else
+            dd.scheduler:unscheduleScriptEntry(scheduleId)
+            scheduleId = nil
+        end
+        index = index + 1
+    end
+
+    scheduleId = dd.scheduler:scheduleScriptFunc(showNode, 0.2, false)
+
+    local getScaleAction = function (delayTime)
+        local scaleAction = cc.Sequence:create(
+            cc.DelayTime:create(delayTime),
+            cc.ScaleTo:create(0.2, 1.2),
+            cc.ScaleTo:create(0.1, 0.9),
+            cc.ScaleTo:create(0.1, 1.1),
+            cc.ScaleTo:create(0.1, 1.0),
+            nil
+            )
+
+        return scaleAction
+    end
+
+    local commonDelay = 0.2*#displayNodes
+    self.m_btnRank:setScale(0)
+    self.m_btnShare:setScale(0)
+    self.m_btnMenu:setScale(0)
+    self.m_btnNext:setScale(0)
+    self.m_btnRePlay:setScale(0)
+
+    self.m_btnRank:runAction(getScaleAction(commonDelay))
+    self.m_btnShare:runAction(getScaleAction(commonDelay + 0.1))
+    self.m_btnRePlay:runAction(getScaleAction(commonDelay + 0.2))
+    self.m_btnMenu:runAction(getScaleAction(commonDelay + 0.3))
+    self.m_btnNext:runAction(getScaleAction(commonDelay + 0.4))
+
+    if self.m_isBest then
+        self.m_imgHighScoreIcon:runAction(cc.Sequence:create(
+            cc.DelayTime:create(commonDelay + 0.5),
+            cc.CallFunc:create(function ( ... )
+                self.m_imgHighScoreIcon:setVisible(true)
+                self.m_imgHighScoreIcon:setScale(3)
+            end),
+            cc.ScaleTo:create(0.5, 1.0),
+            nil
+            ))
+    end
+end
+
+function GameEnd:enterAction()
 end
 
 function GameEnd:onCreate()
