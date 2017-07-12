@@ -87,6 +87,9 @@
             <PlistImageFile Name="zhangai_nengliangqiu2.png" Key="zhangai_nengliangqiu2.png" />
             <PlistImageFile Name="zhangai_nengliangqiu3.png" Key="zhangai_nengliangqiu3.png" />
             <PlistImageFile Name="zhangai_nengliangqiu4.png" Key="zhangai_nengliangqiu4.png" />
+            <PlistImageFile Name="gameover.png" Key="gameover.png" />
+            <PlistImageFile Name="help.png" Key="help.png" />
+            <PlistImageFile Name="stageclear.png" Key="stageclear.png" />
           </PlistImageFolder>
           <Project Name="game.csd" Type="Layer" />
           <Project Name="menu.csd" Type="Layer" />

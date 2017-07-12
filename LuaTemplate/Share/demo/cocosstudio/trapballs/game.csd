@@ -186,23 +186,23 @@
             <PreSize X="0.0469" Y="0.0313" />
             <FileData Type="PlistSubImage" Path="life_white.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_horizontal" ActionTag="1040236127" Tag="48" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="197.0000" RightMargin="357.0000" TopMargin="817.0000" BottomMargin="57.0000" LeftEage="28" RightEage="28" TopEage="28" BottomEage="28" Scale9OriginX="28" Scale9OriginY="28" Scale9Width="30" Scale9Height="30" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_horizontal" ActionTag="1040236127" Tag="48" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="177.0000" RightMargin="377.0000" TopMargin="817.0000" BottomMargin="57.0000" LeftEage="28" RightEage="28" TopEage="28" BottomEage="28" Scale9OriginX="28" Scale9OriginY="28" Scale9Width="30" Scale9Height="30" ctype="ImageViewObjectData">
             <Size X="86.0000" Y="86.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="240.0000" Y="100.0000" />
+            <Position X="220.0000" Y="100.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.3750" Y="0.1042" />
+            <PrePosition X="0.3438" Y="0.1042" />
             <PreSize X="0.1344" Y="0.0896" />
             <FileData Type="PlistSubImage" Path="drawline_horizontal.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_certical" ActionTag="-566498479" Tag="49" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="397.0000" RightMargin="157.0000" TopMargin="817.0000" BottomMargin="57.0000" LeftEage="28" RightEage="28" TopEage="28" BottomEage="28" Scale9OriginX="28" Scale9OriginY="28" Scale9Width="30" Scale9Height="30" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_certical" ActionTag="-566498479" Tag="49" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="377.0000" RightMargin="177.0000" TopMargin="817.0000" BottomMargin="57.0000" LeftEage="28" RightEage="28" TopEage="28" BottomEage="28" Scale9OriginX="28" Scale9OriginY="28" Scale9Width="30" Scale9Height="30" ctype="ImageViewObjectData">
             <Size X="86.0000" Y="86.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="440.0000" Y="100.0000" />
+            <Position X="420.0000" Y="100.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.6875" Y="0.1042" />
+            <PrePosition X="0.6563" Y="0.1042" />
             <PreSize X="0.1344" Y="0.0896" />
             <FileData Type="PlistSubImage" Path="drawline_vertical.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
