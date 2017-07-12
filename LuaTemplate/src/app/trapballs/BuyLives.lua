@@ -14,6 +14,10 @@ BuyLives.RESOURCE_BINDING = {
 function BuyLives:ctor(callBack)
     self.super.ctor(self)
 
+    self:setOpacity(0)
+    self:setCascadeOpacityEnabled(true)
+    self:runAction(cc.FadeIn:create(0.3))
+
     self:updateDiamonds()
     self.m_labelCostDiamonds:setString(tostring(dd.Constants.MORE_RESOURCE.MORE_LIVES.diamonds))
     self.m_labelGivenLives:setString(tostring(dd.Constants.MORE_RESOURCE.MORE_LIVES.lives))
@@ -36,8 +40,7 @@ function BuyLives:onCreate()
 end
 
 function BuyLives:onNo()
-    self.m_callBack(nil)
-    self:removeFromParent()
+    self:close(nil)
 end
 
 function BuyLives:onYes()
@@ -45,8 +48,7 @@ function BuyLives:onYes()
     local costDiamonds = dd.Constants.MORE_RESOURCE.MORE_LIVES.diamonds
     if totalDiamonds >= costDiamonds then
         dd.GameData:refreshDiamonds(totalDiamonds - costDiamonds)  
-        self.m_callBack(dd.Constants.MORE_RESOURCE.MORE_LIVES.lives)
-        self:removeFromParent()
+        self:close(dd.Constants.MORE_RESOURCE.MORE_LIVES.lives)
     else
         local GameShop = import(".GameShop", MODULE_PATH)
         local gameShop = GameShop:create(function (isSuccess)
@@ -57,6 +59,18 @@ function BuyLives:onYes()
         gameShop:move(display.cx, display.cy)
         self:getParent():addChild(gameShop, 10)
     end
+end
+
+function BuyLives:close(callBackParam)
+    self:runAction(cc.Sequence:create(
+        cc.FadeOut:create(0.3),
+        cc.CallFunc:create(function ( ... )
+            self.m_callBack(callBackParam)
+            self:removeFromParent()
+        end),
+        nil
+        )
+    )
 end
 
 return BuyLives

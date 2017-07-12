@@ -20,6 +20,10 @@ function GameShop:ctor(callBack)
     self.super.ctor(self)
     self.m_callBack = callBack
 
+    self:setOpacity(0)
+    self:setCascadeOpacityEnabled(true)
+    self:runAction(cc.FadeIn:create(0.3))
+
     self.m_labelDiamonds099:setString(tostring(dd.Constants.MONEY_MAP_DIAMONDS.dollar099))
     self.m_labelDiamonds299:setString(tostring(dd.Constants.MONEY_MAP_DIAMONDS.dollar299))
     self.m_labelDiamonds999:setString(tostring(dd.Constants.MONEY_MAP_DIAMONDS.dollar999))
@@ -35,38 +39,49 @@ function GameShop:on099()
     print("GameShop:on099")
     self.m_curDiamodns = self.m_curDiamodns + dd.Constants.MONEY_MAP_DIAMONDS.dollar099
     dd.GameData:refreshDiamonds(self.m_curDiamodns)
-    self.m_callBack(true)
-    self:removeFromParent()
+    
+    self:close(true)
 end
 
 function GameShop:on299()
     print("GameShop:on299")
     self.m_curDiamodns = self.m_curDiamodns + dd.Constants.MONEY_MAP_DIAMONDS.dollar299
     dd.GameData:refreshDiamonds(self.m_curDiamodns)
-    self.m_callBack(true)
-    self:removeFromParent()
+
+    self:close(true)
 end
 
 function GameShop:on999()
     print("GameShop:on999")
     self.m_curDiamodns = self.m_curDiamodns + dd.Constants.MONEY_MAP_DIAMONDS.dollar999
     dd.GameData:refreshDiamonds(self.m_curDiamodns)
-    self.m_callBack(true)
-    self:removeFromParent()
+
+    self:close(true)
 end
 
 function GameShop:on2999()
     print("GameShop:on2999")
     self.m_curDiamodns = self.m_curDiamodns + dd.Constants.MONEY_MAP_DIAMONDS.dollar2999
     dd.GameData:refreshDiamonds(self.m_curDiamodns)
-    self.m_callBack(true)
-    self:removeFromParent()
+
+    self:close(true)
 end
 
 function GameShop:onClose()
     print("GameShop:onClose")
-    self.m_callBack(nil)
-    self:removeFromParent()
+    self:close(nil)
+end
+
+function GameShop:close(callBackParam)
+    self:runAction(cc.Sequence:create(
+        cc.FadeOut:create(0.3),
+        cc.CallFunc:create(function ( ... )
+            self.m_callBack(callBackParam)
+            self:removeFromParent()
+        end),
+        nil
+        )
+    )
 end
 
 return GameShop
