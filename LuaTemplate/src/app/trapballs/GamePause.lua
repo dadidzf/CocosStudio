@@ -18,13 +18,29 @@ end
 function GamePause:onCreate()
     self:showMask()
     self:getMask():onClick(function ()
-        self:removeFromParent()
+        if self.m_imgHelp then
+            self.m_imgHelp:removeFromParent()
+            self.m_imgHelp = nil
+        else
+            self:removeFromParent()
+        end
     end)
 end
 
 function GamePause:onHelp()
     dd.PlaySound("buttonclick.mp3")
     print("GamePause:onHelp")
+
+    local imgHelp = ccui.ImageView:create("help.png", ccui.TextureResType.plistType)
+        :setTouchEnabled(true)
+        :setSwallowTouches(true)
+        :addTo(self)
+    imgHelp:onClick(function ( ... )
+        self.m_imgHelp:removeFromParent()
+        self.m_imgHelp = nil
+    end)
+
+    self.m_imgHelp = imgHelp 
 end
 
 function GamePause:onResume()

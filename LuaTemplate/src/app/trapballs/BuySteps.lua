@@ -14,6 +14,10 @@ BuySteps.RESOURCE_BINDING = {
 function BuySteps:ctor(callBack)
     self.super.ctor(self)
 
+    self:setOpacity(0)
+    self:setCascadeOpacityEnabled(true)
+    self:runAction(cc.FadeIn:create(0.3))
+
     self:updateDiamonds()
 
     self.m_labelCostDiamonds:setString(tostring(dd.Constants.MORE_RESOURCE.MORE_STEPS.diamonds))
@@ -37,8 +41,7 @@ function BuySteps:onCreate()
 end
 
 function BuySteps:onNo()
-    self.m_callBack(nil)
-    self:removeFromParent()
+    self:close(nil)
 end
 
 function BuySteps:onYes()
@@ -46,8 +49,7 @@ function BuySteps:onYes()
     local costDiamonds = dd.Constants.MORE_RESOURCE.MORE_STEPS.diamonds
     if totalDiamonds >= costDiamonds then
         dd.GameData:refreshDiamonds(totalDiamonds - costDiamonds)  
-        self.m_callBack(dd.Constants.MORE_RESOURCE.MORE_STEPS.steps)
-        self:removeFromParent()
+        self:close(dd.Constants.MORE_RESOURCE.MORE_STEPS.steps)
     else
         local GameShop = import(".GameShop", MODULE_PATH)
         local gameShop = GameShop:create(function (isSuccess)
@@ -58,6 +60,18 @@ function BuySteps:onYes()
         gameShop:move(display.cx, display.cy)
         self:getParent():addChild(gameShop, 10)
     end
+end
+
+function BuySteps:close(callBackParam)
+    self:runAction(cc.Sequence:create(
+        cc.FadeOut:create(0.3),
+        cc.CallFunc:create(function ( ... )
+            self.m_callBack(callBackParam)
+            self:removeFromParent()
+        end),
+        nil
+        )
+    )
 end
 
 return BuySteps
