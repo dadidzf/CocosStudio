@@ -235,14 +235,14 @@
             <NodeNormalFileData Type="PlistSubImage" Path="xiexian.png" Plist="trapballs/gui.plist" />
             <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_2" ActionTag="345054870" Tag="24" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-35.0080" RightMargin="-44.9920" TopMargin="109.9680" BottomMargin="550.0320" LeftEage="237" RightEage="237" TopEage="99" BottomEage="99" Scale9OriginX="237" Scale9OriginY="99" Scale9Width="246" Scale9Height="102" ctype="ImageViewObjectData">
-            <Size X="720.0000" Y="300.0000" />
+          <AbstractNodeData Name="Image_2" ActionTag="345054870" Tag="24" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="0.9920" RightMargin="-8.9920" TopMargin="124.9680" BottomMargin="565.0320" LeftEage="237" RightEage="237" TopEage="99" BottomEage="99" Scale9OriginX="237" Scale9OriginY="99" Scale9Width="246" Scale9Height="102" ctype="ImageViewObjectData">
+            <Size X="648.0000" Y="270.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="324.9920" Y="700.0320" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5078" Y="0.7292" />
-            <PreSize X="1.1250" Y="0.3125" />
+            <PreSize X="1.0125" Y="0.2813" />
             <FileData Type="PlistSubImage" Path="trapballs.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
           <AbstractNodeData Name="Button_fenxiang" ActionTag="38498861" Tag="26" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="72.7520" RightMargin="467.2480" TopMargin="664.9120" BottomMargin="195.0880" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="70" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
