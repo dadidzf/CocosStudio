@@ -13,33 +13,42 @@ end
 
 function Balls:addBalls()
     local roundCfg = dd.CsvConf:getRoundCfg()[self.m_levelIndex] 
-    for _, ballConf in ipairs(dd.YWStrUtil:parse(roundCfg.ball_setting)) do
-        local pos = cc.p(ballConf[1][1], ballConf[1][2])
-        local speed = {x = ballConf[2][1], y = ballConf[2][2]}
-        if speed.y == nil then
-            local speedLen = speed.x
-            local angle = math.random(1, 4)*math.pi/2 + math.rad(math.random(10, 80))
-            speed = cc.p(speedLen*math.sin(angle), speedLen*math.cos(angle))
-        end
-
-        --speed = cc.pMul(speed, 0.2)
-
-        local particle = cc.ParticleSystemQuad:create("particle/particle_ballfail.plist") 
-            :move(pos)
-            :addTo(self)
-        particle:stop()
-        particle:runAction(cc.Sequence:create(
+    self.m_particleList = {}
+    self:runAction(cc.Sequence:create(
             cc.DelayTime:create(0.4),
             cc.CallFunc:create(function ( ... )
-                particle:start()
+                for _, ballConf in ipairs(dd.YWStrUtil:parse(roundCfg.ball_setting)) do
+                    local pos = cc.p(ballConf[1][1], ballConf[1][2])
+                    local speed = {x = ballConf[2][1], y = ballConf[2][2]}
+                    if speed.y == nil then
+                        local speedLen = speed.x
+                        local angle = math.random(1, 4)*math.pi/2 + math.rad(math.random(10, 80))
+                        speed = cc.p(speedLen*math.sin(angle), speedLen*math.cos(angle))
+                    end
+                    self:addBall(speed, pos)
+                    --speed = cc.pMul(speed, 0.2)
+
+                    local particle = cc.ParticleSystemQuad:create("particle/particle_ballfail.plist") 
+                        :move(pos)
+                        :addTo(self)
+
+                    table.insert(self.m_particleList, particle)
+                end
             end),
             cc.DelayTime:create(0.3),
             cc.CallFunc:create(function ( ... )
-                self:addBall(speed, pos)
-                particle:removeFromParent()
+                for _, ball in ipairs(self.m_ballList) do
+                    ball:getPhysicsBody():setVelocity(ball.m_retoreMyVel)
+                end
+                for _, particle in ipairs(self.m_particleList) do
+                    particle:removeFromParent()
+                end
+            end),
+            cc.CallFunc:create(function ( ... )
+                self:getParent():onBallCreateOk(self.m_ballList)
             end)
             ))
-    end
+
 end
 
 function Balls:addBall(velocity, pos, picName)
@@ -56,9 +65,9 @@ function Balls:addBall(velocity, pos, picName)
     edgeBody:setCategoryBitmask(dd.Constants.CATEGORY.BALL)
     edgeBody:setContactTestBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS 
         + dd.Constants.CATEGORY.EXTENDLINE + dd.Constants.CATEGORY.OBSTACLE_POWER + dd.Constants.CATEGORY.BALL)
-    edgeBody:setVelocity(vel)
+    --edgeBody:setVelocity(vel)
     ball:setPhysicsBody(edgeBody)
-    ball.m_retoreMyVel = cc.pGetLength(vel)
+    ball.m_retoreMyVel = velocity
 
     table.insert(self.m_ballList, ball)
 end
@@ -71,6 +80,10 @@ function Balls:applyVelocity()
         local vel = cc.pMul(curVelVector, ball.m_retoreMyVel/curVel)
         body:setVelocity(vel)
     end
+end
+
+function Balls:getBallList()
+    return self.m_ballList
 end
 
 function Balls:getBallPosList()

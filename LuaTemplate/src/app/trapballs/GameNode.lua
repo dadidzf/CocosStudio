@@ -31,6 +31,10 @@ function GameNode:ctor(scene, boxColor, levelIndex)
     self:createObstacles(levelIndex)
 end
 
+function GameNode:onBallCreateOk(ballList)
+    self.m_scene:getNewGuideCtl():controlBalls(ballList)
+end
+
 function GameNode:createObstacles(levelIndex)
     self.m_obstacleGears = {}
     self.m_obstaclePowers = {}
@@ -189,6 +193,7 @@ function GameNode:onContactBegin(contact)
         local collisionPt = self:getExtendLineBallCollisionPt(shapeA, shapeB)
         if collisionPt then
             self:dealExtendlineCollision(collisionPt, dd.Constants.CATEGORY.BALL)
+            self.m_scene:getNewGuideCtl():onTopCollision(collisionPt)
         else
             print("Lots of collision onContactBegin ! boring !")
         end
@@ -356,10 +361,10 @@ function GameNode:onTouchBegin(touch, event)
     end
 
     local spriteFrame, isHorizontal, dropPos = self.m_scene:getValidSpriteFrame(touch:getLocation())
-    if not spriteFrame then
+    if not spriteFrame or not self.m_scene:getNewGuideCtl():checkDirection(isHorizontal) then
         return false
     end
-    
+
     dropPos = self:convertToNodeSpace(dropPos)
     local pt = self:convertToNodeSpace(touch:getLocation())
     local lineLevelCfg = dd.CsvConf:getLineLevelCfg()
@@ -368,6 +373,8 @@ function GameNode:onTouchBegin(touch, event)
         :addTo(self, 4)
 
     self:updateExtendLinePos(touch)
+
+    self.m_scene:getNewGuideCtl():onIconStartMoved(self.m_extendLine)
     return true
 end
 
@@ -378,7 +385,8 @@ end
 function GameNode:onTouchEnd(touch, event)
     self:updateExtendLinePos(touch)
 
-    if self.m_pointsMgr:isPtInOneValidPolygon(cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())) then
+    local pos = cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())
+    if self.m_scene:getNewGuideCtl():onIconPlaced(self.m_extendLine) and self.m_pointsMgr:isPtInOneValidPolygon(pos) then
         self.m_extendLine:startExtend()
         dd.PlaySound("dropLine.mp3")
     else

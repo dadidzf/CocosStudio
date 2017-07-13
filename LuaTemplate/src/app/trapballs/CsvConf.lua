@@ -38,8 +38,12 @@ function CsvConf:getColorCfg()
     return self.m_color
 end
 
-function CsvConf:getRandomBgAndBtn()
+function CsvConf:getRandomBgAndBtn(levelIndex)
     local randomProb = math.random(1, self.m_colorTotalProb)
+    if levelIndex == 1 then
+        return self.m_color[4]
+    end
+
     local count = 0
     for _, v in ipairs(self.m_color) do
         count = count + v.probability

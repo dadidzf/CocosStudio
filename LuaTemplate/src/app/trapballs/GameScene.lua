@@ -27,6 +27,7 @@ GameScene.RESOURCE_BINDING = {
 function GameScene:ctor(levelIndex)
     self.super.ctor(self)
     self.m_levelIndex = levelIndex
+    self.m_newGuideCtl = import(".NewGuideController", MODULE_PATH):create(self, levelIndex)
     
     local resourceNode = self:getResourceNode()
     resourceNode:setContentSize(display.size)
@@ -49,7 +50,12 @@ function GameScene:ctor(levelIndex)
     self:applyGamedataDisplay()
 end
 
+function GameScene:getNewGuideCtl()
+    return self.m_newGuideCtl
+end
+
 function GameScene:resetGame()
+    self.m_newGuideCtl:reset(self, self.m_levelIndex)
     self:showRandBg()
     self:showGameNode()
     self:initGameData(self.m_levelIndex)
@@ -291,7 +297,7 @@ function GameScene:showRandBg()
         resourceNode:getChildByName(v.image_di):setVisible(false)
     end
 
-    local randomShow = dd.CsvConf:getRandomBgAndBtn()
+    local randomShow = dd.CsvConf:getRandomBgAndBtn(self.m_levelIndex)
     resourceNode:getChildByName(randomShow.image_di):setVisible(true)
     local color = dd.YWStrUtil:parse(randomShow.box_color)
     self.m_boxColor = cc.c3b(color[1], color[2], color[3])
@@ -355,5 +361,22 @@ function GameScene:showWithScene(transition, time, more)
     
     return self
 end
+
+function GameScene:getPicHorizontal()
+    return self.m_picHorizontal
+end
+
+function GameScene:getPicVertical()
+    return self.m_picVertical
+end
+
+function GameScene:getGameNode()
+    return self.m_node
+end
+
+function GameScene:getImgCirclePos()
+    return cc.p(self.m_imgCircleBlack:getPositionX(), self.m_imgCircleBlack:getPositionY())
+end
+
 
 return GameScene 

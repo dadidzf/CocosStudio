@@ -46,7 +46,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="ball_white.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_3" ActionTag="-1898010330" Tag="93" RotationSkewX="142.9853" RotationSkewY="142.9864" IconVisible="False" LeftMargin="-134.4808" RightMargin="-15.5192" TopMargin="41.4119" BottomMargin="-46.4119" LeftEage="122" RightEage="122" TopEage="1" BottomEage="1" Scale9OriginX="122" Scale9OriginY="1" Scale9Width="126" Scale9Height="3" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_3" ActionTag="-1898010330" Tag="93" RotationSkewX="142.0000" RotationSkewY="142.0000" IconVisible="False" LeftMargin="-134.4808" RightMargin="-15.5192" TopMargin="41.4119" BottomMargin="-46.4119" LeftEage="122" RightEage="122" TopEage="1" BottomEage="1" Scale9OriginX="122" Scale9OriginY="1" Scale9Width="126" Scale9Height="3" ctype="ImageViewObjectData">
             <Size X="150.0000" Y="5.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-59.4808" Y="-43.9119" />
