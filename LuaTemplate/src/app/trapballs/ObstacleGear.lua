@@ -26,7 +26,7 @@ function ObstacleGear:ctor(pos1, pos2, speed)
     local body = cc.PhysicsBody:create()
     self:setPhysicsBody(body)
     local size = self:getContentSize()
-    local shape = cc.PhysicsShapeCircle:create(size.width/2 - 10, cc.PhysicsMaterial(0, 1, 0))
+    local shape = cc.PhysicsShapeCircle:create(size.width/2 - 4, cc.PhysicsMaterial(0, 1, 0))
     shape:setCategoryBitmask(dd.Constants.CATEGORY.OBSTACLE_GEAR)
     shape:setContactTestBitmask(dd.Constants.CATEGORY.EXTENDLINE 
         + dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS + dd.Constants.CATEGORY.EDGE_SEGMENT)

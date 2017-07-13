@@ -52,7 +52,7 @@ function GameEnd:ctor(gameScene, levelIndex, param)
     self:getResourceNode():setVisible(false)
 
     local gameSuccessImg = display.newSprite("#stageclear.png")
-        :move(0, 100) 
+        :move(0, display.height*0.15) 
         :addTo(self)
 
     local mask = self:getMask()
@@ -70,6 +70,31 @@ function GameEnd:ctor(gameScene, levelIndex, param)
         end)
         ))
 
+    self:rewardDiamondsAction()
+end
+
+function GameEnd:rewardDiamondsAction()
+    local rewardDiamonds = display.newSprite("#money.png")
+        :setAnchorPoint(cc.p(0, 0.5))
+        :move(0, 10)
+        :addTo(self)
+
+    local rewardDiamondsSize = rewardDiamonds:getContentSize()
+    local addLable = cc.Label:createWithBMFont("blue_32.fnt", "+"..tostring(dd.Constants.LEVEL_PASS_DIAMONDS_REWARD))
+        :setAnchorPoint(cc.p(1, 0.5))
+        :move(-10, rewardDiamondsSize.height/2)
+        :addTo(rewardDiamonds)
+
+    rewardDiamonds:runAction(cc.Sequence:create(
+        cc.Blink:create(2, 2),
+        cc.MoveTo:create(1.0, cc.p(display.width/2 - rewardDiamondsSize.width, 
+            display.height/2 - rewardDiamondsSize.height)),
+        cc.DelayTime:create(1.0),
+        cc.FadeOut:create(1.0),
+        cc.CallFunc:create(function ( ... )
+            rewardDiamonds:removeFromParent()
+        end)
+        ))
 end
 
 function GameEnd:updateScorePanel(param)
@@ -84,6 +109,9 @@ function GameEnd:updateScorePanel(param)
     self.m_totalScore = self.m_fillScore + self.m_livesScore + self.m_stepsScore
 
     self.m_diamondsReward = 10*param.topCollision
+    local curDiamonds = dd.GameData:getDiamonds()
+    dd.GameData:refreshDiamonds(curDiamonds + self.m_diamondsReward + dd.Constants.LEVEL_PASS_DIAMONDS_REWARD)
+
     self.m_labelDiamondReward:setString(tostring(self.m_diamondsReward))
     self.m_labelStepsScore:setString(tostring(self.m_stepsScore))
     self.m_labelFillRateScore:setString(tostring(self.m_fillScore))

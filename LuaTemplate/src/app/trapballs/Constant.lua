@@ -46,5 +46,7 @@ Constants.MONEY_MAP_DIAMONDS = {
     dollar2999 = 9999
 }
 
+Constants.LEVEL_PASS_DIAMONDS_REWARD = 20
+
 return Constants
 
