@@ -19,7 +19,8 @@ function ObstaclePower:ctor(pos1, speedVector)
     shape:setCategoryBitmask(dd.Constants.CATEGORY.OBSTACLE_POWER)
     shape:setContactTestBitmask(dd.Constants.CATEGORY.EXTENDLINE
         + dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS + dd.Constants.CATEGORY.BALL)
-    shape:setCollisionBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT + dd.Constants.CATEGORY.OBSTACLE_GEAR)
+    shape:setCollisionBitmask(dd.Constants.CATEGORY.EDGE_SEGMENT + dd.Constants.CATEGORY.OBSTACLE_GEAR
+        + dd.Constants.CATEGORY.OBSTACLE_POWER)
 
     body:addShape(shape)
     body:setVelocity(speedVector)
