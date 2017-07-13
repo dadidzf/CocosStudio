@@ -357,7 +357,7 @@ function GameNode:onTouchEnd(touch, event)
     else
         self.m_extendLine:runAction(
             cc.Sequence:create(
-                cc.MoveTo:create(0.5, self.m_extendLine:getDropPos()),
+                cc.MoveTo:create(0.3, self.m_extendLine:getDropPos()),
                 cc.CallFunc:create(function ( ... )
                     if not tolua.isnull(self.m_extendLine) then
                         self.m_extendLine:removeFromParent()
