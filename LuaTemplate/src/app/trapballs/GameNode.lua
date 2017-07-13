@@ -170,8 +170,12 @@ function GameNode:onContactBegin(contact)
 
     -- segment with extend line ends
     if cateGoryAdd == dd.Constants.CATEGORY.EDGE_SEGMENT + dd.Constants.CATEGORY.EXTENDLINE then
-        self:dealExtendlineCollision(self:getExtendLineSegmentCollisionPt(shapeA, shapeB), 
-            dd.Constants.CATEGORY.EXTENDLINE)
+        local collisionPt = self:getExtendLineSegmentCollisionPt(shapeA, shapeB)
+        if collisionPt then
+            self:dealExtendlineCollision(collisionPt, dd.Constants.CATEGORY.EXTENDLINE)
+        else
+            print("Lots of collision onContactBegin ! boring !")
+        end
         return false
     end
 
@@ -182,7 +186,12 @@ function GameNode:onContactBegin(contact)
 
     -- ball with extend line ends
     if cateGoryAdd == dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS + dd.Constants.CATEGORY.BALL then
-        self:dealExtendlineCollision(self:getExtendLineBallCollisionPt(shapeA, shapeB), dd.Constants.CATEGORY.BALL)
+        local collisionPt = self:getExtendLineBallCollisionPt(shapeA, shapeB)
+        if collisionPt then
+            self:dealExtendlineCollision(collisionPt, dd.Constants.CATEGORY.BALL)
+        else
+            print("Lots of collision onContactBegin ! boring !")
+        end
         return true
     end
 
@@ -228,6 +237,12 @@ function GameNode:getExtendLineSegmentCollisionPt(shapeA, shapeB)
         shapeSegment = shapeB
     end
 
+    if shapeExtend.willBeRemoved then
+        return
+    else
+        shapeExtend.willBeRemoved = true
+    end
+
     local lineIndex = shapeSegment:getTag()
     local linePtPair = self.m_pointsMgr:getOneLinePointPair(lineIndex)
     local segPtA = linePtPair[1]
@@ -257,12 +272,24 @@ function GameNode:getExtendLineBallCollisionPt(shapeA, shapeB)
     local extendPos = cc.p(self.m_extendLine:getPositionX(), self.m_extendLine:getPositionY())
 
     if shapeACategory == dd.Constants.CATEGORY.BALL then
+        if shapeB.willBeRemoved then
+            return
+        else
+            shapeB.willBeRemoved = true
+        end
+
         local pt = shapeB:getOffset()
         pt = cc.pMul(pt, 1/self:getScale())
         if math.abs(pt.x) < 1 then pt.x = 0 end
         if math.abs(pt.y) < 1 then pt.y = 0 end
         return cc.pAdd(extendPos, pt)
     else
+        if shapeA.willBeRemoved then
+            return
+        else
+            shapeA.willBeRemoved = true
+        end
+
         local pt = shapeA:getOffset()
         if math.abs(pt.x) < 1 then pt.x = 0 end
         if math.abs(pt.y) < 1 then pt.y = 0 end
@@ -357,7 +384,7 @@ function GameNode:onTouchEnd(touch, event)
     else
         self.m_extendLine:runAction(
             cc.Sequence:create(
-                cc.MoveTo:create(0.5, self.m_extendLine:getDropPos()),
+                cc.MoveTo:create(0.3, self.m_extendLine:getDropPos()),
                 cc.CallFunc:create(function ( ... )
                     if not tolua.isnull(self.m_extendLine) then
                         self.m_extendLine:removeFromParent()
