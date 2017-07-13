@@ -203,6 +203,7 @@ function ExtendLine:showEffect(pos)
     local imgBall = display.newSprite("#ball_white.png")
     imgBall:move(pos)
     self:addChild(imgBall)
+    imgBall:setScale(0.8)
     imgBall:runAction(cc.Sequence:create(
         cc.ScaleTo:create(0.3, 1.2),
         cc.ScaleTo:create(0.3, 0),

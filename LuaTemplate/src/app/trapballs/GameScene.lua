@@ -130,7 +130,7 @@ function GameScene:checkSteps()
             self.m_isPurchasing = false
             if givenSteps then
                 self.m_steps = self.m_steps + givenSteps
-                self:applyGamedataDisplay()
+                self:updateStepsDisplay()
             else
                 self:gameFail()
             end
@@ -148,9 +148,19 @@ function GameScene:costOneStep()
     end
 
     self.m_steps = self.m_steps - 1
-    self:applyGamedataDisplay()
+    self:updateStepsDisplay()
     
     self:checkSteps()
+end
+
+function GameScene:updateStepsDisplay()
+    self.m_labelStepNum:runAction(cc.Sequence:create(
+        cc.ScaleTo:create(0.3, 1.6),
+        cc.CallFunc:create(function ()
+            self.m_labelStepNum:setString(tostring(self.m_steps))
+        end),
+        cc.ScaleTo:create(0.3, 1)
+        ))
 end
 
 function GameScene:loseLife()
@@ -158,7 +168,7 @@ function GameScene:loseLife()
     
     dd.PlaySound("loseLife.mp3")
     self.m_lives = self.m_lives - 1
-    self:applyGamedataDisplay()
+    self:updateLivesDisplay()
     self.m_isAlreadyLoseLife = true
 
     if self.m_lives <= 0 then
@@ -168,7 +178,7 @@ function GameScene:loseLife()
             self.m_isPurchasing = false
             if givenLives then
                 self.m_lives = self.m_lives + givenLives
-                self:applyGamedataDisplay()
+                self:getMoreLivesDisplay()
             else
                 self:gameFail()
             end
@@ -179,9 +189,40 @@ function GameScene:loseLife()
     end
 end
 
+function GameScene:getMoreLivesDisplay()
+    for i = 1, self.m_lives do
+        local life = self.m_imgLifeList[i]
+        life:setVisible(true)
+        life:setOpacity(0)
+        life:runAction(cc.Sequence:create(
+            cc.DelayTime:create((i - 1)*0.8),
+            cc.FadeIn:create(0.3),
+            cc.Blink:create(0.5, 2)
+            ))
+    end
+end
+
+function GameScene:updateLivesDisplay()
+    self.m_imgLifeList[self.m_lives + 1]:runAction(cc.Sequence:create(
+        cc.DelayTime:create(0.5),
+        cc.Blink:create(0.5, 2),
+        cc.FadeOut:create(0.3),
+        cc.CallFunc:create(function ( ... )
+            self.m_imgLifeList[self.m_lives + 1]:setOpacity(256)
+            self:applyGamedataDisplay()
+        end)
+        ))
+end
+
 function GameScene:oneMoreTopCollision()
     self.m_topCollisionCount = self.m_topCollisionCount + 1
-    self:applyGamedataDisplay()
+    self.m_labelTopCollisionNum:runAction(cc.Sequence:create(
+        cc.ScaleTo:create(0.3, 1.6),
+        cc.CallFunc:create(function ()
+            self.m_labelTopCollisionNum:setString(tostring(self.m_topCollisionCount))
+        end),
+        cc.ScaleTo:create(0.3, 1)
+        ))
 end
 
 function GameScene:applyGamedataDisplay()

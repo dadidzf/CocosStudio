@@ -52,7 +52,15 @@ function GameNode:checkObstacles()
             local pos = cc.p(nodeObstacle:getPositionX(), nodeObstacle:getPositionY()) 
             if not self.m_pointsMgr:isPtInOneValidPolygon(pos) then
                 obstacleList[nodeObstacle:getTag()] = nil
-                nodeObstacle:removeFromParent()
+                local body = cc.PhysicsBody:create()
+                nodeObstacle:setPhysicsBody(body)
+                nodeObstacle:stopAllActions()
+                nodeObstacle:runAction(cc.Sequence:create(
+                    cc.Blink:create(0.5, 2),
+                    cc.CallFunc:create(function ()
+                        nodeObstacle:removeFromParent()
+                    end)
+                    ))
             end
         end
     end
@@ -192,7 +200,13 @@ end
 function GameNode:obstacleGearDestory(nodeObstacleGear)
     local tag = nodeObstacleGear:getTag()
     self.m_obstacleGears[tag] = nil
-    nodeObstacleGear:removeFromParent()
+    nodeObstacleGear:stopAllActions()
+    nodeObstacleGear:runAction(cc.Sequence:create(
+        cc.Blink:create(0.5, 2),
+        cc.CallFunc:create(function ()
+        nodeObstacleGear:removeFromParent()
+        end)
+    ))
 end
 
 function GameNode:extendLineDestory()
@@ -291,7 +305,7 @@ function GameNode:dealExtendlineCollision(collisionPt, category)
             dd.scheduler:unscheduleScriptEntry(scheduler)
         end
 
-        scheduler = dd.scheduler:scheduleScriptFunc(callBack, 0.6, false)
+        scheduler = dd.scheduler:scheduleScriptFunc(callBack, 0.5, false)
     end
 
     print("GameNode:dealExtendlineCollision", socket.gettime() - startTime)
