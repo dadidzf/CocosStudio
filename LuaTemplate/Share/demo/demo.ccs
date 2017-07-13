@@ -90,7 +90,17 @@
             <PlistImageFile Name="zhangai_nengliangqiu2.png" Key="zhangai_nengliangqiu2.png" />
             <PlistImageFile Name="zhangai_nengliangqiu3.png" Key="zhangai_nengliangqiu3.png" />
             <PlistImageFile Name="zhangai_nengliangqiu4.png" Key="zhangai_nengliangqiu4.png" />
+            <PlistImageFile Name="di_txt.png" Key="di_txt.png" />
+            <PlistImageFile Name="hand.png" Key="hand.png" />
           </PlistImageFolder>
+          <Folder Name="tips">
+            <Project Name="Node_tips1.csd" Type="Node" />
+            <Project Name="Node_tips2.csd" Type="Node" />
+            <Project Name="Node_tips3.csd" Type="Node" />
+            <Project Name="Node_tips4.csd" Type="Node" />
+            <Project Name="Node_tips5.csd" Type="Node" />
+            <Project Name="Node_tips6.csd" Type="Node" />
+          </Folder>
           <Project Name="game.csd" Type="Layer" />
           <Project Name="menu.csd" Type="Layer" />
           <Project Name="Node_buy.csd" Type="Node" />
@@ -106,6 +116,7 @@
         <Fnt Name="black_32.fnt" />
         <Fnt Name="blue_32.fnt" />
         <Fnt Name="red_32.fnt" />
+        <Fnt Name="white_24.fnt" />
         <Fnt Name="white_32.fnt" />
         <Fnt Name="white_48.fnt" />
       </RootFolder>
