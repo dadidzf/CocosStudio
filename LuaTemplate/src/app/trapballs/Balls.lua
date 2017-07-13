@@ -21,7 +21,24 @@ function Balls:addBalls()
             local angle = math.random(1, 4)*math.pi/2 + math.rad(math.random(10, 80))
             speed = cc.p(speedLen*math.sin(angle), speedLen*math.cos(angle))
         end
-        self:addBall(speed, pos)
+
+        --speed = cc.pMul(speed, 0.2)
+
+        local particle = cc.ParticleSystemQuad:create("particle/particle_ballfail.plist") 
+            :move(pos)
+            :addTo(self)
+        particle:stop()
+        particle:runAction(cc.Sequence:create(
+            cc.DelayTime:create(0.4),
+            cc.CallFunc:create(function ( ... )
+                particle:start()
+            end),
+            cc.DelayTime:create(0.3),
+            cc.CallFunc:create(function ( ... )
+                self:addBall(speed, pos)
+                particle:removeFromParent()
+            end)
+            ))
     end
 end
 
