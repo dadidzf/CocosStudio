@@ -131,7 +131,7 @@ end
 function MainScene:onShop()
     dd.PlaySound("buttonclick.mp3")
     local gameShop = GameShop:create(function ()
-        
+        self.m_labelDiamonds:setString(tostring(dd.GameData:getDiamonds()))
     end)
     self:addChild(gameShop)
     gameShop:setPosition(display.cx, display.cy)
