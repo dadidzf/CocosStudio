@@ -13,12 +13,12 @@
         "adsRequestAppName":"trapballs_ios",
         "appDisplayName":"Trap Balls",
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
-        "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
+        "admobInterstitialId": "ca-app-pub-5571113908507676/6772555942",
         "packageName":"com.yongwuart.trapballs",
         "version":"1.0",
         "versionCode":1,
-        "rateUrl":"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1182004800&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",
-        "shareUrl":"https://itunes.apple.com/app/classic-blocks-game/id1182004800?l=us&ls=1&mt=8",
+        "rateUrl":"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1259751560&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",
+        "shareUrl":"https://itunes.apple.com/app/1259751560",
         "achievement":
         [ 
             "luatemplate_achievement_1"
@@ -37,7 +37,7 @@
         "adsRequestAppName":"trapballs_android",
         "appDisplayName":"Trap Balls",
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
-        "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
+        "admobInterstitialId": "ca-app-pub-5571113908507676/9726022347",
         "packageName":"com.yongwuart.trapballs",
         "version":"1.0",
         "versionCode":1,

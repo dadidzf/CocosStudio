@@ -6,7 +6,7 @@ function ScreenShaker:ctor(target, time)
     self.init_y = 0       --[[初始位置y]]
     self.diff_x = 0       --[[偏移量x]]
     self.diff_y = 0       --[[偏移量y]]
-    self.diff_max = 12     --[[最大偏移量]]
+    self.diff_max = 8     --[[最大偏移量]]
     self.interval = 0.01  --[[震动频率]]
     self.totalTime = 0    --[[震动时间]]
     self.time = 0         --[[计时器]]
