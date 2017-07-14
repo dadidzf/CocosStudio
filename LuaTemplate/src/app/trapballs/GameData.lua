@@ -79,4 +79,17 @@ function GameData:refreshDiamonds(diamond)
     self.m_diamonds = diamond
 end
 
+function GameData:isAdsRemoved()
+    if not self.m_isAdsRemoved then
+        self.m_isAdsRemoved = cc.UserDefault:getInstance():getBoolForKey("noads", false)
+    end
+
+    return self.m_isAdsRemoved
+end
+
+function GameData:setAdsRemoved(val)
+    self.m_isAdsRemoved = val
+    cc.UserDefault:getInstance():setBoolForKey("noads", true)
+end
+
 return GameData

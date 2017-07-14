@@ -212,7 +212,13 @@ function GameEnd:updateScorePanel(param)
     self.m_btnShare:runAction(getScaleAction(commonDelay + 0.1))
     self.m_btnRePlay:runAction(getScaleAction(commonDelay + 0.2))
     self.m_btnMenu:runAction(getScaleAction(commonDelay + 0.3))
-    self.m_btnNext:runAction(getScaleAction(commonDelay + 0.4))
+    self.m_btnNext:runAction(cc.Sequence:create(
+        getScaleAction(commonDelay + 0.4),
+        cc.CallFunc:create(function ( ... )
+            cc.load("sdk").Admob.getInstance():showInterstitial()
+        end)
+        )
+    )
 
     if self.m_isBest then
         self.m_imgHighScoreIcon:runAction(cc.Sequence:create(
@@ -240,7 +246,7 @@ end
 
 function GameEnd:onShare()
     dd.PlaySound("buttonclick.mp3")
-    cc.load("sdk").Tools.share("Trap Balls, very funny game, play with me now !", 
+    cc.load("sdk").Tools.share("Trap Balls, very wonderful game, play with me now !", 
         cc.FileUtils:getInstance():fullPathForFilename("512.png"))
 end
 

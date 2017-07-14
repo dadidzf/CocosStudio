@@ -30,6 +30,7 @@ function GameFail:ctor(gameScene)
         cc.FadeOut:create(0.5),
         cc.CallFunc:create(function ( ... )
             self:getResourceNode():setVisible(true)
+            cc.load("sdk").Admob.getInstance():showInterstitial()
         end)
         ))
 

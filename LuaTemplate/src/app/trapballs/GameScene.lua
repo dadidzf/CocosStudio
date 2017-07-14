@@ -94,7 +94,7 @@ function GameScene:initGameData(levelIndex)
 end
 
 function GameScene:gameSuccess()
-    self.m_labelStepNum:stopAllActions()
+    self:applyGamedataDisplay()
     local GameEnd = import(".GameEnd", MODULE_PATH)
     local params = {}
 
@@ -112,7 +112,7 @@ function GameScene:gameSuccess()
 end
 
 function GameScene:gameFail()
-    self.m_labelStepNum:stopAllActions()
+    self:applyGamedataDisplay()
     local GameFail = import(".GameFail", MODULE_PATH)
     local gameFail = GameFail:create(self) 
     self:addChild(gameFail, 2)
@@ -255,7 +255,8 @@ function GameScene:oneMoreTopCollision()
 end
 
 function GameScene:applyGamedataDisplay()
-    self.m_labelStepNum:setString(tostring(self.m_steps))
+    self.m_labelStepNum:setOpacity(255)
+    self.m_labelStepNum:stopAllActions()
     self:showLives()
     self.m_labelTopCollisionNum:setString(tostring(self.m_topCollisionCount))
     self.m_labelStepNum:setString(tostring(self.m_steps))

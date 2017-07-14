@@ -20,6 +20,7 @@ MainScene.RESOURCE_BINDING = {
 }
 
 function MainScene:onCreate()
+    self:enableNodeEvents()
     local resourceNode = self:getResourceNode()
     resourceNode:setContentSize(display.size)
     ccui.Helper:doLayout(resourceNode)
@@ -41,6 +42,14 @@ function MainScene:onCreate()
     self.m_labelDiamonds:setString(tostring(dd.GameData:getDiamonds()))
 
     self:enterAction()
+end
+
+function MainScene:onEnterTransitionFinish()
+    if not dd.GameData:isAdsRemoved() then
+        if cc.load("sdk").Tools.getGamePlayCount() > 5 then
+            cc.load("sdk").MyAds.showAds(100)
+        end
+    end
 end
 
 function MainScene:enterAction()
@@ -144,6 +153,14 @@ end
 
 function MainScene:onNoAds()
     dd.PlaySound("buttonclick.mp3")
+    cc.load("sdk").Billing.purchase(dd.appCommon.skuKeys[1], function (result)
+        print("Billing Purchase Result ~ ", result)
+        if (result and device.platform == "ios") or 
+            (result ~= "failed" and device.platform == "android") then
+                cc.load("sdk").Admob.getInstance():setAdsRemoved(true)
+                dd.GameData:setAdsRemoved(true)
+        end
+    end)
 end
 
 function MainScene:onSoundOnOff()
