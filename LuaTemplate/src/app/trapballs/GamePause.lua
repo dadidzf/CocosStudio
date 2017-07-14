@@ -9,8 +9,9 @@ GamePause.RESOURCE_BINDING = {
     ["CheckBox_sound"] = {varname = "m_checkBoxSound"}
 }
 
-function GamePause:ctor()
+function GamePause:ctor(levelIndex)
     self.super.ctor(self)
+    self.m_levelIndex = levelIndex
     self.m_checkBoxSound:setSelected(not dd.GameData:isSoundEnable())
     self.m_checkBoxSound:onEvent(handler(self, self.onSoundOnOff))
 end
@@ -51,7 +52,7 @@ end
 function GamePause:onMenu()
     dd.PlaySound("buttonclick.mp3")
     local LevelScene = import(".LevelScene", MODULE_PATH)
-    local levelScene = LevelScene:create()
+    local levelScene = LevelScene:create(self.m_levelIndex)
     levelScene:showWithScene("MOVEINL", 0.3)
 end
 

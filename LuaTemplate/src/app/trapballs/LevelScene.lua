@@ -9,6 +9,12 @@ LevelScene.RESOURCE_BINDING = {
     ["BitmapFontLabel_zuanshi"] = {varname = "m_lableDiamonds"}
 }
 
+function LevelScene:ctor(jumpIndex)
+    print("LevelScene:ctor -------------------------- ", jumpIndex)
+    self.m_jumpIndex = jumpIndex
+    self.super.ctor(self)
+end
+
 function LevelScene:onCreate()
     local resourceNode = self:getResourceNode()
     resourceNode:setContentSize(display.size)
@@ -35,10 +41,7 @@ function LevelScene:initListView()
     end
 
     self.m_listView:setScrollBarEnabled(false)
-    local jumpIndex = dd.GameData:getCurLevel()
-    -- if jumpIndex >= #roundCfg - 2 then
-    --     jumpIndex = jumpIndex - 1
-    -- end
+    local jumpIndex = self.m_jumpIndex or dd.GameData:getCurLevel()
     self.m_listView:jumpToPercentVertical((2*jumpIndex - 2)*50/#roundCfg)
     self.m_listView:setScale(dd.Constants.LEVEL_LIST_SCALE)
 end

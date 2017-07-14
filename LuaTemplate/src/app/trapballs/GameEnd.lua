@@ -125,6 +125,7 @@ function GameEnd:updateScorePanel(param)
     self.m_livesScore = 200*param.lives
     self.m_stepsScore = 100*param.steps
     self.m_totalScore = self.m_fillScore + self.m_livesScore + self.m_stepsScore
+    cc.load("sdk").GameCenter.submitScoreToLeaderboard(self.m_levelIndex, self.m_totalScore)
 
     self.m_diamondsReward = 10*param.topCollision
     self.m_labelDiamondReward:setString(tostring(self.m_diamondsReward))
@@ -260,7 +261,7 @@ end
 function GameEnd:onMenu()
     dd.PlaySound("buttonclick.mp3")
     local LevelScene = import(".LevelScene", MODULE_PATH)
-    local levelScene = LevelScene:create()
+    local levelScene = LevelScene:create(self.m_levelIndex)
     levelScene:showWithScene("MOVEINL", 0.3)
 end
 

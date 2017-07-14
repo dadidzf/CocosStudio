@@ -7,8 +7,9 @@ GameFail.RESOURCE_BINDING = {
     ["Button_backtomenu"] = {varname = "m_btnShare", events = {{ event = "click", method = "onMenu" }}},
 }
 
-function GameFail:ctor(gameScene)
+function GameFail:ctor(gameScene, levelIndex)
     self.super.ctor(self)
+    self.m_levelIndex = levelIndex
     self.m_gameScene = gameScene
 
     self:getResourceNode():setVisible(false)
@@ -49,7 +50,7 @@ end
 function GameFail:onMenu()
     dd.PlaySound("buttonclick.mp3")
     local LevelScene = import(".LevelScene", MODULE_PATH)
-    local levelScene = LevelScene:create()
+    local levelScene = LevelScene:create(self.m_levelIndex)
     levelScene:showWithScene("MOVEINL", 0.3)
 end
 

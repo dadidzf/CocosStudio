@@ -114,7 +114,7 @@ end
 function GameScene:gameFail()
     self:applyGamedataDisplay()
     local GameFail = import(".GameFail", MODULE_PATH)
-    local gameFail = GameFail:create(self) 
+    local gameFail = GameFail:create(self, self.m_levelIndex) 
     self:addChild(gameFail, 2)
     gameFail:setPosition(display.cx, display.cy)
     dd.PlaySound("gameFail.mp3")
@@ -340,7 +340,7 @@ end
 function GameScene:onPause()
     dd.PlaySound("buttonclick.mp3")
     local GamePause = import(".GamePause", MODULE_PATH)
-    local pauseNode = GamePause:create()
+    local pauseNode = GamePause:create(self.m_levelIndex)
     pauseNode:setPosition(display.cx, display.cy)
     if self.m_levelIndex == 1 then
         self:addChild(pauseNode, 200)

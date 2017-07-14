@@ -37,34 +37,22 @@ end
 
 function GameShop:on099()
     print("GameShop:on099")
-    self.m_curDiamodns = self.m_curDiamodns + dd.Constants.MONEY_MAP_DIAMONDS.dollar099
-    dd.GameData:refreshDiamonds(self.m_curDiamodns)
-    
-    self:close(true)
+    self:purchase(1)
 end
 
 function GameShop:on299()
     print("GameShop:on299")
-    self.m_curDiamodns = self.m_curDiamodns + dd.Constants.MONEY_MAP_DIAMONDS.dollar299
-    dd.GameData:refreshDiamonds(self.m_curDiamodns)
-
-    self:close(true)
+    self:purchase(2)
 end
 
 function GameShop:on999()
     print("GameShop:on999")
-    self.m_curDiamodns = self.m_curDiamodns + dd.Constants.MONEY_MAP_DIAMONDS.dollar999
-    dd.GameData:refreshDiamonds(self.m_curDiamodns)
-
-    self:close(true)
+    self:purchase(3)
 end
 
 function GameShop:on2999()
     print("GameShop:on2999")
-    self.m_curDiamodns = self.m_curDiamodns + dd.Constants.MONEY_MAP_DIAMONDS.dollar2999
-    dd.GameData:refreshDiamonds(self.m_curDiamodns)
-
-    self:close(true)
+    self:purchase(4)
 end
 
 function GameShop:onClose()
@@ -82,6 +70,42 @@ function GameShop:close(callBackParam)
         nil
         )
     )
+end
+
+function GameShop:rewardDiamonds(skuKey)
+    local rewardDiamonds = 0
+    if skuKey == dd.appCommon.skuKeys[1] then
+        rewardDiamonds = dd.Constants.MONEY_MAP_DIAMONDS.dollar099
+    elseif skuKey == dd.appCommon.skuKeys[2] then
+        rewardDiamonds = dd.Constants.MONEY_MAP_DIAMONDS.dollar299
+    elseif skuKey == dd.appCommon.skuKeys[3] then
+        rewardDiamonds = dd.Constants.MONEY_MAP_DIAMONDS.dollar999
+    elseif skuKey == dd.appCommon.skuKeys[4] then
+        rewardDiamonds = dd.Constants.MONEY_MAP_DIAMONDS.dollar2999
+    end
+
+    self.m_curDiamodns = self.m_curDiamodns + rewardDiamonds 
+    dd.GameData:refreshDiamonds(self.m_curDiamodns)
+end
+
+function GameShop:purchase(index)
+    cc.load("sdk").Billing.purchase(dd.appCommon.skuKeys[index], function (result)
+        print("Billing Purchase Result ~ ", result)
+        if device.platform == "ios" then
+            self:rewardDiamonds(result)
+            self:close(true)
+        elseif device.platform == "android" then
+            if result ~= "failed" then
+                cc.load("sdk").Billing.consume(result, function (skuKey)
+                    if skuKey ~= "failed" then
+                        self:rewardDiamonds(skuKey)
+                        self:close(true)
+                        print("Billing Consume Result ~ ", skuKey)
+                    end
+                end)
+            end
+        end
+    end)
 end
 
 return GameShop
