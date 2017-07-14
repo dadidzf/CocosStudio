@@ -152,6 +152,7 @@ function GameScene:checkSteps()
     end
 
     if self.m_steps <= 0 then
+        self:applyGamedataDisplay()
         self.m_labelStepNum:stopAllActions()
         local BuySteps = import(".BuySteps", MODULE_PATH)
         self.m_isPurchasing = true
