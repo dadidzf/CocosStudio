@@ -29,13 +29,13 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_zuanshi" ActionTag="-1199222789" Tag="26" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="543.9999" RightMargin="38.0001" TopMargin="33.0005" BottomMargin="888.9995" LabelText="999" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_zuanshi" ActionTag="-1199222789" Tag="26" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="539.9993" RightMargin="42.0007" TopMargin="33.0005" BottomMargin="888.9995" LabelText="999" ctype="TextBMFontObjectData">
             <Size X="58.0000" Y="38.0000" />
             <AnchorPoint ScaleY="0.5000" />
-            <Position X="543.9999" Y="907.9995" />
+            <Position X="539.9993" Y="907.9995" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8500" Y="0.9458" />
+            <PrePosition X="0.8437" Y="0.9458" />
             <PreSize X="0.0906" Y="0.0396" />
             <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
           </AbstractNodeData>

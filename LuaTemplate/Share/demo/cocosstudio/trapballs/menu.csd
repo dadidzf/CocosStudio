@@ -284,13 +284,13 @@
             <PreSize X="0.0938" Y="0.0625" />
             <FileData Type="PlistSubImage" Path="money.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="378429932" Tag="46" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="543.9996" RightMargin="38.0004" TopMargin="32.9999" BottomMargin="889.0001" LabelText="999" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="378429932" Tag="46" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="539.9994" RightMargin="42.0006" TopMargin="32.9999" BottomMargin="889.0001" LabelText="999" ctype="TextBMFontObjectData">
             <Size X="58.0000" Y="38.0000" />
             <AnchorPoint ScaleY="0.5000" />
-            <Position X="543.9996" Y="908.0001" />
+            <Position X="539.9994" Y="908.0001" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8500" Y="0.9458" />
+            <PrePosition X="0.8437" Y="0.9458" />
             <PreSize X="0.0906" Y="0.0396" />
             <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
           </AbstractNodeData>
