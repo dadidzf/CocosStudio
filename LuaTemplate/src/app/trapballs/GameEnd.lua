@@ -242,6 +242,7 @@ end
 
 function GameEnd:onRank()
     dd.PlaySound("buttonclick.mp3")
+    cc.load("sdk").GameCenter.openGameCenterLeaderboardsUI(self.m_levelIndex)
 end
 
 function GameEnd:onShare()

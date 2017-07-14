@@ -71,6 +71,7 @@ function NodeLevel:onGlobalRank()
     if not self.m_alreadyMoved then
         print("NodeLevel:onGlobalRank", self.m_index)
         dd.PlaySound("buttonclick.mp3")
+        cc.load("sdk").GameCenter.openGameCenterLeaderboardsUI(self.m_index)
     end
 end
 
