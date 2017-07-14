@@ -6,30 +6,30 @@
       <ObjectData Name="Node" Tag="47" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="Image_4" ActionTag="-321129530" Tag="86" IconVisible="False" LeftMargin="-143.6614" RightMargin="-476.3386" TopMargin="74.4197" BottomMargin="-184.4197" Scale9Enable="True" LeftEage="50" RightEage="50" TopEage="40" BottomEage="40" Scale9OriginX="50" Scale9OriginY="40" Scale9Width="200" Scale9Height="40" ctype="ImageViewObjectData">
-            <Size X="620.0000" Y="110.0000" />
+          <AbstractNodeData Name="Image_4" ActionTag="-321129530" Tag="86" IconVisible="False" LeftMargin="-143.3500" RightMargin="-316.6500" TopMargin="71.4886" BottomMargin="-211.4886" Scale9Enable="True" LeftEage="50" RightEage="50" TopEage="40" BottomEage="40" Scale9OriginX="50" Scale9OriginY="40" Scale9Width="200" Scale9Height="40" ctype="ImageViewObjectData">
+            <Size X="460.0000" Y="140.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="166.3386" Y="-129.4197" />
+            <Position X="86.6500" Y="-141.4886" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="di_txt.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="1783668326" Tag="84" IconVisible="False" LeftMargin="-113.7048" RightMargin="-446.2952" TopMargin="98.9345" BottomMargin="-126.9345" LabelText="Remember not to let the ball hit the middle of the" ctype="TextBMFontObjectData">
-            <Size X="560.0000" Y="28.0000" />
+          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="1783668326" Tag="84" IconVisible="False" LeftMargin="-78.7733" RightMargin="-282.2267" TopMargin="98.0191" BottomMargin="-126.0191" LabelText="Remember not to let the ball hit" ctype="TextBMFontObjectData">
+            <Size X="361.0000" Y="28.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="166.2952" Y="-112.9345" />
+            <Position X="101.7267" Y="-112.0191" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="white_24.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="-151406282" Tag="85" IconVisible="False" LeftMargin="-113.7049" RightMargin="-431.2951" TopMargin="127.5803" BottomMargin="-155.5803" LabelText="extending line, it will lead to failure of the game" ctype="TextBMFontObjectData">
-            <Size X="545.0000" Y="28.0000" />
+          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="-151406282" Tag="85" IconVisible="False" LeftMargin="-112.7732" RightMargin="-286.2268" TopMargin="126.8342" BottomMargin="-154.8342" LabelText=" the middle of the extending line, it" ctype="TextBMFontObjectData">
+            <Size X="399.0000" Y="28.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="158.7951" Y="-141.5803" />
+            <Position X="86.7268" Y="-140.8342" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -65,6 +65,16 @@
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="ball_white.png" Plist="trapballs/gui.plist" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="BitmapFontLabel_2_0" ActionTag="-1946213961" Tag="30" IconVisible="False" LeftMargin="-112.7731" RightMargin="-242.2269" TopMargin="155.6492" BottomMargin="-183.6492" LabelText=" will lead to failure of the game" ctype="TextBMFontObjectData">
+            <Size X="355.0000" Y="28.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="64.7269" Y="-169.6492" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <LabelBMFontFile_CNB Type="Normal" Path="white_24.fnt" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>
