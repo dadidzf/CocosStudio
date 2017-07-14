@@ -64,6 +64,7 @@ function GameScene:getNewGuideCtl()
 end
 
 function GameScene:resetGame()
+    self:getParent():getPhysicsWorld():setAutoStep(false)
     self.m_newGuideCtl:reset(self, self.m_levelIndex)
     self:showRandBg()
     self:showGameNode()

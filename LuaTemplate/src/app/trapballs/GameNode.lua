@@ -34,6 +34,10 @@ end
 function GameNode:onBallCreateOk(ballList)
     self.m_scene:getNewGuideCtl():controlBalls(ballList)
     self.m_scene:onBallCreateOk()
+
+    for _, gear in ipairs(self.m_obstacleGears) do
+        gear:startAction()
+    end
 end
 
 function GameNode:createObstacles(levelIndex)
