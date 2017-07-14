@@ -274,23 +274,23 @@
             <NodeNormalFileData Type="PlistSubImage" Path="xiexian.png" Plist="trapballs/gui.plist" />
             <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_4" ActionTag="88726947" Tag="28" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="488.9999" RightMargin="91.0001" TopMargin="22.0005" BottomMargin="877.9995" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_4" ActionTag="88726947" Tag="28" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="480.0000" RightMargin="100.0000" TopMargin="22.0002" BottomMargin="877.9998" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
             <Size X="60.0000" Y="60.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="518.9999" Y="907.9995" />
+            <Position X="510.0000" Y="907.9998" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8109" Y="0.9458" />
+            <PrePosition X="0.7969" Y="0.9458" />
             <PreSize X="0.0938" Y="0.0625" />
             <FileData Type="PlistSubImage" Path="money.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="378429932" Tag="46" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="552.9996" RightMargin="29.0004" TopMargin="32.9999" BottomMargin="889.0001" LabelText="999" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="378429932" Tag="46" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="543.9996" RightMargin="38.0004" TopMargin="32.9999" BottomMargin="889.0001" LabelText="999" ctype="TextBMFontObjectData">
             <Size X="58.0000" Y="38.0000" />
             <AnchorPoint ScaleY="0.5000" />
-            <Position X="552.9996" Y="908.0001" />
+            <Position X="543.9996" Y="908.0001" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8641" Y="0.9458" />
+            <PrePosition X="0.8500" Y="0.9458" />
             <PreSize X="0.0906" Y="0.0396" />
             <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
           </AbstractNodeData>

@@ -68,6 +68,7 @@
             <PlistImageFile Name="drawline_horizontal.png" Key="drawline_horizontal.png" />
             <PlistImageFile Name="drawline_vertical.png" Key="drawline_vertical.png" />
             <PlistImageFile Name="gameover.png" Key="gameover.png" />
+            <PlistImageFile Name="go.png" Key="go.png" />
             <PlistImageFile Name="hand.png" Key="hand.png" />
             <PlistImageFile Name="help.png" Key="help.png" />
             <PlistImageFile Name="highscore.png" Key="highscore.png" />
@@ -85,6 +86,7 @@
             <PlistImageFile Name="space.png" Key="space.png" />
             <PlistImageFile Name="stageclear.png" Key="stageclear.png" />
             <PlistImageFile Name="stop.png" Key="stop.png" />
+            <PlistImageFile Name="teachlevel.png" Key="teachlevel.png" />
             <PlistImageFile Name="trapballs.png" Key="trapballs.png" />
             <PlistImageFile Name="xiexian.png" Key="xiexian.png" />
             <PlistImageFile Name="zhangai_chilun.png" Key="zhangai_chilun.png" />
@@ -92,8 +94,6 @@
             <PlistImageFile Name="zhangai_nengliangqiu2.png" Key="zhangai_nengliangqiu2.png" />
             <PlistImageFile Name="zhangai_nengliangqiu3.png" Key="zhangai_nengliangqiu3.png" />
             <PlistImageFile Name="zhangai_nengliangqiu4.png" Key="zhangai_nengliangqiu4.png" />
-            <PlistImageFile Name="go.png" Key="go.png" />
-            <PlistImageFile Name="teachlevel.png" Key="teachlevel.png" />
           </PlistImageFolder>
           <Folder Name="tips">
             <Project Name="Node_tips1.csd" Type="Node" />
