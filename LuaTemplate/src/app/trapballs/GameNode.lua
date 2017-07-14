@@ -124,7 +124,7 @@ function GameNode:onContactBegin(contact)
     local nodeA = shapeA:getBody():getNode()
     local nodeB = shapeB:getBody():getNode()
 
-    if not (nodeA and nodeB) then
+    if tolua.isnull(nodeA) or tolua.isnull(nodeB) then
         return
     end
 

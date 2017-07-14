@@ -15,6 +15,9 @@ function NewGuideController:reset(gameScene, levelIndex)
 
     self.m_speed = 150
     self:clear()
+
+    self.m_curStep = 0
+    self.m_tipsDisplayTime = 6.0
 end
 
 function NewGuideController:clear()
@@ -34,7 +37,6 @@ function NewGuideController:controlBalls(ballsList)
     ball:getPhysicsBody():setVelocity(cc.p(0, 0))
     ball:setPosition(cc.p(0, 0))
 
-    self.m_curStep = 1
     self.m_controlBall:runAction(cc.Sequence:create(
         cc.MoveTo:create(300/self.m_speed, cc.p(300, 0)),
         cc.MoveTo:create(300/self.m_speed, cc.p(0, 0)),
@@ -46,6 +48,7 @@ function NewGuideController:controlBalls(ballsList)
 end
 
 function NewGuideController:step1()
+    self.m_curStep = 1
     self:showTips(cc.p(display.cx, display.height*0.7))
 
     local picVertical = self.m_gameScene:getPicVertical()
@@ -60,7 +63,7 @@ function NewGuideController:step2()
 
     self:showTips(self.m_gameScene:getImgCirclePos()) 
     self.m_gameScene:runAction(cc.Sequence:create(
-        cc.DelayTime:create(6.0),
+        cc.DelayTime:create(self.m_tipsDisplayTime),
         cc.CallFunc:create(function ( ... )
             self:removeTips()
             self:step3()
@@ -69,13 +72,11 @@ function NewGuideController:step2()
 end
 
 function NewGuideController:step3()
-    self.m_curStep = 3
-
     local speed = 300
     self.m_controlBall:runAction(cc.Sequence:create(
         cc.MoveTo:create(300/self.m_speed, cc.p(-300, 0)),
-        cc.MoveTo:create(150/self.m_speed, cc.p(-150, 0)),
         cc.CallFunc:create(function ()
+            self.m_curStep = 3
             self:showTips(cc.p(display.cx, display.height*0.7))
             local picHorizontal = self.m_gameScene:getPicHorizontal()
             local pos1 = cc.p(picHorizontal:getPositionX(), picHorizontal:getPositionY())
@@ -88,12 +89,15 @@ end
 
 function NewGuideController:step4()
     self.m_curStep = 4
-    self:showTips(cc.p(display.cx, display.height*0.7))
+    self:showTips(self.m_gameScene:convertToNodeSpace(
+        self.m_gameScene:getGameNode():convertToWorldSpace(cc.p(-20, -20))))
+
     self.m_gameScene:runAction(cc.Sequence:create(
-        cc.DelayTime:create(3.0),
+        cc.DelayTime:create(self.m_tipsDisplayTime),
         cc.CallFunc:create(function ( ... )
             self:removeTips()
-            self:step5()
+            self.m_controlLine:resume()
+            self.m_gameScene:getParent():getPhysicsWorld():setAutoStep(true)
         end)
         ))
 end
@@ -101,9 +105,11 @@ end
 function NewGuideController:step5()
     self.m_curStep = 5
     self:showTips(cc.p(display.cx, display.height*0.7))
+    self.m_controlBall:getPhysicsBody():setVelocity(cc.p(0, 0))
     self.m_gameScene:runAction(cc.Sequence:create(
-        cc.DelayTime:create(3.0),
+        cc.DelayTime:create(self.m_tipsDisplayTime),
         cc.CallFunc:create(function ( ... )
+        self.m_controlBall:getPhysicsBody():setVelocity(cc.p(-150, 0))
             self:removeTips()
             self:step6()
         end)
@@ -114,7 +120,7 @@ function NewGuideController:step6()
     self.m_curStep = 6
     self:showTips(cc.p(display.cx, display.height*0.7))
     self.m_gameScene:runAction(cc.Sequence:create(
-        cc.DelayTime:create(3.0),
+        cc.DelayTime:create(self.m_tipsDisplayTime),
         cc.CallFunc:create(function ( ... )
             self:clear()
         end)
@@ -124,7 +130,16 @@ function NewGuideController:step6()
 end
 
 function NewGuideController:showTips(pos)
-    self.m_tipsNode = cc.CSLoader:createNode(string.format("tips/Node_tips%d.csb", self.m_curStep))
+    local tipsCsbNameList = {
+        "tips/Node_tips1.csb",
+        "tips/Node_tips2.csb",
+        "tips/Node_tips3.csb",
+        "tips/Node_tips5.csb",
+        "tips/Node_tips4.csb",
+        "tips/Node_tips6.csb"
+    }
+
+    self.m_tipsNode = cc.CSLoader:createNode(tipsCsbNameList[self.m_curStep])
         :move(pos)
 
     self.m_tipsNode:setOpacity(0)
@@ -191,8 +206,8 @@ function NewGuideController:checkDirection(isHorizontal)
 end
 
 function NewGuideController:onTopCollision(collisionPos)
-    if self.m_curStep == 3 then
-        self:step4()
+    if self.m_curStep == 4 then
+        self:step5()
     end
 end
 
@@ -228,6 +243,15 @@ function NewGuideController:onIconPlaced(extendLine)
         if self.m_curStep == 3 then
             extendLine:setPosition(cc.p(0, 0))
             self.m_controlBall:getPhysicsBody():setVelocity(cc.p(self.m_speed, 0))
+            self.m_gameScene:runAction(cc.Sequence:create(
+                cc.DelayTime:create(0.3),
+                cc.CallFunc:create(function ( ... )
+                    self.m_controlLine = extendLine
+                    extendLine:pause()
+                    self.m_gameScene:getParent():getPhysicsWorld():setAutoStep(false)
+                    self:step4()
+                end)
+                ))
         end
         return true
     else
