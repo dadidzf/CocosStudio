@@ -39,12 +39,15 @@ GameEnd.RESOURCE_BINDING = {
 
     ["BitmapFontLabel_roundnumber"] = {varname = "m_labelRoundNum"},
     ["BitmapFontLabel_highscorenumber"] = {varname = "m_labelHighScore"},
-    ["Image_highscore"] = {varname = "m_imgHighScoreIcon"}
+    ["Image_highscore"] = {varname = "m_imgHighScoreIcon"},
+
+    ["BitmapFontLabel_zuanshi"] = {varname = "m_labelTotalDiamonds"}
 }
 
 function GameEnd:ctor(gameScene, levelIndex, param)
     self.super.ctor(self)
 
+    self.m_labelTotalDiamonds:setString(tostring(dd.GameData:getDiamonds()))
     self.m_levelIndex = levelIndex
     self.m_gameScene = gameScene
     dd.GameData:levelPass(levelIndex)
@@ -89,11 +92,26 @@ function GameEnd:rewardDiamondsAction()
         cc.Blink:create(2, 2),
         cc.MoveTo:create(1.0, cc.p(display.width/2 - rewardDiamondsSize.width, 
             display.height/2 - rewardDiamondsSize.height)),
-        cc.DelayTime:create(1.0),
-        cc.FadeOut:create(1.0),
         cc.CallFunc:create(function ( ... )
             rewardDiamonds:removeFromParent()
+            self:addDiamonds(dd.Constants.LEVEL_PASS_DIAMONDS_REWARD)
         end)
+        ))
+end
+
+function GameEnd:addDiamonds(addNum)
+    if addNum == 0 then
+        return
+    end
+
+    local curDiamonds = dd.GameData:getDiamonds()
+    dd.GameData:refreshDiamonds(curDiamonds + addNum)
+    self.m_labelTotalDiamonds:runAction(cc.Sequence:create(
+        cc.ScaleTo:create(0.3, 1.6),
+        cc.CallFunc:create(function ()
+            self.m_labelTotalDiamonds:setString(tostring(dd.GameData:getDiamonds()))
+        end),
+        cc.ScaleTo:create(0.3, 1)
         ))
 end
 
@@ -109,9 +127,6 @@ function GameEnd:updateScorePanel(param)
     self.m_totalScore = self.m_fillScore + self.m_livesScore + self.m_stepsScore
 
     self.m_diamondsReward = 10*param.topCollision
-    local curDiamonds = dd.GameData:getDiamonds()
-    dd.GameData:refreshDiamonds(curDiamonds + self.m_diamondsReward + dd.Constants.LEVEL_PASS_DIAMONDS_REWARD)
-
     self.m_labelDiamondReward:setString(tostring(self.m_diamondsReward))
     self.m_labelStepsScore:setString(tostring(self.m_stepsScore))
     self.m_labelFillRateScore:setString(tostring(self.m_fillScore))
@@ -166,6 +181,7 @@ function GameEnd:updateScorePanel(param)
         else
             dd.scheduler:unscheduleScriptEntry(scheduleId)
             scheduleId = nil
+            self:addDiamonds(self.m_diamondsReward)
         end
         index = index + 1
     end

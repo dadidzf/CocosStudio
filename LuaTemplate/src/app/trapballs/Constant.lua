@@ -40,10 +40,10 @@ Constants.MORE_RESOURCE = {
 Constants.INIT_DIAMONDS = 180
 
 Constants.MONEY_MAP_DIAMONDS = {
-    dollar099 = 99,
-    dollar299 = 399,
-    dollar999 = 1999,
-    dollar2999 = 9999
+    dollar099 = 200,
+    dollar299 = 700,
+    dollar999 = 3000,
+    dollar2999 = 10000
 }
 
 Constants.LEVEL_PASS_DIAMONDS_REWARD = 20

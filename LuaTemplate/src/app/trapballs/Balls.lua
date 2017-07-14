@@ -28,16 +28,17 @@ function Balls:addBalls()
                     self:addBall(speed, pos)
                     --speed = cc.pMul(speed, 0.2)
 
-                    local particle = cc.ParticleSystemQuad:create("particle/particle_ballfail.plist") 
+                    local particle = cc.ParticleSystemQuad:create("particle/particle_ballstart.plist") 
                         :move(pos)
                         :addTo(self)
 
                     table.insert(self.m_particleList, particle)
                 end
             end),
-            cc.DelayTime:create(0.3),
+            cc.DelayTime:create(1.0),
             cc.CallFunc:create(function ( ... )
                 for _, ball in ipairs(self.m_ballList) do
+                    ball:setVisible(true)
                     ball:getPhysicsBody():setVelocity(ball.m_retoreMyVel)
                 end
                 for _, particle in ipairs(self.m_particleList) do
@@ -67,6 +68,7 @@ function Balls:addBall(velocity, pos, picName)
         + dd.Constants.CATEGORY.EXTENDLINE + dd.Constants.CATEGORY.OBSTACLE_POWER + dd.Constants.CATEGORY.BALL)
     --edgeBody:setVelocity(vel)
     ball:setPhysicsBody(edgeBody)
+    ball:setVisible(false)
     ball.m_retoreMyVel = velocity
 
     table.insert(self.m_ballList, ball)

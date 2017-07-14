@@ -38,8 +38,7 @@ function NewGuideController:controlBalls(ballsList)
     ball:setPosition(cc.p(0, 0))
 
     self.m_controlBall:runAction(cc.Sequence:create(
-        cc.MoveTo:create(300/self.m_speed, cc.p(300, 0)),
-        cc.MoveTo:create(300/self.m_speed, cc.p(0, 0)),
+        cc.MoveTo:create(150/self.m_speed, cc.p(-150, 0)),
         cc.CallFunc:create(function ()
             self:step1()
         end)
@@ -74,7 +73,7 @@ end
 function NewGuideController:step3()
     local speed = 300
     self.m_controlBall:runAction(cc.Sequence:create(
-        cc.MoveTo:create(300/self.m_speed, cc.p(-300, 0)),
+        cc.MoveTo:create(150/self.m_speed, cc.p(-300, 0)),
         cc.CallFunc:create(function ()
             self.m_curStep = 3
             self:showTips(cc.p(display.cx, display.height*0.7))

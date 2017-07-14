@@ -33,6 +33,7 @@ end
 
 function GameNode:onBallCreateOk(ballList)
     self.m_scene:getNewGuideCtl():controlBalls(ballList)
+    self.m_scene:onBallCreateOk()
 end
 
 function GameNode:createObstacles(levelIndex)
@@ -192,6 +193,10 @@ function GameNode:onContactBegin(contact)
     if cateGoryAdd == dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS + dd.Constants.CATEGORY.BALL then
         local collisionPt = self:getExtendLineBallCollisionPt(shapeA, shapeB)
         if collisionPt then
+            local particle = cc.ParticleSystemQuad:create("particle/particle_top.plist") 
+                :move(collisionPt)
+                :addTo(self)
+
             self:dealExtendlineCollision(collisionPt, dd.Constants.CATEGORY.BALL)
             self.m_scene:getNewGuideCtl():onTopCollision(collisionPt)
         else
@@ -219,6 +224,7 @@ function GameNode:obstacleGearDestory(nodeObstacleGear)
         cc.Blink:create(0.5, 2),
         cc.CallFunc:create(function ()
         nodeObstacleGear:removeFromParent()
+        dd.PlaySound("sawbreak.mp3")
         end)
     ))
 end

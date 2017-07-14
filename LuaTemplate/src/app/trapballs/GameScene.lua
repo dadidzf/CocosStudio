@@ -48,6 +48,14 @@ function GameScene:ctor(levelIndex)
     self:initGameProgress()
     self:showProps()
     self:applyGamedataDisplay()
+
+    self.m_picVertical:setOpacity(0)
+    self.m_picHorizontal:setOpacity(0)
+end
+
+function GameScene:onBallCreateOk()
+    self.m_picVertical:runAction(cc.FadeIn:create(0.5))
+    self.m_picHorizontal:runAction(cc.FadeIn:create(0.5))
 end
 
 function GameScene:getNewGuideCtl()
@@ -84,9 +92,11 @@ function GameScene:initGameData(levelIndex)
 end
 
 function GameScene:gameSuccess()
+    self.m_labelStepNum:stopAllActions()
     local GameEnd = import(".GameEnd", MODULE_PATH)
     local params = {}
 
+    dd.PlaySound("gameSuccess.mp3", 80)
     params.fill = math.floor(self.m_gameCurCut*10)/10
     params.lives = self.m_lives
     params.steps = self.m_steps
@@ -100,6 +110,7 @@ function GameScene:gameSuccess()
 end
 
 function GameScene:gameFail()
+    self.m_labelStepNum:stopAllActions()
     local GameFail = import(".GameFail", MODULE_PATH)
     local gameFail = GameFail:create(self) 
     self:addChild(gameFail, 2)
@@ -129,7 +140,17 @@ function GameScene:checkSteps()
     if self.m_isGameEnd then return end
     if self.m_isPurchasing then return end
 
+    if self.m_steps <= 2 then
+        self.m_labelStepNum:runAction(cc.RepeatForever:create(
+            cc.Sequence:create(
+                cc.FadeOut:create(0.5),
+                cc.FadeIn:create(0.5)
+                )
+            ))
+    end
+
     if self.m_steps <= 0 then
+        self.m_labelStepNum:stopAllActions()
         local BuySteps = import(".BuySteps", MODULE_PATH)
         self.m_isPurchasing = true
         local buySteps = BuySteps:create(function (givenSteps)
@@ -170,7 +191,7 @@ function GameScene:updateStepsDisplay()
 end
 
 function GameScene:loseLife()
-    import(".ScreenShaker", MODULE_PATH):create(self, 0.5):run()
+    import(".ScreenShaker", MODULE_PATH):create(self, 0.2):run()
     
     dd.PlaySound("loseLife.mp3")
     self.m_lives = self.m_lives - 1
@@ -279,12 +300,14 @@ end
 function GameScene:showGameProgress()
     self.m_progressGray:setPercentage(self.m_gameCurCut)
     self.m_progressWhite:setPercentage(100 - self.m_gameCurCut)
+    self.m_progressBlack:setPercentage(100 - self.m_gameTarget)
 end
 
 function GameScene:showLives()
     for index = 1, 3 do 
         if index <= self.m_lives then
             self.m_imgLifeList[index]:setVisible(true)
+            self.m_imgLifeList[index]:setOpacity(255)
         else
             self.m_imgLifeList[index]:setVisible(false)
         end
@@ -340,13 +363,13 @@ function GameScene:getValidSpriteFrame(location)
     local size = self.m_picHorizontal:getContentSize()
     local rect = cc.rect(0, 0, size.width, size.height)
 
-    if cc.rectContainsPoint(rect, pos) then
+    if cc.rectContainsPoint(rect, pos) and self.m_picHorizontal:getOpacity() >= 200 then
         return self.m_picHorizontal:getVirtualRenderer():getSprite():getSpriteFrame(), true, 
             self.m_picHorizontal:convertToWorldSpace(cc.p(size.width/2, size.height/2))
     end
 
     pos = self.m_picVertical:convertToNodeSpace(location)
-    if cc.rectContainsPoint(rect, pos) then
+    if cc.rectContainsPoint(rect, pos) and self.m_picVertical:getOpacity() >= 200 then
         return self.m_picVertical:getVirtualRenderer():getSprite():getSpriteFrame(), false, 
             self.m_picVertical:convertToWorldSpace(cc.p(size.width/2, size.height/2))
     end
