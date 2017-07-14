@@ -56,6 +56,7 @@ end
 function GameScene:onBallCreateOk()
     self.m_picVertical:runAction(cc.FadeIn:create(0.5))
     self.m_picHorizontal:runAction(cc.FadeIn:create(0.5))
+    self:getParent():getPhysicsWorld():setAutoStep(true)
 end
 
 function GameScene:getNewGuideCtl()
@@ -385,6 +386,7 @@ function GameScene:showWithScene(transition, time, more)
     --physicWorld:setDebugDrawMask(cc.PhysicsWorld.DEBUGDRAW_ALL)
     physicWorld:setGravity(cc.p(0, 0))
     physicWorld:setFixedUpdateRate(60)
+    physicWorld:setAutoStep(false)
     
     return self
 end
