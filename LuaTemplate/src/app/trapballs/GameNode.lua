@@ -223,12 +223,12 @@ end
 function GameNode:obstacleGearDestory(nodeObstacleGear)
     local tag = nodeObstacleGear:getTag()
     self.m_obstacleGears[tag] = nil
+    dd.PlaySound("sawbreak.mp3")
     nodeObstacleGear:stopAllActions()
     nodeObstacleGear:runAction(cc.Sequence:create(
         cc.Blink:create(0.5, 2),
         cc.CallFunc:create(function ()
         nodeObstacleGear:removeFromParent()
-        dd.PlaySound("sawbreak.mp3")
         end)
     ))
 end
