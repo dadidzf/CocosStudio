@@ -316,7 +316,11 @@ function GameScene:onPause()
     local GamePause = import(".GamePause", MODULE_PATH)
     local pauseNode = GamePause:create()
     pauseNode:setPosition(display.cx, display.cy)
-    self:addChild(pauseNode, 2)
+    if self.m_levelIndex == 1 then
+        self:addChild(pauseNode, 200)
+    else
+        self:addChild(pauseNode, 2)
+    end
 end
 
 function GameScene:showGameNode()

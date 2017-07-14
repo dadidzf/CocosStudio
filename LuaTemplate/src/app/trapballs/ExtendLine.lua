@@ -211,6 +211,20 @@ function ExtendLine:showEffect(pos)
         ))
 end
 
+function ExtendLine:pause()
+    if self.m_scheduler then
+        dd.scheduler:unscheduleScriptEntry(self.m_scheduler)
+        self.m_scheduler = nil
+    end
+
+    self.m_diffTime = socket.gettime() - self.m_startTime
+end
+
+function ExtendLine:resume()
+    self.m_startTime = socket.gettime() - self.m_diffTime
+    self.m_scheduler = dd.scheduler:scheduleScriptFunc(handler(self, self.updatePhysicBody), 0, false)
+end
+
 function ExtendLine:isExtend()
     if self.m_positivePt and self.m_negativePt then
         return false
