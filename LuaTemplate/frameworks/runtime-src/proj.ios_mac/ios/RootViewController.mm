@@ -256,14 +256,22 @@
     if([dic[@"status"] intValue]==0){
         NSLog(@"购买成功！");
         NSDictionary *dicReceipt= dic[@"receipt"];
-        NSDictionary *dicInApp=[dicReceipt[@"in_app"] firstObject];
-        NSString *productIdentifier= dicInApp[@"product_id"];//读取产品标识
+        NSArray *dicInApp=dicReceipt[@"in_app"];
         
-        if (_billingFunctionId != 0)
-        {
-            cocos2d::LuaObjcBridge::pushLuaFunctionById(_billingFunctionId);
-            cocos2d::LuaObjcBridge::getStack()->pushString([productIdentifier UTF8String]);
-            cocos2d::LuaObjcBridge::getStack()->executeFunction(1);
+        long int count = [dicInApp count];
+        for (int i = 0 ; i < count; i++) {
+            NSDictionary *productPurchased = [dicInApp objectAtIndex:i];
+            NSString *productIdentifier= productPurchased[@"product_id"];//读取产品标识
+            if ([productIdentifier isEqualToString:_currentProId])
+            {
+                if (_billingFunctionId != 0)
+                {
+                    cocos2d::LuaObjcBridge::pushLuaFunctionById(_billingFunctionId);
+                    cocos2d::LuaObjcBridge::getStack()->pushString([_currentProId UTF8String]);
+                    cocos2d::LuaObjcBridge::getStack()->executeFunction(1);
+                }
+                break;
+            }
         }
         //如果是消耗品则记录购买数量，非消耗品则记录是否购买过
 //        NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];

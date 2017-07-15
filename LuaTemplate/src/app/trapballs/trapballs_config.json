@@ -58,7 +58,11 @@
         ],
         "skuKeys":
         [
-            "template_remove_ads"
+            "trapballs_remove_ads",
+            "trapballs_200_diamonds",
+            "trapballs_700_diamonds",
+            "trapballs_3000_diamonds",
+            "trapballs_10000_diamonds"
         ]
 	},
 	"android":
@@ -78,7 +82,34 @@
         ],
         "leaderboard":
         [
-            "CgkImebwqYofEAIQAg"
+            "CgkI5qn1qYMNEAIQAQ",
+            "CgkI5qn1qYMNEAIQAg",
+            "CgkI5qn1qYMNEAIQAw",
+            "CgkI5qn1qYMNEAIQBA",
+            "CgkI5qn1qYMNEAIQBQ",
+            "CgkI5qn1qYMNEAIQBg",
+            "CgkI5qn1qYMNEAIQBw",
+            "CgkI5qn1qYMNEAIQCA",
+            "CgkI5qn1qYMNEAIQCQ",
+            "CgkI5qn1qYMNEAIQCg",
+            "CgkI5qn1qYMNEAIQCw",
+            "CgkI5qn1qYMNEAIQDA",
+            "CgkI5qn1qYMNEAIQDQ",
+            "CgkI5qn1qYMNEAIQDg",
+            "CgkI5qn1qYMNEAIQDw",
+            "CgkI5qn1qYMNEAIQEA",
+            "CgkI5qn1qYMNEAIQEQ",
+            "CgkI5qn1qYMNEAIQEg",
+            "CgkI5qn1qYMNEAIQEw",
+            "CgkI5qn1qYMNEAIQFA",
+            "CgkI5qn1qYMNEAIQFQ",
+            "CgkI5qn1qYMNEAIQFg",
+            "CgkI5qn1qYMNEAIQFw",
+            "CgkI5qn1qYMNEAIQGA",
+            "CgkI5qn1qYMNEAIQGQ",
+            "CgkI5qn1qYMNEAIQGg",
+            "CgkI5qn1qYMNEAIQGw",
+            "CgkI5qn1qYMNEAIQHA"
         ],
         "skuKeys":
         [
@@ -87,7 +118,7 @@
         ],
 
 
-        "googlePlayAppId":"1067924075289",
+        "googlePlayAppId":"447569810662",
         "googleRSAKey":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2plP27WUDdVAK0l8mbn1rJQIA/yfXyCuB5LELiHju3Wq5TMaTxT8nqmYrx24z2eHbMqjUD+1R24CQH7Mykb3/iif5w1hXv5/aHjaT4pbByeE8EpXhShIQfQ9EL2trW1/zV8/dD/4oF5wjtPN+ErtFGdWHXy9AYMa9cFdh/5N689V8QEnOI6mPPhKB4FJ5QEOVO04TjvD9CmTVvonVFsS8KSwC5oo1Liid0vYs3gg8ZU3O7TkyINlAPcTm5ZXHVSO10jykwCy9hhTazIvCDYEqFnt0EEEUh98hiSjnGZpnF5dYK2iC71L5tP+h+e3QNds2Y+KidXJQn/rIr1L0+sS1QIDAQAB"
     }
 }

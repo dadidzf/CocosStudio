@@ -38,6 +38,7 @@ function MainScene:onCreate()
     self.m_checkBoxNoAds:onEvent(handler(self, self.onNoAds))
     self.m_checkBoxSound:onEvent(handler(self, self.onSoundOnOff))
     self.m_checkBoxSound:setSelected(not dd.GameData:isSoundEnable())
+    self.m_checkBoxNoAds:setSelected(dd.GameData:isAdsRemoved())
 
     self.m_labelDiamonds:setString(tostring(dd.GameData:getDiamonds()))
 
@@ -159,8 +160,11 @@ function MainScene:onNoAds()
             (result ~= "failed" and device.platform == "android") then
                 cc.load("sdk").Admob.getInstance():setAdsRemoved(true)
                 dd.GameData:setAdsRemoved(true)
+                self.m_checkBoxNoAds:setSelected(dd.GameData:isAdsRemoved())
         end
     end)
+
+    self.m_checkBoxNoAds:setSelected(dd.GameData:isAdsRemoved())
 end
 
 function MainScene:onSoundOnOff()
