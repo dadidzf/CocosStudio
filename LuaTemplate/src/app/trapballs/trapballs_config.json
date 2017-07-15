@@ -113,8 +113,11 @@
         ],
         "skuKeys":
         [
-            "android.test.purchased",
-            "test_ads"
+            "trapballs_remove_ads",
+            "trapballs_200_diamonds",
+            "trapballs_700_diamonds",
+            "trapballs_3000_diamonds",
+            "trapballs_10000_diamonds"
         ],
 
 
