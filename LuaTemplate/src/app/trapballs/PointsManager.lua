@@ -15,7 +15,7 @@ function PointsManager:ctor()
 
     -- once we put a clipline in the valid polygons, we create below two tables
     self.m_filterPolygonPtIndexList = {}
-    self.m_otherPolygonPtIndexList = {}
+    self.m_filterLinesIndexList = {}
 
     -- triangle lists
     self.m_removedPolygonTriangleLists = {}
@@ -283,36 +283,41 @@ end
 function PointsManager:getPolygonIndexAndFilterPointList(pt)
     local findPolygonIndex = nil
     local polygonClickedPtIndexRecordList = {}
-    local otherPolygonPtIndexRecordList = {}
 
-    for index, polygonPtIndexList in ipairs(self.m_validPolygonPtIndexPairList) do
+    dump(self.m_validPolygonPtIndexPairList)
+    print("----------------", #self.m_validPolygonPtIndexPairList)
+    for index = #self.m_validPolygonPtIndexPairList, 1, -1 do
+        local polygonPtIndexList = self.m_validPolygonPtIndexPairList[index] 
         if self:isPointInPolygonPtIndexList(pt, polygonPtIndexList) then
             findPolygonIndex = index
-            for _, ptIndexPair in ipairs(polygonPtIndexList) do
-                local ptIndex1 = ptIndexPair[1]
-                local ptIndex2 = ptIndexPair[2]
-                polygonClickedPtIndexRecordList[ptIndex1] = true
-                polygonClickedPtIndexRecordList[ptIndex2] = true
-            end
-        else
-            for _, ptIndexPair in ipairs(polygonPtIndexList) do
-                local ptIndex1 = ptIndexPair[1]
-                local ptIndex2 = ptIndexPair[2]
-                otherPolygonPtIndexRecordList[ptIndex1] = true
-                otherPolygonPtIndexRecordList[ptIndex2] = true
+            break
+        end
+    end
+    print("xxxxxx", findPolygonIndex)
+
+    self.m_filterPolygonPtIndexList = {}
+    if findPolygonIndex then
+        local findPolygonIndexList = self.m_validPolygonPtIndexPairList[findPolygonIndex]
+        for ptIndex, point in pairs(self.m_pointList) do
+            if self:isPointInPolygonPtIndexList(point, findPolygonIndexList, true) then
+                table.insert(self.m_filterPolygonPtIndexList, ptIndex, true)
             end
         end
     end
 
-    local filterPtIndexList = clone(otherPolygonPtIndexRecordList)
-    for index, _ in pairs(polygonClickedPtIndexRecordList) do
-        filterPtIndexList[index] = nil
-    end
-
-    self.m_filterPolygonPtIndexList = filterPtIndexList
-    self.m_otherPolygonPtIndexList = otherPolygonPtIndexRecordList
-
     return findPolygonIndex
+end
+
+function PointsManager:updateFilterLineIndexList()
+    self.m_filterLinesIndexList = {}
+    local findPolygonIndexList = self.m_validPolygonPtIndexPairList[self.m_clickPolygonIndex]
+
+    for lineIndex, _ in ipairs(self.m_lineList) do
+        local lineCenterPt = self:getLineCenterPt(lineIndex)
+        if self:isPointInPolygonPtIndexList(lineCenterPt, findPolygonIndexList, true) then
+            table.insert(self.m_filterLinesIndexList, lineIndex, true)
+        end
+    end
 end
 
 function PointsManager:getLineCenterPt(lineIndex)
@@ -407,6 +412,7 @@ function PointsManager:filterFindPolygons(allFindList, lineIndex)
     end
 
     dump(retFindList, "retFindList")
+    
     return retFindList
 end
 
@@ -417,10 +423,17 @@ function PointsManager:clipPolygon(clipLineIndex)
     local pointList = self.m_pointList
     local linePtIndexPair = self.m_lineList[clipLineIndex]
 
-    local allFindList = self:findlinePolygon(clipLineIndex, self.m_filterPolygonPtIndexList)
+    table.insert(self.m_filterPolygonPtIndexList, linePtIndexPair[1], true)
+    table.insert(self.m_filterPolygonPtIndexList, linePtIndexPair[2], true)
+    self:updateFilterLineIndexList()
+    dump(self.m_filterPolygonPtIndexList, "self.m_filterPolygonPtIndexList")
+    dump(self.m_filterLinesIndexList, "self.m_filterLinesIndexList")
+
+    local allFindList = self:findlinePolygon(clipLineIndex, self.m_filterPolygonPtIndexList, self.m_filterLinesIndexList)
     allFindList = self:filterFindPolygons(allFindList, clipLineIndex)
     
     local polygonSmallInBig = false
+
     if self.m_clickPolygonIndex then
         if #allFindList == 2 then 
             table.remove(self.m_validPolygonPtIndexPairList, self.m_clickPolygonIndex)
@@ -428,7 +441,7 @@ function PointsManager:clipPolygon(clipLineIndex)
             polygonSmallInBig = true
         else
             if #allFindList ~= 0 then
-                assert("should not be here !")
+                assert(false, "should not be here !")
             end
         end
     else
@@ -630,7 +643,7 @@ function PointsManager:updateValidPolyPtIndex(linePtIndexPair)
     end
 end
 
-function PointsManager:findlinePolygon(lineIndex, filterPtIndexList)
+function PointsManager:findlinePolygon(lineIndex, filterPtIndexList, filterLineIndexList)
     filterPtIndexList = filterPtIndexList or {}
     self:updatePointMapLineList()
 
@@ -659,7 +672,9 @@ function PointsManager:findlinePolygon(lineIndex, filterPtIndexList)
                     nextPtIndex = linePtIndexPair[1]
                 end
 
-                if (not findPtIndexRecordList[nextPtIndex]) and (not filterPtIndexList[nextPtIndex]) then
+                print("---------------------------", lineIndex, filterLineIndexList[lineIndex])
+                if (not findPtIndexRecordList[nextPtIndex]) and filterPtIndexList[nextPtIndex]
+                    and filterLineIndexList[lineIndex] then
                     dnf(lineIndex, nextPtIndex, destIndex)
                     table.remove(findList, #findList)
                     findPtIndexRecordList[nextPtIndex] = nil

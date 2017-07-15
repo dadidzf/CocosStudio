@@ -37,7 +37,7 @@ Constants.MORE_RESOURCE = {
     MORE_STEPS = {steps = 3, diamonds = 100}
 }
 
-Constants.INIT_DIAMONDS = 180
+Constants.INIT_DIAMONDS = 88
 
 Constants.MONEY_MAP_DIAMONDS = {
     dollar099 = 200,
