@@ -247,7 +247,7 @@ def beforePackageGame(name):
     
     shutil.copytree(os.path.join(curPath, 'temp', 'res', name), os.path.join(curPath, 'res', name))
     #os.remove(os.path.join(curPath, 'res', name, '512.png'))
-    os.remove(os.path.join(curPath, 'res', name, 'splash.png'))
+    #os.remove(os.path.join(curPath, 'res', name, 'splash.png'))
     os.remove(os.path.join(curPath, 'res', name, 'google-services.json'))
     os.remove(os.path.join(curPath, 'res', name, 'GoogleService-Info.plist'))
 
