@@ -442,6 +442,7 @@ import com.google.android.gms.common.GoogleApiAvailability;
             }
 
             Log.d(TAG, "Purchase successful.");
+            s_queryResult.addPurchase(purchase);
             sendResult(s_billingPurchaseLuaFunctionId, purchase.getSku());
         }
     };
@@ -459,11 +460,11 @@ import com.google.android.gms.common.GoogleApiAvailability;
 
             if (result.isSuccess()) {
                 Log.d(TAG, "Consumption successful. Provisioning.");
-                sendResult(s_billingConsumeFunctionId, FAILED_RESULT);
+                sendResult(s_billingConsumeFunctionId, purchase.getSku());
             }
             else {
-                sendResult(s_billingConsumeFunctionId, purchase.getSku());
                 complain("Error while consuming: " + result);
+                sendResult(s_billingConsumeFunctionId, FAILED_RESULT);
             }
 
             Log.d(TAG, "End consumption flow.");

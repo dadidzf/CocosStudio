@@ -96,7 +96,9 @@ function GameShop:purchase(index)
             self:close(true)
         elseif device.platform == "android" then
             if result ~= "failed" then
+                self.m_btnClose:setEnabled(false)
                 cc.load("sdk").Billing.consume(result, function (skuKey)
+                    self.m_btnClose:setEnabled(true)
                     if skuKey ~= "failed" then
                         self:rewardDiamonds(skuKey)
                         self:close(true)
