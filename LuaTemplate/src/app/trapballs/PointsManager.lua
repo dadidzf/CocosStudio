@@ -14,7 +14,6 @@ function PointsManager:ctor()
     self.m_validPolygonPtIndexPairList = {}
 
     -- once we put a clipline in the valid polygons, we create below two tables
-    self.m_filterPolygonPtIndexList = {}
     self.m_filterLinesIndexList = {}
 
     -- triangle lists
@@ -47,7 +46,7 @@ function PointsManager:isPtInOneValidPolygon(pt)
         return false
     end
     
-    self.m_clickPolygonIndex =  self:getPolygonIndexAndFilterPointList(pt)
+    self.m_clickPolygonIndex =  self:getPolygonIndex(pt)
     if self.m_clickPolygonIndex and (not self:isPtInSmallPolygons(pt, true)) then
         return true
     else
@@ -280,7 +279,7 @@ function PointsManager:adjustBallsPos(ballPosList)
     end 
 end
 
-function PointsManager:getPolygonIndexAndFilterPointList(pt)
+function PointsManager:getPolygonIndex(pt)
     local findPolygonIndex = nil
     local polygonClickedPtIndexRecordList = {}
 
@@ -294,16 +293,6 @@ function PointsManager:getPolygonIndexAndFilterPointList(pt)
         end
     end
     print("xxxxxx", findPolygonIndex)
-
-    self.m_filterPolygonPtIndexList = {}
-    if findPolygonIndex then
-        local findPolygonIndexList = self.m_validPolygonPtIndexPairList[findPolygonIndex]
-        for ptIndex, point in pairs(self.m_pointList) do
-            if self:isPointInPolygonPtIndexList(point, findPolygonIndexList, true) then
-                table.insert(self.m_filterPolygonPtIndexList, ptIndex, true)
-            end
-        end
-    end
 
     return findPolygonIndex
 end
@@ -672,8 +661,7 @@ function PointsManager:findlinePolygon(lineIndex, filterPtIndexList, filterLineI
                     nextPtIndex = linePtIndexPair[1]
                 end
 
-                print("---------------------------", lineIndex, filterLineIndexList[lineIndex])
-                if (not findPtIndexRecordList[nextPtIndex]) and filterPtIndexList[nextPtIndex]
+                if (not findPtIndexRecordList[nextPtIndex]) 
                     and filterLineIndexList[lineIndex] then
                     dnf(lineIndex, nextPtIndex, destIndex)
                     table.remove(findList, #findList)

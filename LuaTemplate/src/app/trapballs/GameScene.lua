@@ -360,6 +360,8 @@ function GameScene:showGameNode()
         :addTo(self)
 
     self.m_node:setScale(dd.Constants.NODE_SCALE)
+
+    dd.GameData:increaseLevelPlayTimes()
 end
 
 function GameScene:getValidSpriteFrame(location)

@@ -216,7 +216,9 @@ function GameEnd:updateScorePanel(param)
     self.m_btnNext:runAction(cc.Sequence:create(
         getScaleAction(commonDelay + 0.4),
         cc.CallFunc:create(function ( ... )
-            cc.load("sdk").Admob.getInstance():showInterstitial()
+            if dd.GameData:getLevelPlayTimes()%2 == 0 then
+                cc.load("sdk").Admob.getInstance():showInterstitial()
+            end
         end)
         )
     )

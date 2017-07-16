@@ -92,4 +92,16 @@ function GameData:setAdsRemoved(val)
     cc.UserDefault:getInstance():setBoolForKey("noads", true)
 end
 
+function GameData:getLevelPlayTimes()
+    if not self.m_levelPlayTimes then
+        self.m_levelPlayTimes = 0
+    end
+
+    return self.m_levelPlayTimes
+end
+
+function GameData:increaseLevelPlayTimes()
+    self.m_levelPlayTimes = self:getLevelPlayTimes() + 1
+end
+
 return GameData
