@@ -160,14 +160,14 @@ function GameNode:onContactBegin(contact)
     -- gear with extendline
     if cateGoryAdd == dd.Constants.CATEGORY.OBSTACLE_GEAR + dd.Constants.CATEGORY.EXTENDLINE or 
         cateGoryAdd == dd.Constants.CATEGORY.OBSTACLE_GEAR + dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS then
-        self:extendLineDestory()
+        self:extendLineDestory(shapeA, shapeB)
         return false
     end
 
     -- power with extendline
     if cateGoryAdd == dd.Constants.CATEGORY.OBSTACLE_POWER + dd.Constants.CATEGORY.EXTENDLINE or 
         cateGoryAdd == dd.Constants.CATEGORY.OBSTACLE_POWER + dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS then
-        self:extendLineDestory()
+        self:extendLineDestory(shapeA, shapeB)
         return false
     end
 
@@ -231,7 +231,7 @@ function GameNode:onContactBegin(contact)
 
     -- ball with extend line
     if cateGoryAdd == dd.Constants.CATEGORY.EXTENDLINE + dd.Constants.CATEGORY.BALL then
-        self:extendLineDestory()
+        self:extendLineDestory(shapeA, shapeB)
         return false
     end
 end
@@ -253,8 +253,17 @@ function GameNode:obstacleGearDestory(nodeObstacleGear)
     ))
 end
 
-function GameNode:extendLineDestory()
-    if self.m_extendLine:isExtend() then
+function GameNode:extendLineDestory(shapeA, shapeB)
+    local shapeACategory = shapeA:getCategoryBitmask()
+    local shapeLine 
+    if shapeACategory == dd.Constants.CATEGORY.EXTENDLINE or 
+        shapeACategory == dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS then
+        shapeLine = shapeA
+    else
+        shapeLine = shapeB
+    end
+
+    if self.m_extendLine:canShapeDestory(shapeLine) then
         self.m_extendLine:removeFromParent()
         self.m_extendLine = nil
         self.m_scene:loseLife()

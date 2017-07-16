@@ -114,6 +114,7 @@ function ExtendLine:updatePhysicBody(t)
         shapeLine1:setCollisionBitmask(0)
         shapeLine1:setTag(1)
         body:addShape(shapeLine1)
+        shapeLine1.m_isNegative = true
 
         local shapeBox = cc.PhysicsShapeEdgeBox:create(size, cc.PhysicsMaterial(0, 1, 0), 0, pt1Box)
         shapeBox:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
@@ -122,6 +123,7 @@ function ExtendLine:updatePhysicBody(t)
         shapeBox:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
         shapeBox:setTag(2)
         body:addShape(shapeBox)
+        shapeBox.m_isNegative = true
 
         self:drawSolidRect(cc.pSub(pt1Box, cc.p(sizeShow.width/2, sizeShow.height/2)),
             cc.pAdd(pt1Box, cc.p(sizeShow.width/2, sizeShow.height/2)), cc.c4f(1, 1, 1, 1))
@@ -140,6 +142,7 @@ function ExtendLine:updatePhysicBody(t)
         shapeLine2:setCollisionBitmask(0)
         shapeLine2:setTag(3)
         body:addShape(shapeLine2)
+        shapeLine2.m_isPositive = true
         
         local shapeBox = cc.PhysicsShapeEdgeBox:create(size, cc.PhysicsMaterial(0, 1, 0), 0, pt2Box)
         shapeBox:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
@@ -148,6 +151,7 @@ function ExtendLine:updatePhysicBody(t)
         shapeBox:setCollisionBitmask(dd.Constants.CATEGORY.BALL)
         shapeBox:setTag(4)
         body:addShape(shapeBox)
+        shapeBox.m_isPositive = true
 
         self:drawSolidRect(cc.pSub(pt2Box, cc.p(sizeShow.width/2, sizeShow.height/2)),
             cc.pAdd(pt2Box, cc.p(sizeShow.width/2, sizeShow.height/2)), cc.c4f(1, 1, 1, 1))
@@ -235,6 +239,18 @@ function ExtendLine:isExtend()
     else
         return true
     end
+end
+
+function ExtendLine:canShapeDestory(shape)
+    if shape.m_isPositive and self.m_positivePt then
+        return false
+    end
+
+    if shape.m_isNegative and self.m_negativePt then
+        return false
+    end
+
+    return true
 end
 
 return ExtendLine
