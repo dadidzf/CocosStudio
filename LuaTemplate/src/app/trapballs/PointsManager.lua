@@ -412,10 +412,7 @@ function PointsManager:clipPolygon(clipLineIndex)
     local pointList = self.m_pointList
     local linePtIndexPair = self.m_lineList[clipLineIndex]
 
-    table.insert(self.m_filterPolygonPtIndexList, linePtIndexPair[1], true)
-    table.insert(self.m_filterPolygonPtIndexList, linePtIndexPair[2], true)
     self:updateFilterLineIndexList()
-    dump(self.m_filterPolygonPtIndexList, "self.m_filterPolygonPtIndexList")
     dump(self.m_filterLinesIndexList, "self.m_filterLinesIndexList")
 
     local allFindList = self:findlinePolygon(clipLineIndex, self.m_filterPolygonPtIndexList, self.m_filterLinesIndexList)

@@ -386,20 +386,20 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_zuanshi" ActionTag="648345853" Tag="125" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="118.3286" RightMargin="-178.3286" TopMargin="-453.5533" BottomMargin="393.5533" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_zuanshi" ActionTag="648345853" Tag="125" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="118.3286" RightMargin="-178.3286" TopMargin="-437.5536" BottomMargin="377.5536" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
             <Size X="60.0000" Y="60.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="148.3286" Y="423.5533" />
+            <Position X="148.3286" Y="407.5536" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="money.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_zuanshi" ActionTag="-677056919" Tag="126" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="178.3282" RightMargin="-236.3282" TopMargin="-442.5530" BottomMargin="404.5530" LabelText="999" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_zuanshi" ActionTag="-677056919" Tag="126" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="178.3282" RightMargin="-236.3282" TopMargin="-426.5536" BottomMargin="388.5536" LabelText="999" ctype="TextBMFontObjectData">
             <Size X="58.0000" Y="38.0000" />
             <AnchorPoint ScaleY="0.5000" />
-            <Position X="178.3282" Y="423.5530" />
+            <Position X="178.3282" Y="407.5536" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />

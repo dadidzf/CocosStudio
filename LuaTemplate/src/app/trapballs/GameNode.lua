@@ -40,6 +40,26 @@ function GameNode:onBallCreateOk(ballList)
     end
 end
 
+function GameNode:checkBalls()
+    local ballList = {}
+    for index, ball in ipairs(self.m_balls:getBallList()) do
+        local pos = cc.p(ball:getPositionX(), ball:getPositionY())
+        if not self.m_pointsMgr:getPolygonIndex(pos) then
+            ball:getPhysicsBody():setVelocity(cc.p(0, 0))
+            ball:runAction(cc.Sequence:create(
+                cc.Blink:create(0.5, 2),
+                cc.CallFunc:create(function ()
+                    ball:removeFromParent()
+                end)
+            ))
+        else
+            table.insert(ballList, ball)
+        end
+    end
+
+    self.m_balls:setBallList(ballList)
+end
+
 function GameNode:createObstacles(levelIndex)
     self.m_obstacleGears = {}
     self.m_obstaclePowers = {}
@@ -234,10 +254,12 @@ function GameNode:obstacleGearDestory(nodeObstacleGear)
 end
 
 function GameNode:extendLineDestory()
-    self.m_extendLine:removeFromParent()
-    self.m_extendLine = nil
-    self.m_scene:loseLife()
-    self.m_scene:checkSteps()
+    if self.m_extendLine:isExtend() then
+        self.m_extendLine:removeFromParent()
+        self.m_extendLine = nil
+        self.m_scene:loseLife()
+        self.m_scene:checkSteps()
+    end
 end
 
 function GameNode:getExtendLineSegmentCollisionPt(shapeA, shapeB)
@@ -341,6 +363,7 @@ function GameNode:dealExtendlineCollision(collisionPt, category)
                 self.m_scene:costOneStep()
                 self:drawPolygon()
                 self:checkObstacles()
+                self:checkBalls()
                 self.m_extendLine = nil
             end
 

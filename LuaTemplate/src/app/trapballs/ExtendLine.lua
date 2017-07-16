@@ -59,17 +59,21 @@ function ExtendLine:updatePhysicBody(t)
     local body = cc.PhysicsBody:create()
     self:setPhysicsBody(body)
 
-    local pt1, pt2
+    local pt1, pt2, pt1Box, pt2Box
     local len = diffTime*self.m_speed/2
     pt1 = cc.p(-len, 0)
     pt2 = cc.p(len, 0)
     local size = cc.size(dd.Constants.LINE_WIDTH_IN_PIXEL*8, dd.Constants.LINE_WIDTH_IN_PIXEL)
     local sizeShow = cc.size(dd.Constants.EDGE_SEG_WIDTH, dd.Constants.EDGE_SEG_WIDTH)
+    pt1Box = cc.p(-len - sizeShow.width/2, 0)
+    pt2Box = cc.p(len + sizeShow.width/2, 0)
 
     if not self.m_isHorizontal then
         pt1 = cc.p(0, -len)
         pt2 = cc.p(0, len)
         size = cc.size(dd.Constants.LINE_WIDTH_IN_PIXEL, dd.Constants.LINE_WIDTH_IN_PIXEL*8)
+        pt1Box = cc.p(0, -len - sizeShow.height/2)
+        pt2Box = cc.p(0, len + sizeShow.height/2)
     end
 
     if self.m_positivePt then
@@ -111,7 +115,7 @@ function ExtendLine:updatePhysicBody(t)
         shapeLine1:setTag(1)
         body:addShape(shapeLine1)
 
-        local shapeBox = cc.PhysicsShapeEdgeBox:create(size, cc.PhysicsMaterial(0, 1, 0), 0, pt1)
+        local shapeBox = cc.PhysicsShapeEdgeBox:create(size, cc.PhysicsMaterial(0, 1, 0), 0, pt1Box)
         shapeBox:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
         shapeBox:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.OBSTACLE_POWER
             + dd.Constants.CATEGORY.OBSTACLE_GEAR)
@@ -119,8 +123,8 @@ function ExtendLine:updatePhysicBody(t)
         shapeBox:setTag(2)
         body:addShape(shapeBox)
 
-        self:drawSolidRect(cc.pSub(pt1, cc.p(sizeShow.width/2, sizeShow.height/2)),
-            cc.pAdd(pt1, cc.p(sizeShow.width/2, sizeShow.height/2)), cc.c4f(1, 1, 1, 1))
+        self:drawSolidRect(cc.pSub(pt1Box, cc.p(sizeShow.width/2, sizeShow.height/2)),
+            cc.pAdd(pt1Box, cc.p(sizeShow.width/2, sizeShow.height/2)), cc.c4f(1, 1, 1, 1))
     else
         self:drawSolidRect(origin, dest, cc.c4f(1, 1, 1, 1))
     end
@@ -137,7 +141,7 @@ function ExtendLine:updatePhysicBody(t)
         shapeLine2:setTag(3)
         body:addShape(shapeLine2)
         
-        local shapeBox = cc.PhysicsShapeEdgeBox:create(size, cc.PhysicsMaterial(0, 1, 0), 0, pt2)
+        local shapeBox = cc.PhysicsShapeEdgeBox:create(size, cc.PhysicsMaterial(0, 1, 0), 0, pt2Box)
         shapeBox:setCategoryBitmask(dd.Constants.CATEGORY.EXTENDLINE_BOTH_ENDS)
         shapeBox:setContactTestBitmask(dd.Constants.CATEGORY.BALL + dd.Constants.CATEGORY.OBSTACLE_POWER
             + dd.Constants.CATEGORY.OBSTACLE_GEAR)
@@ -145,8 +149,8 @@ function ExtendLine:updatePhysicBody(t)
         shapeBox:setTag(4)
         body:addShape(shapeBox)
 
-        self:drawSolidRect(cc.pSub(pt2, cc.p(sizeShow.width/2, sizeShow.height/2)),
-            cc.pAdd(pt2, cc.p(sizeShow.width/2, sizeShow.height/2)), cc.c4f(1, 1, 1, 1))
+        self:drawSolidRect(cc.pSub(pt2Box, cc.p(sizeShow.width/2, sizeShow.height/2)),
+            cc.pAdd(pt2Box, cc.p(sizeShow.width/2, sizeShow.height/2)), cc.c4f(1, 1, 1, 1))
     else
         self:drawSolidRect(origin, dest, cc.c4f(1, 1, 1, 1))
     end

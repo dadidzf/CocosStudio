@@ -88,6 +88,10 @@ function Balls:getBallList()
     return self.m_ballList
 end
 
+function Balls:setBallList(ballList)
+    self.m_ballList = ballList
+end
+
 function Balls:getBallPosList()
     local retPosList = {}
     for _, ball in ipairs(self.m_ballList) do
