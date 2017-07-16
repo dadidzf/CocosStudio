@@ -47,6 +47,7 @@ Constants.MONEY_MAP_DIAMONDS = {
 }
 
 Constants.LEVEL_PASS_DIAMONDS_REWARD = 10
+Constants.MAX_LEVEL = 28
 
 return Constants
 

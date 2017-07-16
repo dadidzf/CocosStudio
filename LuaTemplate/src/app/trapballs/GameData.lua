@@ -9,8 +9,10 @@ end
 
 function GameData:levelPass(level)
     if level == self.m_curLevel then
-        cc.UserDefault:getInstance():setIntegerForKey("curLevel", level + 1)
-        self.m_curLevel = level + 1
+        if dd.Constants.MAX_LEVEL > self.m_curLevel then
+            cc.UserDefault:getInstance():setIntegerForKey("curLevel", level + 1)
+            self.m_curLevel = level + 1
+        end
     end
 end
 
