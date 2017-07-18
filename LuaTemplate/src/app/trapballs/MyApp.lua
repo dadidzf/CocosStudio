@@ -16,6 +16,10 @@ function MyApp:onCreate()
     math.randomseed(os.time())
     
     cc.load("sdk").Admob.getInstance():removeBanner()
+    if dd.GameData:isAdsRemoved() then
+        cc.load("sdk").Admob.getInstance():setAdsRemoved(true)
+    end
+
     cc.load("sdk").Billing.init(dd.android.googleRSAKey, function (result)
         print("Billing init result ~ ", result) 
         cc.load("sdk").Billing.setIsBillingEnabled(result)

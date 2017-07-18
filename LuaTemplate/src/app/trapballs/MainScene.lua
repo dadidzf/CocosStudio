@@ -172,4 +172,15 @@ function MainScene:onSoundOnOff()
     dd.GameData:setSoundEnable(not dd.GameData:isSoundEnable())
 end
 
+function MainScene:onRestore()
+    cc.load("sdk").Billing.restore(function (result)
+        print("Billing Restore Result ~ ", result)
+        if result == dd.appCommon.skuKeys[1] then
+            cc.load("sdk").Admob.getInstance():setAdsRemoved(true)
+            dd.GameData:setAdsRemoved(true)
+            self.m_checkBoxNoAds:setSelected(dd.GameData:isAdsRemoved())
+        end
+    end)
+end
+
 return MainScene

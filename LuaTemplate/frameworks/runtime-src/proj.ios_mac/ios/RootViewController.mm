@@ -150,6 +150,7 @@
 
 - (void)restore
 {
+    _currentProId = @"";
    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
@@ -271,6 +272,15 @@
                     cocos2d::LuaObjcBridge::getStack()->executeFunction(1);
                 }
                 break;
+            }
+            else if ([_currentProId length] == 0)
+            {
+                if (_billingFunctionId != 0)
+                {
+                    cocos2d::LuaObjcBridge::pushLuaFunctionById(_billingFunctionId);
+                    cocos2d::LuaObjcBridge::getStack()->pushString([productIdentifier UTF8String]);
+                    cocos2d::LuaObjcBridge::getStack()->executeFunction(1);
+                }
             }
         }
         //如果是消耗品则记录购买数量，非消耗品则记录是否购买过

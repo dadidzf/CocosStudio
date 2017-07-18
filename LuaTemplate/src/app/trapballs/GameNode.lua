@@ -407,6 +407,7 @@ function GameNode:onTouchBegin(touch, event)
         return false
     end
 
+    self.m_scene:resetLostLife()
     dropPos = self:convertToNodeSpace(dropPos)
     local pt = self:convertToNodeSpace(touch:getLocation())
     local lineLevelCfg = dd.CsvConf:getLineLevelCfg()

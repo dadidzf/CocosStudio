@@ -173,6 +173,10 @@ function GameScene:checkSteps()
     end
 end
 
+function GameScene:resetLostLife()
+    self.m_isAlreadyLoseLife = false
+end
+
 function GameScene:costOneStep()
     if self.m_isAlreadyLoseLife then
         self.m_isAlreadyLoseLife = false
