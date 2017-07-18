@@ -260,26 +260,30 @@
         NSArray *dicInApp=dicReceipt[@"in_app"];
         
         long int count = [dicInApp count];
-        for (int i = 0 ; i < count; i++) {
-            NSDictionary *productPurchased = [dicInApp objectAtIndex:i];
-            NSString *productIdentifier= productPurchased[@"product_id"];//读取产品标识
-            if ([productIdentifier isEqualToString:_currentProId])
-            {
-                if (_billingFunctionId != 0)
-                {
-                    cocos2d::LuaObjcBridge::pushLuaFunctionById(_billingFunctionId);
-                    cocos2d::LuaObjcBridge::getStack()->pushString([_currentProId UTF8String]);
-                    cocos2d::LuaObjcBridge::getStack()->executeFunction(1);
-                }
-                break;
+        if ([_currentProId length] == 0) //Restore
+        {
+            cocos2d::LuaObjcBridge::pushLuaFunctionById(_billingFunctionId);
+            for (int i = 0 ; i < count; i++) {
+                NSDictionary *productPurchased = [dicInApp objectAtIndex:i];
+                NSString *productIdentifier= productPurchased[@"product_id"];//读取产品标识
+                cocos2d::LuaObjcBridge::getStack()->pushString([productIdentifier UTF8String]);
             }
-            else if ([_currentProId length] == 0)
-            {
-                if (_billingFunctionId != 0)
+            cocos2d::LuaObjcBridge::getStack()->executeFunction((int)count);
+        }
+        else //Purchase
+        {
+            for (int i = 0 ; i < count; i++) {
+                NSDictionary *productPurchased = [dicInApp objectAtIndex:i];
+                NSString *productIdentifier= productPurchased[@"product_id"];//读取产品标识
+                if ([productIdentifier isEqualToString:_currentProId])
                 {
-                    cocos2d::LuaObjcBridge::pushLuaFunctionById(_billingFunctionId);
-                    cocos2d::LuaObjcBridge::getStack()->pushString([productIdentifier UTF8String]);
-                    cocos2d::LuaObjcBridge::getStack()->executeFunction(1);
+                    if (_billingFunctionId != 0)
+                    {
+                        cocos2d::LuaObjcBridge::pushLuaFunctionById(_billingFunctionId);
+                        cocos2d::LuaObjcBridge::getStack()->pushString([_currentProId UTF8String]);
+                        cocos2d::LuaObjcBridge::getStack()->executeFunction(1);
+                    }
+                    break;
                 }
             }
         }

@@ -179,12 +179,17 @@ end
 
 function MainScene:onRestore()
     print("MainScene:onRestore ---------------")
-    cc.load("sdk").Billing.restore(function (result)
-        print("Billing Restore Result ~ ", result)
-        if result == dd.appCommon.skuKeys[1] then
-            cc.load("sdk").Admob.getInstance():setAdsRemoved(true)
-            dd.GameData:setAdsRemoved(true)
-            self.m_checkBoxNoAds:setSelected(dd.GameData:isAdsRemoved())
+    cc.load("sdk").Billing.restore(function (...)
+        print("Billing Restore Result ~ ")
+        local paramTb = {...}
+        dump(paramTb)
+        for _, result in ipairs(paramTb) do
+            if result == dd.appCommon.skuKeys[1] then
+                cc.load("sdk").Admob.getInstance():setAdsRemoved(true)
+                dd.GameData:setAdsRemoved(true)
+                self.m_checkBoxNoAds:setSelected(dd.GameData:isAdsRemoved())
+                break
+            end
         end
     end)
 end

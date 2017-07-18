@@ -58,11 +58,11 @@
         ],
         "skuKeys":
         [
-            "trapballs_remove_ads",
-            "trapballs_200_diamonds",
-            "trapballs_700_diamonds",
-            "trapballs_3000_diamonds",
-            "trapballs_10000_diamonds"
+            "trapballs_ads_remove",
+            "trapballs_diamonds_200",
+            "trapballs_diamonds_700",
+            "trapballs_diamonds_3000",
+            "trapballs_diamonds_10000"
         ]
 	},
 	"android":
