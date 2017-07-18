@@ -59,7 +59,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     register_all_packages();
 
     LuaStack* stack = engine->getLuaStack();
-    stack->setXXTEAKeyAndSign("dzf_onesecond", strlen("dzf_onesecond"), "hhh_onesecond", strlen("hhh_onesecond"));
+    stack->setXXTEAKeyAndSign("dzf_trapballs", strlen("dzf_trapballs"), "hhh_trapballs", strlen("hhh_trapballs"));
 
     //register custom function
     //LuaStack* stack = engine->getLuaStack();
