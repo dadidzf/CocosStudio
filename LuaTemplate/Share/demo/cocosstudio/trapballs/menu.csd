@@ -294,6 +294,31 @@
             <PreSize X="0.0906" Y="0.0396" />
             <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
           </AbstractNodeData>
+          <AbstractNodeData Name="Pannel_restore" ActionTag="-1854965904" Tag="71" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" RightMargin="490.0000" BottomMargin="810.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+            <Size X="150.0000" Y="150.0000" />
+            <Children>
+              <AbstractNodeData Name="Label_restore" ActionTag="-959624909" Tag="72" RotationSkewX="-45.0000" RotationSkewY="-45.0000" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="14.0002" RightMargin="13.9998" TopMargin="46.9997" BottomMargin="65.0003" LabelText="Restore" ctype="TextBMFontObjectData">
+                <Size X="122.0000" Y="38.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="75.0002" Y="84.0003" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5000" Y="0.5600" />
+                <PreSize X="0.8133" Y="0.2533" />
+                <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
+              </AbstractNodeData>
+            </Children>
+            <AnchorPoint ScaleY="1.0000" />
+            <Position Y="960.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition Y="1.0000" />
+            <PreSize X="0.2344" Y="0.1563" />
+            <SingleColor A="255" R="150" G="200" B="255" />
+            <FirstColor A="255" R="150" G="200" B="255" />
+            <EndColor A="255" R="255" G="255" B="255" />
+            <ColorVector ScaleY="1.0000" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>

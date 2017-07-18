@@ -7,6 +7,7 @@ MainScene.RESOURCE_BINDING = {
     ["Button_play"] = {varname = "m_btnPlay", events = {{ event = "click", method = "onPlay" }}},
     ["Button_fenxiang"] = {varname = "m_btnShare", events = {{ event = "click", method = "onShare" }}},
     ["Button_shangdian"] = {varname = "m_btnShop", events = {{ event = "click", method = "onShop" }}},
+    ["Pannel_restore"] = {varname = "m_btnRestore", events = {{ event = "click", method = "onRestore" }}},
     ["Button_like"] = {varname = "m_btnLike", events = {{ event = "click", method = "onRate" }}},
     ["CheckBox_2"] = {varname = "m_checkBoxNoAds"},
     ["CheckBox_jingyin"] = {varname = "m_checkBoxSound"},
@@ -43,6 +44,10 @@ function MainScene:onCreate()
     self.m_labelDiamonds:setString(tostring(dd.GameData:getDiamonds()))
 
     self:enterAction()
+
+    if device.platform == "android" then
+        self.m_btnRestore:setVisible(false)
+    end
 end
 
 function MainScene:onEnterTransitionFinish()
@@ -173,6 +178,7 @@ function MainScene:onSoundOnOff()
 end
 
 function MainScene:onRestore()
+    print("MainScene:onRestore ---------------")
     cc.load("sdk").Billing.restore(function (result)
         print("Billing Restore Result ~ ", result)
         if result == dd.appCommon.skuKeys[1] then
