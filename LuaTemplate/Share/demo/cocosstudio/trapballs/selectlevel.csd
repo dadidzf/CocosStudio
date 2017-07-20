@@ -6,14 +6,14 @@
       <ObjectData Name="Layer" Tag="22" ctype="GameLayerObjectData">
         <Size X="640.0000" Y="960.0000" />
         <Children>
-          <AbstractNodeData Name="di_black" ActionTag="296359687" Tag="41" IconVisible="False" LeftMargin="-40.0000" RightMargin="-40.0000" TopMargin="-60.0000" BottomMargin="-60.0000" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="246" Scale9Height="368" ctype="ImageViewObjectData">
-            <Size X="720.0000" Y="1080.0000" />
+          <AbstractNodeData Name="di_black" ActionTag="296359687" Tag="41" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="166" Scale9Height="248" ctype="ImageViewObjectData">
+            <Size X="640.0000" Y="960.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="480.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="1.1250" Y="1.1250" />
+            <PreSize X="1.0000" Y="1.0000" />
             <FileData Type="PlistSubImage" Path="di_black.png" Plist="trapballs/di2.plist" />
           </AbstractNodeData>
           <AbstractNodeData Name="ListView_level" ActionTag="1637324816" Tag="45" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" TopMargin="99.9680" BottomMargin="60.0320" TouchEnable="True" ClipAble="True" BackColorAlpha="0" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" IsBounceEnabled="True" ScrollDirectionType="0" DirectionType="Vertical" HorizontalType="Align_HorizontalCenter" ctype="ListViewObjectData">

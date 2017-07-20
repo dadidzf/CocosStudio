@@ -7,54 +7,54 @@
             <key>di_black.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1084,724},{720,1080}}</string>
+                <string>{{644,644},{640,960}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{720,1080}}</string>
+                <string>{{0,0},{640,960}}</string>
                 <key>sourceSize</key>
-                <string>{720,1080}</string>
+                <string>{640,960}</string>
             </dict>
             <key>di_cyan.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{724,2},{720,1080}}</string>
+                <string>{{644,2},{640,960}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{720,1080}}</string>
+                <string>{{0,0},{640,960}}</string>
                 <key>sourceSize</key>
-                <string>{720,1080}</string>
+                <string>{640,960}</string>
             </dict>
             <key>di_orange.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,1084},{720,1080}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <true/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{720,1080}}</string>
-                <key>sourceSize</key>
-                <string>{720,1080}</string>
-            </dict>
-            <key>di_purple.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{2,2},{720,1080}}</string>
+                <string>{{2,964},{640,960}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{720,1080}}</string>
+                <string>{{0,0},{640,960}}</string>
                 <key>sourceSize</key>
-                <string>{720,1080}</string>
+                <string>{640,960}</string>
+            </dict>
+            <key>di_purple.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{640,960}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{640,960}}</string>
+                <key>sourceSize</key>
+                <string>{640,960}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -66,7 +66,7 @@
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:7f2545d88ea82933b173347e9ad52f49$</string>
+            <string>$TexturePacker:SmartUpdate:66f4b16f3caa3a25a7b9ff6de8b8dfda:1/1$</string>
             <key>textureFileName</key>
             <string>di2.png</string>
         </dict>

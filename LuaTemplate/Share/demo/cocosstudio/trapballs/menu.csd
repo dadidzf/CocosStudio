@@ -6,84 +6,84 @@
       <ObjectData Name="Layer" Tag="5" ctype="GameLayerObjectData">
         <Size X="640.0000" Y="960.0000" />
         <Children>
-          <AbstractNodeData Name="di_blue" ActionTag="349620669" Tag="7" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-40.0000" RightMargin="-40.0000" TopMargin="-60.0000" BottomMargin="-60.0000" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="246" Scale9Height="368" ctype="ImageViewObjectData">
-            <Size X="720.0000" Y="1080.0000" />
+          <AbstractNodeData Name="di_blue" ActionTag="349620669" Tag="7" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="166" Scale9Height="248" ctype="ImageViewObjectData">
+            <Size X="640.0000" Y="960.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="480.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="1.1250" Y="1.1250" />
+            <PreSize X="1.0000" Y="1.0000" />
             <FileData Type="PlistSubImage" Path="di_blue.png" Plist="trapballs/di.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="di_red" ActionTag="1964473344" Tag="9" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-40.0000" RightMargin="-40.0000" TopMargin="-60.0000" BottomMargin="-60.0000" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="246" Scale9Height="368" ctype="ImageViewObjectData">
-            <Size X="720.0000" Y="1080.0000" />
+          <AbstractNodeData Name="di_red" ActionTag="1964473344" Tag="9" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="166" Scale9Height="248" ctype="ImageViewObjectData">
+            <Size X="640.0000" Y="960.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="480.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="1.1250" Y="1.1250" />
+            <PreSize X="1.0000" Y="1.0000" />
             <FileData Type="PlistSubImage" Path="di_red.png" Plist="trapballs/di.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="di_yellow" ActionTag="-44627192" Tag="10" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-40.0000" RightMargin="-40.0000" TopMargin="-60.0000" BottomMargin="-60.0000" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="246" Scale9Height="368" ctype="ImageViewObjectData">
-            <Size X="720.0000" Y="1080.0000" />
+          <AbstractNodeData Name="di_yellow" ActionTag="-44627192" Tag="10" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="166" Scale9Height="248" ctype="ImageViewObjectData">
+            <Size X="640.0000" Y="960.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="480.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="1.1250" Y="1.1250" />
+            <PreSize X="1.0000" Y="1.0000" />
             <FileData Type="PlistSubImage" Path="di_yellow.png" Plist="trapballs/di.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="di_green" ActionTag="1754503507" Tag="8" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-40.0000" RightMargin="-40.0000" TopMargin="-60.0000" BottomMargin="-60.0000" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="246" Scale9Height="368" ctype="ImageViewObjectData">
-            <Size X="720.0000" Y="1080.0000" />
+          <AbstractNodeData Name="di_green" ActionTag="1754503507" Tag="8" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="166" Scale9Height="248" ctype="ImageViewObjectData">
+            <Size X="640.0000" Y="960.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="480.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="1.1250" Y="1.1250" />
+            <PreSize X="1.0000" Y="1.0000" />
             <FileData Type="PlistSubImage" Path="di_green.png" Plist="trapballs/di.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="di_purple" ActionTag="1434182328" Tag="24" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-40.0000" RightMargin="-40.0000" TopMargin="-60.0000" BottomMargin="-60.0000" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="246" Scale9Height="368" ctype="ImageViewObjectData">
-            <Size X="720.0000" Y="1080.0000" />
+          <AbstractNodeData Name="di_purple" ActionTag="1434182328" Tag="24" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="166" Scale9Height="248" ctype="ImageViewObjectData">
+            <Size X="640.0000" Y="960.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="480.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="1.1250" Y="1.1250" />
+            <PreSize X="1.0000" Y="1.0000" />
             <FileData Type="PlistSubImage" Path="di_purple.png" Plist="trapballs/di2.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="di_black" ActionTag="92195273" Tag="11" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-40.0000" RightMargin="-40.0000" TopMargin="-60.0000" BottomMargin="-60.0000" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="246" Scale9Height="368" ctype="ImageViewObjectData">
-            <Size X="720.0000" Y="1080.0000" />
+          <AbstractNodeData Name="di_black" ActionTag="92195273" Tag="11" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="166" Scale9Height="248" ctype="ImageViewObjectData">
+            <Size X="640.0000" Y="960.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="480.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="1.1250" Y="1.1250" />
+            <PreSize X="1.0000" Y="1.0000" />
             <FileData Type="PlistSubImage" Path="di_black.png" Plist="trapballs/di2.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="di_orange" ActionTag="270266432" Tag="23" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-40.0000" RightMargin="-40.0000" TopMargin="-60.0000" BottomMargin="-60.0000" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="246" Scale9Height="368" ctype="ImageViewObjectData">
-            <Size X="720.0000" Y="1080.0000" />
+          <AbstractNodeData Name="di_orange" ActionTag="270266432" Tag="23" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="166" Scale9Height="248" ctype="ImageViewObjectData">
+            <Size X="640.0000" Y="960.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="480.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="1.1250" Y="1.1250" />
+            <PreSize X="1.0000" Y="1.0000" />
             <FileData Type="PlistSubImage" Path="di_orange.png" Plist="trapballs/di2.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="di_cyan" ActionTag="-1276182873" Tag="22" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="-40.0000" RightMargin="-40.0000" TopMargin="-60.0000" BottomMargin="-60.0000" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="246" Scale9Height="368" ctype="ImageViewObjectData">
-            <Size X="720.0000" Y="1080.0000" />
+          <AbstractNodeData Name="di_cyan" ActionTag="-1276182873" Tag="22" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftEage="237" RightEage="237" TopEage="356" BottomEage="356" Scale9OriginX="237" Scale9OriginY="356" Scale9Width="166" Scale9Height="248" ctype="ImageViewObjectData">
+            <Size X="640.0000" Y="960.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="480.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="1.1250" Y="1.1250" />
+            <PreSize X="1.0000" Y="1.0000" />
             <FileData Type="PlistSubImage" Path="di_cyan.png" Plist="trapballs/di2.plist" />
           </AbstractNodeData>
           <AbstractNodeData Name="Image_1_0" ActionTag="1011268113" Tag="26" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="401.3440" RightMargin="-81.3440" TopMargin="455.0000" BottomMargin="455.0000" LeftEage="105" RightEage="105" TopEage="16" BottomEage="16" Scale9OriginX="105" Scale9OriginY="16" Scale9Width="110" Scale9Height="18" ctype="ImageViewObjectData">
@@ -294,7 +294,7 @@
             <PreSize X="0.0906" Y="0.0396" />
             <LabelBMFontFile_CNB Type="Normal" Path="white_32.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Pannel_restore" ActionTag="-1854965904" Tag="71" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" RightMargin="490.0000" BottomMargin="810.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+          <AbstractNodeData Name="Pannel_restore" ActionTag="-1854965904" Tag="71" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" RightMargin="490.0000" BottomMargin="810.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="150.0000" Y="150.0000" />
             <Children>
               <AbstractNodeData Name="Label_restore" ActionTag="-959624909" Tag="72" RotationSkewX="-45.0000" RotationSkewY="-45.0000" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="14.0002" RightMargin="13.9998" TopMargin="46.9997" BottomMargin="65.0003" LabelText="Restore" ctype="TextBMFontObjectData">
