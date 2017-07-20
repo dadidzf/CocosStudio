@@ -94,7 +94,9 @@ function Admob.getInstance()
 		elseif device.platform == "android" then
 			_instance = AdmobAndroid.new()
 		else
-			assert(false, "Admob not support for ", device.platform)
+			print("Admob not support for ", device.platform)
+			_instance = Admob.new()
+			return _instance
 		end
 		
 		_instance:initAds(dd.appCommon.admobBannerId, dd.appCommon.admobInterstitialId)
