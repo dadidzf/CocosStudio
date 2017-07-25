@@ -73,4 +73,22 @@ function Tools.getLanguageDependPathForRes(resName)
 	end
 end
 
+function Tools.getLanguageDependSpriteFrameName(fileName)
+	local parts = string.split(fileName, ".")
+	assert(#parts == 2, "Invalid fileName")
+
+	local namePart = parts[1]
+	local extPart = parts[2]
+	if _isMultiLanguageSupported then
+		local name = string.format("%s_%s.%s", namePart, device.language, extPart)
+		if cc.SpriteFrameCache:getInstance():getSpriteFrameByName(name) then
+			return name
+		else
+			return fileName
+		end
+	else
+		return fileName
+	end
+end
+
 return Tools

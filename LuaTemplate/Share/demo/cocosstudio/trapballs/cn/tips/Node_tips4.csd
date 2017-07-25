@@ -6,21 +6,21 @@
       <ObjectData Name="Node" Tag="47" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="Image_4" ActionTag="143261756" Tag="82" IconVisible="False" LeftMargin="-240.0000" RightMargin="-240.0000" TopMargin="-60.0000" BottomMargin="-60.0000" Scale9Enable="True" LeftEage="50" RightEage="50" TopEage="40" BottomEage="40" Scale9OriginX="50" Scale9OriginY="40" Scale9Width="200" Scale9Height="40" ctype="ImageViewObjectData">
-            <Size X="480.0000" Y="120.0000" />
+          <AbstractNodeData Name="Image_4" ActionTag="143261756" Tag="82" IconVisible="False" LeftMargin="-190.0012" RightMargin="-189.9988" TopMargin="-52.9999" BottomMargin="-37.0001" Scale9Enable="True" LeftEage="50" RightEage="50" TopEage="40" BottomEage="40" Scale9OriginX="50" Scale9OriginY="40" Scale9Width="200" Scale9Height="40" ctype="ImageViewObjectData">
+            <Size X="380.0000" Y="90.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position />
+            <Position X="-0.0012" Y="7.9999" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="di_txt.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="-1339399750" Tag="80" IconVisible="False" LeftMargin="-182.2075" RightMargin="-58.7925" TopMargin="9.4940" BottomMargin="-37.4940" LabelText="线条停止延伸变成实线" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="-1339399750" Tag="80" IconVisible="False" LeftMargin="-167.2092" RightMargin="-73.7908" TopMargin="-6.5057" BottomMargin="-21.4943" LabelText="线条停止延伸变成实线" ctype="TextBMFontObjectData">
             <Size X="241.0000" Y="28.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-61.7075" Y="-23.4940" />
-            <Scale ScaleX="1.3000" ScaleY="1.3000" />
+            <Position X="-46.7092" Y="-7.4943" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
@@ -30,7 +30,7 @@
             <Size X="345.0000" Y="28.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="4.6687" Y="24.6742" />
-            <Scale ScaleX="1.3000" ScaleY="1.3000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />

@@ -54,7 +54,8 @@ function GameEnd:ctor(gameScene, levelIndex, param)
 
     self:getResourceNode():setVisible(false)
 
-    local gameSuccessImg = display.newSprite("#stageclear.png")
+    local resName = cc.load("sdk").Tools.getLanguageDependSpriteFrameName("stageclear.png")
+    local gameSuccessImg = display.newSprite("#"..resName)
         :move(0, display.height*0.15) 
         :addTo(self)
 

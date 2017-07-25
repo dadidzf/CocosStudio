@@ -239,7 +239,7 @@
             <Size X="500.0000" Y="93.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="324.9920" Y="700.0320" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Scale ScaleX="0.9000" ScaleY="0.9000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5078" Y="0.7292" />
             <PreSize X="0.7813" Y="0.0969" />
