@@ -55,4 +55,22 @@ function Tools.vibrate(t) -- ms
 	end
 end
 
+local _isMultiLanguageSupported = false
+function Tools.setMultiLanguageSupported(val)
+	_isMultiLanguageSupported = val
+end
+
+function Tools.getLanguageDependPathForRes(resName)
+	if _isMultiLanguageSupported then
+		local name = string.format("%s/%s", device.language, resName)
+		if cc.FileUtils:getInstance():isFileExist(name) then
+			return name
+		else
+			return string.format("en/%s", resName)
+		end
+	else
+		return resName
+	end
+end
+
 return Tools

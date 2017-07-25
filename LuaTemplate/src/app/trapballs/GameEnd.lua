@@ -83,7 +83,7 @@ function GameEnd:rewardDiamondsAction()
         :addTo(self)
 
     local rewardDiamondsSize = rewardDiamonds:getContentSize()
-    local addLable = cc.Label:createWithBMFont("white_32.fnt", "+"..tostring(dd.Constants.LEVEL_PASS_DIAMONDS_REWARD))
+    local addLable = cc.Label:createWithBMFont("fnt/white_32.fnt", "+"..tostring(dd.Constants.LEVEL_PASS_DIAMONDS_REWARD))
         :setAnchorPoint(cc.p(1, 0.5))
         :move(-10, rewardDiamondsSize.height/2)
         :addTo(rewardDiamonds)

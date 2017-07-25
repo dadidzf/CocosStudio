@@ -95,32 +95,36 @@
             <PlistImageFile Name="zhangai_nengliangqiu3.png" Key="zhangai_nengliangqiu3.png" />
             <PlistImageFile Name="zhangai_nengliangqiu4.png" Key="zhangai_nengliangqiu4.png" />
           </PlistImageFolder>
-          <Folder Name="tips">
-            <Project Name="Node_tips1.csd" Type="Node" />
-            <Project Name="Node_tips2.csd" Type="Node" />
-            <Project Name="Node_tips3.csd" Type="Node" />
-            <Project Name="Node_tips4.csd" Type="Node" />
-            <Project Name="Node_tips5.csd" Type="Node" />
-            <Project Name="Node_tips6.csd" Type="Node" />
+          <Folder Name="fnt">
+            <Fnt Name="black_32.fnt" />
+            <Fnt Name="blue_32.fnt" />
+            <Fnt Name="white_24.fnt" />
+            <Fnt Name="white_32.fnt" />
+            <Fnt Name="white_48.fnt" />
+            <Fnt Name="red_32.fnt" />
           </Folder>
-          <Project Name="game.csd" Type="Layer" />
-          <Project Name="menu.csd" Type="Layer" />
-          <Project Name="Node_buy.csd" Type="Node" />
-          <Project Name="Node_buylife.csd" Type="Node" />
-          <Project Name="Node_buysteps.csd" Type="Node" />
-          <Project Name="Node_gamefailed.csd" Type="Node" />
-          <Project Name="Node_gamepass.csd" Type="Node" />
-          <Project Name="Node_level.csd" Type="Node" />
-          <Project Name="Node_notenoughmoney.csd" Type="Node" />
-          <Project Name="Node_stop.csd" Type="Node" />
-          <Project Name="selectlevel.csd" Type="Layer" />
+          <Folder Name="en">
+            <Folder Name="tips">
+              <Project Name="Node_tips1.csd" Type="Node" />
+              <Project Name="Node_tips2.csd" Type="Node" />
+              <Project Name="Node_tips3.csd" Type="Node" />
+              <Project Name="Node_tips4.csd" Type="Node" />
+              <Project Name="Node_tips5.csd" Type="Node" />
+              <Project Name="Node_tips6.csd" Type="Node" />
+            </Folder>
+            <Project Name="game.csd" Type="Layer" />
+            <Project Name="menu.csd" Type="Layer" />
+            <Project Name="Node_buy.csd" Type="Node" />
+            <Project Name="Node_buylife.csd" Type="Node" />
+            <Project Name="Node_buysteps.csd" Type="Node" />
+            <Project Name="Node_gamefailed.csd" Type="Node" />
+            <Project Name="Node_gamepass.csd" Type="Node" />
+            <Project Name="Node_level.csd" Type="Node" />
+            <Project Name="Node_notenoughmoney.csd" Type="Node" />
+            <Project Name="Node_stop.csd" Type="Node" />
+            <Project Name="selectlevel.csd" Type="Layer" />
+          </Folder>
         </Folder>
-        <Fnt Name="black_32.fnt" />
-        <Fnt Name="blue_32.fnt" />
-        <Fnt Name="red_32.fnt" />
-        <Fnt Name="white_24.fnt" />
-        <Fnt Name="white_32.fnt" />
-        <Fnt Name="white_48.fnt" />
       </RootFolder>
     </Group>
   </SolutionFolder>

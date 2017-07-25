@@ -138,7 +138,8 @@ function NewGuideController:showTips(pos)
         "tips/Node_tips6.csb"
     }
 
-    self.m_tipsNode = cc.CSLoader:createNode(tipsCsbNameList[self.m_curStep])
+    self.m_tipsNode = cc.CSLoader:createNode(
+        cc.load("sdk").Tools.getLanguageDependPathForRes(tipsCsbNameList[self.m_curStep]))
         :move(pos)
 
     self.m_tipsNode:setOpacity(0)

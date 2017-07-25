@@ -2,6 +2,7 @@ local MyApp = class("MyApp", cc.load("mvc").AppBase)
 
 cc.FileUtils:getInstance():addSearchPath("res/trapballs")
 
+cc.load("sdk").Tools.setMultiLanguageSupported(true)
 import(".Constant")
 dd.CsvConf = import(".CsvConf").new()
 dd.GameData = import(".GameData").new()
