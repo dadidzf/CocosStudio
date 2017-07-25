@@ -139,7 +139,7 @@ end
 
 function MainScene:onShare()
     dd.PlaySound("buttonclick.mp3")
-    cc.load("sdk").Tools.share("Trap Balls, very funny game, play with me now !", 
+    cc.load("sdk").Tools.share(dd.Constants.SHARE_TIPS.getTips(), 
         cc.FileUtils:getInstance():fullPathForFilename("512.png"))
 end
 
