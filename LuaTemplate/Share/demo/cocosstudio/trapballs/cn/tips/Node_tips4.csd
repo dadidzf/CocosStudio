@@ -6,8 +6,8 @@
       <ObjectData Name="Node" Tag="47" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="Image_4" ActionTag="143261756" Tag="82" IconVisible="False" LeftMargin="-141.0012" RightMargin="-138.9988" TopMargin="-53.9999" BottomMargin="-36.0001" Scale9Enable="True" LeftEage="50" RightEage="50" TopEage="40" BottomEage="40" Scale9OriginX="50" Scale9OriginY="40" Scale9Width="200" Scale9Height="40" ctype="ImageViewObjectData">
-            <Size X="280.0000" Y="90.0000" />
+          <AbstractNodeData Name="Image_4" ActionTag="143261756" Tag="82" IconVisible="False" LeftMargin="-151.0012" RightMargin="-148.9988" TopMargin="-58.9999" BottomMargin="-41.0001" Scale9Enable="True" LeftEage="50" RightEage="50" TopEage="40" BottomEage="40" Scale9OriginX="50" Scale9OriginY="40" Scale9Width="200" Scale9Height="40" ctype="ImageViewObjectData">
+            <Size X="300.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-1.0012" Y="8.9999" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -16,20 +16,20 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="di_txt.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="-1339399750" Tag="80" IconVisible="False" LeftMargin="-121.2092" RightMargin="-119.7908" TopMargin="-6.5057" BottomMargin="-21.4943" LabelText="线条停止延伸变成实线" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="-1339399750" Tag="80" IconVisible="False" LeftMargin="-121.2092" RightMargin="-119.7908" TopMargin="-7.5057" BottomMargin="-20.4943" LabelText="线条停止延伸变成实线" ctype="TextBMFontObjectData">
             <Size X="241.0000" Y="28.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-0.7092" Y="-7.4943" />
+            <Position X="-0.7092" Y="-6.4943" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/white_24.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="223203322" Tag="81" IconVisible="False" LeftMargin="-125.8313" RightMargin="-123.1687" TopMargin="-38.6742" BottomMargin="10.6742" LabelText="当小球碰撞线条尖端时，" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="223203322" Tag="81" IconVisible="False" LeftMargin="-125.8314" RightMargin="-123.1686" TopMargin="-39.6742" BottomMargin="11.6742" LabelText="当小球碰撞线条尖端时，" ctype="TextBMFontObjectData">
             <Size X="249.0000" Y="28.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-1.3313" Y="24.6742" />
+            <Position X="-1.3314" Y="25.6742" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />

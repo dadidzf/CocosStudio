@@ -6,8 +6,8 @@
       <ObjectData Name="Node" Tag="47" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="Image_4" ActionTag="-1053227077" Tag="90" IconVisible="False" LeftMargin="-179.9999" RightMargin="-180.0001" TopMargin="-24.0000" BottomMargin="-24.0000" Scale9Enable="True" LeftEage="50" RightEage="50" TopEage="40" BottomEage="40" Scale9OriginX="50" Scale9OriginY="40" Scale9Width="200" Scale9Height="40" ctype="ImageViewObjectData">
-            <Size X="360.0000" Y="48.0000" />
+          <AbstractNodeData Name="Image_4" ActionTag="-1053227077" Tag="90" IconVisible="False" LeftMargin="-184.9999" RightMargin="-185.0001" TopMargin="-35.0000" BottomMargin="-35.0000" Scale9Enable="True" LeftEage="50" RightEage="50" TopEage="20" BottomEage="20" Scale9OriginX="50" Scale9OriginY="20" Scale9Width="200" Scale9Height="80" ctype="ImageViewObjectData">
+            <Size X="370.0000" Y="70.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="0.0001" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />

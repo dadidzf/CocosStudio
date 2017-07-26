@@ -6,30 +6,30 @@
       <ObjectData Name="Node" Tag="47" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="Image_4" ActionTag="-1228625036" Tag="55" IconVisible="False" LeftMargin="-135.9386" RightMargin="-184.0614" TopMargin="126.1499" BottomMargin="-246.1499" Scale9Enable="True" LeftEage="50" RightEage="50" TopEage="40" BottomEage="40" Scale9OriginX="50" Scale9OriginY="40" Scale9Width="200" Scale9Height="40" ctype="ImageViewObjectData">
-            <Size X="320.0000" Y="120.0000" />
+          <AbstractNodeData Name="Image_4" ActionTag="-1228625036" Tag="55" IconVisible="False" LeftMargin="-132.9387" RightMargin="-187.0613" TopMargin="121.1499" BottomMargin="-251.1499" Scale9Enable="True" LeftEage="50" RightEage="50" TopEage="40" BottomEage="40" Scale9OriginX="50" Scale9OriginY="40" Scale9Width="200" Scale9Height="40" ctype="ImageViewObjectData">
+            <Size X="320.0000" Y="130.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="24.0614" Y="-186.1499" />
+            <Position X="27.0613" Y="-186.1499" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="di_txt.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="-62041790" Tag="54" IconVisible="False" LeftMargin="-96.3456" RightMargin="-168.6544" TopMargin="138.0471" BottomMargin="-166.0471" LabelText="扇形表示游戏区域被切割" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="-62041790" Tag="54" IconVisible="False" LeftMargin="-98.3456" RightMargin="-166.6544" TopMargin="138.0471" BottomMargin="-166.0471" LabelText="扇形表示游戏区域被切割" ctype="TextBMFontObjectData">
             <Size X="265.0000" Y="28.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="36.1544" Y="-152.0471" />
+            <Position X="34.1544" Y="-152.0471" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/white_24.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="556866133" Tag="57" IconVisible="False" LeftMargin="-96.3456" RightMargin="-169.6544" TopMargin="170.5491" BottomMargin="-198.5491" LabelText="的比例，当扇形被填满时" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="556866133" Tag="57" IconVisible="False" LeftMargin="-98.3456" RightMargin="-167.6544" TopMargin="170.5491" BottomMargin="-198.5491" LabelText="的比例，当扇形被填满时" ctype="TextBMFontObjectData">
             <Size X="266.0000" Y="28.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="36.6544" Y="-184.5491" />
+            <Position X="34.6544" Y="-184.5491" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -86,10 +86,10 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="ball_white.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_2_0" ActionTag="1087257837" Tag="223" IconVisible="False" LeftMargin="-95.5431" RightMargin="-2.4569" TopMargin="204.1916" BottomMargin="-232.1916" LabelText="关卡完成" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_2_0" ActionTag="1087257837" Tag="223" IconVisible="False" LeftMargin="-97.5432" RightMargin="-0.4568" TopMargin="204.1916" BottomMargin="-232.1916" LabelText="关卡完成" ctype="TextBMFontObjectData">
             <Size X="98.0000" Y="28.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-46.5431" Y="-218.1916" />
+            <Position X="-48.5432" Y="-218.1916" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />

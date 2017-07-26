@@ -6,30 +6,30 @@
       <ObjectData Name="Node" Tag="47" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="Image_4" ActionTag="-321129530" Tag="86" IconVisible="False" LeftMargin="-182.3510" RightMargin="-177.6490" TopMargin="82.4884" BottomMargin="-182.4884" Scale9Enable="True" LeftEage="50" RightEage="50" TopEage="40" BottomEage="40" Scale9OriginX="50" Scale9OriginY="40" Scale9Width="200" Scale9Height="40" ctype="ImageViewObjectData">
-            <Size X="360.0000" Y="100.0000" />
+          <AbstractNodeData Name="Image_4" ActionTag="-321129530" Tag="86" IconVisible="False" LeftMargin="-184.3511" RightMargin="-185.6489" TopMargin="78.4884" BottomMargin="-178.4884" Scale9Enable="True" LeftEage="50" RightEage="50" TopEage="40" BottomEage="40" Scale9OriginX="50" Scale9OriginY="40" Scale9Width="200" Scale9Height="40" ctype="ImageViewObjectData">
+            <Size X="370.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-2.3510" Y="-132.4884" />
+            <Position X="0.6489" Y="-128.4884" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="di_txt.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="1783668326" Tag="84" IconVisible="False" LeftMargin="-154.0369" RightMargin="-158.9631" TopMargin="101.6962" BottomMargin="-129.6962" LabelText="记住不要让小球撞上延伸线条" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="1783668326" Tag="84" IconVisible="False" LeftMargin="-154.0369" RightMargin="-158.9631" TopMargin="97.6962" BottomMargin="-125.6962" LabelText="记住不要让小球撞上延伸线条" ctype="TextBMFontObjectData">
             <Size X="313.0000" Y="28.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="2.4631" Y="-115.6962" />
+            <Position X="2.4631" Y="-111.6962" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/white_24.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="-151406282" Tag="85" IconVisible="False" LeftMargin="-153.1166" RightMargin="-159.8834" TopMargin="135.6128" BottomMargin="-163.6128" LabelText="的中间，它将会导致游戏失败" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="-151406282" Tag="85" IconVisible="False" LeftMargin="-153.1165" RightMargin="-159.8835" TopMargin="131.6128" BottomMargin="-159.6128" LabelText="的中间，它将会导致游戏失败" ctype="TextBMFontObjectData">
             <Size X="313.0000" Y="28.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="3.3834" Y="-149.6128" />
+            <Position X="3.3835" Y="-145.6128" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
