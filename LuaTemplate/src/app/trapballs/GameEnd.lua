@@ -80,7 +80,7 @@ end
 
 function GameEnd:particle()
     for i = 1, 6 do
-        local particle = cc.ParticleSystemQuad:create(string.format("particle/particle_texture (%d).plist", i)) 
+        local particle = cc.ParticleSystemQuad:create(string.format("particle/particle_texture%d.plist", i)) 
             :move(0, 0)
             :addTo(self, 10)
 
@@ -291,8 +291,10 @@ end
 
 function GameEnd:onNext()
     dd.PlaySound("buttonclick.mp3")
-    self.m_gameScene:onNext()
-    self:removeFromParent()
+    if dd.GameData:getCurLevel() < dd.Constants.MAX_LEVEL then
+        self.m_gameScene:onNext()
+        self:removeFromParent()
+    end
 end
 
 return GameEnd

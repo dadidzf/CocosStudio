@@ -69,6 +69,7 @@
 	{
         "adsRequestAppName":"trapballs_android",
         "appDisplayName":"Trap Balls",
+        "appDisplayName_cn":"围住小球",
         "admobBannerId": "ca-app-pub-5571113908507676/1644352348",
         "admobInterstitialId": "ca-app-pub-5571113908507676/9726022347",
         "packageName":"com.yongwuart.trapballs",

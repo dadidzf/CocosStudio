@@ -154,6 +154,12 @@ def applayGameConfigToProject(name):
         '<string name="app_name">.*', '<string name="app_name">%s</string>'%gameConfig['android']['appDisplayName'])
     replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/res/values/strings.xml"),
         '<string name="app_id">.*', '<string name="app_id">%s</string>'%gameConfig['android']['googlePlayAppId'])
+
+    replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/res/values-zh-rCN/strings.xml"),
+        '<string name="app_name">.*', '<string name="app_name">%s</string>'%gameConfig['android']['appDisplayName_cn'])
+    replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/res/values-zh-rCN/strings.xml"),
+        '<string name="app_id">.*', '<string name="app_id">%s</string>'%gameConfig['android']['googlePlayAppId'])
+
     replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/src/org/cocos2dx/lua/GameHelperUtils.java"),
         'import com.*.R;', 'import %s.R;'%gameConfig['android']['packageName'])
 
