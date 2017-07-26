@@ -177,6 +177,13 @@ def applayGameConfigToProject(name):
     replacePlistKeyValue(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios/Info.plist"),
         "CFBundleDisplayName", '<string>.*$', '<string>%s</string>'%gameConfig['ios']['appDisplayName'])
 
+    replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/en.lproj/InfoPlist.strings"),
+        'CFBundleDisplayName = .*$', 'CFBundleDisplayName = "%s";'%gameConfig['ios']['appDisplayName'])
+    replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/zh-Hans.lproj/InfoPlist.strings"),
+        'CFBundleDisplayName = .*$', 'CFBundleDisplayName = "%s";'%gameConfig['ios']['appDisplayName_cn'])
+    replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/Base.lproj/InfoPlist.strings"),
+        'CFBundleDisplayName = .*$', 'CFBundleDisplayName = "%s";'%gameConfig['ios']['appDisplayName'])
+
     if os.path.exists(os.path.join(curPath, "res/%s/GoogleService-Info.plist"%name)):
         shutil.copy(os.path.join(curPath, "res/%s/GoogleService-Info.plist"%name), 
             os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios"))

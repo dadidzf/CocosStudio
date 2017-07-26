@@ -12,6 +12,7 @@
     {
         "adsRequestAppName":"trapballs_ios",
         "appDisplayName":"Trap Balls",
+        "appDisplayName_cn":"围住小球",
         "admobBannerId": "ca-app-pub-5571113908507676/7690885942",
         "admobInterstitialId": "ca-app-pub-5571113908507676/6772555942",
         "packageName":"com.yongwuart.trapballs",

@@ -16,6 +16,7 @@
 		1AF4C403178663F200122817 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C402178663F200122817 /* libz.dylib */; };
 		2927B5F01E9D0373001985D9 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2927B5EF1E9D0373001985D9 /* GameController.framework */; };
 		294D0D721D0D572600F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D711D0D572600F7F5D4 /* CoreText.framework */; };
+		2996AD771F289E5A001A34B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2996AD791F289E5A001A34B2 /* InfoPlist.strings */; };
 		29B40A271EFE0EE600238ACB /* lua_binding_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A1E1EFE0EE600238ACB /* lua_binding_manual.cpp */; };
 		29B40A281EFE0EE600238ACB /* lua_scripting_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A201EFE0EE600238ACB /* lua_scripting_auto.cpp */; };
 		29B40A291EFE0EE600238ACB /* LuaCustomConversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A221EFE0EE600238ACB /* LuaCustomConversions.cpp */; };
@@ -205,6 +206,9 @@
 		2927B5EF1E9D0373001985D9 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		29399F4D1E9A1EF9003D5267 /* libGoogleToolboxForMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleToolboxForMac.a; path = "Pods/../build/Debug-iphoneos/GoogleToolboxForMac/libGoogleToolboxForMac.a"; sourceTree = "<group>"; };
 		294D0D711D0D572600F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		2996AD781F289E5A001A34B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		2996AD7A1F289E62001A34B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2996AD7B1F289F0A001A34B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		29B0F0AE1EA30A1F0060750C /* libPods-LuaTemplate-mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-LuaTemplate-mobile.a"; path = "Build/Products/Debug-iphonesimulator/libPods-LuaTemplate-mobile.a"; sourceTree = "<group>"; };
 		29B0F0B61EA34CEA0060750C /* libPods-LuaTemplate-mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-LuaTemplate-mobile.a"; path = "Build/Products/Debug-iphoneos/libPods-LuaTemplate-mobile.a"; sourceTree = "<group>"; };
 		29B40A1E1EFE0EE600238ACB /* lua_binding_manual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_binding_manual.cpp; sourceTree = "<group>"; };
@@ -435,6 +439,7 @@
 				5023810B17EBBCAC00990C9B /* Default@2x.png */,
 				5091734A17ECE18300D62437 /* Icons */,
 				5023811317EBBCAC00990C9B /* Info.plist */,
+				2996AD791F289E5A001A34B2 /* InfoPlist.strings */,
 				5023811417EBBCAC00990C9B /* main.m */,
 				5023811517EBBCAC00990C9B /* Prefix.pch */,
 				5023811617EBBCAC00990C9B /* RootViewController.h */,
@@ -783,6 +788,7 @@
 				29F54CE51EF8FD5900B6D36B /* Icon-57.png in Resources */,
 				29F54CE81EF8FD5900B6D36B /* Icon-76.png in Resources */,
 				5023811B17EBBCAC00990C9B /* Default@2x.png in Resources */,
+				2996AD771F289E5A001A34B2 /* InfoPlist.strings in Resources */,
 				29F54CEC1EF8FD5900B6D36B /* Icon-114.png in Resources */,
 				5023811917EBBCAC00990C9B /* Default-568h@2x.png in Resources */,
 				521A8E7019F0C3D200D177D7 /* Default-667h@2x.png in Resources */,
@@ -988,6 +994,17 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2996AD791F289E5A001A34B2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2996AD781F289E5A001A34B2 /* zh-Hans */,
+				2996AD7A1F289E62001A34B2 /* Base */,
+				2996AD7B1F289F0A001A34B2 /* en */,
+			);
+			name = InfoPlist.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		9FFC07341A4A764100AED399 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
