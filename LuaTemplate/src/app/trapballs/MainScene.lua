@@ -113,7 +113,7 @@ function MainScene:updateLinePos()
     local playPos = cc.p(self.m_btnPlay:getPositionX(), self.m_btnPlay:getPositionY())
 
     local pos1 = cc.p(playPos.x - playBtnSize.width/2 + 1, playPos.y)
-    local pos2 = cc.p(playPos.x + playBtnSize.width/2, playPos.y)
+    local pos2 = cc.p(playPos.x + playBtnSize.width/2 - 2, playPos.y)
 
     self.m_imgLineLeft:runAction(cc.Sequence:create(
         cc.DelayTime:create(0.2),

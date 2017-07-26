@@ -80,6 +80,9 @@ function GameScene:onNext()
         self.m_levelIndex = self.m_levelIndex + 1
         self.m_labelRoundNum:setString(tostring(self.m_levelIndex))
         self:resetGame()
+        return true
+    else
+        return false
     end
 end
 

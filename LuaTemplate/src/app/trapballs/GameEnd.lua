@@ -291,8 +291,7 @@ end
 
 function GameEnd:onNext()
     dd.PlaySound("buttonclick.mp3")
-    if dd.GameData:getCurLevel() < dd.Constants.MAX_LEVEL then
-        self.m_gameScene:onNext()
+    if self.m_gameScene:onNext() then
         self:removeFromParent()
     end
 end

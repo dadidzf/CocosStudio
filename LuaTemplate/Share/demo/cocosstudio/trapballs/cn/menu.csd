@@ -176,14 +176,14 @@
             <PreSize X="0.2969" Y="0.0896" />
             <FileData Type="PlistSubImage" Path="btn_green_cn.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_play" ActionTag="558268941" Alpha="0" Tag="17" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="232.1200" RightMargin="237.8800" TopMargin="442.3040" BottomMargin="437.6960" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="170.0000" Y="80.0000" />
+          <AbstractNodeData Name="Button_play" ActionTag="558268941" Alpha="0" Tag="17" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="226.1200" RightMargin="223.8800" TopMargin="442.3040" BottomMargin="437.6960" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="190.0000" Y="80.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="317.1200" Y="477.6960" />
+            <Position X="321.1200" Y="477.6960" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4955" Y="0.4976" />
-            <PreSize X="0.2656" Y="0.0833" />
+            <PrePosition X="0.5017" Y="0.4976" />
+            <PreSize X="0.2969" Y="0.0833" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
             <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
