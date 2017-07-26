@@ -63,6 +63,7 @@ function GameEnd:ctor(gameScene, levelIndex, param)
     mask:setOpacity(0)
     mask:runAction(cc.FadeIn:create(1.0))
 
+    self:particle()
     gameSuccessImg:setScale(2.0)
     gameSuccessImg:runAction(cc.Sequence:create(
         cc.ScaleTo:create(1.0, 1.0),
@@ -77,6 +78,26 @@ function GameEnd:ctor(gameScene, levelIndex, param)
     self:rewardDiamondsAction()
 end
 
+function GameEnd:particle()
+    for i = 1, 6 do
+        local particle = cc.ParticleSystemQuad:create(string.format("particle/particle_texture (%d).plist", i)) 
+            :move(0, 0)
+            :addTo(self, 10)
+
+        --particle:move(display.width*(2 - ((i - 1)%3 + 1))/2, display.height*0.25)
+
+        particle:pause()
+        particle:setVisible(false)
+        particle:runAction(cc.Sequence:create(
+            cc.DelayTime:create(i*0.3),
+            cc.CallFunc:create(function ( ... )
+                particle:setVisible(true)
+                particle:start()
+            end),
+            cc.MoveTo:create(0.5, cc.p(0, display.height*0.25))
+            ))
+    end
+end
 function GameEnd:rewardDiamondsAction()
     local rewardDiamonds = display.newSprite("#money.png")
         :setAnchorPoint(cc.p(0, 0.5))

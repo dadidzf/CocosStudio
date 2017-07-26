@@ -163,6 +163,7 @@ function NewGuideController:showHands(pos1, pos2)
         :addTo(self.m_gameScene, 100)
     self.m_imgHand:runAction(cc.RepeatForever:create(
         cc.Sequence:create(
+            cc.DelayTime:create(1.0),
             cc.MoveTo:create(2.0, pos2),
             cc.CallFunc:create(function ()
                 self.m_imgHand:move(pos1)
