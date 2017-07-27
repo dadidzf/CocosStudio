@@ -8,10 +8,15 @@
     "appName":"template",
     "luaCompileKey":"dzf",
     "luaCompileSign":"hhh",
+    "width":640,
+    "height":960,
+    "autoScale1":"FIXED_HEIGHT",
+    "autoScale2":"FIXED_WIDTH",
     "ios":
     {
         "adsRequestAppName":"template_ios",
         "appDisplayName":"Template",
+        "appDisplayName_cn":"模板",
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
         "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
         "packageName":"com.yongwuart.template",
@@ -36,6 +41,7 @@
 	{
         "adsRequestAppName":"template_android",
         "appDisplayName":"Template",
+        "appDisplayName_cn":"模板",
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
         "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
         "packageName":"com.yongwuart.template",

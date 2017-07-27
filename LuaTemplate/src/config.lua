@@ -18,7 +18,9 @@ CC_DESIGN_RESOLUTION = {
     autoscale = "FIXED_HEIGHT",
     callback = function(framesize)
         local ratio = framesize.height / framesize.width
-        if ratio <= 1.5 then
+        local w = CC_DESIGN_RESOLUTION.width
+        local h = CC_DESIGN_RESOLUTION.height
+        if ratio <= h/w then
             -- iPad 768*1024(1536*2048) is 4:3 screen
             return {autoscale = "FIXED_WIDTH"}
         end

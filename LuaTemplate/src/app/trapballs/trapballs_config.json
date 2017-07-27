@@ -8,6 +8,10 @@
     "appName":"trapballs",
     "luaCompileKey":"dzf_trapballs",
     "luaCompileSign":"hhh_trapballs",
+    "width":640,
+    "height":960,
+    "autoScale1":"FIXED_HEIGHT",
+    "autoScale2":"FIXED_WIDTH",
     "ios":
     {
         "adsRequestAppName":"trapballs_ios",

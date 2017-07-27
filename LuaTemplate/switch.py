@@ -141,6 +141,16 @@ def applayGameConfigToProject(name):
     gameConfig = json.load(f)
     f.close()
 
+    ## Auto Scale, Design resolution
+    replaceRegularString(os.path.join(curPath, "src", "config.lua"), "width = .*", 
+        'width = %d,'%gameConfig['width'])
+    replaceRegularString(os.path.join(curPath, "src", "config.lua"), "height = .*", 
+        'height = %d,'%gameConfig['height'])
+    replaceRegularString(os.path.join(curPath, "src", "config.lua"), 'autoscale = .*', 
+        'autoscale = "%s",'%gameConfig['autoScale1'])
+    replaceRegularString(os.path.join(curPath, "src", "config.lua"), 'return {autoscale = .*', 
+        'return {autoscale = "%s"}'%gameConfig['autoScale2'])
+
     ## android
     replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/AndroidManifest.xml"),
         "package=.*", 'package="%s"'%gameConfig['android']['packageName'])
