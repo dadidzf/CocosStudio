@@ -165,6 +165,35 @@
             <PlistImageFile Name="zhangai_nengliangqiu4.png" Key="zhangai_nengliangqiu4.png" />
           </PlistImageFolder>
         </Folder>
+        <Folder Name="snakevsmath">
+          <Folder Name="en" />
+          <PlistImageFolder Image="gui.png" PListFile="gui.plist" Name=".gui_PList.Dir">
+            <PlistImageFile Name="background.png" Key="background.png" />
+            <PlistImageFile Name="balloon1.png" Key="balloon1.png" />
+            <PlistImageFile Name="balloon10.png" Key="balloon10.png" />
+            <PlistImageFile Name="balloon2.png" Key="balloon2.png" />
+            <PlistImageFile Name="balloon3.png" Key="balloon3.png" />
+            <PlistImageFile Name="balloon4.png" Key="balloon4.png" />
+            <PlistImageFile Name="balloon5.png" Key="balloon5.png" />
+            <PlistImageFile Name="balloon6.png" Key="balloon6.png" />
+            <PlistImageFile Name="balloon7.png" Key="balloon7.png" />
+            <PlistImageFile Name="balloon8.png" Key="balloon8.png" />
+            <PlistImageFile Name="balloon9.png" Key="balloon9.png" />
+            <PlistImageFile Name="diamondInGame.png" Key="diamondInGame.png" />
+            <PlistImageFile Name="diamondNum.png" Key="diamondNum.png" />
+            <PlistImageFile Name="tou1.png" Key="tou1.png" />
+            <PlistImageFile Name="tou10.png" Key="tou10.png" />
+            <PlistImageFile Name="tou2.png" Key="tou2.png" />
+            <PlistImageFile Name="tou3.png" Key="tou3.png" />
+            <PlistImageFile Name="tou4.png" Key="tou4.png" />
+            <PlistImageFile Name="tou5.png" Key="tou5.png" />
+            <PlistImageFile Name="tou6.png" Key="tou6.png" />
+            <PlistImageFile Name="tou7.png" Key="tou7.png" />
+            <PlistImageFile Name="tou8.png" Key="tou8.png" />
+            <PlistImageFile Name="tou9.png" Key="tou9.png" />
+            <PlistImageFile Name="zhadan.png" Key="zhadan.png" />
+          </PlistImageFolder>
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>
