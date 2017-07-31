@@ -40,6 +40,18 @@
           </AbstractNodeData>
           <AbstractNodeData Name="daqiqiu_3" ActionTag="488841926" Tag="6" IconVisible="False" VerticalEdge="BothEdge" LeftMargin="78.5000" RightMargin="78.5000" TopMargin="127.9680" BottomMargin="208.0320" ctype="SpriteObjectData">
             <Size X="483.0000" Y="624.0000" />
+            <Children>
+              <AbstractNodeData Name="play" ActionTag="204240233" Tag="7" IconVisible="False" VerticalEdge="BothEdge" LeftMargin="96.9997" RightMargin="98.0003" TopMargin="577.4701" BottomMargin="-57.4701" LeftEage="95" RightEage="95" TopEage="34" BottomEage="34" Scale9OriginX="95" Scale9OriginY="34" Scale9Width="98" Scale9Height="36" ctype="ImageViewObjectData">
+                <Size X="288.0000" Y="104.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="240.9997" Y="-5.4701" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.4990" Y="-0.0088" />
+                <PreSize X="0.5963" Y="0.1667" />
+                <FileData Type="PlistSubImage" Path="Play.png" Plist="snakevsmath/gui.plist" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="520.0320" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -48,16 +60,6 @@
             <PreSize X="0.7547" Y="0.6500" />
             <FileData Type="PlistSubImage" Path="daqiqiu.png" Plist="snakevsmath/gui.plist" />
             <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="play" ActionTag="204240233" Tag="7" IconVisible="False" VerticalEdge="BothEdge" LeftMargin="176.0000" RightMargin="176.0000" TopMargin="697.9520" BottomMargin="158.0480" LeftEage="95" RightEage="95" TopEage="34" BottomEage="34" Scale9OriginX="95" Scale9OriginY="34" Scale9Width="98" Scale9Height="36" ctype="ImageViewObjectData">
-            <Size X="288.0000" Y="104.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="320.0000" Y="210.0480" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.2188" />
-            <PreSize X="0.4500" Y="0.1083" />
-            <FileData Type="PlistSubImage" Path="Play.png" Plist="snakevsmath/gui.plist" />
           </AbstractNodeData>
           <AbstractNodeData Name="fenxiang" ActionTag="-1625115866" Tag="8" IconVisible="False" VerticalEdge="BottomEdge" LeftMargin="56.5000" RightMargin="496.5000" TopMargin="824.3355" BottomMargin="-21.3355" LeftEage="28" RightEage="28" TopEage="51" BottomEage="51" Scale9OriginX="28" Scale9OriginY="51" Scale9Width="31" Scale9Height="55" ctype="ImageViewObjectData">
             <Size X="87.0000" Y="157.0000" />
