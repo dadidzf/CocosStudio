@@ -2,6 +2,8 @@ local MyApp = class("MyApp", cc.load("mvc").AppBase)
 
 cc.FileUtils:getInstance():addSearchPath("res/snakevsmath")
 
+cc.load("sdk").Tools.setMultiLanguageSupported(true)
+
 import(".Constant")
 dd.GameData = import(".GameData"):create()
 

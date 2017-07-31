@@ -1,5 +1,6 @@
 local MainScene = class("MainScene", cc.load("mvc").ViewBase)
 local Snake = import(".Snake")
+local Start = import(".Start")
 local BalloonsContainer = import(".BalloonsContainer")
 
 function MainScene:onCreate()
@@ -8,11 +9,9 @@ function MainScene:onCreate()
 	local spriteFrameCache = cc.SpriteFrameCache:getInstance()
 	spriteFrameCache:addSpriteFrames("gui.plist", "gui.png")
 
-    local backGround = display.newSprite("#background.png")
-        :setAnchorPoint(cc.p(0, 0))
+    local start = Start:create()
         :move(0, 0)
-        :setScaleY(1.2)
-        :addTo(self)
+        :addTo(self, 100)
 
     local snake = Snake:create(handler(self, self.onSnakeMove))
         :move(display.cx, display.cy)
