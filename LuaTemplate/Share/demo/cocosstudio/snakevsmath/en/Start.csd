@@ -6,17 +6,6 @@
       <ObjectData Name="Layer" Tag="2" ctype="GameLayerObjectData">
         <Size X="640.0000" Y="960.0000" />
         <Children>
-          <AbstractNodeData Name="background_1" ActionTag="-103600316" Tag="3" IconVisible="False" VerticalEdge="BothEdge" TopMargin="-60.0000" BottomMargin="-60.0000" ctype="SpriteObjectData">
-            <Size X="640.0000" Y="1080.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="320.0000" Y="480.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.2000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="1.0000" Y="1.1250" />
-            <FileData Type="PlistSubImage" Path="background.png" Plist="snakevsmath/gui.plist" />
-            <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
           <AbstractNodeData Name="Restore" ActionTag="-560610793" Tag="4" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="528.0000" BottomMargin="848.0000" LeftEage="36" RightEage="36" TopEage="36" BottomEage="36" Scale9OriginX="36" Scale9OriginY="36" Scale9Width="40" Scale9Height="40" ctype="ImageViewObjectData">
             <Size X="112.0000" Y="112.0000" />
             <AnchorPoint ScaleX="1.0000" ScaleY="1.0000" />
@@ -41,10 +30,10 @@
           <AbstractNodeData Name="daqiqiu_3" ActionTag="488841926" Tag="6" IconVisible="False" VerticalEdge="BothEdge" LeftMargin="78.5000" RightMargin="78.5000" TopMargin="127.9680" BottomMargin="208.0320" ctype="SpriteObjectData">
             <Size X="483.0000" Y="624.0000" />
             <Children>
-              <AbstractNodeData Name="play" ActionTag="204240233" Tag="7" IconVisible="False" VerticalEdge="BothEdge" LeftMargin="96.9997" RightMargin="98.0003" TopMargin="577.4701" BottomMargin="-57.4701" LeftEage="95" RightEage="95" TopEage="34" BottomEage="34" Scale9OriginX="95" Scale9OriginY="34" Scale9Width="98" Scale9Height="36" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="play" ActionTag="204240233" Tag="7" IconVisible="False" VerticalEdge="BothEdge" LeftMargin="96.9997" RightMargin="98.0003" TopMargin="577.4912" BottomMargin="-57.4912" LeftEage="95" RightEage="95" TopEage="34" BottomEage="34" Scale9OriginX="95" Scale9OriginY="34" Scale9Width="98" Scale9Height="36" ctype="ImageViewObjectData">
                 <Size X="288.0000" Y="104.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="240.9997" Y="-5.4701" />
+                <Position X="240.9997" Y="-5.4912" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4990" Y="-0.0088" />
