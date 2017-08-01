@@ -11,16 +11,6 @@
           </Folder>
           <Folder Name="fnt">
             <Fnt Name="snake_red_96.fnt" />
-            <Fnt Name="snake_white_32_1.fnt" />
-            <Fnt Name="snake_white_32_10.fnt" />
-            <Fnt Name="snake_white_32_2.fnt" />
-            <Fnt Name="snake_white_32_3.fnt" />
-            <Fnt Name="snake_white_32_4.fnt" />
-            <Fnt Name="snake_white_32_5.fnt" />
-            <Fnt Name="snake_white_32_6.fnt" />
-            <Fnt Name="snake_white_32_7.fnt" />
-            <Fnt Name="snake_white_32_8.fnt" />
-            <Fnt Name="snake_white_32_9.fnt" />
             <Fnt Name="snake_white_48.fnt" />
           </Folder>
           <PlistImageFolder Image="gui.png" PListFile="gui.plist" Name=".gui_PList.Dir">
