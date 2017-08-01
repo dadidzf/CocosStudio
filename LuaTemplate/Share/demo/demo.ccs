@@ -4,6 +4,11 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Folder Name="snakevsmath">
+          <Folder Name="cn">
+            <Project Name="jiesu.csd" Type="Node" />
+            <Project Name="Start.csd" Type="Layer" />
+            <Project Name="zanting.csd" Type="Node" />
+          </Folder>
           <Folder Name="en">
             <Project Name="jiesu.csd" Type="Node" />
             <Project Name="Start.csd" Type="Layer" />
