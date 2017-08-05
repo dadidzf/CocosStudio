@@ -2,21 +2,31 @@ local BalloonsContainer = class("BalloonsContainer", cc.Node)
 local Balloon = import(".Balloon")
 
 function BalloonsContainer:ctor()
+    self:enableNodeEvents()
+
     self.m_balloonsList = {}
     self.m_posXList = {53, 159, 265, 371, 477, 583}
-    self.m_levelCreateProb = {0.05, 0.1, 0.2}
+    self.m_linePosXList = {106, 212, 318, 424, 530}
+    self.m_levelCreateProb = {0.5, 0.6, 0.7}
 
-    self.m_symbolList = {"+", "-", "x", "/", "bomb", "diamond"}
+    self.m_symbolList = {"+", "-", "×", "÷", "bomb", "diamond", "wall"}
     self.m_symbolGenarator = self:getSymbolGenarator()
 
-    self.m_scheduler = dd.scheduler:scheduleScriptFunc(handler(self, self.createBalloons), 0.01, false)
+    self.m_scheduler = dd.scheduler:scheduleScriptFunc(handler(self, self.createBalloons), 0.5, false)
+end
+
+function BalloonsContainer:removeSheduler()
+    if self.m_scheduler then
+        dd.scheduler:unscheduleScriptEntry(self.m_scheduler)
+        self.m_scheduler = nil
+    end
 end
 
 function BalloonsContainer:getSymbolGenarator()
     local levelSymbolProb = {
-        {100, 100, 10, 10, 20, 5},
-        {100, 200, 10, 20, 30, 5},
-        {100, 300, 10, 30, 40, 5}
+        {100, 100, 10, 10, 20, 5, 50},
+        {100, 200, 10, 20, 30, 5, 60},
+        {100, 300, 10, 30, 40, 5, 70}
     }
     local levelSymbolProbIncreaseList = {}
     for index, levelProbList in ipairs(levelSymbolProb) do
@@ -29,7 +39,6 @@ function BalloonsContainer:getSymbolGenarator()
         levelSymbolProbIncreaseList[index] = increaseTb
     end
 
-    dump(levelSymbolProbIncreaseList)
     return function ( ... )
         local curLevelProbIncreaseList = levelSymbolProbIncreaseList[dd.GameData:getCurLevel()]
         local totalProbNum = curLevelProbIncreaseList[#curLevelProbIncreaseList]
@@ -51,37 +60,54 @@ function BalloonsContainer:createBalloons()
 end
 
 function BalloonsContainer:addBalloon()
-    self.m_posXIndex = self.m_posXIndex or 1
-    local xCount= #self.m_posXList
-    self.m_posXIndex = self.m_posXIndex + math.random(xCount - 1)
-    if self.m_posXIndex > xCount then
-        self.m_posXIndex = self.m_posXIndex - xCount
+    for i = 1, 6 do
+        if math.random() > 0.5 then 
+            local randX = self.m_posXList[i] - 320 --+ (math.random() - 0.5)*50 
+            local symbol = self.m_symbolGenarator()
+            if symbol == "wall" then
+                randX = self.m_linePosXList[i%5 + 1] - 320
+            end
+            local balloon = Balloon:create(math.random(1, 9), symbol)
+                :move(randX, 640)
+                :addTo(self)
+
+            local index = #self.m_balloonsList + 1
+            self.m_balloonsList[index] = balloon
+            local moveAction = cc.MoveBy:create(5.0, cc.p(0, -1280)), 2
+            
+            local filterList = {["+"] = true, ["-"] = true, ["wall"] = true}
+            if math.random() < 0.5 and not filterList[symbol] then
+                moveAction = cc.EaseInOut:create(moveAction, 2)
+            end
+
+            balloon:runAction(cc.Sequence:create(
+                moveAction, 
+                cc.CallFunc:create(function ( ... )
+                    balloon:removeFromParent()
+                    self.m_balloonsList[index] = nil
+                end)
+                ))
+        end
     end
+end
 
-    local randX = self.m_posXList[self.m_posXIndex] - 320 --+ (math.random() - 0.5)*50 
-    local balloon = Balloon:create(math.random(1, 9), self.m_symbolGenarator())
-        :move(randX, 640)
-        :addTo(self)
-
-    local index = #self.m_balloonsList + 1
-    self.m_balloonsList[index] = balloon
-    local moveAction = cc.MoveBy:create(3.0, cc.p(0, -1280)), 2
-    
-    if math.random() < 0.2 then
-        moveAction = cc.EaseInOut:create(moveAction, 2)
+function BalloonsContainer:onGameEnd()
+    self:removeSheduler()
+    for _, balloon in pairs(self.m_balloonsList) do
+        balloon:pause()
     end
+end
 
-    balloon:runAction(cc.Sequence:create(
-        moveAction, 
-        cc.CallFunc:create(function ( ... )
-            balloon:removeFromParent()
-            self.m_balloonsList[index] = nil
-        end)
-        ))
+function BalloonsContainer:removeBalloon(index)
+    self.m_balloonsList[index] = nil
 end
 
 function BalloonsContainer:getBalloonsList()
     return self.m_balloonsList
+end
+
+function BalloonsContainer:onCleanup()
+    self:removeSheduler()
 end
 
 return BalloonsContainer 

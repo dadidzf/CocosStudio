@@ -12,9 +12,10 @@ function Snake:ctor(moveCallBack)
     self.m_direction = 30
     self.m_moveCallBack = moveCallBack
     self.m_number = 0
+    self.m_snakeYpos = -display.height*0.1
 
     local head = Body:create(true)
-        :move(cc.p(0, 0))
+        :move(cc.p(0, self.m_snakeYpos))
         :addTo(self)
 
     self.m_headSize = head:getContentSize()
@@ -74,6 +75,8 @@ function Snake:getDirection()
 end
 
 function Snake:setMoveSpeed(speed)
+    print("Snake:setMoveSpeed", speed)
+    
     self:removeScheduler()
     self.m_speed = speed
     local updateTime = _baseStepDistance/self.m_speed
@@ -113,6 +116,10 @@ end
 
 function Snake:step()
     self:updatePathForOneStep()
+    self:updateBodiesPos()
+end
+
+function Snake:updateBodiesPos()
     local index = 1
     for i = 1, #self.m_pathList, _bodyMapSteps do
         local body = self.m_bodies[index]
@@ -138,26 +145,64 @@ function Snake:updatePathForOneStep()
     local nextPos = cc.p(headPos.x + diffX, headPos.y + diffY)
 
     local headSize = self.m_headSize
-    if nextPos.x <= -display.width/2 + headSize.width/2 then
+    if nextPos.x <= -display.width/2 + headSize.width then
         self.m_direction = 90
-        nextPos.x = -display.width/2 + headSize.width/2
+        nextPos.x = -display.width/2 + headSize.width
         local dx = headPos.x - nextPos.x
-        nextPos.y = math.sqrt(_baseStepDistance*_baseStepDistance - dx*dx) 
-    elseif nextPos.x > display.width/2 - headSize.width/2 then
+        nextPos.y = math.sqrt(_baseStepDistance*_baseStepDistance - dx*dx) + self.m_snakeYpos
+    elseif nextPos.x > display.width/2 - headSize.width then
         self.m_direction = 90
-        nextPos.x = display.width/2 - headSize.width/2
+        nextPos.x = display.width/2 - headSize.width
         local dx = nextPos.x - headPos.x
-        nextPos.y = math.sqrt(_baseStepDistance*_baseStepDistance - dx*dx) 
+        nextPos.y = math.sqrt(_baseStepDistance*_baseStepDistance - dx*dx) + self.m_snakeYpos
     end
 
     table.insert(self.m_pathList, 1, nextPos)
     table.remove(self.m_pathList, #self.m_pathList)
 
-    diffY = nextPos.y
+    diffY = nextPos.y - self.m_snakeYpos
     for _, pos in ipairs(self.m_pathList) do
         pos.y = pos.y - diffY
     end
 
+    self.m_moveCallBack(diffY)
+end
+
+function Snake:updatePosWithWall(wall)
+    local wallPos = cc.p(wall:getPositionX(), wall:getPositionY())
+    local wallSize = wall:getContentSize()
+
+    local headPos = self.m_pathList[1]
+    local headSize = self.m_headSize
+
+    local nextPos = {}
+    if math.abs(headPos.x - wallPos.x) < headSize.width/2 and 
+        (headPos.y < wallPos.y + wallSize.height/2) and (headPos.y > wallPos.y - wallSize.height/2) then
+        
+        if headPos.x >= wallPos.x then
+            nextPos.x = wallPos.x + headSize.width/2
+        elseif headPos.x < wallPos.x then
+            nextPos.x = wallPos.x - headSize.width/2
+        end
+
+        local dx = nextPos.x - headPos.x
+        print("xxxxxxxxxxxxxxxx", nextPos.x, headPos.x, _baseStepDistance, self.m_snakeYpos, dx)
+        nextPos.y = math.sqrt(math.abs(_baseStepDistance*_baseStepDistance - dx*dx)) + self.m_snakeYpos
+        print("Snake:updatePosWithWall ----------------------", nextPos.x, nextPos.y)
+    else
+        return
+    end
+
+    self.m_direction = 90
+    table.insert(self.m_pathList, 1, nextPos)
+    table.remove(self.m_pathList, #self.m_pathList)
+    
+    local diffY = nextPos.y - self.m_snakeYpos
+    for _, pos in ipairs(self.m_pathList) do
+        pos.y = pos.y - diffY
+    end
+
+    self:updateBodiesPos()
     self.m_moveCallBack(diffY)
 end
 
@@ -187,8 +232,11 @@ function Snake:getTailDirection()
     end
 end
 
+function Snake:onGameEnd()
+    self:removeScheduler()
+end
+
 function Snake:onCleanup()
-    self.super.onCleanup(self) 
     self:removeScheduler()
 end
 

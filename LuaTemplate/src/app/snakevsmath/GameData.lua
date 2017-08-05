@@ -37,6 +37,21 @@ function GameData:refreshDiamonds(diamond)
     self.m_diamonds = diamond
 end
 
+function GameData:getHighScore()
+    if not self.m_highScore then
+        self.m_highScore = cc.UserDefault:getInstance():getIntegerForKey("highScore", 0)
+    end
+
+    return self.m_highScore
+end
+
+function GameData:refreshHighScore(score)
+    assert(score > self.m_highScore, "Can not be less than 0 !")
+    cc.UserDefault:getInstance():setIntegerForKey("highScore", score)
+
+    self.m_highScore = score
+end
+
 function GameData:isAdsRemoved()
     if not self.m_isAdsRemoved then
         self.m_isAdsRemoved = cc.UserDefault:getInstance():getBoolForKey("noads", false)

@@ -15,5 +15,7 @@ Constants.SHARE_TIPS =
     end
 }
 
+Constants.INIT_DIAMONDS = 100
+
 return Constants
 
