@@ -13,7 +13,7 @@ function GameLayer:ctor(scene)
     self.m_scene = scene
     local snake = Snake:create(handler(self, self.onSnakeMove))
         :move(display.cx, display.cy)
-        :addTo(self)
+        :addTo(self, 1)
     self.m_snake = snake
     self.m_balloonsContainer = BalloonsContainer:create() 
         :move(display.cx, display.cy)
@@ -84,15 +84,29 @@ function GameLayer:updateCollision()
             if cc.pGetLength(cc.pSub(balloonPos, headPos)) < 50 then
                 local snakeNum = self.m_snake:getNumber()
                 local ret = balloon:dealSnakeNumber(snakeNum)
+ 
                 if type(ret) == "number" then
+                    if symbol == "+" or "×" then
+                        dd.PlaySound("score.mp3")
+                    else
+                    end
+
                     snakeNum = ret
-                    balloon:removeFromParent()
                     balloonsList[index] = nil
                     if snakeNum < 0 then
-                        self:gameEnd(0)
+                        self:gameEnd(0, false)
+                        self.m_snake:setNumber(0)
                     else
                         self.m_snake:setNumber(snakeNum)
+                        self:updateLevel(snakeNum)
                     end
+
+                    balloon:runAction(cc.Sequence:create(
+                        cc.FadeOut:create(0.2),
+                        cc.CallFunc:create(function ( ... )
+                            balloon:removeFromParent()
+                        end)
+                        ))
                 elseif ret == "diamond" then
                     balloon:stopAllActions() 
                     self.m_balloonsContainer:removeBalloon(index)
@@ -110,9 +124,9 @@ function GameLayer:updateCollision()
                         )
                         ))
                 elseif ret == "bomb" then
-                    print("xxxxxxxxxxxxxx  -- bomb bomb")
                     local snakeNum = self.m_snake:getNumber()
-                    self:gameEnd(snakeNum)
+                    self:gameEnd(snakeNum, true)
+                    balloon:removeFromParent()
                 end
 
                 break
@@ -121,14 +135,45 @@ function GameLayer:updateCollision()
     end
 end
 
-function GameLayer:gameEnd(score)
-    local gameEnd = import(".GameEnd", MODULE_PATH):create(self, score)
-        :move(display.cx, display.cy)
-        :addTo(self)
+function GameLayer:updateLevel(snakeNum)
+    local curLevel = dd.GameData:getCurLevel()
+    if snakeNum > 10 and curLevel == 1 then
+        dd.GameData:setLevel(2)
+    elseif snakeNum > 1000000 and curLevel == 2 then
+        dd.GameData:setLevel(3)
+    elseif snakeNum > 10000000 and curLevel == 3 then
+        dd.GameData:setLevel(4)
+    elseif snakeNum > 100000000 and curLevel == 4 then
+        dd.GameData:setLevel(5)
+    end
+end
 
-    self.m_snake:onGameEnd()
+function GameLayer:gameEnd(score, isBomb)
+    local scheduler
+    local showGameEndFunc = function ( ... )
+        local gameEnd = import(".GameEnd", MODULE_PATH):create(self, score)
+            :move(display.cx, display.cy)
+            :addTo(self)
+
+        if scheduler then
+            dd.scheduler:unscheduleScriptEntry(scheduler)
+        end
+    end
+    
+    self.m_snake:onGameEnd(isBomb)
     self.m_balloonsContainer:onGameEnd()
     self:removeAllSchedule()
+
+    if isBomb then
+        local shaker = cc.load("sdk").ScreenShake:create(self, 0.2)
+        shaker:setDiffMax(12)
+        shaker:run()
+        scheduler = dd.scheduler:scheduleScriptFunc(showGameEndFunc, 1, false)
+    else
+        showGameEndFunc()
+    end
+    
+    AudioEngine.getInstance():stopMusic()
 end
 
 function GameLayer:addTouch()

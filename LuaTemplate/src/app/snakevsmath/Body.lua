@@ -4,7 +4,14 @@ end)
 
 function Body:ctor(isHead)
     if isHead then
-        self:initWithSpriteFrameName(string.format("tou%d.png", dd.GameData:getHeadIndex()))
+        --self:initWithSpriteFrameName(string.format("tou%d.png", dd.GameData:getHeadIndex()))
+        self:setContentSize(60, 60)
+        local sprite = display.newSprite(string.format("#tou%d.png", dd.GameData:getHeadIndex()))
+            :setAnchorPoint(cc.p(0.5, 0))
+            :move(30, 15)
+            :addTo(self)
+
+            sprite:setScale(1.2)
     else
         self:initWithSpriteFrameName("balloon1.png")
         self:setScale(0.7)

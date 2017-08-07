@@ -21,6 +21,8 @@ function MainScene:startGame()
     self:removeStartLayer()
         
     cc.load("sdk").Admob.getInstance():showBanner()
+
+    AudioEngine.getInstance():playMusic("sounds/background.mp3", true)
 end
 
 function MainScene:removeStartLayer()
@@ -35,6 +37,7 @@ function MainScene:createStartlayer()
 end
 
 function MainScene:backHome()
+    AudioEngine.getInstance():stopMusic()
     self.m_gameLayer:removeFromParent()
     self.m_gameLayer = nil
     self:createStartlayer()

@@ -26,6 +26,7 @@ function GameEnd:ctor(game, score)
 end
 
 function GameEnd:onRestart()
+    AudioEngine.getInstance():stopMusic()
     self.m_game:onHome()
 end
 

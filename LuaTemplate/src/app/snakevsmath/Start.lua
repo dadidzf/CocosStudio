@@ -6,8 +6,8 @@ Start.RESOURCE_BINDING = {
     ["fenxiang"] = {varname = "m_btnShare", events = {{ event = "click", method = "onShare" }}},
     ["dianzan"] = {varname = "m_btnRate", events = {{ event = "click", method = "onRate" }}},
     ["gouwuche"] = {varname = "m_btnShop", events = {{ event = "click", method = "onShop" }}},
-    ["yinxiao"] = {varname = "m_checkBoxSound", events = {{ event = "click", method = "onSound" }}},
-    ["quguanggao"] = {varname = "m_btnNoAds", events = {{ event = "click", method = "onNoAds" }}},
+    ["yinxiao"] = {varname = "m_checkBoxSound"},
+    ["quguanggao"] = {varname = "m_checkBoxNoAds"},
 
     ["Restore"] = {varname = "m_btnRestore", events = {{ event = "click", method = "onRestore" }}},
     ["daqiqiu_3"] = {varname = "m_imgBalloon"},
@@ -23,16 +23,32 @@ function Start:ctor(scene)
     resourceNode:setContentSize(display.size)
     ccui.Helper:doLayout(resourceNode)
 
+    self.m_checkBoxNoAds:onEvent(handler(self, self.onNoAds))
+    self.m_checkBoxSound:onEvent(handler(self, self.onSound))
+    self.m_checkBoxSound:setSelected(not dd.GameData:isSoundEnable())
+    self.m_checkBoxNoAds:setSelected(dd.GameData:isAdsRemoved())
+
     if device.platform ~= "ios" then
         self.m_btnRestore:setVisible(false)
     end
 
-    self.m_btnList = {self.m_btnShare, self.m_btnRate, self.m_btnShop, self.m_checkBoxSound, self.m_btnNoAds}
+    self.m_btnList = {self.m_btnShare, self.m_btnRate, self.m_btnShop, self.m_checkBoxSound, self.m_checkBoxNoAds}
 
     self:showButtonAction()
+
+    if display.height < 960 then
+        self.m_imgBalloon:setScale(display.height*0.9/960)
+    end
 end
 
 function Start:showButtonAction()
+    self.m_imgTitle:setOpacity(0)
+    self.m_imgTitle:runAction(cc.FadeIn:create(1.0))
+    self.m_btnPlay:setOpacity(0)
+    self.m_btnPlay:runAction(cc.FadeIn:create(1.0))
+    self.m_btnRestore:setOpacity(0)
+    self.m_btnRestore:runAction(cc.FadeIn:create(1.0))
+
     local posY = self.m_btnShare:getPositionY()
 
     for index, btn in ipairs(self.m_btnList) do
@@ -72,26 +88,60 @@ function Start:hideButtonAction()
 end
 
 function Start:onShare()
+    cc.load("sdk").Tools.share(dd.Constants.SHARE_TIPS.getTips(), 
+        cc.FileUtils:getInstance():fullPathForFilename("512.png"))
 end
 
 function Start:onRate()
+    cc.load("sdk").Tools.rate()
 end
 
 function Start:onShop()
+    local gameShop = GameShop:create(function ()
+        self.m_labelDiamonds:setString(tostring(dd.GameData:getDiamonds()))
+    end)
+    self:addChild(gameShop)
+    gameShop:setPosition(display.cx, display.cy)
 end
 
 function Start:onSound()
+    dd.GameData:setSoundEnable(not dd.GameData:isSoundEnable())
 end
 
 function Start:onNoAds()
+    cc.load("sdk").Billing.purchase(dd.appCommon.skuKeys[1], function (result)
+        print("Billing Purchase Result ~ ", result)
+        if (result and device.platform == "ios") or 
+            (result ~= "failed" and device.platform == "android") then
+                cc.load("sdk").Admob.getInstance():setAdsRemoved(true)
+                dd.GameData:setAdsRemoved(true)
+                self.m_checkBoxNoAds:setSelected(dd.GameData:isAdsRemoved())
+        end
+    end)
+
+    self.m_checkBoxNoAds:setSelected(dd.GameData:isAdsRemoved())
 end
 
 function Start:onRestore()
+    cc.load("sdk").Billing.restore(function (...)
+        print("Billing Restore Result ~ ")
+        local paramTb = {...}
+        dump(paramTb)
+        for _, result in ipairs(paramTb) do
+            if result == dd.appCommon.skuKeys[1] then
+                cc.load("sdk").Admob.getInstance():setAdsRemoved(true)
+                dd.GameData:setAdsRemoved(true)
+                self.m_checkBoxNoAds:setSelected(dd.GameData:isAdsRemoved())
+                break
+            end
+        end
+    end)
 end
 
 function Start:onPlay()
     print("Start:onPlay")
 
+    dd.GameData:setLevel(1)
     self:hideButtonAction()
     self.m_imgTitle:runAction(cc.FadeOut:create(0.5))
     self.m_btnRestore:runAction(cc.FadeOut:create(0.5))

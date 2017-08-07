@@ -2,7 +2,7 @@ local Snake = class("Snake", cc.Node)
 local Body = import(".Body")
 
 local _baseStepDistance = 10
-local _distanceOfBodies = 40
+local _distanceOfBodies = 50
 local _bodyMapSteps = _distanceOfBodies/_baseStepDistance
 
 function Snake:ctor(moveCallBack)
@@ -25,6 +25,7 @@ function Snake:ctor(moveCallBack)
 
     self:setMoveSpeed(500)
     self:applyNumber()
+    self:updateBodiesPos()
 end
 
 function Snake:getHeadPos()
@@ -232,7 +233,25 @@ function Snake:getTailDirection()
     end
 end
 
-function Snake:onGameEnd()
+function Snake:onGameEnd(isBomb)
+    if isBomb then
+        local headPos = self.m_pathList[1]
+        local particle = cc.ParticleSystemQuad:create("particle/particle_bomb.plist") 
+            :move(headPos)
+            :addTo(self)
+        dd.PlaySound("bomb.mp3")
+
+        for _, body in ipairs(self.m_bodies) do
+            local pos = cc.p(body:getPositionX(), body:getPositionY())
+            pos.x = pos.x + math.random(200) - 100
+            pos.y = pos.y + math.random(200) - 100
+            body:setPosition(pos)
+            local moveAction = cc.MoveBy:create(3.0, cc.p(0, 1280))
+            body:runAction(cc.EaseIn:create(moveAction, 2))
+            body:setOpacity(180)
+        end
+    end
+                        
     self:removeScheduler()
 end
 

@@ -7,5 +7,6 @@ _M.GameCenter = import(".GameCenter")
 _M.Billing = import(".Billing")
 _M.CsvUtil = import(".CsvUtil")
 _M.BindingUtil = import(".BindingUtil")
+_M.ScreenShake = import(".ScreenShake")
 
 return _M

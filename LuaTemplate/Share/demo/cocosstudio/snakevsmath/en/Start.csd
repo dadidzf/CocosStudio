@@ -50,7 +50,7 @@
             <FileData Type="PlistSubImage" Path="daqiqiu.png" Plist="snakevsmath/gui.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="fenxiang" ActionTag="-1625115866" Tag="8" IconVisible="False" VerticalEdge="BottomEdge" LeftMargin="56.5000" RightMargin="496.5000" TopMargin="824.3355" BottomMargin="-21.3355" LeftEage="28" RightEage="28" TopEage="51" BottomEage="51" Scale9OriginX="28" Scale9OriginY="51" Scale9Width="31" Scale9Height="55" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="fenxiang" ActionTag="-1625115866" Tag="8" IconVisible="False" VerticalEdge="BottomEdge" LeftMargin="56.5000" RightMargin="496.5000" TopMargin="824.3355" BottomMargin="-21.3355" TouchEnable="True" LeftEage="28" RightEage="28" TopEage="51" BottomEage="51" Scale9OriginX="28" Scale9OriginY="51" Scale9Width="31" Scale9Height="55" ctype="ImageViewObjectData">
             <Size X="87.0000" Y="157.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="100.0000" Y="57.1645" />
@@ -60,7 +60,7 @@
             <PreSize X="0.1359" Y="0.1635" />
             <FileData Type="PlistSubImage" Path="fenxiang.png" Plist="snakevsmath/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="dianzan" ActionTag="-666055541" Tag="9" IconVisible="False" VerticalEdge="BottomEdge" LeftMargin="166.5001" RightMargin="386.4999" TopMargin="824.3355" BottomMargin="-21.3355" LeftEage="28" RightEage="28" TopEage="51" BottomEage="51" Scale9OriginX="28" Scale9OriginY="51" Scale9Width="31" Scale9Height="55" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="dianzan" ActionTag="-666055541" Tag="9" IconVisible="False" VerticalEdge="BottomEdge" LeftMargin="166.5001" RightMargin="386.4999" TopMargin="824.3355" BottomMargin="-21.3355" TouchEnable="True" LeftEage="28" RightEage="28" TopEage="51" BottomEage="51" Scale9OriginX="28" Scale9OriginY="51" Scale9Width="31" Scale9Height="55" ctype="ImageViewObjectData">
             <Size X="87.0000" Y="157.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="210.0001" Y="57.1645" />
@@ -70,7 +70,7 @@
             <PreSize X="0.1359" Y="0.1635" />
             <FileData Type="PlistSubImage" Path="dianzan.png" Plist="snakevsmath/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="gouwuche" ActionTag="1176405503" Tag="10" IconVisible="False" VerticalEdge="BottomEdge" LeftMargin="276.5001" RightMargin="276.4999" TopMargin="824.3355" BottomMargin="-21.3355" LeftEage="28" RightEage="28" TopEage="51" BottomEage="51" Scale9OriginX="28" Scale9OriginY="51" Scale9Width="31" Scale9Height="55" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="gouwuche" ActionTag="1176405503" Tag="10" IconVisible="False" VerticalEdge="BottomEdge" LeftMargin="276.5001" RightMargin="276.4999" TopMargin="824.3355" BottomMargin="-21.3355" TouchEnable="True" LeftEage="28" RightEage="28" TopEage="51" BottomEage="51" Scale9OriginX="28" Scale9OriginY="51" Scale9Width="31" Scale9Height="55" ctype="ImageViewObjectData">
             <Size X="87.0000" Y="157.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0001" Y="57.1645" />
