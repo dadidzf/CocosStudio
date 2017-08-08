@@ -11,10 +11,10 @@
           </Folder>
           <Folder Name="en">
             <Project Name="jiesu.csd" Type="Node" />
-            <Project Name="Start.csd" Type="Layer" />
-            <Project Name="zanting.csd" Type="Node" />
             <Project Name="shop.csd" Type="Layer" />
             <Project Name="ShopNode.csd" Type="Node" />
+            <Project Name="Start.csd" Type="Layer" />
+            <Project Name="zanting.csd" Type="Node" />
           </Folder>
           <Folder Name="fnt">
             <Fnt Name="snake_red_96.fnt" />
@@ -60,40 +60,43 @@
             <PlistImageFile Name="snake vs math.png" Key="snake vs math.png" />
             <PlistImageFile Name="sound1.png" Key="sound1.png" />
             <PlistImageFile Name="sound2.png" Key="sound2.png" />
-            <PlistImageFile Name="tou1.png" Key="tou1.png" />
-            <PlistImageFile Name="tou10.png" Key="tou10.png" />
-            <PlistImageFile Name="tou11.png" Key="tou11.png" />
-            <PlistImageFile Name="tou12.png" Key="tou12.png" />
-            <PlistImageFile Name="tou13.png" Key="tou13.png" />
-            <PlistImageFile Name="tou14.png" Key="tou14.png" />
-            <PlistImageFile Name="tou15.png" Key="tou15.png" />
-            <PlistImageFile Name="tou16.png" Key="tou16.png" />
-            <PlistImageFile Name="tou17.png" Key="tou17.png" />
-            <PlistImageFile Name="tou18.png" Key="tou18.png" />
-            <PlistImageFile Name="tou19.png" Key="tou19.png" />
-            <PlistImageFile Name="tou2.png" Key="tou2.png" />
-            <PlistImageFile Name="tou20.png" Key="tou20.png" />
-            <PlistImageFile Name="tou21.png" Key="tou21.png" />
-            <PlistImageFile Name="tou22.png" Key="tou22.png" />
-            <PlistImageFile Name="tou23.png" Key="tou23.png" />
-            <PlistImageFile Name="tou24.png" Key="tou24.png" />
-            <PlistImageFile Name="tou25.png" Key="tou25.png" />
-            <PlistImageFile Name="tou26.png" Key="tou26.png" />
-            <PlistImageFile Name="tou27.png" Key="tou27.png" />
-            <PlistImageFile Name="tou28.png" Key="tou28.png" />
-            <PlistImageFile Name="tou29.png" Key="tou29.png" />
-            <PlistImageFile Name="tou3.png" Key="tou3.png" />
-            <PlistImageFile Name="tou4.png" Key="tou4.png" />
-            <PlistImageFile Name="tou5.png" Key="tou5.png" />
-            <PlistImageFile Name="tou6.png" Key="tou6.png" />
-            <PlistImageFile Name="tou7.png" Key="tou7.png" />
-            <PlistImageFile Name="tou8.png" Key="tou8.png" />
-            <PlistImageFile Name="tou9.png" Key="tou9.png" />
             <PlistImageFile Name="yinxiao.png" Key="yinxiao.png" />
             <PlistImageFile Name="yinxiaoguan.png" Key="yinxiaoguan.png" />
             <PlistImageFile Name="zanting.png" Key="zanting.png" />
             <PlistImageFile Name="zhadan.png" Key="zhadan.png" />
             <PlistImageFile Name="zhujiemian.png" Key="zhujiemian.png" />
+            <PlistImageFile Name="t1.png" Key="t1.png" />
+            <PlistImageFile Name="t10.png" Key="t10.png" />
+            <PlistImageFile Name="t11.png" Key="t11.png" />
+            <PlistImageFile Name="t12.png" Key="t12.png" />
+            <PlistImageFile Name="t13.png" Key="t13.png" />
+            <PlistImageFile Name="t14.png" Key="t14.png" />
+            <PlistImageFile Name="t15.png" Key="t15.png" />
+            <PlistImageFile Name="t16.png" Key="t16.png" />
+            <PlistImageFile Name="t17.png" Key="t17.png" />
+            <PlistImageFile Name="t18.png" Key="t18.png" />
+            <PlistImageFile Name="t19.png" Key="t19.png" />
+            <PlistImageFile Name="t2.png" Key="t2.png" />
+            <PlistImageFile Name="t20.png" Key="t20.png" />
+            <PlistImageFile Name="t21.png" Key="t21.png" />
+            <PlistImageFile Name="t22.png" Key="t22.png" />
+            <PlistImageFile Name="t23.png" Key="t23.png" />
+            <PlistImageFile Name="t24.png" Key="t24.png" />
+            <PlistImageFile Name="t25.png" Key="t25.png" />
+            <PlistImageFile Name="t26.png" Key="t26.png" />
+            <PlistImageFile Name="t27.png" Key="t27.png" />
+            <PlistImageFile Name="t28.png" Key="t28.png" />
+            <PlistImageFile Name="t29.png" Key="t29.png" />
+            <PlistImageFile Name="t3.png" Key="t3.png" />
+            <PlistImageFile Name="t30.png" Key="t30.png" />
+            <PlistImageFile Name="t31.png" Key="t31.png" />
+            <PlistImageFile Name="t32.png" Key="t32.png" />
+            <PlistImageFile Name="t4.png" Key="t4.png" />
+            <PlistImageFile Name="t5.png" Key="t5.png" />
+            <PlistImageFile Name="t6.png" Key="t6.png" />
+            <PlistImageFile Name="t7.png" Key="t7.png" />
+            <PlistImageFile Name="t8.png" Key="t8.png" />
+            <PlistImageFile Name="t9.png" Key="t9.png" />
           </PlistImageFolder>
         </Folder>
         <Folder Name="trapballs">

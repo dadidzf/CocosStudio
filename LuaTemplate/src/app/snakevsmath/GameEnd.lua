@@ -8,6 +8,7 @@ GameEnd.RESOURCE_BINDING = {
     ["lishizuigaofen"] = {varname = "m_labelHighScore"},
     ["dangqiandefen"] = {varname = "m_labelCurScore"}
 }
+local _gameEndCount = 0
 
 function GameEnd:ctor(game, score)
     self.super.ctor(self)
@@ -25,6 +26,35 @@ function GameEnd:ctor(game, score)
     self:showMask(nil, 100)
 
     cc.load("sdk").GameCenter.submitScoreToLeaderboard(1, score)
+
+    if score > 10000 then
+        cc.load("sdk").GameCenter.unlockAchievement(1)
+    end
+
+    if score > 100000 then
+        cc.load("sdk").GameCenter.unlockAchievement(2)
+    end
+
+    if score > 1000000 then
+        cc.load("sdk").GameCenter.unlockAchievement(3)
+    end
+
+    if score > 10000000 then
+        cc.load("sdk").GameCenter.unlockAchievement(4)
+    end
+
+    if score > 100000000 then
+        cc.load("sdk").GameCenter.unlockAchievement(5)
+    end
+
+    self:runAction(cc.Sequence:create(
+        cc.DelayTime:create(1.0),
+        cc.CallFunc:create(function ( ... )
+            if cc.load("sdk").Tools.getGamePlayCount() > 0 or _gameEndCount > 2 then
+                cc.load("sdk").Admob.getInstance():showInterstitial()
+            end
+        end)
+        ))
 end
 
 function GameEnd:onRestart()

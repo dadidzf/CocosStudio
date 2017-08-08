@@ -26,7 +26,7 @@ Constants.SANKE_HEAD_PRICE =
     {50, 50, 50, 50},
     {50, 50, 50, 50},
     {50, 50, 50, 50},
-    {50}
+    {50, 50, 50, 50}
 }
 
 return Constants

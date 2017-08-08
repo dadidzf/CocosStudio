@@ -26,7 +26,11 @@
         "shareUrl":"https://itunes.apple.com/app/id1262964255",
         "achievement":
         [ 
-            "luatemplate_achievement_1"
+            "snake_10000_pts",
+            "snake_100000_pts",
+            "snake_1000000_pts",
+            "snake_10000000_pts",
+            "snake_100000000_pts"
         ],
         "leaderboard":
         [
@@ -51,7 +55,11 @@
         "shareUrl":"https://play.google.com/store/apps/details?id=com.yongwu.snakevsmath",
         "achievement":
         [ 
-            "CgkImebwqYofEAIQAQ"
+            "CgkIytCWu7IEEAIQAQ",
+            "CgkIytCWu7IEEAIQAg",
+            "CgkIytCWu7IEEAIQAw",
+            "CgkIytCWu7IEEAIQBA",
+            "CgkIytCWu7IEEAIQBQ"
         ],
         "leaderboard":
         [
