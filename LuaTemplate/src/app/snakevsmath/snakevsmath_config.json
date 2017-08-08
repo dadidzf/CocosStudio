@@ -30,11 +30,11 @@
         ],
         "leaderboard":
         [
-            "luatemplate_rank_1"
+            "snakevsmath_score"
         ],
         "skuKeys":
         [
-            "template_remove_ads"
+            "snakevsmath_remove_ads"
         ]
 	},
 	"android":

@@ -23,11 +23,18 @@ function GameEnd:ctor(game, score)
 
     self.m_game = game
     self:showMask(nil, 100)
+
+    cc.load("sdk").GameCenter.submitScoreToLeaderboard(1, score)
 end
 
 function GameEnd:onRestart()
+    dd.PlaySound("button.wav")
     AudioEngine.getInstance():stopMusic()
     self.m_game:onHome()
+end
+
+function GameEnd:onRank()
+    cc.load("sdk").GameCenter.openGameCenterLeaderboardsUI(1)
 end
 
 return GameEnd

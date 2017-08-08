@@ -37,6 +37,7 @@ function GameLayer:createPauseBtn()
     button:move(size, display.height - size)
 
     button:onClick(function ( ... )
+        dd.PlaySound("button.wav")
         local gamePause = GamePause:create(self)
             :move(display.width/2, display.height/2)
             :addTo(self, 1)
@@ -45,6 +46,8 @@ function GameLayer:createPauseBtn()
     local pauseBtn = ccui.ImageView:create("zanting.png", ccui.TextureResType.plistType) 
         :move(size/2, size/2)
         :addTo(button)
+
+    self.m_pauseBtn = button
 end
 
 function GameLayer:createDiamonds()
@@ -86,9 +89,10 @@ function GameLayer:updateCollision()
                 local ret = balloon:dealSnakeNumber(snakeNum)
  
                 if type(ret) == "number" then
-                    if symbol == "+" or "×" then
+                    if symbol == "+" or symbol == "×" then
                         dd.PlaySound("score.mp3")
                     else
+                        dd.PlaySound("lose.wav")
                     end
 
                     snakeNum = ret
@@ -103,11 +107,13 @@ function GameLayer:updateCollision()
 
                     balloon:runAction(cc.Sequence:create(
                         cc.FadeOut:create(0.2),
+                        cc.DelayTime:create(0.3),
                         cc.CallFunc:create(function ( ... )
                             balloon:removeFromParent()
                         end)
                         ))
                 elseif ret == "diamond" then
+                    dd.PlaySound("diamond.wav")
                     balloon:stopAllActions() 
                     self.m_balloonsContainer:removeBalloon(index)
                     balloon:runAction(cc.Sequence:create(
@@ -169,7 +175,9 @@ function GameLayer:gameEnd(score, isBomb)
         shaker:setDiffMax(12)
         shaker:run()
         scheduler = dd.scheduler:scheduleScriptFunc(showGameEndFunc, 1, false)
+        self.m_pauseBtn:setTouchEnabled(false)
     else
+        dd.PlaySound("lose.wav")
         showGameEndFunc()
     end
     

@@ -22,6 +22,7 @@ function GamePause:ctor(game)
 end
 
 function GamePause:onResume()
+    dd.PlaySound("button.wav")
     cc.Director:getInstance():resume()
 
     self:removeFromParent()
@@ -29,6 +30,7 @@ function GamePause:onResume()
 end
 
 function GamePause:onHome()
+    dd.PlaySound("button.wav")
     cc.Director:getInstance():resume()
     
     self.m_game:onHome()
@@ -36,7 +38,15 @@ function GamePause:onHome()
 end
 
 function GamePause:onSound()
+    dd.PlaySound("button.wav")
     dd.GameData:setSoundEnable(not self.m_checkBoxSound:isSelected())
+
+    if dd.GameData:isSoundEnable() then
+        AudioEngine.getInstance():playMusic("sounds/background.mp3", true)
+        AudioEngine.getInstance():setMusicVolume(0.5)
+    else
+        AudioEngine.getInstance():stopMusic()
+    end
 end
 
 return GamePause

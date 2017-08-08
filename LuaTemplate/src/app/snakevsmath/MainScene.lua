@@ -3,6 +3,7 @@ local Start = import(".Start")
 local GameLayer = import(".GameLayer")
 
 function MainScene:onCreate()
+    self:enableNodeEvents()
     self:createStartlayer()
 
     local spriteFrameCache = cc.SpriteFrameCache:getInstance()
@@ -15,6 +16,14 @@ function MainScene:onCreate()
         :addTo(self, -1)
 end
 
+function MainScene:onEnterTransitionFinish()
+    if not dd.GameData:isAdsRemoved() then
+        if cc.load("sdk").Tools.getGamePlayCount() > 5 then
+            cc.load("sdk").MyAds.showAds(1000)
+        end
+    end
+end
+
 function MainScene:startGame()
     self.m_gameLayer = GameLayer:create(self)
         :addTo(self)
@@ -22,7 +31,10 @@ function MainScene:startGame()
         
     cc.load("sdk").Admob.getInstance():showBanner()
 
-    AudioEngine.getInstance():playMusic("sounds/background.mp3", true)
+    if dd.GameData:isSoundEnable() then
+        AudioEngine.getInstance():playMusic("sounds/background.mp3", true)
+        AudioEngine.getInstance():setMusicVolume(0.5)
+    end
 end
 
 function MainScene:removeStartLayer()

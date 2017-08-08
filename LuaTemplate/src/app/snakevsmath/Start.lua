@@ -88,15 +88,18 @@ function Start:hideButtonAction()
 end
 
 function Start:onShare()
+    dd.PlaySound("button.wav")
     cc.load("sdk").Tools.share(dd.Constants.SHARE_TIPS.getTips(), 
         cc.FileUtils:getInstance():fullPathForFilename("512.png"))
 end
 
 function Start:onRate()
+    dd.PlaySound("button.wav")
     cc.load("sdk").Tools.rate()
 end
 
 function Start:onShop()
+    dd.PlaySound("button.wav")
     local gameShop = GameShop:create(function ()
         self.m_labelDiamonds:setString(tostring(dd.GameData:getDiamonds()))
     end)
@@ -105,10 +108,12 @@ function Start:onShop()
 end
 
 function Start:onSound()
+    dd.PlaySound("button.wav")
     dd.GameData:setSoundEnable(not dd.GameData:isSoundEnable())
 end
 
 function Start:onNoAds()
+    dd.PlaySound("button.wav")
     cc.load("sdk").Billing.purchase(dd.appCommon.skuKeys[1], function (result)
         print("Billing Purchase Result ~ ", result)
         if (result and device.platform == "ios") or 
@@ -123,6 +128,7 @@ function Start:onNoAds()
 end
 
 function Start:onRestore()
+    dd.PlaySound("button.wav")
     cc.load("sdk").Billing.restore(function (...)
         print("Billing Restore Result ~ ")
         local paramTb = {...}
@@ -139,6 +145,7 @@ function Start:onRestore()
 end
 
 function Start:onPlay()
+    dd.PlaySound("button.wav")
     print("Start:onPlay")
 
     dd.GameData:setLevel(1)

@@ -1,8 +1,8 @@
 local Snake = class("Snake", cc.Node)
 local Body = import(".Body")
 
-local _baseStepDistance = 10
-local _distanceOfBodies = 50
+local _baseStepDistance = 9
+local _distanceOfBodies = 45
 local _bodyMapSteps = _distanceOfBodies/_baseStepDistance
 
 function Snake:ctor(moveCallBack)
@@ -247,8 +247,15 @@ function Snake:onGameEnd(isBomb)
             pos.y = pos.y + math.random(200) - 100
             body:setPosition(pos)
             local moveAction = cc.MoveBy:create(3.0, cc.p(0, 1280))
-            body:runAction(cc.EaseIn:create(moveAction, 2))
             body:setOpacity(180)
+            body:runAction(cc.Sequence:create(
+                cc.DelayTime:create(1.0),
+                cc.CallFunc:create(function ( ... )
+                    body:setDirection(math.pi/2)
+                end),
+                cc.EaseIn:create(moveAction, 2)
+                )
+            )
         end
     end
                         
