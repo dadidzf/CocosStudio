@@ -78,6 +78,14 @@ function GameData:setHeadIndex(index)
     cc.UserDefault:getInstance():setIntegerForKey("headIndex", index)
 end
 
+function GameData:setHeadIndexUnlocked(index)
+    cc.UserDefault:getInstance():setBoolForKey(string.format("headIndexUnlocked-%d", index), true)
+end
+
+function GameData:isHeadIndexUnlocked(index)
+    cc.UserDefault:getInstance():getBoolForKey(string.format("headIndexUnlocked-%d", index), index == 1 and true or false)
+end
+
 return GameData
 
 

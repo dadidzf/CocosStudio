@@ -15,7 +15,19 @@ Constants.SHARE_TIPS =
     end
 }
 
-Constants.INIT_DIAMONDS = 100
+Constants.INIT_DIAMONDS = 10
+
+Constants.SANKE_HEAD_PRICE = 
+{
+    {50, 50, 50, 50},
+    {50, 50, 50, 50},
+    {50, 50, 50, 50},
+    {50, 50, 50, 50},
+    {50, 50, 50, 50},
+    {50, 50, 50, 50},
+    {50, 50, 50, 50},
+    {50}
+}
 
 return Constants
 

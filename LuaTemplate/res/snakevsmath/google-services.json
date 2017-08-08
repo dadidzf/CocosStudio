@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "739607352790",
+    "firebase_url": "https://snake-vs-math.firebaseio.com",
+    "project_id": "snake-vs-math",
+    "storage_bucket": "snake-vs-math.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739607352790:android:2f4601a8983ed75c",
+        "android_client_info": {
+          "package_name": "com.yongwuart.snakevsmath"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "739607352790-84i8jnnr2ssl81kn4q9ald3tbi71oa9c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhZEHyEIoiTSoSBAHlDUgkYCWE12xst9M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

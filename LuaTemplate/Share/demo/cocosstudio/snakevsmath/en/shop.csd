@@ -6,7 +6,7 @@
       <ObjectData Name="Layer" Tag="22" ctype="GameLayerObjectData">
         <Size X="640.0000" Y="960.0000" />
         <Children>
-          <AbstractNodeData Name="back" ActionTag="-11415027" Tag="23" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="24.3693" RightMargin="540.6307" TopMargin="25.0000" BottomMargin="889.0000" LeftEage="24" RightEage="24" TopEage="15" BottomEage="15" Scale9OriginX="24" Scale9OriginY="15" Scale9Width="27" Scale9Height="16" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="back" ActionTag="-11415027" Tag="23" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="24.3693" RightMargin="540.6307" TopMargin="25.0000" BottomMargin="889.0000" TouchEnable="True" LeftEage="24" RightEage="24" TopEage="15" BottomEage="15" Scale9OriginX="24" Scale9OriginY="15" Scale9Width="27" Scale9Height="16" ctype="ImageViewObjectData">
             <Size X="75.0000" Y="46.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="61.8693" Y="912.0000" />
@@ -31,13 +31,13 @@
             <Size X="143.0000" Y="49.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="583.7096" Y="912.0000" />
-            <Scale ScaleX="0.6000" ScaleY="0.6000" />
+            <Scale ScaleX="0.7500" ScaleY="0.7500" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.9120" Y="0.9500" />
             <PreSize X="0.2234" Y="0.0510" />
             <LabelBMFontFile_CNB Type="Normal" Path="snakevsmath/fnt/snake_white_48.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="listView" ActionTag="-2131259015" Tag="26" IconVisible="False" LeftMargin="20.0000" RightMargin="20.0000" TopMargin="120.0000" BottomMargin="160.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" IsBounceEnabled="True" ScrollDirectionType="0" DirectionType="Vertical" HorizontalType="Align_HorizontalCenter" ctype="ListViewObjectData">
+          <AbstractNodeData Name="listView" ActionTag="-2131259015" Tag="26" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="20.0000" RightMargin="20.0000" TopMargin="120.0000" BottomMargin="160.0000" TouchEnable="True" StretchHeightEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" IsBounceEnabled="True" ScrollDirectionType="0" DirectionType="Vertical" HorizontalType="Align_HorizontalCenter" ctype="ListViewObjectData">
             <Size X="600.0000" Y="680.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="500.0000" />

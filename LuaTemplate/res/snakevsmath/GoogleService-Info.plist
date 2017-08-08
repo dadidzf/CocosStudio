@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>739607352790-b2c09puk32flglqi0fdjtnob5vdllvg8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.739607352790-b2c09puk32flglqi0fdjtnob5vdllvg8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD3wCr-5RzfgAWErMvnTvV_2UxtXwsqjXM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>739607352790</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.yongwuart.snakevsmath</string>
+	<key>PROJECT_ID</key>
+	<string>snake-vs-math</string>
+	<key>STORAGE_BUCKET</key>
+	<string>snake-vs-math.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:739607352790:ios:2f4601a8983ed75c</string>
+	<key>DATABASE_URL</key>
+	<string>https://snake-vs-math.firebaseio.com</string>
+</dict>
+</plist>

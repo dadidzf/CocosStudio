@@ -100,11 +100,8 @@ end
 
 function Start:onShop()
     dd.PlaySound("button.wav")
-    local gameShop = GameShop:create(function ()
-        self.m_labelDiamonds:setString(tostring(dd.GameData:getDiamonds()))
-    end)
+    local gameShop = import(".ShopLayer", MODULE_PATH):create()
     self:addChild(gameShop)
-    gameShop:setPosition(display.cx, display.cy)
 end
 
 function Start:onSound()

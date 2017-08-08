@@ -6,7 +6,7 @@
       <ObjectData Name="Node" Tag="47" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="di" ActionTag="794645527" Tag="48" IconVisible="False" LeftMargin="-310.0000" RightMargin="190.0000" TopMargin="-56.5881" BottomMargin="-63.4119" LeftEage="39" RightEage="39" TopEage="39" BottomEage="39" Scale9OriginX="39" Scale9OriginY="39" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="di" ActionTag="794645527" Tag="48" IconVisible="False" LeftMargin="-290.0000" RightMargin="170.0000" TopMargin="-56.5900" BottomMargin="-63.4100" TouchEnable="True" LeftEage="39" RightEage="39" TopEage="39" BottomEage="39" Scale9OriginX="39" Scale9OriginY="39" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
             <Size X="120.0000" Y="120.0000" />
             <Children>
               <AbstractNodeData Name="kuang" ActionTag="1618164420" Tag="49" IconVisible="False" LeftMargin="-8.0000" RightMargin="-8.0000" TopMargin="-8.0000" BottomMargin="-8.0000" ctype="SpriteObjectData">
@@ -43,14 +43,14 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-250.0000" Y="-3.4119" />
+            <Position X="-230.0000" Y="-3.4100" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="shop_di.png" Plist="snakevsmath/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="di_0" ActionTag="-371843940" Tag="51" IconVisible="False" LeftMargin="-143.3334" RightMargin="23.3334" TopMargin="-56.5881" BottomMargin="-63.4119" LeftEage="39" RightEage="39" TopEage="39" BottomEage="39" Scale9OriginX="39" Scale9OriginY="39" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="di_0" ActionTag="-371843940" Tag="51" IconVisible="False" LeftMargin="-136.6666" RightMargin="16.6666" TopMargin="-56.5881" BottomMargin="-63.4119" TouchEnable="True" LeftEage="39" RightEage="39" TopEage="39" BottomEage="39" Scale9OriginX="39" Scale9OriginY="39" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
             <Size X="120.0000" Y="120.0000" />
             <Children>
               <AbstractNodeData Name="kuang" ActionTag="28421284" Tag="52" IconVisible="False" LeftMargin="-8.0000" RightMargin="-8.0000" TopMargin="-8.0000" BottomMargin="-8.0000" ctype="SpriteObjectData">
@@ -87,14 +87,14 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-83.3334" Y="-3.4119" />
+            <Position X="-76.6666" Y="-3.4119" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="shop_di.png" Plist="snakevsmath/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="di_1" ActionTag="-1658916193" Tag="54" IconVisible="False" LeftMargin="23.3333" RightMargin="-143.3333" TopMargin="-56.5881" BottomMargin="-63.4119" LeftEage="39" RightEage="39" TopEage="39" BottomEage="39" Scale9OriginX="39" Scale9OriginY="39" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="di_1" ActionTag="-1658916193" Tag="54" IconVisible="False" LeftMargin="16.6666" RightMargin="-136.6666" TopMargin="-56.5881" BottomMargin="-63.4119" TouchEnable="True" LeftEage="39" RightEage="39" TopEage="39" BottomEage="39" Scale9OriginX="39" Scale9OriginY="39" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
             <Size X="120.0000" Y="120.0000" />
             <Children>
               <AbstractNodeData Name="kuang" ActionTag="-757655298" Tag="55" IconVisible="False" LeftMargin="-8.0000" RightMargin="-8.0000" TopMargin="-8.0000" BottomMargin="-8.0000" ctype="SpriteObjectData">
@@ -131,14 +131,14 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="83.3333" Y="-3.4119" />
+            <Position X="76.6666" Y="-3.4119" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="PlistSubImage" Path="shop_di.png" Plist="snakevsmath/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="di_2" ActionTag="-1459824550" Tag="57" IconVisible="False" LeftMargin="189.9999" RightMargin="-309.9999" TopMargin="-56.5881" BottomMargin="-63.4119" LeftEage="39" RightEage="39" TopEage="39" BottomEage="39" Scale9OriginX="39" Scale9OriginY="39" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="di_2" ActionTag="-1459824550" Tag="57" IconVisible="False" LeftMargin="170.0000" RightMargin="-290.0000" TopMargin="-56.5881" BottomMargin="-63.4119" TouchEnable="True" LeftEage="39" RightEage="39" TopEage="39" BottomEage="39" Scale9OriginX="39" Scale9OriginY="39" Scale9Width="42" Scale9Height="42" ctype="ImageViewObjectData">
             <Size X="120.0000" Y="120.0000" />
             <Children>
               <AbstractNodeData Name="kuang" ActionTag="1384319728" Tag="58" IconVisible="False" LeftMargin="-8.0000" RightMargin="-8.0000" TopMargin="-8.0000" BottomMargin="-8.0000" ctype="SpriteObjectData">
@@ -175,7 +175,7 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="249.9999" Y="-3.4119" />
+            <Position X="230.0000" Y="-3.4119" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
