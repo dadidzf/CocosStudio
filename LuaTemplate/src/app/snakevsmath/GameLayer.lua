@@ -89,18 +89,18 @@ function GameLayer:updateCollision()
                 local ret = balloon:dealSnakeNumber(snakeNum)
  
                 if type(ret) == "number" then
-                    if symbol == "+" or symbol == "×" then
-                        dd.PlaySound("score.mp3")
-                    else
-                        dd.PlaySound("lose.wav")
-                    end
-
                     snakeNum = ret
                     balloonsList[index] = nil
                     if snakeNum < 0 then
                         self:gameEnd(0, false)
                         self.m_snake:setNumber(0)
                     else
+                        if symbol == "+" or symbol == "×" then
+                            dd.PlaySound("score.mp3")
+                        else
+                            dd.PlaySound("lose.wav")
+                        end
+
                         self.m_snake:setNumber(snakeNum)
                         self:updateLevel(snakeNum)
                     end
@@ -177,7 +177,7 @@ function GameLayer:gameEnd(score, isBomb)
         scheduler = dd.scheduler:scheduleScriptFunc(showGameEndFunc, 1, false)
         self.m_pauseBtn:setTouchEnabled(false)
     else
-        dd.PlaySound("lose.wav")
+        dd.PlaySound("failed.mp3")
         showGameEndFunc()
     end
     
