@@ -23,7 +23,7 @@ function Snake:ctor(moveCallBack)
     table.insert(self.m_bodies, head)
     table.insert(self.m_pathList, cc.p(0, 0))
 
-    self:setMoveSpeed(500)
+    self:setMoveSpeed(180) 
     self:applyNumber()
     self:updateBodiesPos()
 end

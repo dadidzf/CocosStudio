@@ -48,7 +48,7 @@ function GameEnd:ctor(game, score)
     end
 
     self:runAction(cc.Sequence:create(
-        cc.DelayTime:create(1.5),
+        cc.DelayTime:create(2.0),
         cc.CallFunc:create(function ( ... )
             if cc.load("sdk").Tools.getGamePlayCount() > 0 or _gameEndCount > 2 then
                 cc.load("sdk").Admob.getInstance():showInterstitial()

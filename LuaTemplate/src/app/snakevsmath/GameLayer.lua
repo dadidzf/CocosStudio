@@ -117,7 +117,7 @@ function GameLayer:updateCollision()
                         end)
                         ))
                 elseif ret == "diamond" then
-                    dd.PlaySound("diamond.wav")
+                    dd.PlaySound("diamond.mp3")
                     balloon:stopAllActions() 
                     self.m_balloonsContainer:removeBalloon(index)
                     balloon:runAction(cc.Sequence:create(
@@ -202,6 +202,7 @@ function GameLayer:addTouch()
 end
 
 function GameLayer:onTouchBegin(touch, event)
+    self.m_snake:setMoveSpeed(500)
     self:unScheduleRecoverDirection()
     self:unScheduleSnakeDirectionChange()
     self.m_scheduler = dd.scheduler:scheduleScriptFunc(handler(self, self.updateSnakeDirection), 0.01, false)
