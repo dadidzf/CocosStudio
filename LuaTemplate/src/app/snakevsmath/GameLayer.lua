@@ -71,6 +71,10 @@ function GameLayer:onHome()
     self.m_scene:backHome()
 end
 
+function GameLayer:onRestart()
+    self.m_scene:onRestart()
+end
+
 function GameLayer:onSnakeMove(diffY)
 end
 
@@ -143,13 +147,15 @@ end
 
 function GameLayer:updateLevel(snakeNum)
     local curLevel = dd.GameData:getCurLevel()
-    if snakeNum > 10 and curLevel == 1 then
+    if snakeNum <= 10 then
+        dd.GameData:setLevel(1)
+    elseif snakeNum <= 1000000 then
         dd.GameData:setLevel(2)
-    elseif snakeNum > 1000000 and curLevel == 2 then
+    elseif snakeNum <= 10000000 then
         dd.GameData:setLevel(3)
-    elseif snakeNum > 10000000 and curLevel == 3 then
+    elseif snakeNum <= 100000000 then
         dd.GameData:setLevel(4)
-    elseif snakeNum > 100000000 and curLevel == 4 then
+    else
         dd.GameData:setLevel(5)
     end
 end
@@ -159,7 +165,7 @@ function GameLayer:gameEnd(score, isBomb)
     local showGameEndFunc = function ( ... )
         local gameEnd = import(".GameEnd", MODULE_PATH):create(self, score)
             :move(display.cx, display.cy)
-            :addTo(self)
+            :addTo(self, 100)
 
         if scheduler then
             dd.scheduler:unscheduleScriptEntry(scheduler)

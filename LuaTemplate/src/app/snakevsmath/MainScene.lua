@@ -25,11 +25,12 @@ function MainScene:onEnterTransitionFinish()
 end
 
 function MainScene:startGame()
+    dd.GameData:setLevel(1)
     self.m_gameLayer = GameLayer:create(self)
         :addTo(self)
     self:removeStartLayer()
         
-    cc.load("sdk").Admob.getInstance():showBanner()
+    cc.load("sdk").Admob.getInstance():showBanner(0, 0)
 
     if dd.GameData:isSoundEnable() then
         AudioEngine.getInstance():playMusic("sounds/background.mp3", true)
@@ -38,14 +39,21 @@ function MainScene:startGame()
 end
 
 function MainScene:removeStartLayer()
-    self.m_start:removeFromParent()
-    self.m_start = nil
+    if self.m_start then
+        self.m_start:removeFromParent()
+        self.m_start = nil
+    end
 end
 
 function MainScene:createStartlayer()
     self.m_start = Start:create(self)
         :move(0, 0)
         :addTo(self, 100)
+end
+
+function MainScene:onRestart()
+    self.m_gameLayer:removeFromParent()
+    self:startGame()
 end
 
 function MainScene:backHome()

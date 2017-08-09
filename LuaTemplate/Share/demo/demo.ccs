@@ -5,7 +5,6 @@
       <RootFolder Name=".">
         <Folder Name="snakevsmath">
           <Folder Name="cn">
-            <Project Name="jiesu.csd" Type="Node" />
             <Project Name="Start.csd" Type="Layer" />
             <Project Name="zanting.csd" Type="Node" />
           </Folder>
@@ -60,11 +59,6 @@
             <PlistImageFile Name="snake vs math.png" Key="snake vs math.png" />
             <PlistImageFile Name="sound1.png" Key="sound1.png" />
             <PlistImageFile Name="sound2.png" Key="sound2.png" />
-            <PlistImageFile Name="yinxiao.png" Key="yinxiao.png" />
-            <PlistImageFile Name="yinxiaoguan.png" Key="yinxiaoguan.png" />
-            <PlistImageFile Name="zanting.png" Key="zanting.png" />
-            <PlistImageFile Name="zhadan.png" Key="zhadan.png" />
-            <PlistImageFile Name="zhujiemian.png" Key="zhujiemian.png" />
             <PlistImageFile Name="t1.png" Key="t1.png" />
             <PlistImageFile Name="t10.png" Key="t10.png" />
             <PlistImageFile Name="t11.png" Key="t11.png" />
@@ -97,6 +91,11 @@
             <PlistImageFile Name="t7.png" Key="t7.png" />
             <PlistImageFile Name="t8.png" Key="t8.png" />
             <PlistImageFile Name="t9.png" Key="t9.png" />
+            <PlistImageFile Name="yinxiao.png" Key="yinxiao.png" />
+            <PlistImageFile Name="yinxiaoguan.png" Key="yinxiaoguan.png" />
+            <PlistImageFile Name="zanting.png" Key="zanting.png" />
+            <PlistImageFile Name="zhadan.png" Key="zhadan.png" />
+            <PlistImageFile Name="zhujiemian.png" Key="zhujiemian.png" />
           </PlistImageFolder>
         </Folder>
         <Folder Name="trapballs">

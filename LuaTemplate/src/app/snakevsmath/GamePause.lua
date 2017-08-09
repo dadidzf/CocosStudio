@@ -11,7 +11,7 @@ GamePause.RESOURCE_BINDING = {
 function GamePause:ctor(game)
     self.super.ctor(self)
     self.m_game = game
-    self:showMask(nil, 100)
+    self:showMask(nil, 180)
 
     cc.Director:getInstance():pause()
 

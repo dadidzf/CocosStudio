@@ -23,7 +23,7 @@ function GameEnd:ctor(game, score)
     self.m_labelCurScore:setString(tostring(score))
 
     self.m_game = game
-    self:showMask(nil, 100)
+    self:showMask(nil, 180)
 
     cc.load("sdk").GameCenter.submitScoreToLeaderboard(1, score)
 
@@ -48,19 +48,27 @@ function GameEnd:ctor(game, score)
     end
 
     self:runAction(cc.Sequence:create(
-        cc.DelayTime:create(1.0),
+        cc.DelayTime:create(1.5),
         cc.CallFunc:create(function ( ... )
             if cc.load("sdk").Tools.getGamePlayCount() > 0 or _gameEndCount > 2 then
                 cc.load("sdk").Admob.getInstance():showInterstitial()
             end
         end)
         ))
+
+    local btnBack = ccui.ImageView:create("fanhui.png", ccui.TextureResType.plistType)
+        :move(-display.width/2 + 60, display.height/2 - 60)
+        :addTo(self)
+        :setTouchEnabled(true)
+        :onClick(function ( ... )
+            self.m_game:onHome()
+        end)
 end
 
 function GameEnd:onRestart()
     dd.PlaySound("button.wav")
     AudioEngine.getInstance():stopMusic()
-    self.m_game:onHome()
+    self.m_game:onRestart()  
 end
 
 function GameEnd:onRank()

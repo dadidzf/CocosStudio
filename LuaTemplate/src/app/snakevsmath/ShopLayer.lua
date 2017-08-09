@@ -10,7 +10,7 @@ ShopLayer.RESOURCE_BINDING = {
 
 function ShopLayer:ctor(jumpIndex)
     self.super.ctor(self)
-    cc.load("sdk").Admob.getInstance():showBanner()
+    cc.load("sdk").Admob.getInstance():showBanner(0, 0)
 
     self:addTouch()
 end

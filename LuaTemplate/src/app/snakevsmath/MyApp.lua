@@ -16,6 +16,7 @@ end
 function MyApp:onCreate()
     math.randomseed(os.time())
 
+    cc.load("sdk").Admob.getInstance():removeBanner()
     if dd.GameData:isAdsRemoved() then
         cc.load("sdk").Admob.getInstance():setAdsRemoved(true)
     end

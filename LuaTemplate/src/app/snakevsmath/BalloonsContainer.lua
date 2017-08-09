@@ -27,10 +27,10 @@ end
 function BalloonsContainer:getSymbolGenarator()
     local levelSymbolProb = {
         {100, 50, 10, 20, 10, 5, 50},
-        {100, 100, 10, 20, 50, 5, 50},
-        {100, 200, 10, 30, 100, 5, 60},
-        {100, 300, 10, 40, 200, 5, 70},
-        {100, 300, 0, 50, 300, 5, 70},
+        {100, 100, 10, 30, 50, 5, 50},
+        {100, 200, 10, 50, 100, 5, 60},
+        {100, 300, 10, 100, 200, 5, 70},
+        {100, 300, 5, 200, 300, 5, 70},
     }
     local levelSymbolProbIncreaseList = {}
     for index, levelProbList in ipairs(levelSymbolProb) do

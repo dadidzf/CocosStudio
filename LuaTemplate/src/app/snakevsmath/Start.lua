@@ -145,7 +145,6 @@ function Start:onPlay()
     dd.PlaySound("button.wav")
     print("Start:onPlay")
 
-    dd.GameData:setLevel(1)
     self:hideButtonAction()
     self.m_imgTitle:runAction(cc.FadeOut:create(0.5))
     self.m_btnRestore:runAction(cc.FadeOut:create(0.5))

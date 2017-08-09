@@ -6,8 +6,8 @@
       <ObjectData Name="Node" Tag="28" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="Image_1" ActionTag="1334299482" Tag="29" IconVisible="False" LeftMargin="-178.2661" RightMargin="-181.7339" TopMargin="-310.0000" BottomMargin="-110.0000" LeftEage="118" RightEage="118" TopEage="138" BottomEage="138" Scale9OriginX="118" Scale9OriginY="138" Scale9Width="124" Scale9Height="144" ctype="ImageViewObjectData">
-            <Size X="360.0000" Y="420.0000" />
+          <AbstractNodeData Name="Image_1" ActionTag="1334299482" Tag="29" IconVisible="False" LeftMargin="-248.2661" RightMargin="-251.7339" TopMargin="-310.0000" BottomMargin="-110.0000" Scale9Enable="True" LeftEage="118" RightEage="118" TopEage="138" BottomEage="138" Scale9OriginX="118" Scale9OriginY="138" Scale9Width="124" Scale9Height="144" ctype="ImageViewObjectData">
+            <Size X="500.0000" Y="420.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="1.7339" Y="100.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -46,10 +46,10 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_2" ActionTag="-1788677505" Tag="32" IconVisible="False" LeftMargin="-155.4999" RightMargin="32.4999" TopMargin="-53.5000" BottomMargin="-53.5000" LeftEage="40" RightEage="40" TopEage="35" BottomEage="35" Scale9OriginX="40" Scale9OriginY="35" Scale9Width="43" Scale9Height="37" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_2" ActionTag="-1788677505" Tag="32" IconVisible="False" LeftMargin="-177.4988" RightMargin="54.4988" TopMargin="-55.5003" BottomMargin="-51.4997" LeftEage="40" RightEage="40" TopEage="35" BottomEage="35" Scale9OriginX="40" Scale9OriginY="35" Scale9Width="43" Scale9Height="37" ctype="ImageViewObjectData">
             <Size X="123.0000" Y="107.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-93.9999" />
+            <Position X="-115.9988" Y="2.0003" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
