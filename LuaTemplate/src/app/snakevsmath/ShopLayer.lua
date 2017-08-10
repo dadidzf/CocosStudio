@@ -34,7 +34,7 @@ function ShopLayer:onTouchMoved(touch, event)
     local pos = touch:getLocation()
     local moveLen = cc.pGetLength(cc.pSub(self.m_beginPos, pos))
     print("ShopLayer:onTouchMoved", moveLen)
-    if moveLen > display.sizeInPixels.width/640 then
+    if moveLen > display.sizeInPixels.width*2/640 then
         self.m_alreadyMoved = true
     end
 end
@@ -80,6 +80,7 @@ function ShopLayer:initListView()
     end
 
     self.m_listView:setScrollBarEnabled(false)
+    self.m_listView:setSwallowTouches(false)
 
     self:updateSelectedIndex()
 end
@@ -118,6 +119,13 @@ function ShopLayer:showLackDiamondsTips()
             tips:removeFromParent()
         end)
         ))
+end
+
+function ShopLayer:showConfirmView(price, callBack)
+    local ShopConfirm = import(".ShopConfirm", MODULE_PATH)
+    local shopConfirm = ShopConfirm:create(price, callBack)
+        :move(display.cx, display.cy)
+        :addTo(self, 100)
 end
 
 function ShopLayer:onBack()

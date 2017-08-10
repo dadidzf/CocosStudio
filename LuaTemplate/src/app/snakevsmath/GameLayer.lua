@@ -44,6 +44,8 @@ function GameLayer:createPauseBtn()
             :addTo(self, 1)
     end)
 
+    dd.BtnScaleAction(button)
+
     local pauseBtn = ccui.ImageView:create("zanting.png", ccui.TextureResType.plistType) 
         :move(size/2, size/2)
         :addTo(button)
@@ -206,7 +208,6 @@ function GameLayer:onTouchBegin(touch, event)
         return false
     end
 
-    self.m_snake:setMoveSpeed(500)
     self:unScheduleRecoverDirection()
     self:unScheduleSnakeDirectionChange()
     self.m_scheduler = dd.scheduler:scheduleScriptFunc(handler(self, self.updateSnakeDirection), 0.01, false)

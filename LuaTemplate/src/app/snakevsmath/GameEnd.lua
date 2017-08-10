@@ -23,7 +23,7 @@ function GameEnd:ctor(game, score)
     self.m_labelCurScore:setString(tostring(score))
 
     self.m_game = game
-    self:showMask(nil, 180)
+    self:showMask(nil, 200)
 
     cc.load("sdk").GameCenter.submitScoreToLeaderboard(1, score)
 
@@ -47,22 +47,32 @@ function GameEnd:ctor(game, score)
         cc.load("sdk").GameCenter.unlockAchievement(5)
     end
 
-    self:runAction(cc.Sequence:create(
-        cc.DelayTime:create(2.0),
-        cc.CallFunc:create(function ( ... )
-            if cc.load("sdk").Tools.getGamePlayCount() > 0 or _gameEndCount > 2 then
-                cc.load("sdk").Admob.getInstance():showInterstitial()
-            end
-        end)
-        ))
+    local scheduler
+    local showAdsFunc = function ( ... )
+        if scheduler then
+            dd.scheduler:unscheduleScriptEntry(scheduler)
+            scheduler = nil
+        end
+
+        if cc.load("sdk").Tools.getGamePlayCount() > 0 or _gameEndCount > 2 then
+            cc.load("sdk").Admob.getInstance():showInterstitial()
+        end
+    end
+    
+    dd.scheduler:scheduleScriptFunc(showAdsFunc, 2, false)
 
     local btnBack = ccui.ImageView:create("fanhui.png", ccui.TextureResType.plistType)
         :move(-display.width/2 + 60, display.height/2 - 60)
         :addTo(self)
         :setTouchEnabled(true)
-        :onClick(function ( ... )
-            self.m_game:onHome()
-        end)
+        
+    btnBack:onClick(function ( ... )
+        self.m_game:onHome()
+    end)
+
+    dd.BtnScaleAction(btnBack)
+    dd.BtnScaleAction(self.m_btnRank)
+    dd.BtnScaleAction(self.m_btnRestart)
 end
 
 function GameEnd:onRestart()

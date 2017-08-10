@@ -22,9 +22,6 @@ function Balloon:ctor(num, symbol)
             :addTo(self)
 
         self.m_labelNum:setString(symbol .. tostring(num))
-        if symbol == "÷" or symbol == "-" then
-            self.m_labelNum:setColor(cc.RED)
-        end
     end
 end
 
@@ -36,7 +33,7 @@ function Balloon:dealSnakeNumber(snakeNum)
         ret =  snakeNum - self.m_num
     elseif self.m_symbol == "×" then
         ret = snakeNum * self.m_num
-    elseif self.m_symbol == "÷" then
+    elseif self.m_symbol == "/" then
         ret =  snakeNum/self.m_num
     elseif self.m_symbol == "bomb" then
         return "bomb"

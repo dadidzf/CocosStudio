@@ -11,7 +11,7 @@ GamePause.RESOURCE_BINDING = {
 function GamePause:ctor(game)
     self.super.ctor(self)
     self.m_game = game
-    self:showMask(nil, 180)
+    self:showMask(nil, 200)
 
     cc.Director:getInstance():pause()
 
@@ -19,6 +19,10 @@ function GamePause:ctor(game)
     self.m_checkBoxSound:setSelected(not dd.GameData:isSoundEnable())
 
     AudioEngine.getInstance():pauseMusic()
+
+    dd.BtnScaleAction(self.m_btnHome)
+    dd.BtnScaleAction(self.m_btnResume)
+    dd.BtnScaleAction(self.m_checkBoxSound)
 end
 
 function GamePause:onResume()

@@ -39,6 +39,12 @@ function Start:ctor(scene)
     if display.height < 960 then
         self.m_imgBalloon:setScale(display.height*0.9/960)
     end
+
+    for _, btn in ipairs(self.m_btnList) do
+        dd.BtnScaleAction(btn)
+    end
+    dd.BtnScaleAction(self.m_btnRestore)
+    dd.BtnScaleAction(self.m_btnPlay)
 end
 
 function Start:showButtonAction()
@@ -143,7 +149,10 @@ end
 
 function Start:onPlay()
     dd.PlaySound("button.wav")
-    print("Start:onPlay")
+    self.m_btnPlay:setEnabled(false)
+    for _, btn in ipairs(self.m_btnList) do
+        btn:setTouchEnabled(false)
+    end
 
     self:hideButtonAction()
     self.m_imgTitle:runAction(cc.FadeOut:create(0.5))

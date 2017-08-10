@@ -26,7 +26,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="snakevsmath/fnt/snake_white_48.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="125848504" Tag="12" IconVisible="False" LeftMargin="-206.0015" RightMargin="-33.9985" TopMargin="-10.4987" BottomMargin="-40.5013" LabelText="portrait ?" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_6" ActionTag="125848504" Tag="12" IconVisible="False" LeftMargin="-206.0015" RightMargin="-33.9985" TopMargin="-10.4987" BottomMargin="-40.5013" LabelText="portrait ?" ctype="TextBMFontObjectData">
             <Size X="240.0000" Y="51.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-86.0015" Y="-15.0013" />
@@ -46,7 +46,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="snakevsmath/fnt/snake_white_48.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_2" ActionTag="1054303613" Tag="14" IconVisible="False" LeftMargin="-150.0000" RightMargin="50.0000" TopMargin="40.0000" BottomMargin="-90.0000" LeftEage="33" RightEage="33" TopEage="16" BottomEage="16" Scale9OriginX="33" Scale9OriginY="16" Scale9Width="34" Scale9Height="18" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_2" ActionTag="1054303613" Tag="14" IconVisible="False" LeftMargin="-150.0000" RightMargin="50.0000" TopMargin="40.0000" BottomMargin="-90.0000" TouchEnable="True" LeftEage="33" RightEage="33" TopEage="16" BottomEage="16" Scale9OriginX="33" Scale9OriginY="16" Scale9Width="34" Scale9Height="18" ctype="ImageViewObjectData">
             <Size X="100.0000" Y="50.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-100.0000" Y="-65.0000" />
@@ -66,7 +66,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="snakevsmath/fnt/snake_white_48.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_4" ActionTag="152287178" Tag="17" IconVisible="False" LeftMargin="50.0000" RightMargin="-150.0000" TopMargin="40.0000" BottomMargin="-90.0000" LeftEage="33" RightEage="33" TopEage="16" BottomEage="16" Scale9OriginX="33" Scale9OriginY="16" Scale9Width="34" Scale9Height="18" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_4" ActionTag="152287178" Tag="17" IconVisible="False" LeftMargin="50.0000" RightMargin="-150.0000" TopMargin="40.0000" BottomMargin="-90.0000" TouchEnable="True" LeftEage="33" RightEage="33" TopEage="16" BottomEage="16" Scale9OriginX="33" Scale9OriginY="16" Scale9Width="34" Scale9Height="18" ctype="ImageViewObjectData">
             <Size X="100.0000" Y="50.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="100.0000" Y="-65.0000" />
@@ -86,10 +86,10 @@
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="snakevsmath/fnt/snake_white_48.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_6" ActionTag="574415713" Tag="28" IconVisible="False" LeftMargin="-91.5004" RightMargin="4.5004" TopMargin="-96.4996" BottomMargin="45.4996" LabelText="999" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="574415713" Tag="28" IconVisible="False" LeftMargin="-93.5005" RightMargin="6.5005" TopMargin="-97.4995" BottomMargin="46.4995" LabelText="999" ctype="TextBMFontObjectData">
             <Size X="87.0000" Y="51.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-48.0004" Y="70.9996" />
+            <Position X="-50.0005" Y="71.9995" />
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="0" G="0" B="255" />
             <PrePosition />

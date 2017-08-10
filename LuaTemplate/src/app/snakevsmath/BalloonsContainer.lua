@@ -9,7 +9,7 @@ function BalloonsContainer:ctor()
     self.m_linePosXList = {106, 212, 318, 424, 530}
     self.m_levelCreateProb = {0.5, 0.5, 0.6, 0.7, 0.7}
 
-    self.m_symbolList = {"+", "-", "×", "÷", "bomb", "diamond", "wall"}
+    self.m_symbolList = {"+", "-", "×", "/", "bomb", "diamond", "wall"}
     self.m_symbolGenarator = self:getSymbolGenarator()
 
     self.m_scheduler = dd.scheduler:scheduleScriptFunc(handler(self, self.createBalloons), 0.5, false)

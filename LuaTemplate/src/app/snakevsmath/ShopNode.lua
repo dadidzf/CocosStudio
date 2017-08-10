@@ -81,10 +81,15 @@ function ShopNode:onSelect(index)
         else
             local diamonds = dd.GameData:getDiamonds()
             if diamonds >= self.m_priceTb[index] then
-                dd.GameData:refreshDiamonds(diamonds - self.m_priceTb[index])
-                dd.GameData:setHeadIndex(self.m_indexList[index])
-                dd.GameData:setHeadIndexUnlocked(self.m_indexList[index])
-                self.m_owner:updateSelectedIndex()
+                local callBackFunc = function (val)
+                    if val then
+                        dd.GameData:refreshDiamonds(diamonds - self.m_priceTb[index])
+                        dd.GameData:setHeadIndex(self.m_indexList[index])
+                        dd.GameData:setHeadIndexUnlocked(self.m_indexList[index])
+                        self.m_owner:updateSelectedIndex()
+                    end
+                end
+                self.m_owner:showConfirmView(self.m_priceTb[index], callBackFunc)
             else
                 self.m_owner:showLackDiamondsTips()
             end

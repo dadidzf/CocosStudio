@@ -46,7 +46,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="snakevsmath/fnt/snake_white_48.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_2" ActionTag="1054303613" Tag="14" IconVisible="False" LeftMargin="-150.0000" RightMargin="50.0000" TopMargin="30.0000" BottomMargin="-80.0000" LeftEage="33" RightEage="33" TopEage="16" BottomEage="16" Scale9OriginX="33" Scale9OriginY="16" Scale9Width="34" Scale9Height="18" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_2" ActionTag="1054303613" Tag="14" IconVisible="False" LeftMargin="-150.0000" RightMargin="50.0000" TopMargin="30.0000" BottomMargin="-80.0000" TouchEnable="True" LeftEage="33" RightEage="33" TopEage="16" BottomEage="16" Scale9OriginX="33" Scale9OriginY="16" Scale9Width="34" Scale9Height="18" ctype="ImageViewObjectData">
             <Size X="100.0000" Y="50.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="-100.0000" Y="-55.0000" />
@@ -66,7 +66,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="snakevsmath/fnt/snake_white_48.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_4" ActionTag="152287178" Tag="17" IconVisible="False" LeftMargin="50.0000" RightMargin="-150.0000" TopMargin="30.0000" BottomMargin="-80.0000" LeftEage="33" RightEage="33" TopEage="16" BottomEage="16" Scale9OriginX="33" Scale9OriginY="16" Scale9Width="34" Scale9Height="18" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_4" ActionTag="152287178" Tag="17" IconVisible="False" LeftMargin="50.0000" RightMargin="-150.0000" TopMargin="30.0000" BottomMargin="-80.0000" TouchEnable="True" LeftEage="33" RightEage="33" TopEage="16" BottomEage="16" Scale9OriginX="33" Scale9OriginY="16" Scale9Width="34" Scale9Height="18" ctype="ImageViewObjectData">
             <Size X="100.0000" Y="50.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="100.0000" Y="-55.0000" />

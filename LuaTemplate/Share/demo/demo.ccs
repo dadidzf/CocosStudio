@@ -10,12 +10,12 @@
             <Project Name="zanting.csd" Type="Node" />
           </Folder>
           <Folder Name="en">
+            <Project Name="goumaiquedi.csd" Type="Node" />
             <Project Name="jiesu.csd" Type="Node" />
             <Project Name="shop.csd" Type="Layer" />
             <Project Name="ShopNode.csd" Type="Node" />
             <Project Name="Start.csd" Type="Layer" />
             <Project Name="zanting.csd" Type="Node" />
-            <Project Name="goumaiquedi.csd" Type="Node" />
           </Folder>
           <Folder Name="fnt">
             <Fnt Name="snake_red_96.fnt" />
@@ -36,12 +36,15 @@
             <PlistImageFile Name="chongwan.png" Key="chongwan.png" />
             <PlistImageFile Name="daqiqiu.png" Key="daqiqiu.png" />
             <PlistImageFile Name="di.png" Key="di.png" />
+            <PlistImageFile Name="di01.png" Key="di01.png" />
+            <PlistImageFile Name="di02.png" Key="di02.png" />
             <PlistImageFile Name="di2.png" Key="di2.png" />
             <PlistImageFile Name="diamondInGame.png" Key="diamondInGame.png" />
             <PlistImageFile Name="diamondNum.png" Key="diamondNum.png" />
             <PlistImageFile Name="dianzan.png" Key="dianzan.png" />
             <PlistImageFile Name="fanhui.png" Key="fanhui.png" />
             <PlistImageFile Name="fenxiang.png" Key="fenxiang.png" />
+            <PlistImageFile Name="goumaidi.png" Key="goumaidi.png" />
             <PlistImageFile Name="gouwuche.png" Key="gouwuche.png" />
             <PlistImageFile Name="huangguan.png" Key="huangguan.png" />
             <PlistImageFile Name="jixu.png" Key="jixu.png" />
@@ -100,7 +103,6 @@
             <PlistImageFile Name="zanting.png" Key="zanting.png" />
             <PlistImageFile Name="zhadan.png" Key="zhadan.png" />
             <PlistImageFile Name="zhujiemian.png" Key="zhujiemian.png" />
-            <PlistImageFile Name="goumaidi.png" Key="goumaidi.png" />
           </PlistImageFolder>
         </Folder>
         <Folder Name="trapballs">

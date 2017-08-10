@@ -21,6 +21,27 @@ dd.PlaySound = function (fileName)
     --end
 end
 
+dd.BtnScaleAction = function (btn)
+    btn:addTouchEventListener(function(sender, state)
+        local event = {x = 0, y = 0}
+        if state == 0 then
+            event.name = "began"
+            sender:setScale(0.9)
+        elseif state == 1 then
+            event.name = "moved"
+        elseif state == 2 then
+            sender:setScale(1.0)
+            event.name = "ended"
+        else
+            sender:setScale(1.0)
+            event.name = "cancelled"
+        end
+        event.target = sender
+    end)
+    return self
+end
+
+
 function MyApp:onCreate()
     math.randomseed(os.time())
 
