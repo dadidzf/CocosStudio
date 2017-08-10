@@ -5,6 +5,7 @@
       <RootFolder Name=".">
         <Folder Name="snakevsmath">
           <Folder Name="cn">
+            <Project Name="goumaiquedi.csd" Type="Node" />
             <Project Name="Start.csd" Type="Layer" />
             <Project Name="zanting.csd" Type="Node" />
           </Folder>
@@ -14,6 +15,7 @@
             <Project Name="ShopNode.csd" Type="Node" />
             <Project Name="Start.csd" Type="Layer" />
             <Project Name="zanting.csd" Type="Node" />
+            <Project Name="goumaiquedi.csd" Type="Node" />
           </Folder>
           <Folder Name="fnt">
             <Fnt Name="snake_red_96.fnt" />
@@ -34,6 +36,7 @@
             <PlistImageFile Name="chongwan.png" Key="chongwan.png" />
             <PlistImageFile Name="daqiqiu.png" Key="daqiqiu.png" />
             <PlistImageFile Name="di.png" Key="di.png" />
+            <PlistImageFile Name="di2.png" Key="di2.png" />
             <PlistImageFile Name="diamondInGame.png" Key="diamondInGame.png" />
             <PlistImageFile Name="diamondNum.png" Key="diamondNum.png" />
             <PlistImageFile Name="dianzan.png" Key="dianzan.png" />
@@ -53,6 +56,7 @@
             <PlistImageFile Name="restore.cn.png" Key="restore.cn.png" />
             <PlistImageFile Name="restore.png" Key="restore.png" />
             <PlistImageFile Name="shop_biankuang.png" Key="shop_biankuang.png" />
+            <PlistImageFile Name="shop_btn_bg.png" Key="shop_btn_bg.png" />
             <PlistImageFile Name="shop_di.png" Key="shop_di.png" />
             <PlistImageFile Name="shop_qiqiu.png" Key="shop_qiqiu.png" />
             <PlistImageFile Name="snake vs math.cn.png" Key="snake vs math.cn.png" />
@@ -96,8 +100,7 @@
             <PlistImageFile Name="zanting.png" Key="zanting.png" />
             <PlistImageFile Name="zhadan.png" Key="zhadan.png" />
             <PlistImageFile Name="zhujiemian.png" Key="zhujiemian.png" />
-            <PlistImageFile Name="di2.png" Key="di2.png" />
-            <PlistImageFile Name="shop_btn_bg.png" Key="shop_btn_bg.png" />
+            <PlistImageFile Name="goumaidi.png" Key="goumaidi.png" />
           </PlistImageFolder>
         </Folder>
         <Folder Name="trapballs">
