@@ -30,7 +30,7 @@ function ShopNode:ctor(owner, index, priceTb)
             local box = bg:getChildByName("kuang")
             local balloon = bg:getChildByName("qiqiu")
             local price = bg:getChildByName("price")
-            local boxSize = box:getContentSize()
+            local bgSize = bg:getContentSize()
 
             balloon:setVisible(not unLockedList[i])
             price:setString(tostring(priceTb[i]))
@@ -39,7 +39,7 @@ function ShopNode:ctor(owner, index, priceTb)
 
             local headName = string.format("t%d.png", indexList[i])
             local head = display.newSprite("#"..headName)
-                :move(boxSize.width/2, boxSize.height/2)
+                :move(bgSize.width/2, bgSize.height/2)
                 :addTo(bg)
             if not unLockedList[i] then
                 head:setOpacity(0)
@@ -85,6 +85,8 @@ function ShopNode:onSelect(index)
                 dd.GameData:setHeadIndex(self.m_indexList[index])
                 dd.GameData:setHeadIndexUnlocked(self.m_indexList[index])
                 self.m_owner:updateSelectedIndex()
+            else
+                self.m_owner:showLackDiamondsTips()
             end
         end
     end

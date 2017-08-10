@@ -89,7 +89,7 @@ end
 
 function Start:onShare()
     dd.PlaySound("button.wav")
-    cc.load("sdk").Tools.share(dd.Constants.SHARE_TIPS.getTips(), 
+    cc.load("sdk").Tools.share(dd.GetTips(dd.Constants.SHARE_TIPS), 
         cc.FileUtils:getInstance():fullPathForFilename("512.png"))
 end
 

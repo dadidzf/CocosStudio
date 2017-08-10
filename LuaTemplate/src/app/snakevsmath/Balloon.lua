@@ -20,7 +20,11 @@ function Balloon:ctor(num, symbol)
             :setScale(1.3)
             :setOpacity(210)
             :addTo(self)
+
         self.m_labelNum:setString(symbol .. tostring(num))
+        if symbol == "÷" or symbol == "-" then
+            self.m_labelNum:setColor(cc.RED)
+        end
     end
 end
 

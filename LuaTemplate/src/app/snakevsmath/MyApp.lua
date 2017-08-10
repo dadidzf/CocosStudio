@@ -7,6 +7,14 @@ cc.load("sdk").Tools.setMultiLanguageSupported(true)
 import(".Constant")
 dd.GameData = import(".GameData"):create()
 
+dd.GetTips = function (tipsTb)
+    if  tipsTb[device.language] then
+        return tipsTb[device.language]
+    else
+        return tipsTb["en"]
+    end 
+end
+
 dd.PlaySound = function (fileName)
     --if dd.GameData:isSoundEnable() then
         AudioEngine.getInstance():playEffect("sounds/" .. fileName)

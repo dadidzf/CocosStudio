@@ -32,7 +32,9 @@ end
 
 function ShopLayer:onTouchMoved(touch, event)
     local pos = touch:getLocation()
-    if cc.pGetLength(cc.pSub(self.m_beginPos, pos)) > 6 then
+    local moveLen = cc.pGetLength(cc.pSub(self.m_beginPos, pos))
+    print("ShopLayer:onTouchMoved", moveLen)
+    if moveLen > display.sizeInPixels.width/640 then
         self.m_alreadyMoved = true
     end
 end
@@ -98,6 +100,26 @@ function ShopLayer:updateSelectedIndex()
     self.m_lableDiamonds:setString(tostring(dd.GameData:getDiamonds()))
 end
 
+function ShopLayer:showLackDiamondsTips()
+    local tipsTb = {
+        en = "Not Enough Diamonds !",
+        cn = "钻石不足 !" 
+    }
+
+    local tips = cc.Label:createWithBMFont("fnt/snake_white_48.fnt", dd.GetTips(tipsTb))
+        :move(display.cx, display.height*0.35)
+        :addTo(self, 100)
+
+    tips:runAction(cc.Sequence:create(
+        cc.MoveTo:create(0.5, cc.p(display.cx, display.height*0.65)),
+        cc.DelayTime:create(1.0),
+        cc.FadeOut:create(0.5),
+        cc.CallFunc:create(function ( ... )
+            tips:removeFromParent()
+        end)
+        ))
+end
+
 function ShopLayer:onBack()
     dd.PlaySound("button.wav")
     cc.load("sdk").Admob.getInstance():removeBanner()
@@ -105,3 +127,5 @@ function ShopLayer:onBack()
 end
 
 return ShopLayer
+
+

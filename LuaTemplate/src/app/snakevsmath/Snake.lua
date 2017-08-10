@@ -23,6 +23,7 @@ function Snake:ctor(moveCallBack)
     table.insert(self.m_bodies, head)
     table.insert(self.m_pathList, cc.p(0, 0))
 
+    _baseStepDistance = 3
     self:setMoveSpeed(180) 
     self:applyNumber()
     self:updateBodiesPos()
@@ -78,6 +79,7 @@ end
 function Snake:setMoveSpeed(speed)
     print("Snake:setMoveSpeed", speed)
     
+    _baseStepDistance = 9
     self:removeScheduler()
     self.m_speed = speed
     local updateTime = _baseStepDistance/self.m_speed

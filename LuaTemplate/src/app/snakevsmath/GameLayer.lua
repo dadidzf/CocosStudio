@@ -24,6 +24,7 @@ function GameLayer:ctor(scene)
     self:createDiamonds()
 
     self.m_schedulerCollision = dd.scheduler:scheduleScriptFunc(handler(self, self.updateCollision), 0.01, false)
+    self.m_isGameEnd = false
 end
 
 function GameLayer:createPauseBtn()
@@ -147,16 +148,14 @@ end
 
 function GameLayer:updateLevel(snakeNum)
     local curLevel = dd.GameData:getCurLevel()
-    if snakeNum <= 10 then
-        dd.GameData:setLevel(1)
-    elseif snakeNum <= 1000000 then
-        dd.GameData:setLevel(2)
-    elseif snakeNum <= 10000000 then
-        dd.GameData:setLevel(3)
-    elseif snakeNum <= 100000000 then
-        dd.GameData:setLevel(4)
-    else
-        dd.GameData:setLevel(5)
+    if snakeNum > 10 and curLevel == 1 then
+         dd.GameData:setLevel(2)
+    elseif snakeNum > 1000000 and curLevel == 2 then
+         dd.GameData:setLevel(3)
+    elseif snakeNum > 10000000 and curLevel == 3 then
+         dd.GameData:setLevel(4)
+    elseif snakeNum > 100000000 and curLevel == 4 then
+         dd.GameData:setLevel(5)
     end
 end
 
@@ -172,6 +171,7 @@ function GameLayer:gameEnd(score, isBomb)
         end
     end
     
+    self.m_isGameEnd = true
     self.m_snake:onGameEnd(isBomb)
     self.m_balloonsContainer:onGameEnd()
     self:removeAllSchedule()
@@ -202,6 +202,10 @@ function GameLayer:addTouch()
 end
 
 function GameLayer:onTouchBegin(touch, event)
+    if self.m_isGameEnd then
+        return false
+    end
+
     self.m_snake:setMoveSpeed(500)
     self:unScheduleRecoverDirection()
     self:unScheduleSnakeDirectionChange()
