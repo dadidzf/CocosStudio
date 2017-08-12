@@ -6,7 +6,10 @@ GameEnd.RESOURCE_BINDING = {
     ["Button_1"] = {varname = "m_btnRestart", events = {{ event = "click", method = "onRestart" }}},
     ["Button_2"] = {varname = "m_btnRank", events = {{ event = "click", method = "onRank" }}},
     ["lishizuigaofen"] = {varname = "m_labelHighScore"},
-    ["dangqiandefen"] = {varname = "m_labelCurScore"}
+    ["dangqiandefen"] = {varname = "m_labelCurScore"},
+    ["Image_1"] = {varname = "m_curScoreBg"},
+    ["Image_2"] = {varname = "m_highScoreIcon"},
+    ["Image_1_0"] = {varname = "m_highScoreBg"}
 }
 local _gameEndCount = 0
 
@@ -59,7 +62,7 @@ function GameEnd:ctor(game, score)
         end
     end
     
-    dd.scheduler:scheduleScriptFunc(showAdsFunc, 2, false)
+    scheduler = dd.scheduler:scheduleScriptFunc(showAdsFunc, 2, false)
 
     local btnBack = ccui.ImageView:create("fanhui.png", ccui.TextureResType.plistType)
         :move(-display.width/2 + 60, display.height/2 - 60)
@@ -73,6 +76,58 @@ function GameEnd:ctor(game, score)
     dd.BtnScaleAction(btnBack)
     dd.BtnScaleAction(self.m_btnRank)
     dd.BtnScaleAction(self.m_btnRestart)
+
+    self:showAction()
+end
+
+function GameEnd:showAction()
+    self.m_btnRestart:setScale(0)
+    self.m_btnRank:setScale(0)
+    self.m_labelCurScore:setOpacity(0)
+    self.m_labelHighScore:setOpacity(0)
+    self.m_highScoreIcon:setOpacity(0)
+
+    local curScoreBgPos = cc.p(self.m_curScoreBg:getPositionX(), self.m_curScoreBg:getPositionY())
+    local highScoreBgPos = cc.p(self.m_highScoreBg:getPositionX(), self.m_highScoreBg:getPositionY())
+
+    self.m_curScoreBg:move(curScoreBgPos.x + display.width, curScoreBgPos.y)
+    self.m_highScoreBg:move(highScoreBgPos.x + display.width, highScoreBgPos.y)
+
+    self.m_curScoreBg:runAction(cc.EaseInOut:create(cc.MoveTo:create(0.5, curScoreBgPos), 2))
+    self.m_highScoreBg:runAction(cc.Sequence:create(
+        cc.DelayTime:create(0.2),
+        cc.EaseInOut:create(cc.MoveTo:create(0.5, highScoreBgPos), 2)
+        ))
+    self.m_labelCurScore:runAction(cc.Sequence:create(
+        cc.DelayTime:create(0.5),
+        cc.FadeIn:create(0.5)
+        ))
+
+    self.m_labelHighScore:runAction(cc.Sequence:create(
+        cc.DelayTime:create(0.7),
+        cc.FadeIn:create(0.5)
+        ))
+
+    self.m_highScoreIcon:runAction(cc.Sequence:create(
+        cc.DelayTime:create(0.7),
+        cc.FadeIn:create(0.5)
+        ))
+
+    self.m_btnRestart:runAction(cc.Sequence:create(
+        cc.DelayTime:create(0.7),
+        cc.ScaleTo:create(0.2, 1.2),
+        cc.ScaleTo:create(0.15, 0.9),
+        cc.ScaleTo:create(0.1, 1.1),
+        cc.ScaleTo:create(0.1, 1.0)
+        ))
+
+    self.m_btnRank:runAction(cc.Sequence:create(
+        cc.DelayTime:create(1.0),
+        cc.ScaleTo:create(0.2, 1.2),
+        cc.ScaleTo:create(0.15, 0.9),
+        cc.ScaleTo:create(0.1, 1.1),
+        cc.ScaleTo:create(0.1, 1.0)
+        ))
 end
 
 function GameEnd:onRestart()

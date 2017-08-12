@@ -8,7 +8,7 @@ Constants.SHARE_TIPS =
     cn = "当贪吃蛇遇上数学会发生什么呢？赶紧来跟我一较高低吧！",
 }
 
-Constants.INIT_DIAMONDS = 10
+Constants.INIT_DIAMONDS = 50
 
 Constants.SANKE_HEAD_PRICE = 
 {

@@ -48,6 +48,7 @@ function GamePause:onSound()
     if dd.GameData:isSoundEnable() then
         AudioEngine.getInstance():playMusic("sounds/background.mp3", true)
         AudioEngine.getInstance():setMusicVolume(0.5)
+        AudioEngine.getInstance():pauseMusic()
     else
         AudioEngine.getInstance():stopMusic()
     end
