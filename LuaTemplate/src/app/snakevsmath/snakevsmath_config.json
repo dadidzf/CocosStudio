@@ -20,8 +20,8 @@
         "admobBannerId": "ca-app-pub-5571113908507676/6725246919",
         "admobInterstitialId": "ca-app-pub-5571113908507676/3794819480",
         "packageName":"com.yongwuart.snakevsmath",
-        "version":"1.0",
-        "versionCode":2,
+        "version":"1.1",
+        "versionCode":3,
         "rateUrl":"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1262964255&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",
         "shareUrl":"https://itunes.apple.com/app/id1262964255",
         "achievement":
@@ -49,8 +49,8 @@
         "admobBannerId": "ca-app-pub-5571113908507676/1056975503",
         "admobInterstitialId": "ca-app-pub-5571113908507676/5515095263",
         "packageName":"com.yongwuart.snakevsmath",
-        "version":"1.2",
-        "versionCode":4,
+        "version":"1.3",
+        "versionCode":5,
         "rateUrl":"https://play.google.com/store/apps/details?id=com.yongwuart.snakevsmath",
         "shareUrl":"https://play.google.com/store/apps/details?id=com.yongwuart.snakevsmath",
         "achievement":

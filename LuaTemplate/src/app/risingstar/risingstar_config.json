@@ -8,10 +8,15 @@
     "appName":"risingstar",
     "luaCompileKey":"dzf",
     "luaCompileSign":"hhh",
+    "width":640,
+    "height":960,
+    "autoScale1":"FIXED_HEIGHT",
+    "autoScale2":"FIXED_WIDTH",
     "ios":
     {
         "adsRequestAppName":"template_ios",
-        "appDisplayName":"Template",
+        "appDisplayName":"RisingStar",
+        "appDisplayName_cn":"升星",
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
         "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
         "packageName":"com.yongwuart.risingstar",
@@ -35,7 +40,8 @@
 	"android":
 	{
         "adsRequestAppName":"template_android",
-        "appDisplayName":"Template",
+        "appDisplayName":"RisingStar",
+        "appDisplayName_cn":"升星",
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
         "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
         "packageName":"com.yongwuart.risingstar",

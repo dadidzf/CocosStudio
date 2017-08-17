@@ -83,9 +83,9 @@
             <PlistImageFile Name="highscore2.png" Key="highscore2.png" />
             <PlistImageFile Name="jianduan.png" Key="jianduan.png" />
             <PlistImageFile Name="jianduan2.png" Key="jianduan2.png" />
-            <PlistImageFile Name="life2.png" Key="life2.png" />
             <PlistImageFile Name="life_black.png" Key="life_black.png" />
             <PlistImageFile Name="life_white.png" Key="life_white.png" />
+            <PlistImageFile Name="life2.png" Key="life2.png" />
             <PlistImageFile Name="line_black1.png" Key="line_black1.png" />
             <PlistImageFile Name="line_black2.png" Key="line_black2.png" />
             <PlistImageFile Name="line_white.png" Key="line_white.png" />

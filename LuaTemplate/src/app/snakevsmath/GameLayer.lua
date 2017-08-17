@@ -37,7 +37,7 @@ function GameLayer:createTips()
 
     self.m_tipsLabel = cc.Label:createWithBMFont("fnt/snake_white_48.fnt", dd.GetTips(tipsTb))
         :move(display.cx, display.height*0.15)
-        :setScale(0.6)
+        :setScale(0.5)
         :addTo(self, 100)
 
     self.m_gameFinger1 = ccui.ImageView:create("finger1.png")
