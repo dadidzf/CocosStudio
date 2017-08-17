@@ -22,9 +22,64 @@ function GameLayer:ctor(scene)
     self:addTouch()
     self:createPauseBtn()
     self:createDiamonds()
+    self:createTips()
 
     self.m_schedulerCollision = dd.scheduler:scheduleScriptFunc(handler(self, self.updateCollision), 0.01, false)
     self.m_isGameEnd = false
+    self.m_isAlreadyBegin = false
+end
+
+function GameLayer:createTips()
+    local tipsTb = {
+        en = "Long Press To Make The Snake Move Left !",
+        cn = "长按让蛇往左边移动 !" 
+    }
+
+    self.m_tipsLabel = cc.Label:createWithBMFont("fnt/snake_white_48.fnt", dd.GetTips(tipsTb))
+        :move(display.cx, display.height*0.15)
+        :setScale(0.6)
+        :addTo(self, 100)
+
+    self.m_gameFinger1 = ccui.ImageView:create("finger1.png")
+        :move(display.cx, display.height*0.28)
+        :addTo(self)
+        :setScale(0.8)
+
+    self.m_gameFinger = ccui.ImageView:create("finger.png")
+        :move(display.cx, display.height*0.28)
+        :setScale(0.6)
+        :addTo(self)
+
+    self.m_gameFinger:setVisible(false)
+    self.m_gameFinger1:runAction(
+        cc.RepeatForever:create(
+            cc.Sequence:create(
+                cc.ScaleTo:create(1.0, 0.6),
+                cc.CallFunc:create(function ()
+                    self.m_gameFinger1:setVisible(false)
+                    self.m_gameFinger:setVisible(true)
+                end),
+                cc.DelayTime:create(1.0),
+                cc.CallFunc:create(function ()
+                    self.m_gameFinger1:setVisible(true)
+                    self.m_gameFinger:setVisible(false)
+                end),
+                cc.ScaleTo:create(1.0, 0.8),
+                nil
+                )
+            )
+        )
+end
+
+function GameLayer:removeTips()
+    self.m_tipsLabel:removeFromParent()
+    self.m_tipsLabel = nil
+
+    self.m_gameFinger:removeFromParent()
+    self.m_gameFinger = nil
+
+    self.m_gameFinger1:removeFromParent()
+    self.m_gameFinger1 = nil
 end
 
 function GameLayer:createPauseBtn()
@@ -150,7 +205,7 @@ end
 
 function GameLayer:updateLevel(snakeNum)
     local curLevel = dd.GameData:getCurLevel()
-    if snakeNum > 10 and curLevel == 1 then
+    if snakeNum > 100 and curLevel == 1 then
          dd.GameData:setLevel(2)
     elseif snakeNum > 1000000 and curLevel == 2 then
          dd.GameData:setLevel(3)
@@ -206,6 +261,19 @@ end
 function GameLayer:onTouchBegin(touch, event)
     if self.m_isGameEnd then
         return false
+    end
+
+    if not self.m_isAlreadyBegin then
+        self.m_isAlreadyBegin = true
+        self.m_snake:setMoveSpeed(500)
+        self.m_balloonsContainer:start()
+
+        if dd.GameData:isSoundEnable() then
+            AudioEngine.getInstance():playMusic("sounds/background.mp3", true)
+            AudioEngine.getInstance():setMusicVolume(0.5)
+        end
+
+        self:removeTips()
     end
 
     self:unScheduleRecoverDirection()

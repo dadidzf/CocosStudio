@@ -31,11 +31,6 @@ function MainScene:startGame()
     self:removeStartLayer()
         
     cc.load("sdk").Admob.getInstance():showBanner(0, 0)
-
-    if dd.GameData:isSoundEnable() then
-        AudioEngine.getInstance():playMusic("sounds/background.mp3", true)
-        AudioEngine.getInstance():setMusicVolume(0.5)
-    end
 end
 
 function MainScene:removeStartLayer()

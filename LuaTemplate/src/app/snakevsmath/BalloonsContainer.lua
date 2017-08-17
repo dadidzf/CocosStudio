@@ -7,14 +7,16 @@ function BalloonsContainer:ctor()
     self.m_balloonsList = {}
     self.m_posXList = {53, 159, 265, 371, 477, 583}
     self.m_linePosXList = {106, 212, 318, 424, 530}
-    self.m_levelCreateProb = {0.5, 0.5, 0.6, 0.7, 0.7}
+    self.m_levelCreateProb = {0.4, 0.5, 0.6, 0.7, 0.7}
 
     self.m_symbolList = {"+", "-", "×", "/", "bomb", "diamond", "wall"}
     self.m_symbolGenarator = self:getSymbolGenarator()
 
-    self.m_scheduler = dd.scheduler:scheduleScriptFunc(handler(self, self.createBalloons), 0.5, false)
-
     self.m_colLastWallList = {}
+end
+
+function BalloonsContainer:start()
+    self.m_scheduler = dd.scheduler:scheduleScriptFunc(handler(self, self.createBalloons), 0.5, false)
 end
 
 function BalloonsContainer:removeSheduler()
@@ -26,7 +28,7 @@ end
 
 function BalloonsContainer:getSymbolGenarator()
     local levelSymbolProb = {
-        {100, 50, 10, 20, 10, 5, 50},
+        {100, 10, 1, 5, 1, 5, 5},
         {100, 100, 10, 30, 50, 5, 50},
         {100, 200, 10, 50, 100, 5, 60},
         {100, 300, 10, 100, 200, 5, 70},

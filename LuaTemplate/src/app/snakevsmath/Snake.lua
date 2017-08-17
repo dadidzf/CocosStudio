@@ -9,9 +9,9 @@ function Snake:ctor(moveCallBack)
     self:enableNodeEvents()
     self.m_bodies = {}
     self.m_pathList = {}
-    self.m_direction = 30
+    self.m_direction = 90
     self.m_moveCallBack = moveCallBack
-    self.m_number = 0
+    self.m_number = 9
     self.m_snakeYpos = -display.height*0.1
 
     local head = Body:create(true)
@@ -21,9 +21,8 @@ function Snake:ctor(moveCallBack)
     self.m_headSize = head:getContentSize()
 
     table.insert(self.m_bodies, head)
-    table.insert(self.m_pathList, cc.p(0, 0))
+    table.insert(self.m_pathList, cc.p(0, self.m_snakeYpos))
 
-    self:setMoveSpeed(500) 
     self:applyNumber()
     self:updateBodiesPos()
 end
@@ -187,9 +186,7 @@ function Snake:updatePosWithWall(wall)
         end
 
         local dx = nextPos.x - headPos.x
-        print("xxxxxxxxxxxxxxxx", nextPos.x, headPos.x, _baseStepDistance, self.m_snakeYpos, dx)
         nextPos.y = math.sqrt(math.abs(_baseStepDistance*_baseStepDistance - dx*dx)) + self.m_snakeYpos
-        print("Snake:updatePosWithWall ----------------------", nextPos.x, nextPos.y)
     else
         return
     end
