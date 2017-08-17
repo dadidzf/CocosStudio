@@ -182,11 +182,11 @@ function GameLayer:gameEnd(score, isBomb)
         local shaker = cc.load("sdk").ScreenShake:create(self, 0.2)
         shaker:setDiffMax(12)
         shaker:run()
-        scheduler = dd.scheduler:scheduleScriptFunc(showGameEndFunc, 1, false)
+        scheduler = dd.scheduler:scheduleScriptFunc(showGameEndFunc, 2.2, false)
         self.m_pauseBtn:setTouchEnabled(false)
     else
+        scheduler = dd.scheduler:scheduleScriptFunc(showGameEndFunc, 0.5, false)
         dd.PlaySound("failed.mp3")
-        showGameEndFunc()
     end
     
     AudioEngine.getInstance():stopMusic()

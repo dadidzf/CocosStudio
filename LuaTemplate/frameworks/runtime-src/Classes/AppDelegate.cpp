@@ -59,7 +59,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     register_all_packages();
 
     LuaStack* stack = engine->getLuaStack();
-    stack->setXXTEAKeyAndSign("dzf_trapballs", strlen("dzf_trapballs"), "hhh_trapballs", strlen("hhh_trapballs"));
+    stack->setXXTEAKeyAndSign("dzf", strlen("dzf"), "hhh", strlen("hhh"));
 
     //register custom function
     //LuaStack* stack = engine->getLuaStack();
@@ -83,7 +83,8 @@ void AppDelegate::applicationDidEnterBackground()
 {
     Director::getInstance()->stopAnimation();
 
-    SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+//    SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+//    SimpleAudioEngine::getInstance()->pauseAllEffects();
 }
 
 // this function will be called when the app is active again
@@ -91,7 +92,8 @@ void AppDelegate::applicationWillEnterForeground()
 {
     Director::getInstance()->startAnimation();
 
-    SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+//    SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+//    SimpleAudioEngine::getInstance()->resumeAllEffects();
 }
 
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID 

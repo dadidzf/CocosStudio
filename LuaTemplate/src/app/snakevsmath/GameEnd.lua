@@ -57,12 +57,13 @@ function GameEnd:ctor(game, score)
             scheduler = nil
         end
 
-        if cc.load("sdk").Tools.getGamePlayCount() > 0 or _gameEndCount > 2 then
+        if cc.load("sdk").Tools.getGamePlayCount() > 1 or _gameEndCount > 2 then
             cc.load("sdk").Admob.getInstance():showInterstitial()
         end
+        _gameEndCount = _gameEndCount + 1
     end
     
-    scheduler = dd.scheduler:scheduleScriptFunc(showAdsFunc, 2, false)
+    scheduler = dd.scheduler:scheduleScriptFunc(showAdsFunc, 1.5, false)
 
     local btnBack = ccui.ImageView:create("fanhui.png", ccui.TextureResType.plistType)
         :move(-display.width/2 + 60, display.height/2 - 60)

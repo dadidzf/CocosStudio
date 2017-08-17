@@ -4,6 +4,8 @@
 
 #import "AdmobController.h"
 #import "RootViewController.h"
+#import "cocos2d.h"
+#import "scripting/lua-bindings/manual/platform/ios/CCLuaObjcBridge.h"
 
 @implementation AdmobController
 
@@ -38,6 +40,10 @@ static AdmobController* _instance = nil;
     [[AdmobController getInstance] showInterstitialAd];
 }
 
++ (void)showRewardVideoLua {
+    [[AdmobController getInstance] showRewardVideo];
+}
+
 + (void)removeBannerLua
 {
     [[AdmobController getInstance] removeBanner];
@@ -48,6 +54,16 @@ static AdmobController* _instance = nil;
     [[AdmobController getInstance] createBannerAds:[dict objectForKey:@"bannerAdsId"]];
     [[AdmobController getInstance] setInterstitialAdsId:[dict objectForKey:@"interstitialAdsId"]];
     [[AdmobController getInstance] createAndLoadInterstitial];
+    NSString* rewardVideoId = [dict objectForKey:@"rewardVideoId"];
+    
+    if ([rewardVideoId isEqualToString:@""])
+    {
+    }
+    else
+    {
+        [[AdmobController getInstance] createRewardVideoAds:rewardVideoId
+                                         withCallBackFuncId:[[dict objectForKey:@"functionId"] intValue]];
+    }
 }
 
 /**
@@ -141,6 +157,77 @@ static AdmobController* _instance = nil;
     {
         [_bannerView setHidden:YES];
     }
+}
+
+/**
+ Reward Video Ads
+ **/
+- (void)createRewardVideoAds:(NSString*) adsId withCallBackFuncId:(int) functionId
+{
+    [GADRewardBasedVideoAd sharedInstance].delegate = self;
+    _rewardVideo = [GADRewardBasedVideoAd sharedInstance];
+    _rewardVideoAdsId = adsId;
+    [self loadRewardVideoAds];
+    _rewardVideoFunctionId = functionId;
+}
+
+- (void)loadRewardVideoAds
+{
+    [_rewardVideo loadRequest:[GADRequest request]
+            withAdUnitID:_rewardVideoAdsId];
+}
+
+- (void)showRewardVideo
+{
+    if ([_rewardVideo isReady]) {
+        [_rewardVideo presentFromRootViewController:_viewController];
+    }
+    else
+    {
+        [self rewardResult:FALSE];
+        [self loadRewardVideoAds];
+    }
+}
+
+- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
+   didRewardUserWithReward:(GADAdReward *)reward
+{
+    NSString *rewardMessage = [NSString stringWithFormat:@"Reward received with currency %@ , amount %lf", reward.type, [reward.amount doubleValue]];
+    NSLog(rewardMessage);
+    [self rewardResult:TRUE];
+}
+
+- (void)rewardResult:(Boolean) willReward
+{
+    cocos2d::LuaObjcBridge::pushLuaFunctionById(_rewardVideoFunctionId);
+    cocos2d::LuaObjcBridge::getStack()->pushBoolean(willReward ? true : false);
+    cocos2d::LuaObjcBridge::getStack()->executeFunction(1);
+}
+
+- (void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+    NSLog(@"Reward based video ad is received.");
+}
+
+- (void)rewardBasedVideoAdDidOpen:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+    NSLog(@"Opened reward based video ad.");
+}
+
+- (void)rewardBasedVideoAdDidStartPlaying:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+    NSLog(@"Reward based video ad started playing.");
+}
+
+- (void)rewardBasedVideoAdDidClose:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+    NSLog(@"Reward based video ad is closed.");
+    [self loadRewardVideoAds];
+}
+
+- (void)rewardBasedVideoAdWillLeaveApplication:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+    NSLog(@"Reward based video ad will leave application.");
+}
+
+- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
+    didFailToLoadWithError:(NSError *)error {
+    NSLog(@"Reward based video ad failed to load.");
 }
 
 @end

@@ -6,6 +6,7 @@ local Admob = class("Admob")
 local AdmobIos = class("AdmobIos", Admob)
 
 function AdmobIos:ctor()
+	self.super.ctor(self)
 	self.m_luaoc = require("cocos.cocos2d.luaoc") 
 end
 
@@ -23,11 +24,24 @@ function AdmobIos:showBanner(pos, anchor)
 	self.m_luaoc.callStaticMethod("AdmobController", "initBannerLua", args)
 end
 
-function AdmobIos:initAds(banner, interstitial)
+function AdmobIos:initAds(banner, interstitial, rewardVideo)
 	print("AdmobIos:initAds")
+
+	if not rewardVideo then
+		rewardVideo = ""
+	end
+
+	local rewardCallBack = function (willRewardUser)
+		if self.m_rewardVideoCallBack then
+			self.m_rewardVideoCallBack(willRewardUser)
+		end
+	end
+
  	local args = {
     	interstitialAdsId = interstitial,
-    	bannerAdsId = banner
+    	bannerAdsId = banner,
+    	rewardVideoId = rewardVideo,
+    	functionId = rewardCallBack
 	}
 	self.m_luaoc.callStaticMethod("AdmobController", "initAdsLua", args)
 end
@@ -45,12 +59,19 @@ function AdmobIos:showInterstitial()
 	self.m_luaoc.callStaticMethod("AdmobController", "showInterstitialLua")
 end
 
+function AdmobIos:showRewardVideo(callBack)
+	print("AdmobIos:showRewardVideo")
+	self.m_luaoc.callStaticMethod("AdmobController", "showRewardVideoLua")
+	self.m_rewardVideoCallBack = callBack
+end
+
 --[[
 	Admob for Androida
 --]]
 local AdmobAndroid = class("AdmobAndroid", Admob)
 
 function AdmobAndroid:ctor()
+	self.super.ctor(self)
 	self.m_luaj = require("cocos.cocos2d.luaj")
 	self.m_jniClass = "org/cocos2dx/lua/GameJni"
 end
@@ -99,7 +120,7 @@ function Admob.getInstance()
 			return _instance
 		end
 		
-		_instance:initAds(dd.appCommon.admobBannerId, dd.appCommon.admobInterstitialId)
+		_instance:initAds(dd.appCommon.admobBannerId, dd.appCommon.admobInterstitialId, dd.appCommon.admobRewardVideoId)
 	end
 
 	return _instance
@@ -107,6 +128,7 @@ end
 
 function Admob:ctor()
 	self.m_isAdsRemoved = false 
+	self.m_rewardVideoCallBack = nil  
 end
 
 function Admob:setAdsRemoved(val)
@@ -118,6 +140,10 @@ function Admob:showBanner()
 end
 
 function Admob:showInterstitial()
+
+end
+
+function Admob:showRewardVideo()	
 
 end
 
