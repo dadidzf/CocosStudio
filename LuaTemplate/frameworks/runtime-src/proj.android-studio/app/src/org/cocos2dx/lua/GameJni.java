@@ -34,10 +34,18 @@ public class GameJni {
         });
     }
 
-    public static void initAds(final String bannerId, final String interstitialId){
+    public static void showRewardVideo() {
         AppActivity.getInstance().runOnUiThread(new Runnable() {
             public void run() {
-                AppActivity.getInstance().getAds().initAds(bannerId, interstitialId);
+                AppActivity.getInstance().getAds().showRewardVideoAds();
+            }
+        });
+    }
+
+    public static void initAds(final String bannerId, final String interstitialId, final String rewardVideoId, final int rewardCallBackFuncId){
+        AppActivity.getInstance().runOnUiThread(new Runnable() {
+            public void run() {
+                AppActivity.getInstance().getAds().initAds(bannerId, interstitialId, rewardVideoId, rewardCallBackFuncId);
             }
         });
     }

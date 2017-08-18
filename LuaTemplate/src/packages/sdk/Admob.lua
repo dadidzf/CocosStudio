@@ -97,10 +97,26 @@ function AdmobAndroid:removeBanner()
 	self.m_luaj.callStaticMethod(self.m_jniClass, "removeBanner", {})
 end
 
-function AdmobAndroid:initAds(banner, interstitial)
+function AdmobAndroid:initAds(banner, interstitial, rewardVideo)
 	print("AdmobAndroid:initAds")
+	if not rewardVideo then
+		rewardVideo = ""
+	end
+
+	local rewardCallBack = function (willRewardUser)
+		if self.m_rewardVideoCallBack then
+			self.m_rewardVideoCallBack(willRewardUser)
+		end
+	end
+
 	self.m_luaj.callStaticMethod(self.m_jniClass, "initAds", 
-		{banner, interstitial})
+		{banner, interstitial, rewardVideo, rewardCallBack})
+end
+
+function AdmobAndroid:showRewardVideo(callBack)
+	print("AdmobAndroid:showRewardVideo")
+	self.m_luaj.callStaticMethod(self.m_jniClass, "showRewardVideo", {})
+	self.m_rewardVideoCallBack = callBack
 end
 
 --[[

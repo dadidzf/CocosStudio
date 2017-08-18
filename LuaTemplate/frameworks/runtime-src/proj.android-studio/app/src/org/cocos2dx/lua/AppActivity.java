@@ -99,7 +99,20 @@ import com.google.android.gms.common.GoogleApiAvailability;
     }
 
     @Override
+    public void onResume() {
+        mAds.onResume();
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        mAds.onPause();
+        super.onPause();
+    }
+
+    @Override
     public void onDestroy() {
+        mAds.onDestroy();
         super.onDestroy();
 
         // very important:
@@ -340,6 +353,15 @@ import com.google.android.gms.common.GoogleApiAvailability;
          });
     }
 
+    public void sendResultSuccess(final int luaFunctionId)
+    {
+        sendResult(luaFunctionId, SUCCESS_RESULT);
+    }
+
+    public void sendResultFailed(final int luaFunctionId)
+    {
+        sendResult(luaFunctionId, FAILED_RESULT);
+    }
 
     public boolean isItemPurchased(String skuKey)
     {
