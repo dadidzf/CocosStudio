@@ -71,7 +71,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="1250269557" Tag="9" IconVisible="False" LeftMargin="37.8737" RightMargin="497.1263" TopMargin="39.2349" BottomMargin="882.7651" LabelText="Height" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="1250269557" Tag="9" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="37.8737" RightMargin="497.1263" TopMargin="39.2349" BottomMargin="882.7651" LabelText="Height" ctype="TextBMFontObjectData">
             <Size X="105.0000" Y="38.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="90.3737" Y="901.7651" />
@@ -81,7 +81,7 @@
             <PreSize X="0.1641" Y="0.0396" />
             <LabelBMFontFile_CNB Type="Normal" Path="risingstar/fnt/white_32.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="650826525" Tag="10" IconVisible="False" LeftMargin="155.7540" RightMargin="426.2460" TopMargin="39.2349" BottomMargin="882.7651" LabelText="500" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="650826525" Tag="10" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="155.7540" RightMargin="426.2460" TopMargin="39.2349" BottomMargin="882.7651" LabelText="500" ctype="TextBMFontObjectData">
             <Size X="58.0000" Y="38.0000" />
             <AnchorPoint ScaleY="0.5000" />
             <Position X="155.7540" Y="901.7651" />
