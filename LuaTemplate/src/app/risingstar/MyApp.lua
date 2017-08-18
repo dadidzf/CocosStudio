@@ -7,6 +7,8 @@ dd.PlaySound = function( fileName )
     AudioEngine.getInstance():playEffect("sounds/" .. fileName)
 end
 
+dd.GameData = import(".GameData"):create()
+
 function MyApp:onCreate()
     math.randomseed(os.time())
 

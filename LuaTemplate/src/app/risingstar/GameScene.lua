@@ -14,6 +14,8 @@ local Box = import(".Box")
 function GameScene:onCreate( ... )
     self:enableNodeEvents()--开启节点事件，让节点在OnCleanup()时移除定时器可执行
 
+    self.m_direction = 1
+
     self.m_boxlist = {}
     local resourceNode = self:getResourceNode()
     resourceNode:setContentSize(display.size)
@@ -31,6 +33,7 @@ function GameScene:onCreate( ... )
     self:addChild(star, 1)
 
     self.height = 0
+    self.heightest = 0
     self.m_height:setString(tostring(self.height))
     self.m_speed = 500--方块下落速度
 
@@ -48,9 +51,9 @@ function GameScene:onCreate( ... )
     meteor:setEmissionRate(120)--发射频率
     star:addChild(meteor)    
     self.m_star = star
-    self.M_meteor = meteor
-    self:moveup(1000)
+    self.m_meteor = meteor
     self:addTouch()
+    self:moveup(1000)
     self.m_scheduler = dd.scheduler:scheduleScriptFunc(handler(self, self.updateBox), 1, false)
     self.m_scheduler2= dd.scheduler:scheduleScriptFunc(handler(self, self.checkCollision), 0.01, false)
     self.m_scheduler3= dd.scheduler:scheduleScriptFunc(handler(self, self.starRising), 0.1, false)
@@ -104,14 +107,20 @@ function GameScene:addBox(speed,box_x)
     local move3back = move3:reverse()
     box:setPosition(cc.p(box_x, 2000))
     self.m_paneltop:addChild(box, 2)
-    box:runAction(cc.Sequence:create(move3back,cc.CallFunc:create(function ( ... )
+
+    local removeFunc = function ( ... )
         box:removeFromParent()
         self.m_boxlist[index] = nil
-    end)))
+    end
+
+    local callBackFunc = cc.CallFunc:create(removeFunc)
+    local sequence = cc.Sequence:create(move3back, callBackFunc)
+
+    box:runAction(sequence)
 end
 
 function GameScene:moveup(speed)
-    self.M_meteor:setGravity(cc.p(0,-speed*2))
+    self.m_meteor:setGravity(cc.p(0,-speed*2))
 end
 
 function GameScene:onPause()
@@ -151,50 +160,27 @@ end
 
 function GameScene:onTouchBegin(touch, event)
     local speed = 500
-    local move1 = cc.MoveBy:create(1000/speed, cc.p(-1000,0))
-    self.moveleft = cc.RepeatForever:create(move1)
-    local move2 = cc.MoveBy:create(1000/speed, cc.p(1000,0))
-    self.moveright = cc.RepeatForever:create(move2)
-    local pos = self:convertToNodeSpace(touch:getLocation())
-    self.posx =pos.x
-    if self.posx<=320 then
+    if self.m_direction == 1 then
+        self.moveleft = cc.MoveBy:create(1000/speed, cc.p(-1000,0))
         self.m_star:runAction(self.moveleft)
-    else
-        self.m_star:runAction(self.moveright)
+            if self.moveright ~= nil then
+                self.m_star:stopAction(self.moveright)
+            end
+        self.m_direction = 2
+        else if self.m_direction == 2 then
+            self.moveright = cc.MoveBy:create(1000/speed, cc.p(1000,0))
+            self.m_star:runAction(self.moveright)
+                if self.moveleft ~= nil then
+                    self.m_star:stopAction(self.moveleft)
+                end
+            self.m_direction = 1
+        end
     end
-
-    if self.movein1 ~= nil then
-        self.m_star:stopAction(self.movein1)
-    end
-
-    if self.movein2 ~= nil then
-        self.m_star:stopAction(self.movein2)
-    end
-
-    print("..", pos.x,pos.y)
     return true
 end
 
 function GameScene:onTouchEnd(touch, event)
-    if self.posx<=320 then
-        self.m_star:stopAction(self.moveleft)
-    else
-        self.m_star:stopAction(self.moveright)
-    end
 
-    local x,y = self.m_star:getPosition()
-    local x0 = 320-x
-    local move0,movein
-    self.movein2 =movein
-    if x<=320 then
-        move0 = cc.MoveBy:create(x0/self.backspeed,cc.p(x0,0))
-        self.movein2 = cc.EaseInOut:create(move0,1)
-    else
-        move0 = cc.MoveBy:create(-x0/self.backspeed,cc.p(x0,0))
-        self.movein2 = cc.EaseInOut:create(move0,1)
-    end    
-    self.m_star:runAction(self.movein2)
-    print("x",x)
 end
 
 function GameScene:onTouchMoved(touch, event)
@@ -239,9 +225,20 @@ function GameScene:gameover()
     eventDispatcher:removeEventListener(self.m_listener)
 
     local gamefailed = import(".GameFailed",MODULE_PATH)
-    local failedNode = gamefailed:create()
+    local failedNode = gamefailed:create(self)
     failedNode:setPosition(display.cx, display.cy)
     self:addChild(failedNode)
+end
+
+function GameScene:getHeight()
+    return self.height
+end
+
+function GameScene:getHeightest()
+    if self.height>=self.heightest then
+        self.heightest=self.height
+    end
+    return self.heightest 
 end
 
 return GameScene
