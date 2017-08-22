@@ -6,17 +6,17 @@
         "adsPicURL": "ads/pic/"
     },
     "appName":"spacefortress",
-    "luaCompileKey":"dzf",
-    "luaCompileSign":"hhh",
-    "width":640,
-    "height":960,
+    "luaCompileKey":"dzf_spacefortress",
+    "luaCompileSign":"hhh_spacefortress",
+    "width":720,
+    "height":1080,
     "autoScale1":"FIXED_HEIGHT",
-    "autoScale2":"FIXED_WIDTH",
+    "autoScale2":"FIXED_HEIGHT",
     "ios":
     {
-        "adsRequestAppName":"template_ios",
-        "appDisplayName":"Template",
-        "appDisplayName_cn":"模板",
+        "adsRequestAppName":"spacefortress_ios",
+        "appDisplayName":"Space Fortress",
+        "appDisplayName_cn":"太空堡垒",
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
         "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
         "admobRewardVideoId": "test",
@@ -40,9 +40,9 @@
 	},
 	"android":
 	{
-        "adsRequestAppName":"template_android",
-        "appDisplayName":"Template",
-        "appDisplayName_cn":"模板",
+        "adsRequestAppName":"spacefortress_android",
+        "appDisplayName":"Space Fortress",
+        "appDisplayName_cn":"太空堡垒",
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
         "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
         "admobRewardVideoId": "test",
