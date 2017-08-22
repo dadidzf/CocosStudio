@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>773352309818-4ajrt9ajnbel49d9foe14bdjvelonn7o.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.773352309818-4ajrt9ajnbel49d9foe14bdjvelonn7o</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCJElgFeQfXxQiZmYv2MH51lzBjx8cpcao</string>
+	<key>GCM_SENDER_ID</key>
+	<string>773352309818</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.yongwuart.spacefortress</string>
+	<key>PROJECT_ID</key>
+	<string>space-fortress</string>
+	<key>STORAGE_BUCKET</key>
+	<string>space-fortress.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:773352309818:ios:d79b66ca36c87702</string>
+	<key>DATABASE_URL</key>
+	<string>https://space-fortress.firebaseio.com</string>
+</dict>
+</plist>

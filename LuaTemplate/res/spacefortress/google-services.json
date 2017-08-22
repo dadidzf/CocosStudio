@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "773352309818",
+    "firebase_url": "https://space-fortress.firebaseio.com",
+    "project_id": "space-fortress",
+    "storage_bucket": "space-fortress.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773352309818:android:d79b66ca36c87702",
+        "android_client_info": {
+          "package_name": "com.yongwuart.spacefortress"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "773352309818-0hl82stnui82vu0mb9c6a1beh3bvmvn8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH8qDsl9lU1neP2WeBhZkEaG3qzuL1UI0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
