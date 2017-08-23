@@ -25,4 +25,8 @@ int register_all_scripting(lua_State* tolua_S);
 
 
 
+
+
+
+
 #endif // __scripting_h__

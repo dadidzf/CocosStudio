@@ -2,6 +2,7 @@
 #include "YWStrUtil.h"
 #include "YWCsvParser.h"
 #include "Triangulate.h"
+#include "ActionMore.h"
 #include "scripting/lua-bindings/manual/tolua_fix.h"
 #include "scripting/lua-bindings/manual/LuaBasicConversions.h"
 #include "LuaCustomConversions.h"
@@ -535,6 +536,183 @@ int lua_register_scripting_Triangulate(lua_State* tolua_S)
     g_typeCast["Triangulate"] = "Triangulate";
     return 1;
 }
+
+int lua_scripting_CircleBy_initWithDuration(lua_State* tolua_S)
+{
+    int argc = 0;
+    CircleBy* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"CircleBy",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (CircleBy*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_scripting_CircleBy_initWithDuration'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 4) 
+    {
+        double arg0;
+        cocos2d::Vec2 arg1;
+        double arg2;
+        bool arg3;
+
+        ok &= luaval_to_number(tolua_S, 2,&arg0, "CircleBy:initWithDuration");
+
+        ok &= luaval_to_vec2(tolua_S, 3, &arg1, "CircleBy:initWithDuration");
+
+        ok &= luaval_to_number(tolua_S, 4,&arg2, "CircleBy:initWithDuration");
+
+        ok &= luaval_to_boolean(tolua_S, 5,&arg3, "CircleBy:initWithDuration");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_scripting_CircleBy_initWithDuration'", nullptr);
+            return 0;
+        }
+        bool ret = cobj->initWithDuration(arg0, arg1, arg2, arg3);
+        tolua_pushboolean(tolua_S,(bool)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "CircleBy:initWithDuration",argc, 4);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_scripting_CircleBy_initWithDuration'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_scripting_CircleBy_create(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertable(tolua_S,1,"CircleBy",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    argc = lua_gettop(tolua_S) - 1;
+
+    if (argc == 3)
+    {
+        double arg0;
+        cocos2d::Vec2 arg1;
+        double arg2;
+        ok &= luaval_to_number(tolua_S, 2,&arg0, "CircleBy:create");
+        ok &= luaval_to_vec2(tolua_S, 3, &arg1, "CircleBy:create");
+        ok &= luaval_to_number(tolua_S, 4,&arg2, "CircleBy:create");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_scripting_CircleBy_create'", nullptr);
+            return 0;
+        }
+        CircleBy* ret = CircleBy::create(arg0, arg1, arg2);
+        object_to_luaval<CircleBy>(tolua_S, "CircleBy",(CircleBy*)ret);
+        return 1;
+    }
+    if (argc == 4)
+    {
+        double arg0;
+        cocos2d::Vec2 arg1;
+        double arg2;
+        bool arg3;
+        ok &= luaval_to_number(tolua_S, 2,&arg0, "CircleBy:create");
+        ok &= luaval_to_vec2(tolua_S, 3, &arg1, "CircleBy:create");
+        ok &= luaval_to_number(tolua_S, 4,&arg2, "CircleBy:create");
+        ok &= luaval_to_boolean(tolua_S, 5,&arg3, "CircleBy:create");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_scripting_CircleBy_create'", nullptr);
+            return 0;
+        }
+        CircleBy* ret = CircleBy::create(arg0, arg1, arg2, arg3);
+        object_to_luaval<CircleBy>(tolua_S, "CircleBy",(CircleBy*)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "CircleBy:create",argc, 3);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_scripting_CircleBy_create'.",&tolua_err);
+#endif
+    return 0;
+}
+int lua_scripting_CircleBy_constructor(lua_State* tolua_S)
+{
+    int argc = 0;
+    CircleBy* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_scripting_CircleBy_constructor'", nullptr);
+            return 0;
+        }
+        cobj = new CircleBy();
+        cobj->autorelease();
+        int ID =  (int)cobj->_ID ;
+        int* luaID =  &cobj->_luaID ;
+        toluafix_pushusertype_ccobject(tolua_S, ID, luaID, (void*)cobj,"CircleBy");
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "CircleBy:CircleBy",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_error(tolua_S,"#ferror in function 'lua_scripting_CircleBy_constructor'.",&tolua_err);
+#endif
+
+    return 0;
+}
+
+static int lua_scripting_CircleBy_finalize(lua_State* tolua_S)
+{
+    printf("luabindings: finalizing LUA object (CircleBy)");
+    return 0;
+}
+
+int lua_register_scripting_CircleBy(lua_State* tolua_S)
+{
+    tolua_usertype(tolua_S,"CircleBy");
+    tolua_cclass(tolua_S,"CircleBy","CircleBy","cc.ActionInterval",nullptr);
+
+    tolua_beginmodule(tolua_S,"CircleBy");
+        tolua_function(tolua_S,"new",lua_scripting_CircleBy_constructor);
+        tolua_function(tolua_S,"initWithDuration",lua_scripting_CircleBy_initWithDuration);
+        tolua_function(tolua_S,"create", lua_scripting_CircleBy_create);
+    tolua_endmodule(tolua_S);
+    std::string typeName = typeid(CircleBy).name();
+    g_luaType[typeName] = "CircleBy";
+    g_typeCast["CircleBy"] = "CircleBy";
+    return 1;
+}
 TOLUA_API int register_all_scripting(lua_State* tolua_S)
 {
 	tolua_open(tolua_S);
@@ -543,8 +721,9 @@ TOLUA_API int register_all_scripting(lua_State* tolua_S)
 	tolua_beginmodule(tolua_S,"dd");
 
 	lua_register_scripting_YWCsvParser(tolua_S);
-	lua_register_scripting_YWStrUtil(tolua_S);
 	lua_register_scripting_Triangulate(tolua_S);
+	lua_register_scripting_CircleBy(tolua_S);
+	lua_register_scripting_YWStrUtil(tolua_S);
 
 	tolua_endmodule(tolua_S);
 	return 1;

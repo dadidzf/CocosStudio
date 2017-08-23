@@ -16,4 +16,9 @@
 -- @field [parent=#dd] Triangulate#Triangulate Triangulate preloaded module
 
 
+--------------------------------------------------------
+-- the dd CircleBy
+-- @field [parent=#dd] CircleBy#CircleBy CircleBy preloaded module
+
+
 return nil
