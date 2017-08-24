@@ -193,6 +193,7 @@ xcopy "$(ProjectDir)..\..\..\src" "$(LocalDebuggerWorkingDirectory)\src" /D /E /
     <ClInclude Include="..\Classes\LuaUserBindings\LuaCustomConversions.h" />
     <ClInclude Include="..\Classes\LuaUserBindings\lua_binding_manual.h" />
     <ClInclude Include="..\Classes\LuaUserBindings\lua_scripting_auto.hpp" />
+    <ClInclude Include="..\Classes\Utils\ActionMore.h" />
     <ClInclude Include="..\Classes\Utils\Triangulate.h" />
     <ClInclude Include="..\Classes\Utils\YWCsvParser.h" />
     <ClInclude Include="..\Classes\Utils\YWStrUtil.h" />
@@ -207,6 +208,7 @@ xcopy "$(ProjectDir)..\..\..\src" "$(LocalDebuggerWorkingDirectory)\src" /D /E /
     <ClCompile Include="..\Classes\LuaUserBindings\LuaCustomConversions.cpp" />
     <ClCompile Include="..\Classes\LuaUserBindings\lua_binding_manual.cpp" />
     <ClCompile Include="..\Classes\LuaUserBindings\lua_scripting_auto.cpp" />
+    <ClCompile Include="..\Classes\Utils\ActionMore.cpp" />
     <ClCompile Include="..\Classes\Utils\Triangulate.cpp" />
     <ClCompile Include="..\Classes\Utils\YWCsvparser.cpp" />
     <ClCompile Include="..\Classes\Utils\YWStrUtil.cpp" />

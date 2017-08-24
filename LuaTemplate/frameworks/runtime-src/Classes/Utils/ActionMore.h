@@ -6,7 +6,7 @@
 /** @class CircleBy
  *
  */
-class CC_DLL CircleBy : public cocos2d::ActionInterval
+class CircleBy : public cocos2d::ActionInterval
 {
 public:
     /** 
