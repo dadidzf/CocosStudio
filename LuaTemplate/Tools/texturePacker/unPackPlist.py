@@ -1,7 +1,10 @@
-#!python
-import os,sys
-from xml.etree import ElementTree
+#!/usr/bin/env python
+# -*- coding: utf8 -*-
+
+import os
+import sys
 from PIL import Image
+from xml.etree import ElementTree
 
 def tree_to_dict(tree):
     d = {}
@@ -84,11 +87,28 @@ def gen_png_from_plist(plist_filename, png_filename):
         print outfile, "generated"
         result_image.save(outfile)
 
+def get_current_path():
+    return os.path.split(os.path.realpath(__file__))[0]
+
+def getPlistFileNameList():
+    curDir = get_current_path()
+    plistFileList = []
+    print(os.listdir(curDir))
+    for filename in os.listdir(curDir):
+        f = os.path.join(curDir, filename)
+        if os.path.isfile(f):
+            if os.path.splitext(f)[1] == ".plist" :
+                plistFileList.append(os.path.splitext(filename)[0])
+
+    return plistFileList
+
 if __name__ == '__main__':
-    filename = sys.argv[1]
-    plist_filename = filename + '.plist'
-    png_filename = filename + '.png'
-    if (os.path.exists(plist_filename) and os.path.exists(png_filename)):
-        gen_png_from_plist( plist_filename, png_filename )
-    else:
-        print "make sure you have boith plist and png files in the same directory"
+    fileList = getPlistFileNameList()
+    print(fileList)
+    for filename in fileList:
+        plist_filename = filename + '.plist'
+        png_filename = filename + '.png'
+        if (os.path.exists(plist_filename) and os.path.exists(png_filename)) and not os.path.exists(filename):
+            gen_png_from_plist( plist_filename, png_filename)
+        else:
+            print "make sure you have both plist and png files in the same directory"

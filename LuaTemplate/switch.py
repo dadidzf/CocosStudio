@@ -67,7 +67,7 @@ def replacePlistKeyValue(filepath, key, reSrcValueStr, dstvalueStr):
     f2.close()
 
 def get_current_path():
-    return os.path.dirname(__file__)
+    return os.path.split(os.path.realpath(__file__))[0]
 
 def isGameDirExist(name):
     curPath = get_current_path()
