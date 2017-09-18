@@ -3,7 +3,6 @@ local MODULE_PATH = ...
 
 GameEnd.RESOURCE_FILENAME = "Node_gamepass.csb"
 GameEnd.RESOURCE_BINDING = {
-    ["Button_chart"] = {varname = "m_btnRank", events = {{ event = "click", method = "onRank" }}},
     ["Button_share"] = {varname = "m_btnShare", events = {{ event = "click", method = "onShare" }}},
     ["Button_restart"] = {varname = "m_btnRePlay", events = {{ event = "click", method = "onReplay" }}},
     ["Button_backtomenu"] = {varname = "m_btnMenu", events = {{ event = "click", method = "onMenu" }}},
@@ -32,22 +31,17 @@ GameEnd.RESOURCE_BINDING = {
 
     ["Panel_1.Image_top"] = {varname = "m_imgTop"},
     ["Panel_1.BitmapFontLabel_x4"] = {varname = "m_imgTopMulSimbol"},
-    ["Panel_1.BitmapFontLabel_jia"] = {varname = "m_imgTopAddSimbol"},
-    ["Panel_1.BitmapFontLabel_topzuanshi"] = {varname = "m_labelDiamondReward"},
+    ["Panel_1.BitmapFontLabel_topscore"] = {varname = "m_labelTopScore"},
     ["Panel_1.BitmapFontLabel_topnumber"] = {varname = "m_labelTopCollision"},
-    ["Panel_1.Image_4"] = {varname = "m_imgDiamonds"},
 
     ["BitmapFontLabel_roundnumber"] = {varname = "m_labelRoundNum"},
     ["BitmapFontLabel_highscorenumber"] = {varname = "m_labelHighScore"},
     ["Image_highscore"] = {varname = "m_imgHighScoreIcon"},
-
-    ["BitmapFontLabel_zuanshi"] = {varname = "m_labelTotalDiamonds"}
 }
 
 function GameEnd:ctor(gameScene, levelIndex, param)
     self.super.ctor(self)
 
-    self.m_labelTotalDiamonds:setString(tostring(dd.GameData:getDiamonds()))
     self.m_levelIndex = levelIndex
     self.m_gameScene = gameScene
     dd.GameData:levelPass(levelIndex)
@@ -63,7 +57,6 @@ function GameEnd:ctor(gameScene, levelIndex, param)
     mask:setOpacity(0)
     mask:runAction(cc.FadeIn:create(1.0))
 
-    self:particle()
     gameSuccessImg:setScale(2.0)
     gameSuccessImg:runAction(cc.Sequence:create(
         cc.ScaleTo:create(1.0, 1.0),
@@ -73,67 +66,6 @@ function GameEnd:ctor(gameScene, levelIndex, param)
             self:getResourceNode():setVisible(true)
             self:updateScorePanel(param)
         end)
-        ))
-
-    self:rewardDiamondsAction()
-end
-
-function GameEnd:particle()
-    for i = 1, 6 do
-        local particle = cc.ParticleSystemQuad:create(string.format("particle/particle_texture%d.plist", i)) 
-            :move(0, 0)
-            :addTo(self, 10)
-
-        --particle:move(display.width*(2 - ((i - 1)%3 + 1))/2, display.height*0.25)
-
-        particle:pause()
-        particle:setVisible(false)
-        particle:runAction(cc.Sequence:create(
-            cc.DelayTime:create(i*0.3),
-            cc.CallFunc:create(function ( ... )
-                particle:setVisible(true)
-                particle:start()
-            end),
-            cc.MoveTo:create(0.5, cc.p(0, display.height*0.25))
-            ))
-    end
-end
-function GameEnd:rewardDiamondsAction()
-    local rewardDiamonds = display.newSprite("#money.png")
-        :setAnchorPoint(cc.p(0, 0.5))
-        :move(0, 10)
-        :addTo(self)
-
-    local rewardDiamondsSize = rewardDiamonds:getContentSize()
-    local addLable = cc.Label:createWithBMFont("fnt/white_32.fnt", "+"..tostring(dd.Constants.LEVEL_PASS_DIAMONDS_REWARD))
-        :setAnchorPoint(cc.p(1, 0.5))
-        :move(-10, rewardDiamondsSize.height/2)
-        :addTo(rewardDiamonds)
-
-    rewardDiamonds:runAction(cc.Sequence:create(
-        cc.Blink:create(2, 2),
-        cc.MoveTo:create(1.0, cc.p(display.width/2 - rewardDiamondsSize.width, 
-            display.height/2 - rewardDiamondsSize.height)),
-        cc.CallFunc:create(function ( ... )
-            rewardDiamonds:removeFromParent()
-            self:addDiamonds(dd.Constants.LEVEL_PASS_DIAMONDS_REWARD)
-        end)
-        ))
-end
-
-function GameEnd:addDiamonds(addNum)
-    if addNum == 0 then
-        return
-    end
-
-    local curDiamonds = dd.GameData:getDiamonds()
-    dd.GameData:refreshDiamonds(curDiamonds + addNum)
-    self.m_labelTotalDiamonds:runAction(cc.Sequence:create(
-        cc.ScaleTo:create(0.3, 1.6),
-        cc.CallFunc:create(function ()
-            self.m_labelTotalDiamonds:setString(tostring(dd.GameData:getDiamonds()))
-        end),
-        cc.ScaleTo:create(0.3, 1)
         ))
 end
 
@@ -146,15 +78,14 @@ function GameEnd:updateScorePanel(param)
     self.m_fillScore = 10*param.fill
     self.m_livesScore = 200*param.lives
     self.m_stepsScore = 100*param.steps
-    self.m_totalScore = self.m_fillScore + self.m_livesScore + self.m_stepsScore
-    cc.load("sdk").GameCenter.submitScoreToLeaderboard(self.m_levelIndex, self.m_totalScore)
+    self.m_topScore = 300*param.topCollision
+    self.m_totalScore = self.m_fillScore + self.m_livesScore + self.m_stepsScore + self.m_topScore
 
-    self.m_diamondsReward = 10*param.topCollision
-    self.m_labelDiamondReward:setString(tostring(self.m_diamondsReward))
     self.m_labelStepsScore:setString(tostring(self.m_stepsScore))
     self.m_labelFillRateScore:setString(tostring(self.m_fillScore))
     self.m_labelLivesScore:setString(tostring(self.m_livesScore))
     self.m_labelTotalScore:setString(tostring(self.m_totalScore))
+    self.m_labelTopScore:setString(tostring(self.m_topScore))
     self.m_imgHighScoreIcon:setVisible(false)
     
     self.m_labelRoundNum:setString(tostring(self.m_levelIndex))
@@ -180,15 +111,13 @@ function GameEnd:updateScorePanel(param)
         self.m_labelSteps,
         self.m_labelStepsScore,
 
-        self.m_imgTotalScore,
-        self.m_labelTotalScore,
-
         self.m_imgTop,
         self.m_imgTopMulSimbol,
         self.m_labelTopCollision,
-        self.m_imgTopAddSimbol,
-        self.m_labelDiamondReward,
-        self.m_imgDiamonds,
+        self.m_labelTopScore,
+
+        self.m_imgTotalScore,
+        self.m_labelTotalScore
     }
 
     for _, node in ipairs(displayNodes) do
@@ -204,7 +133,6 @@ function GameEnd:updateScorePanel(param)
         else
             dd.scheduler:unscheduleScriptEntry(scheduleId)
             scheduleId = nil
-            self:addDiamonds(self.m_diamondsReward)
         end
         index = index + 1
     end
@@ -225,22 +153,17 @@ function GameEnd:updateScorePanel(param)
     end
 
     local commonDelay = 0.2*#displayNodes
-    self.m_btnRank:setScale(0)
     self.m_btnShare:setScale(0)
     self.m_btnMenu:setScale(0)
     self.m_btnNext:setScale(0)
     self.m_btnRePlay:setScale(0)
 
-    self.m_btnRank:runAction(getScaleAction(commonDelay))
-    self.m_btnShare:runAction(getScaleAction(commonDelay + 0.1))
-    self.m_btnRePlay:runAction(getScaleAction(commonDelay + 0.2))
-    self.m_btnMenu:runAction(getScaleAction(commonDelay + 0.3))
+    self.m_btnShare:runAction(getScaleAction(commonDelay + 0.0))
+    self.m_btnRePlay:runAction(getScaleAction(commonDelay + 0.1))
+    self.m_btnMenu:runAction(getScaleAction(commonDelay + 0.2))
     self.m_btnNext:runAction(cc.Sequence:create(
-        getScaleAction(commonDelay + 0.4),
+        getScaleAction(commonDelay + 0.3),
         cc.CallFunc:create(function ( ... )
-            if dd.GameData:getLevelPlayTimes()%2 == 0 then
-                cc.load("sdk").Admob.getInstance():showInterstitial()
-            end
         end)
         )
     )
@@ -263,11 +186,6 @@ end
 
 function GameEnd:onCreate()
     self:showMask()
-end
-
-function GameEnd:onRank()
-    dd.PlaySound("buttonclick.mp3")
-    cc.load("sdk").GameCenter.openGameCenterLeaderboardsUI(self.m_levelIndex)
 end
 
 function GameEnd:onShare()

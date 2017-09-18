@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "1064061288843",
-    "firebase_url": "https://trap-balls.firebaseio.com",
-    "project_id": "trap-balls",
-    "storage_bucket": "trap-balls.appspot.com"
+    "project_number": "737633072801",
+    "firebase_url": "https://drop-lines.firebaseio.com",
+    "project_id": "drop-lines",
+    "storage_bucket": "drop-lines.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1064061288843:android:3930df2dfb5960d9",
+        "mobilesdk_app_id": "1:737633072801:android:515aa041f233392d",
         "android_client_info": {
-          "package_name": "com.yongwuart.trapballs"
+          "package_name": "com.yongwuart.droplines"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1064061288843-jbjrhbm4lqn9rqsbbqejjs6auoe2lonu.apps.googleusercontent.com",
+          "client_id": "737633072801-1f4lgp5rac97ca91748mt2aequvdvmgt.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDarkfZhvx3Pz-pCawYoUAE5vsFDMPEmuM"
+          "current_key": "AIzaSyBypBZmzjSTInu--6rMWroF33TALdxkkxQ"
         }
       ],
       "services": {

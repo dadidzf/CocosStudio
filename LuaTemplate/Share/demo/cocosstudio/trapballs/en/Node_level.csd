@@ -166,21 +166,6 @@
             <PreSize X="0.0000" Y="0.0000" />
             <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/white_32.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_paihang" ActionTag="-377786653" Alpha="0" Tag="45" IconVisible="False" LeftMargin="30.8650" RightMargin="-250.8650" TopMargin="-79.3016" BottomMargin="-70.6984" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="220.0000" Y="150.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="140.8650" Y="4.3016" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="0.0000" Y="0.0000" />
-            <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
-            <OutlineColor A="255" R="255" G="0" B="0" />
-            <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
           <AbstractNodeData Name="Button_choose" ActionTag="2023723937" Alpha="0" Tag="54" IconVisible="False" LeftMargin="-262.4156" RightMargin="-27.5844" TopMargin="-92.5314" BottomMargin="-87.4686" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="290.0000" Y="180.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />

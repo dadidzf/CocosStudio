@@ -69,55 +69,35 @@
           <AbstractNodeData Name="Panel_1" ActionTag="1607610111" Tag="120" IconVisible="False" LeftMargin="-199.9998" RightMargin="-200.0002" TopMargin="-200.4231" BottomMargin="-179.5769" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="400.0000" Y="380.0000" />
             <Children>
-              <AbstractNodeData Name="Image_line1" ActionTag="1238868850" Tag="65" IconVisible="False" LeftMargin="0.6600" RightMargin="-0.6600" TopMargin="228.4917" BottomMargin="146.5083" LeftEage="122" RightEage="122" TopEage="1" BottomEage="1" Scale9OriginX="122" Scale9OriginY="1" Scale9Width="126" Scale9Height="3" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="Image_line1" ActionTag="1238868850" Tag="65" IconVisible="False" LeftMargin="0.6598" RightMargin="-0.6598" TopMargin="279.4942" BottomMargin="95.5058" LeftEage="122" RightEage="122" TopEage="1" BottomEage="1" Scale9OriginX="122" Scale9OriginY="1" Scale9Width="126" Scale9Height="3" ctype="ImageViewObjectData">
                 <Size X="400.0000" Y="5.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="200.6600" Y="149.0083" />
+                <Position X="200.6598" Y="98.0058" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5017" Y="0.3921" />
+                <PrePosition X="0.5016" Y="0.2579" />
                 <PreSize X="1.0000" Y="0.0132" />
                 <FileData Type="PlistSubImage" Path="line_black1.png" Plist="trapballs/gui.plist" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Image_line2" ActionTag="-966860190" Tag="66" IconVisible="False" LeftMargin="237.4050" RightMargin="157.5950" TopMargin="11.3218" BottomMargin="88.6782" LeftEage="1" RightEage="1" TopEage="122" BottomEage="122" Scale9OriginX="1" Scale9OriginY="122" Scale9Width="3" Scale9Height="126" ctype="ImageViewObjectData">
-                <Size X="5.0000" Y="280.0000" />
+              <AbstractNodeData Name="Image_line2" ActionTag="-966860190" Tag="66" IconVisible="False" LeftMargin="237.4048" RightMargin="157.5952" TopMargin="24.3230" BottomMargin="55.6770" LeftEage="1" RightEage="1" TopEage="122" BottomEage="122" Scale9OriginX="1" Scale9OriginY="122" Scale9Width="3" Scale9Height="126" ctype="ImageViewObjectData">
+                <Size X="5.0000" Y="300.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="239.9050" Y="228.6782" />
+                <Position X="239.9048" Y="205.6770" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5998" Y="0.6018" />
-                <PreSize X="0.0125" Y="0.7368" />
+                <PrePosition X="0.5998" Y="0.5413" />
+                <PreSize X="0.0125" Y="0.7895" />
                 <FileData Type="PlistSubImage" Path="line_black2.png" Plist="trapballs/gui.plist" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Image_top" ActionTag="2125333745" Tag="70" IconVisible="False" LeftMargin="28.8854" RightMargin="341.1146" TopMargin="308.3116" BottomMargin="6.6884" LeftEage="9" RightEage="9" TopEage="21" BottomEage="21" Scale9OriginX="9" Scale9OriginY="21" Scale9Width="12" Scale9Height="23" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="Image_top" ActionTag="2125333745" Tag="70" IconVisible="False" LeftMargin="27.8573" RightMargin="342.1427" TopMargin="211.3167" BottomMargin="103.6833" LeftEage="9" RightEage="9" TopEage="21" BottomEage="21" Scale9OriginX="9" Scale9OriginY="21" Scale9Width="12" Scale9Height="23" ctype="ImageViewObjectData">
                 <Size X="30.0000" Y="65.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="43.8854" Y="39.1884" />
+                <Position X="42.8573" Y="136.1833" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.1097" Y="0.1031" />
+                <PrePosition X="0.1071" Y="0.3584" />
                 <PreSize X="0.0750" Y="0.1711" />
                 <FileData Type="PlistSubImage" Path="jianduan.png" Plist="trapballs/gui.plist" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="BitmapFontLabel_topzuanshi" ActionTag="-1598206746" Tag="73" IconVisible="False" LeftMargin="268.3931" RightMargin="73.6069" TopMargin="327.3272" BottomMargin="14.6728" LabelText="999" ctype="TextBMFontObjectData">
-                <Size X="58.0000" Y="38.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="297.3931" Y="33.6728" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.7435" Y="0.0886" />
-                <PreSize X="0.1450" Y="0.1000" />
-                <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/blue_32.fnt" Plist="" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="BitmapFontLabel_jia" ActionTag="-929467940" Tag="95" IconVisible="False" LeftMargin="242.8175" RightMargin="137.1825" TopMargin="328.7740" BottomMargin="13.2260" LabelText="+" ctype="TextBMFontObjectData">
-                <Size X="20.0000" Y="38.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="252.8175" Y="32.2260" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.6320" Y="0.0848" />
-                <PreSize X="0.0500" Y="0.1000" />
-                <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/blue_32.fnt" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="BitmapFontLabel_stepscore" ActionTag="-1004516172" Tag="74" IconVisible="False" LeftMargin="297.9913" RightMargin="25.0087" TopMargin="169.2018" BottomMargin="172.7982" LabelText="9999" ctype="TextBMFontObjectData">
                 <Size X="77.0000" Y="38.0000" />
@@ -149,13 +129,13 @@
                 <PreSize X="0.1925" Y="0.1000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/black_32.fnt" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="BitmapFontLabel_allscore" ActionTag="-858074667" Tag="77" IconVisible="False" LeftMargin="297.9913" RightMargin="25.0087" TopMargin="249.2326" BottomMargin="92.7674" LabelText="9999" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="BitmapFontLabel_allscore" ActionTag="-858074667" Tag="77" IconVisible="False" LeftMargin="297.9905" RightMargin="25.0095" TopMargin="297.2358" BottomMargin="44.7642" LabelText="9999" ctype="TextBMFontObjectData">
                 <Size X="77.0000" Y="38.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="336.4913" Y="111.7674" />
+                <Position X="336.4905" Y="63.7642" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.8412" Y="0.2941" />
+                <PrePosition X="0.8412" Y="0.1678" />
                 <PreSize X="0.1925" Y="0.1000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/black_32.fnt" Plist="" />
               </AbstractNodeData>
@@ -189,13 +169,13 @@
                 <PreSize X="0.1700" Y="0.1000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/black_32.fnt" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="BitmapFontLabel_score" ActionTag="-1062812498" Tag="81" IconVisible="False" LeftMargin="59.8826" RightMargin="252.1174" TopMargin="249.2324" BottomMargin="92.7676" LabelText="score" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="BitmapFontLabel_score" ActionTag="-1062812498" Tag="81" IconVisible="False" LeftMargin="59.8826" RightMargin="252.1174" TopMargin="297.2352" BottomMargin="44.7648" LabelText="score" ctype="TextBMFontObjectData">
                 <Size X="88.0000" Y="38.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="103.8826" Y="111.7676" />
+                <Position X="103.8826" Y="63.7648" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.2597" Y="0.2941" />
+                <PrePosition X="0.2597" Y="0.1678" />
                 <PreSize X="0.2200" Y="0.1000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/black_32.fnt" Plist="" />
               </AbstractNodeData>
@@ -229,23 +209,23 @@
                 <PreSize X="0.0450" Y="0.1000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/black_32.fnt" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="BitmapFontLabel_x4" ActionTag="-279113447" Tag="114" IconVisible="False" LeftMargin="95.8547" RightMargin="286.1453" TopMargin="327.3274" BottomMargin="14.6726" LabelText="x" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="BitmapFontLabel_x4" ActionTag="-279113447" Tag="114" IconVisible="False" LeftMargin="94.8335" RightMargin="287.1665" TopMargin="230.3338" BottomMargin="111.6662" LabelText="x" ctype="TextBMFontObjectData">
                 <Size X="18.0000" Y="38.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="104.8547" Y="33.6726" />
+                <Position X="103.8335" Y="130.6662" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.2621" Y="0.0886" />
+                <PrePosition X="0.2596" Y="0.3439" />
                 <PreSize X="0.0450" Y="0.1000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/black_32.fnt" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="BitmapFontLabel_topnumber" ActionTag="1069388352" Tag="115" IconVisible="False" LeftMargin="145.3267" RightMargin="215.6733" TopMargin="327.3274" BottomMargin="14.6726" LabelText="99" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="BitmapFontLabel_topnumber" ActionTag="1069388352" Tag="115" IconVisible="False" LeftMargin="144.2870" RightMargin="216.7130" TopMargin="230.3338" BottomMargin="111.6662" LabelText="99" ctype="TextBMFontObjectData">
                 <Size X="39.0000" Y="38.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="164.8267" Y="33.6726" />
+                <Position X="163.7870" Y="130.6662" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4121" Y="0.0886" />
+                <PrePosition X="0.4095" Y="0.3439" />
                 <PreSize X="0.0975" Y="0.1000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/black_32.fnt" Plist="" />
               </AbstractNodeData>
@@ -289,15 +269,15 @@
                 <PreSize X="0.0725" Y="0.1000" />
                 <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/black_32.fnt" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Image_4" ActionTag="-590297700" Tag="94" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="328.5002" RightMargin="11.4998" TopMargin="313.3176" BottomMargin="6.6824" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
-                <Size X="60.0000" Y="60.0000" />
+              <AbstractNodeData Name="BitmapFontLabel_topscore" ActionTag="1638377885" Tag="423" IconVisible="False" LeftMargin="297.4800" RightMargin="25.5200" TopMargin="229.4716" BottomMargin="112.5284" LabelText="9999" ctype="TextBMFontObjectData">
+                <Size X="77.0000" Y="38.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="358.5002" Y="36.6824" />
+                <Position X="335.9800" Y="131.5284" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.8963" Y="0.0965" />
-                <PreSize X="0.1500" Y="0.1579" />
-                <FileData Type="PlistSubImage" Path="money.png" Plist="trapballs/gui.plist" />
+                <PrePosition X="0.8399" Y="0.3461" />
+                <PreSize X="0.1925" Y="0.1000" />
+                <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/black_32.fnt" Plist="" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint />
@@ -311,10 +291,10 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_next" ActionTag="-406236290" Tag="96" IconVisible="False" LeftMargin="142.7779" RightMargin="-222.7779" TopMargin="213.3810" BottomMargin="-293.3810" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="50" Scale9Height="58" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_next" ActionTag="-406236290" Tag="96" IconVisible="False" LeftMargin="125.7721" RightMargin="-205.7721" TopMargin="213.3813" BottomMargin="-293.3813" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="50" Scale9Height="58" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="80.0000" Y="80.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="182.7779" Y="-253.3810" />
+            <Position X="165.7721" Y="-253.3813" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -326,10 +306,10 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_backtomenu" ActionTag="159925428" Tag="143" IconVisible="False" LeftMargin="51.2131" RightMargin="-131.2131" TopMargin="213.3810" BottomMargin="-293.3810" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="50" Scale9Height="58" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_backtomenu" ActionTag="159925428" Tag="143" IconVisible="False" LeftMargin="16.2054" RightMargin="-96.2054" TopMargin="213.3813" BottomMargin="-293.3813" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="50" Scale9Height="58" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="80.0000" Y="80.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="91.2131" Y="-253.3810" />
+            <Position X="56.2054" Y="-253.3813" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -341,10 +321,10 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_restart" ActionTag="-1970342606" Tag="144" IconVisible="False" LeftMargin="-40.3524" RightMargin="-39.6476" TopMargin="213.3810" BottomMargin="-293.3810" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="50" Scale9Height="58" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_restart" ActionTag="-1970342606" Tag="144" IconVisible="False" LeftMargin="-93.3630" RightMargin="13.3630" TopMargin="213.3813" BottomMargin="-293.3813" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="50" Scale9Height="58" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="80.0000" Y="80.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-0.3524" Y="-253.3810" />
+            <Position X="-53.3630" Y="-253.3813" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -356,25 +336,10 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_chart" ActionTag="544828659" Tag="69" IconVisible="False" LeftMargin="-223.4841" RightMargin="143.4841" TopMargin="213.3810" BottomMargin="-293.3810" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="50" Scale9Height="58" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_share" ActionTag="269612350" Tag="68" IconVisible="False" LeftMargin="-202.9292" RightMargin="122.9292" TopMargin="213.3807" BottomMargin="-293.3807" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="50" Scale9Height="58" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="80.0000" Y="80.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-183.4841" Y="-253.3810" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="0.0000" Y="0.0000" />
-            <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="PlistSubImage" Path="btn_chart2.png" Plist="trapballs/gui.plist" />
-            <NormalFileData Type="PlistSubImage" Path="btn_chart2.png" Plist="trapballs/gui.plist" />
-            <OutlineColor A="255" R="255" G="0" B="0" />
-            <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="Button_share" ActionTag="269612350" Tag="68" IconVisible="False" LeftMargin="-131.9185" RightMargin="51.9185" TopMargin="213.3810" BottomMargin="-293.3810" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="50" Scale9Height="58" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="80.0000" Y="80.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-91.9185" Y="-253.3810" />
+            <Position X="-162.9292" Y="-253.3807" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -385,26 +350,6 @@
             <NormalFileData Type="PlistSubImage" Path="btn_share2.png" Plist="trapballs/gui.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="Image_zuanshi" ActionTag="648345853" Tag="125" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="118.3286" RightMargin="-178.3286" TopMargin="-437.5536" BottomMargin="377.5536" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
-            <Size X="60.0000" Y="60.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="148.3286" Y="407.5536" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="PlistSubImage" Path="money.png" Plist="trapballs/gui.plist" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_zuanshi" ActionTag="-677056919" Tag="126" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="178.3282" RightMargin="-236.3282" TopMargin="-426.5536" BottomMargin="388.5536" LabelText="999" ctype="TextBMFontObjectData">
-            <Size X="58.0000" Y="38.0000" />
-            <AnchorPoint ScaleY="0.5000" />
-            <Position X="178.3282" Y="407.5536" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="0.0000" Y="0.0000" />
-            <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/white_32.fnt" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

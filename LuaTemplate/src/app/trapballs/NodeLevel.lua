@@ -16,7 +16,6 @@ NodeLevel.RESOURCE_BINDING = {
     ["BitmapFontLabel_step1"] = {varname = "m_labelFirstScore"},
     ["BitmapFontLabel_step2"] = {varname = "m_labelSecondScore"},
     ["BitmapFontLabel_step3"] = {varname = "m_labelThirdScore"},
-    ["Button_paihang"] = {varname = "m_btnGlobalRank", events = {{ event = "click", method = "onGlobalRank" }}},
     ["Button_choose"] = {varname = "m_btnSelectLevel", events = {{ event = "click", method = "onSelectLevel" }}}
 }
 
@@ -29,7 +28,6 @@ function NodeLevel:ctor(index, cfg)
     self.m_labelBallNumber:setString(#ballsSetting)
     self.m_labelBallNumber:setVisible(false)
 
-    self.m_btnGlobalRank:setSwallowTouches(false)
     self.m_btnSelectLevel:setSwallowTouches(false)
 
     self.m_bgList = {self.m_bg1, self.m_bg2, self.m_bg3, self.m_bg4, self.m_bg5, self.m_bg6, self.m_bg7}
@@ -56,7 +54,6 @@ function NodeLevel:ctor(index, cfg)
     if index > dd.GameData:getCurLevel() then
         self.m_bgLock:setVisible(true)
         self.m_btnSelectLevel:setTouchEnabled(false)
-        self.m_btnGlobalRank:setTouchEnabled(false)
     else
         self.m_bgLock:setVisible(false)
     end
@@ -65,14 +62,6 @@ function NodeLevel:ctor(index, cfg)
     self.m_labelFirstScore:setString(tostring(topThree[1]))
     self.m_labelSecondScore:setString(tostring(topThree[2]))
     self.m_labelThirdScore:setString(tostring(topThree[3]))
-end
-
-function NodeLevel:onGlobalRank()
-    if not self.m_alreadyMoved then
-        print("NodeLevel:onGlobalRank", self.m_index)
-        dd.PlaySound("buttonclick.mp3")
-        cc.load("sdk").GameCenter.openGameCenterLeaderboardsUI(self.m_index)
-    end
 end
 
 function NodeLevel:onSelectLevel()

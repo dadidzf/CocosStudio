@@ -14,120 +14,47 @@
     "autoScale2":"FIXED_WIDTH",
     "ios":
     {
-        "adsRequestAppName":"trapballs_ios",
-        "appDisplayName":"Trap Balls",
-        "appDisplayName_cn":"围住小球",
-        "admobBannerId": "ca-app-pub-5571113908507676/7690885942",
-        "admobInterstitialId": "ca-app-pub-5571113908507676/6772555942",
-        "packageName":"com.yongwuart.trapballs",
-        "version":"1.6",
-        "versionCode":9,
-        "rateUrl":"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1259751560&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",
-        "shareUrl":"https://itunes.apple.com/app/id1259751560",
+        "appDisplayName":"Drop Lines",
+        "appDisplayName_cn":"简单的几何学",
+        "admobBannerId": "",
+        "admobInterstitialId": "",
+        "packageName":"com.yongwuart.droplines",
+        "version":"1.0",
+        "versionCode":1,
+        "rateUrl":"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1286473519&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",
+        "shareUrl":"https://itunes.apple.com/app/id1286473519",
         "achievement":
         [ 
-            "luatemplate_achievement_1"
         ],
         "leaderboard":
         [
-            "trapballs_level_1",
-            "trapballs_level_2",
-            "trapballs_level_3",
-            "trapballs_level_4",
-            "trapballs_level_5",
-            "trapballs_level_6",
-            "trapballs_level_7",
-            "trapballs_level_8",
-            "trapballs_level_9",
-            "trapballs_level_10",
-            "trapballs_level_11",
-            "trapballs_level_12",
-            "trapballs_level_13",
-            "trapballs_level_14",
-            "trapballs_level_15",
-            "trapballs_level_16",
-            "trapballs_level_17",
-            "trapballs_level_18",
-            "trapballs_level_19",
-            "trapballs_level_20",
-            "trapballs_level_21",
-            "trapballs_level_22",
-            "trapballs_level_23",
-            "trapballs_level_24",
-            "trapballs_level_25",
-            "trapballs_level_26",
-            "trapballs_level_27",
-            "trapballs_level_28",
-            "trapballs_level_29",
-            "trapballs_level_30"
         ],
         "skuKeys":
         [
-            "trapballs_ads_remove",
-            "trapballs_diamonds_200",
-            "trapballs_diamonds_700",
-            "trapballs_diamonds_3000",
-            "trapballs_diamonds_10000"
         ]
 	},
 	"android":
 	{
-        "adsRequestAppName":"trapballs_android",
-        "appDisplayName":"Trap Balls",
-        "appDisplayName_cn":"围住小球",
-        "admobBannerId": "ca-app-pub-5571113908507676/1644352348",
-        "admobInterstitialId": "ca-app-pub-5571113908507676/9726022347",
-        "packageName":"com.yongwuart.trapballs",
-        "version":"1.3",
-        "versionCode":5,
-        "rateUrl":"https://play.google.com/store/apps/details?id=com.yongwuart.trapballs",
-        "shareUrl":"https://play.google.com/store/apps/details?id=com.yongwuart.trapballs",
+        "appDisplayName":"Drop Lines",
+        "appDisplayName_cn":"简单的几何学",
+        "admobBannerId": "",
+        "admobInterstitialId": "",
+        "packageName":"com.yongwuart.droplines",
+        "version":"1.0",
+        "versionCode":1,
+        "rateUrl":"https://play.google.com/store/apps/details?id=com.yongwuart.droplines",
+        "shareUrl":"https://play.google.com/store/apps/details?id=com.yongwuart.droplines",
         "achievement":
         [ 
-            "CgkImebwqYofEAIQAQ"
         ],
         "leaderboard":
         [
-            "CgkI5qn1qYMNEAIQAQ",
-            "CgkI5qn1qYMNEAIQAg",
-            "CgkI5qn1qYMNEAIQAw",
-            "CgkI5qn1qYMNEAIQBA",
-            "CgkI5qn1qYMNEAIQBQ",
-            "CgkI5qn1qYMNEAIQBg",
-            "CgkI5qn1qYMNEAIQBw",
-            "CgkI5qn1qYMNEAIQCA",
-            "CgkI5qn1qYMNEAIQCQ",
-            "CgkI5qn1qYMNEAIQCg",
-            "CgkI5qn1qYMNEAIQCw",
-            "CgkI5qn1qYMNEAIQDA",
-            "CgkI5qn1qYMNEAIQDQ",
-            "CgkI5qn1qYMNEAIQDg",
-            "CgkI5qn1qYMNEAIQDw",
-            "CgkI5qn1qYMNEAIQEA",
-            "CgkI5qn1qYMNEAIQEQ",
-            "CgkI5qn1qYMNEAIQEg",
-            "CgkI5qn1qYMNEAIQEw",
-            "CgkI5qn1qYMNEAIQFA",
-            "CgkI5qn1qYMNEAIQFQ",
-            "CgkI5qn1qYMNEAIQFg",
-            "CgkI5qn1qYMNEAIQFw",
-            "CgkI5qn1qYMNEAIQGA",
-            "CgkI5qn1qYMNEAIQGQ",
-            "CgkI5qn1qYMNEAIQGg",
-            "CgkI5qn1qYMNEAIQGw",
-            "CgkI5qn1qYMNEAIQHA"
         ],
         "skuKeys":
         [
-            "trapballs_remove_ads",
-            "trapballs_200_diamonds",
-            "trapballs_700_diamonds",
-            "trapballs_3000_diamonds",
-            "trapballs_10000_diamonds"
         ],
 
-
-        "googlePlayAppId":"447569810662",
-        "googleRSAKey":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkXSab4bmD02u60we0gMOeojtqV+eiEDCX+joHE26ujfxbtgjwvht9fSFFC3w9A9voSteX+AMWqaXyFd9nkIuCwyNTGjII+hWQmZuw+5siOO7SHLxqOCJ96p6uOtVLj1N37j9GNwxJ02Yp/iTfl96R4YHJPBZUposnoV82QWv3+1qt2giNFvPkbNDIKMgtKsI3LQXKLXimRrNrLT9TGUtsYwRR5xtTBMStqgyCqe6KjbRhT1s7QIR+8j/T9bheq5uy+RiWnDo5yjqh8jQIbJ32YxlTQ3gsM76Sgk1E3qF8MDTnivOCISO3IdKWr/0bWL8D1xWLzQWwNnD9xv5SREEPQIDAQAB"
+        "googlePlayAppId":"",
+        "googleRSAKey":""
     }
 }

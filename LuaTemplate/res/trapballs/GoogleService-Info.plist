@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>1064061288843-lve912gk2qin77rbbkc6bo2bgpdaeheu.apps.googleusercontent.com</string>
+	<string>737633072801-3dsah3euiovg0ce3f78jcasl1uodtgj4.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1064061288843-lve912gk2qin77rbbkc6bo2bgpdaeheu</string>
+	<string>com.googleusercontent.apps.737633072801-3dsah3euiovg0ce3f78jcasl1uodtgj4</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCbAp9wROvuBWm5ZpTaVYqEHykeEkb9dyo</string>
+	<string>AIzaSyA2zUta51xsxvSQWc1sLdyo_CZD1ZrnYtg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1064061288843</string>
+	<string>737633072801</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.yongwuart.trapballs</string>
+	<string>com.yongwuart.droplines</string>
 	<key>PROJECT_ID</key>
-	<string>trap-balls</string>
+	<string>drop-lines</string>
 	<key>STORAGE_BUCKET</key>
-	<string>trap-balls.appspot.com</string>
+	<string>drop-lines.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1064061288843:ios:3930df2dfb5960d9</string>
+	<string>1:737633072801:ios:515aa041f233392d</string>
 	<key>DATABASE_URL</key>
-	<string>https://trap-balls.firebaseio.com</string>
+	<string>https://drop-lines.firebaseio.com</string>
 </dict>
 </plist>

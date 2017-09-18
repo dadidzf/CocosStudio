@@ -176,10 +176,10 @@
             <PreSize X="0.2969" Y="0.0896" />
             <FileData Type="PlistSubImage" Path="btn_green_cn.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_play" ActionTag="558268941" Alpha="0" Tag="17" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="226.1200" RightMargin="223.8800" TopMargin="442.3040" BottomMargin="437.6960" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_play" ActionTag="558268941" Alpha="0" Tag="17" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="226.0880" RightMargin="223.9120" TopMargin="442.3040" BottomMargin="437.6960" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="190.0000" Y="80.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="321.1200" Y="477.6960" />
+            <Position X="321.0880" Y="477.6960" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5017" Y="0.4976" />
@@ -188,21 +188,6 @@
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
             <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
             <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
-            <OutlineColor A="255" R="255" G="0" B="0" />
-            <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="Button_shangdian" ActionTag="1006927298" Tag="24" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="276.7200" RightMargin="263.2800" TopMargin="622.5760" BottomMargin="237.4240" TouchEnable="True" FontSize="14" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="70" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="100.0000" Y="100.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="326.7200" Y="287.4240" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5105" Y="0.2994" />
-            <PreSize X="0.1563" Y="0.1042" />
-            <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="PlistSubImage" Path="btn_buy.png" Plist="trapballs/gui.plist" />
-            <NormalFileData Type="PlistSubImage" Path="btn_buy.png" Plist="trapballs/gui.plist" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -221,13 +206,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CheckBox_jingyin" ActionTag="-1456122980" Tag="21" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="378.7360" RightMargin="161.2640" TopMargin="768.2080" BottomMargin="91.7920" TouchEnable="True" CheckedState="True" ctype="CheckBoxObjectData">
+          <AbstractNodeData Name="CheckBox_jingyin" ActionTag="-1456122980" Tag="21" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="270.0000" RightMargin="270.0000" TopMargin="768.2080" BottomMargin="91.7920" TouchEnable="True" CheckedState="True" ctype="CheckBoxObjectData">
             <Size X="100.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="428.7360" Y="141.7920" />
+            <Position X="320.0000" Y="141.7920" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.6699" Y="0.1477" />
+            <PrePosition X="0.5000" Y="0.1477" />
             <PreSize X="0.1563" Y="0.1042" />
             <NormalBackFileData Type="PlistSubImage" Path="btn_musicon.png" Plist="trapballs/gui.plist" />
             <PressedBackFileData Type="PlistSubImage" Path="btn_musicon.png" Plist="trapballs/gui.plist" />
@@ -260,54 +245,8 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CheckBox_2" ActionTag="-990841309" Tag="27" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="174.7680" RightMargin="365.2320" TopMargin="768.2080" BottomMargin="91.7920" TouchEnable="True" CheckedState="True" ctype="CheckBoxObjectData">
-            <Size X="100.0000" Y="100.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="224.7680" Y="141.7920" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.3512" Y="0.1477" />
-            <PreSize X="0.1563" Y="0.1042" />
-            <NormalBackFileData Type="PlistSubImage" Path="btn_noadds_cn.png" Plist="trapballs/gui.plist" />
-            <PressedBackFileData Type="PlistSubImage" Path="btn_noadds_cn.png" Plist="trapballs/gui.plist" />
-            <DisableBackFileData Type="Default" Path="Default/CheckBox_Disable.png" Plist="" />
-            <NodeNormalFileData Type="PlistSubImage" Path="xiexian_cn.png" Plist="trapballs/gui.plist" />
-            <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="Image_4" ActionTag="88726947" Tag="28" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="480.0000" RightMargin="100.0000" TopMargin="22.0002" BottomMargin="877.9998" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
-            <Size X="60.0000" Y="60.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="510.0000" Y="907.9998" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7969" Y="0.9458" />
-            <PreSize X="0.0938" Y="0.0625" />
-            <FileData Type="PlistSubImage" Path="money.png" Plist="trapballs/gui.plist" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="378429932" Tag="46" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="539.9994" RightMargin="42.0006" TopMargin="32.9999" BottomMargin="889.0001" LabelText="999" ctype="TextBMFontObjectData">
-            <Size X="58.0000" Y="38.0000" />
-            <AnchorPoint ScaleY="0.5000" />
-            <Position X="539.9994" Y="908.0001" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8437" Y="0.9458" />
-            <PreSize X="0.0906" Y="0.0396" />
-            <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/white_32.fnt" Plist="" />
-          </AbstractNodeData>
           <AbstractNodeData Name="Pannel_restore" ActionTag="-1854965904" Tag="71" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" RightMargin="490.0000" BottomMargin="810.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="150.0000" Y="150.0000" />
-            <Children>
-              <AbstractNodeData Name="Label_restore" ActionTag="-959624909" Tag="72" RotationSkewX="-45.0000" RotationSkewY="-45.0000" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="8.0002" RightMargin="13.9998" TopMargin="46.9997" BottomMargin="65.0003" LabelText="恢复购买" ctype="TextBMFontObjectData">
-                <Size X="128.0000" Y="38.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="72.0002" Y="84.0003" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4800" Y="0.5600" />
-                <PreSize X="0.8533" Y="0.2533" />
-                <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/white_32.fnt" Plist="" />
-              </AbstractNodeData>
-            </Children>
             <AnchorPoint ScaleY="1.0000" />
             <Position Y="960.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />

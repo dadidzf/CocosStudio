@@ -29,26 +29,6 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_zuanshi" ActionTag="-1199222789" Tag="26" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="539.9993" RightMargin="42.0007" TopMargin="33.0005" BottomMargin="888.9995" LabelText="999" ctype="TextBMFontObjectData">
-            <Size X="58.0000" Y="38.0000" />
-            <AnchorPoint ScaleY="0.5000" />
-            <Position X="539.9993" Y="907.9995" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8437" Y="0.9458" />
-            <PreSize X="0.0906" Y="0.0396" />
-            <LabelBMFontFile_CNB Type="Normal" Path="trapballs/fnt/white_32.fnt" Plist="" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="Image_zuanshi" ActionTag="-198965847" Tag="27" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="479.9999" RightMargin="100.0001" TopMargin="22.0004" BottomMargin="877.9996" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
-            <Size X="60.0000" Y="60.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="509.9999" Y="907.9996" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7969" Y="0.9458" />
-            <PreSize X="0.0938" Y="0.0625" />
-            <FileData Type="PlistSubImage" Path="money.png" Plist="trapballs/gui.plist" />
-          </AbstractNodeData>
           <AbstractNodeData Name="Image_back" ActionTag="-1892621138" Tag="52" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="8.0000" RightMargin="552.0000" TopMargin="11.5450" BottomMargin="868.4550" LeftEage="26" RightEage="26" TopEage="26" BottomEage="26" Scale9OriginX="26" Scale9OriginY="26" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
             <Size X="80.0000" Y="80.0000" />
             <Children>

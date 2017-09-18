@@ -18,7 +18,7 @@ local _createAdsImage
 local _ignoreUrl
 
 function MyAds.init()
-	if device.platform == "ios" or device.platform == "android" then
+	if (device.platform == "ios" or device.platform == "android") and dd.appCommon.adsRequestAppName then
 		_checkDir()
 		_loadNativeConfig()
 		_getRemoteVersion()

@@ -159,20 +159,7 @@ function GameScene:checkSteps()
     if self.m_steps <= 0 then
         self:applyGamedataDisplay()
         self.m_labelStepNum:stopAllActions()
-        local BuySteps = import(".BuySteps", MODULE_PATH)
-        self.m_isPurchasing = true
-        local buySteps = BuySteps:create(function (givenSteps)
-            self.m_isPurchasing = false
-            if givenSteps then
-                self.m_steps = self.m_steps + givenSteps
-                self:updateStepsDisplay()
-            else
-                self:gameFail()
-            end
-        end)
-        
-        buySteps:move(display.cx, display.cy)
-        buySteps:addTo(self, 10)
+        self:gameFail()
     end
 end
 
@@ -211,20 +198,7 @@ function GameScene:loseLife()
     self.m_isAlreadyLoseLife = true
 
     if self.m_lives <= 0 then
-        local BuyLives = import(".BuyLives", MODULE_PATH)
-        self.m_isPurchasing = true
-        local buyLives = BuyLives:create(function (givenLives)
-            self.m_isPurchasing = false
-            if givenLives then
-                self.m_lives = self.m_lives + givenLives
-                self:getMoreLivesDisplay()
-            else
-                self:gameFail()
-            end
-        end)
-        
-        buyLives:move(display.cx, display.cy)
-        buyLives:addTo(self, 10)
+        self:gameFail()
     end
 end
 
@@ -369,8 +343,6 @@ function GameScene:showGameNode()
         :addTo(self)
 
     self.m_node:setScale(dd.Constants.NODE_SCALE)
-
-    dd.GameData:increaseLevelPlayTimes()
 end
 
 function GameScene:getValidSpriteFrame(location)

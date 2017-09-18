@@ -4,6 +4,8 @@ require "socket"
 require "config"
 require "cocos.init"
 
+math.randomseed(os.time())
+
 local function initBeforeGame()
     local gameConf  = require("cjson").decode(cc.FileUtils:getInstance():getStringFromFile(
 		string.format("src/app/%s/%s_config.json", DD_WORKING_GAME_NAME, DD_WORKING_GAME_NAME)))

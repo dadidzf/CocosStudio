@@ -66,44 +66,4 @@ function GameData:getLevelTopThree(level)
     return retTb
 end
 
-function GameData:getDiamonds()
-    if not self.m_diamonds then
-        self.m_diamonds = cc.UserDefault:getInstance():getIntegerForKey("diamonds", dd.Constants.INIT_DIAMONDS)
-    end
-
-    return self.m_diamonds
-end
-
-function GameData:refreshDiamonds(diamond)
-    assert(diamond >= 0, "Can not be less than 0 !")
-    cc.UserDefault:getInstance():setIntegerForKey("diamonds", diamond)
-
-    self.m_diamonds = diamond
-end
-
-function GameData:isAdsRemoved()
-    if not self.m_isAdsRemoved then
-        self.m_isAdsRemoved = cc.UserDefault:getInstance():getBoolForKey("noads", false)
-    end
-
-    return self.m_isAdsRemoved
-end
-
-function GameData:setAdsRemoved(val)
-    self.m_isAdsRemoved = val
-    cc.UserDefault:getInstance():setBoolForKey("noads", true)
-end
-
-function GameData:getLevelPlayTimes()
-    if not self.m_levelPlayTimes then
-        self.m_levelPlayTimes = 0
-    end
-
-    return self.m_levelPlayTimes
-end
-
-function GameData:increaseLevelPlayTimes()
-    self.m_levelPlayTimes = self:getLevelPlayTimes() + 1
-end
-
 return GameData

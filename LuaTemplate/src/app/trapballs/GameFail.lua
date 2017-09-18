@@ -32,9 +32,6 @@ function GameFail:ctor(gameScene, levelIndex)
         cc.FadeOut:create(0.5),
         cc.CallFunc:create(function ( ... )
             self:getResourceNode():setVisible(true)
-            if dd.GameData:getLevelPlayTimes()%2 == 0 then
-                cc.load("sdk").Admob.getInstance():showInterstitial()
-            end
         end)
         ))
 

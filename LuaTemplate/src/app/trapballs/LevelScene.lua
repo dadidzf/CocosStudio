@@ -6,7 +6,6 @@ LevelScene.RESOURCE_FILENAME = "selectlevel.csb"
 LevelScene.RESOURCE_BINDING = {
     ["Image_back.Button_back"] = {varname = "m_btnBack", events = {{ event = "click", method = "onBack" }}},
     ["ListView_level"] = {varname = "m_listView"},
-    ["BitmapFontLabel_zuanshi"] = {varname = "m_lableDiamonds"}
 }
 
 function LevelScene:ctor(jumpIndex)
@@ -20,8 +19,6 @@ function LevelScene:onCreate()
     resourceNode:setContentSize(display.size)
     ccui.Helper:doLayout(resourceNode)
 
-    self.m_lableDiamonds:setString(tostring(dd.GameData:getDiamonds()))
-
     self:initListView()
 end
 
@@ -29,6 +26,7 @@ function LevelScene:initListView()
     local roundCfg = dd.CsvConf:getRoundCfg() 
     local NodeLevel = import(".NodeLevel", MODULE_PATH)
     
+    local jumpIndex = self.m_jumpIndex or dd.GameData:getCurLevel()
     for index, cfg in ipairs(roundCfg) do
         local oneLevel = NodeLevel:create(index, cfg)
         local size = oneLevel:getContentSize()
@@ -41,7 +39,6 @@ function LevelScene:initListView()
     end
 
     self.m_listView:setScrollBarEnabled(false)
-    local jumpIndex = self.m_jumpIndex or dd.GameData:getCurLevel()
     self.m_listView:jumpToPercentVertical((2*jumpIndex - 2)*50/#roundCfg)
     self.m_listView:setScale(dd.Constants.LEVEL_LIST_SCALE)
 end
