@@ -191,13 +191,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_like" ActionTag="586677880" Tag="18" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="480.7520" RightMargin="59.2480" TopMargin="664.9120" BottomMargin="195.0880" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="70" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_like" ActionTag="586677880" Tag="18" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="473.3011" RightMargin="66.6989" TopMargin="664.4280" BottomMargin="195.5720" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="70" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="100.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="530.7520" Y="245.0880" />
+            <Position X="523.3011" Y="245.5720" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8293" Y="0.2553" />
+            <PrePosition X="0.8177" Y="0.2558" />
             <PreSize X="0.1563" Y="0.1042" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
@@ -206,13 +206,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CheckBox_jingyin" ActionTag="-1456122980" Tag="21" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="270.0000" RightMargin="270.0000" TopMargin="768.2080" BottomMargin="91.7920" TouchEnable="True" CheckedState="True" ctype="CheckBoxObjectData">
+          <AbstractNodeData Name="CheckBox_jingyin" ActionTag="-1456122980" Tag="21" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="269.3008" RightMargin="270.6992" TopMargin="767.7241" BottomMargin="92.2759" TouchEnable="True" CheckedState="True" ctype="CheckBoxObjectData">
             <Size X="100.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="320.0000" Y="141.7920" />
+            <Position X="319.3008" Y="142.2759" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.1477" />
+            <PrePosition X="0.4989" Y="0.1482" />
             <PreSize X="0.1563" Y="0.1042" />
             <NormalBackFileData Type="PlistSubImage" Path="btn_musicon.png" Plist="trapballs/gui.plist" />
             <PressedBackFileData Type="PlistSubImage" Path="btn_musicon.png" Plist="trapballs/gui.plist" />
@@ -230,13 +230,13 @@
             <PreSize X="0.8266" Y="0.1177" />
             <FileData Type="PlistSubImage" Path="trapballs.png" Plist="trapballs/gui.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_fenxiang" ActionTag="38498861" Tag="26" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="72.7520" RightMargin="467.2480" TopMargin="664.9120" BottomMargin="195.0880" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="70" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="Button_fenxiang" ActionTag="38498861" Tag="26" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="65.3006" RightMargin="474.6993" TopMargin="664.4280" BottomMargin="195.5720" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="70" Scale9Height="78" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="100.0000" Y="100.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="122.7520" Y="245.0880" />
+            <Position X="115.3006" Y="245.5720" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1918" Y="0.2553" />
+            <PrePosition X="0.1802" Y="0.2558" />
             <PreSize X="0.1563" Y="0.1042" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
