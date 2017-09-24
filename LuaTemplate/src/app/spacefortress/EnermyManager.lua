@@ -14,15 +14,30 @@ function EnermyManager:removeEnermySheduler()
     end
 end
 
+local _enermyFrameTb = {
+    "yunshi01.png",
+    "yunshi02.png"
+}
+
+function EnermyManager:getEnermyFrameName()
+    return _enermyFrameTb[math.random(1, #_enermyFrameTb)]
+end
+
+function EnermyManager:getRandomFloat(min, max)
+    return math.random()*(max - min) + min
+end
+
 function EnermyManager:createEnermy()
-    local enermy = display.newSprite("yunshi01.png")  
-        :move(0, display.width/2)
+    local randomPos = cc.p(self:getRandomFloat(-1, 1)*display.width/2, self:getRandomFloat(-1, 1)*display.height/2)
+    local distance = cc.pGetLength(randomPos)
+    local enermy = display.newSprite(self:getEnermyFrameName())  
+        :move(randomPos)
         :addTo(self)
 
     enermy:runAction(cc.Sequence:create(
-        dd.CircleBy:create(5.0, cc.p(0, 0), 360),
+        cc.MoveTo:create(5.0, cc.p(0, 0)),
         cc.CallFunc:create(function ( ... )
-            enermy:removeFromParent()
+            self:removeEnermy(enermy)
         end)
         ))
 

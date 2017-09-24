@@ -78,7 +78,6 @@ function BulletManger:createMultiLaser(laserCfg)
 end
 
 function BulletManger:createSingleLaser(color, direction, width, xPos, lifecycle)
-    print("BulletManger:createSingleLaser")
     color = color or cc.RED 
     direction = direction or 0
     xPos = xPos or 0

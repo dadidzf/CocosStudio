@@ -83,7 +83,6 @@ function Plane:changeBulletTest()
 end
 
 function Plane:shoot()
-    local planeSize = self.m_plane:getContentSize()
     self.m_bulletManager:createBullet(self.m_bulletType)
 end
 
