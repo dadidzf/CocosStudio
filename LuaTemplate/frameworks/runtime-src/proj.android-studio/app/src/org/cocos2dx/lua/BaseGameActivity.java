@@ -16,6 +16,7 @@
 
 package org.cocos2dx.lua;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -99,16 +100,22 @@ public abstract class BaseGameActivity extends Cocos2dxActivity implements
     @Override
     protected void onCreate(Bundle b) {
         super.onCreate(b);
+
         if (mHelper == null) {
             getGameHelper();
         }
+
         mHelper.setup(this);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        mHelper.onStart(this);
+
+        if (GameHelperUtils.getAppIdFromResource(this).length() > 0 )
+        {
+            mHelper.onStart(this);
+        }
     }
 
     @Override
