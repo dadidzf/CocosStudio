@@ -286,7 +286,7 @@ def assertEnoughArgs(needCount):
     else:
         return True
 
-def prefixFilesInDir(name):
+def prefixPackageRes(name):
     curPath = get_current_path()
     d = os.path.join(curPath, "Share/%s"%name, "packageRes")
     nameLen = len(name)
@@ -338,7 +338,7 @@ def run():
                     excel2csv(sys.argv[2])
             elif sys.argv[1] == 'prefix':
                 if assertEnoughArgs(3):
-                    prefixFilesInDir(sys.argv[2])
+                    prefixPackageRes(sys.argv[2])
             elif sys.argv[1] == 'texturepack':
                 if assertEnoughArgs(3):
                     texturepack(sys.argv[2])
