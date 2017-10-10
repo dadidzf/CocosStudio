@@ -286,6 +286,17 @@ def assertEnoughArgs(needCount):
     else:
         return True
 
+def prefixFilesInDir(name):
+    curPath = get_current_path()
+    d = os.path.join(curPath, "Share/%s"%name, "packageRes")
+    nameLen = len(name)
+    for f in os.listdir(d):
+        filesDir = os.path.join(d, f)
+        if os.path.isdir(filesDir):
+            for file in os.listdir(filesDir):
+                if not (file[0:nameLen] == name) and not (file[0:0] == '.') :
+                    os.rename(os.path.join(filesDir, file), os.path.join(filesDir, "%s_%s"%(name, file)))
+
 def run():
     curPath = get_current_path()
     if not (os.path.exists(os.path.join(curPath, "res")) and \
@@ -325,6 +336,9 @@ def run():
             elif sys.argv[1] == 'excel2csv':
                 if assertEnoughArgs(3):
                     excel2csv(sys.argv[2])
+            elif sys.argv[1] == 'prefix':
+                if assertEnoughArgs(3):
+                    prefixFilesInDir(sys.argv[2])
             elif sys.argv[1] == 'texturepack':
                 if assertEnoughArgs(3):
                     texturepack(sys.argv[2])

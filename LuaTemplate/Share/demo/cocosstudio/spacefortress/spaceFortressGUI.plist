@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>biaoti.png</key>
+            <key>spacefortress_biaoti.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{69,1284},{589,90}}</string>
@@ -17,7 +17,7 @@
                 <key>sourceSize</key>
                 <string>{589,90}</string>
             </dict>
-            <key>chongwan.png</key>
+            <key>spacefortress_chongwan.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{343,1394},{180,180}}</string>
@@ -30,7 +30,7 @@
                 <key>sourceSize</key>
                 <string>{180,180}</string>
             </dict>
-            <key>di.png</key>
+            <key>spacefortress_di.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{964,2},{720,1080}}</string>
@@ -43,7 +43,7 @@
                 <key>sourceSize</key>
                 <string>{720,1080}</string>
             </dict>
-            <key>dianzan.png</key>
+            <key>spacefortress_dianzan.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1868,1286},{100,100}}</string>
@@ -56,7 +56,7 @@
                 <key>sourceSize</key>
                 <string>{100,100}</string>
             </dict>
-            <key>diqiu.png</key>
+            <key>spacefortress_diqiu.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{463,1284},{108,108}}</string>
@@ -69,7 +69,7 @@
                 <key>sourceSize</key>
                 <string>{112,112}</string>
             </dict>
-            <key>enermyTrack.png</key>
+            <key>spacefortress_enermyTrack.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{964,724},{800,800}}</string>
@@ -82,7 +82,7 @@
                 <key>sourceSize</key>
                 <string>{800,800}</string>
             </dict>
-            <key>fengshudi.png</key>
+            <key>spacefortress_fengshudi.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,1284},{676,65}}</string>
@@ -95,7 +95,7 @@
                 <key>sourceSize</key>
                 <string>{720,65}</string>
             </dict>
-            <key>fenxiang.png</key>
+            <key>spacefortress_fenxiang.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1766,1286},{100,100}}</string>
@@ -108,7 +108,7 @@
                 <key>sourceSize</key>
                 <string>{100,100}</string>
             </dict>
-            <key>gameBg.png</key>
+            <key>spacefortress_gameBg.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,2},{960,1280}}</string>
@@ -121,7 +121,7 @@
                 <key>sourceSize</key>
                 <string>{960,1280}</string>
             </dict>
-            <key>kaishi.png</key>
+            <key>spacefortress_kaishi.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{161,1586},{300,300}}</string>
@@ -134,7 +134,7 @@
                 <key>sourceSize</key>
                 <string>{300,300}</string>
             </dict>
-            <key>paihangbang.png</key>
+            <key>spacefortress_paihangbang.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1868,1184},{100,100}}</string>
@@ -147,7 +147,7 @@
                 <key>sourceSize</key>
                 <string>{100,100}</string>
             </dict>
-            <key>plane.png</key>
+            <key>spacefortress_plane.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{69,1875},{54,48}}</string>
@@ -160,7 +160,7 @@
                 <key>sourceSize</key>
                 <string>{60,52}</string>
             </dict>
-            <key>planetCircle.png</key>
+            <key>spacefortress_planetCircle.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1766,724},{246,246}}</string>
@@ -173,7 +173,7 @@
                 <key>sourceSize</key>
                 <string>{250,250}</string>
             </dict>
-            <key>resume.png</key>
+            <key>spacefortress_resume.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{161,1394},{180,180}}</string>
@@ -186,7 +186,7 @@
                 <key>sourceSize</key>
                 <string>{180,180}</string>
             </dict>
-            <key>rotateLight.png</key>
+            <key>spacefortress_rotateLight.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1766,972},{210,210}}</string>
@@ -199,7 +199,7 @@
                 <key>sourceSize</key>
                 <string>{222,222}</string>
             </dict>
-            <key>yingwenbiaoti.png</key>
+            <key>spacefortress_yingwenbiaoti.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,1962},{573,61}}</string>
@@ -212,7 +212,7 @@
                 <key>sourceSize</key>
                 <string>{573,61}</string>
             </dict>
-            <key>yingwenkaishi.png</key>
+            <key>spacefortress_yingwenkaishi.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{577,1284},{300,300}}</string>
@@ -225,7 +225,7 @@
                 <key>sourceSize</key>
                 <string>{300,300}</string>
             </dict>
-            <key>yinxiao.png</key>
+            <key>spacefortress_yinxiao.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{1766,1184},{100,100}}</string>
@@ -238,7 +238,7 @@
                 <key>sourceSize</key>
                 <string>{100,100}</string>
             </dict>
-            <key>yinxiaoguan.png</key>
+            <key>spacefortress_yinxiaoguan.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{463,1576},{100,100}}</string>
@@ -251,7 +251,7 @@
                 <key>sourceSize</key>
                 <string>{100,100}</string>
             </dict>
-            <key>yinyue.png</key>
+            <key>spacefortress_yinyue.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{263,1284},{100,100}}</string>
@@ -264,7 +264,7 @@
                 <key>sourceSize</key>
                 <string>{100,100}</string>
             </dict>
-            <key>yinyueguan.png</key>
+            <key>spacefortress_yinyueguan.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{161,1284},{100,100}}</string>
@@ -287,7 +287,7 @@
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:3492507d56d1049a4bb9af593316d93d:1/1$</string>
+            <string>$TexturePacker:SmartUpdate:1d257531e8262275a58e5d1faa6f274c:1/1$</string>
             <key>textureFileName</key>
             <string>spaceFortressGUI.png</string>
         </dict>
