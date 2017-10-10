@@ -283,13 +283,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>gui.png</string>
+            <string>spaceFortressGUI.png</string>
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:4db3084b10dd0ce11fac25a7c59a662e:1/1$</string>
+            <string>$TexturePacker:SmartUpdate:3492507d56d1049a4bb9af593316d93d:1/1$</string>
             <key>textureFileName</key>
-            <string>gui.png</string>
+            <string>spaceFortressGUI.png</string>
         </dict>
     </dict>
 </plist>
