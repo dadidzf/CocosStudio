@@ -105,6 +105,38 @@
             <PlistImageFile Name="zhujiemian.png" Key="zhujiemian.png" />
           </PlistImageFolder>
         </Folder>
+        <Folder Name="spacefortress">
+          <Folder Name="cn" />
+          <Folder Name="en">
+            <Project Name="MainScene.csd" Type="Layer" />
+          </Folder>
+          <Folder Name="fnt">
+            <Fnt Name="score.fnt" />
+          </Folder>
+          <PlistImageFolder Image="spaceFortressGUI.png" PListFile="spaceFortressGUI.plist" Name=".spaceFortressGUI_PList.Dir">
+            <PlistImageFile Name="spacefortress_biaoti.png" Key="spacefortress_biaoti.png" />
+            <PlistImageFile Name="spacefortress_chongwan.png" Key="spacefortress_chongwan.png" />
+            <PlistImageFile Name="spacefortress_di.png" Key="spacefortress_di.png" />
+            <PlistImageFile Name="spacefortress_dianzan.png" Key="spacefortress_dianzan.png" />
+            <PlistImageFile Name="spacefortress_diqiu.png" Key="spacefortress_diqiu.png" />
+            <PlistImageFile Name="spacefortress_enermyTrack.png" Key="spacefortress_enermyTrack.png" />
+            <PlistImageFile Name="spacefortress_fengshudi.png" Key="spacefortress_fengshudi.png" />
+            <PlistImageFile Name="spacefortress_fenxiang.png" Key="spacefortress_fenxiang.png" />
+            <PlistImageFile Name="spacefortress_gameBg.png" Key="spacefortress_gameBg.png" />
+            <PlistImageFile Name="spacefortress_kaishi.png" Key="spacefortress_kaishi.png" />
+            <PlistImageFile Name="spacefortress_paihangbang.png" Key="spacefortress_paihangbang.png" />
+            <PlistImageFile Name="spacefortress_plane.png" Key="spacefortress_plane.png" />
+            <PlistImageFile Name="spacefortress_planetCircle.png" Key="spacefortress_planetCircle.png" />
+            <PlistImageFile Name="spacefortress_resume.png" Key="spacefortress_resume.png" />
+            <PlistImageFile Name="spacefortress_rotateLight.png" Key="spacefortress_rotateLight.png" />
+            <PlistImageFile Name="spacefortress_yingwenbiaoti.png" Key="spacefortress_yingwenbiaoti.png" />
+            <PlistImageFile Name="spacefortress_yingwenkaishi.png" Key="spacefortress_yingwenkaishi.png" />
+            <PlistImageFile Name="spacefortress_yinxiao.png" Key="spacefortress_yinxiao.png" />
+            <PlistImageFile Name="spacefortress_yinxiaoguan.png" Key="spacefortress_yinxiaoguan.png" />
+            <PlistImageFile Name="spacefortress_yinyue.png" Key="spacefortress_yinyue.png" />
+            <PlistImageFile Name="spacefortress_yinyueguan.png" Key="spacefortress_yinyueguan.png" />
+          </PlistImageFolder>
+        </Folder>
         <Folder Name="trapballs">
           <Folder Name="cn">
             <Folder Name="tips">
@@ -265,31 +297,6 @@
             <PlistImageFile Name="zhangai_nengliangqiu2.png" Key="zhangai_nengliangqiu2.png" />
             <PlistImageFile Name="zhangai_nengliangqiu3.png" Key="zhangai_nengliangqiu3.png" />
             <PlistImageFile Name="zhangai_nengliangqiu4.png" Key="zhangai_nengliangqiu4.png" />
-          </PlistImageFolder>
-        </Folder>
-        <Folder Name="spacefortress">
-          <PlistImageFolder Image="gui.png" PListFile="gui.plist" Name=".gui_PList.Dir">
-            <PlistImageFile Name="biaoti.png" Key="biaoti.png" />
-            <PlistImageFile Name="chongwan.png" Key="chongwan.png" />
-            <PlistImageFile Name="di.png" Key="di.png" />
-            <PlistImageFile Name="dianzan.png" Key="dianzan.png" />
-            <PlistImageFile Name="diqiu.png" Key="diqiu.png" />
-            <PlistImageFile Name="enermyTrack.png" Key="enermyTrack.png" />
-            <PlistImageFile Name="fengshudi.png" Key="fengshudi.png" />
-            <PlistImageFile Name="fenxiang.png" Key="fenxiang.png" />
-            <PlistImageFile Name="gameBg.png" Key="gameBg.png" />
-            <PlistImageFile Name="kaishi.png" Key="kaishi.png" />
-            <PlistImageFile Name="paihangbang.png" Key="paihangbang.png" />
-            <PlistImageFile Name="plane.png" Key="plane.png" />
-            <PlistImageFile Name="planetCircle.png" Key="planetCircle.png" />
-            <PlistImageFile Name="resume.png" Key="resume.png" />
-            <PlistImageFile Name="rotateLight.png" Key="rotateLight.png" />
-            <PlistImageFile Name="yingwenbiaoti.png" Key="yingwenbiaoti.png" />
-            <PlistImageFile Name="yingwenkaishi.png" Key="yingwenkaishi.png" />
-            <PlistImageFile Name="yinxiao.png" Key="yinxiao.png" />
-            <PlistImageFile Name="yinxiaoguan.png" Key="yinxiaoguan.png" />
-            <PlistImageFile Name="yinyue.png" Key="yinyue.png" />
-            <PlistImageFile Name="yinyueguan.png" Key="yinyueguan.png" />
           </PlistImageFolder>
         </Folder>
       </RootFolder>
