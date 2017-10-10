@@ -17,8 +17,8 @@
         "adsRequestAppName":"spacefortress_ios",
         "appDisplayName":"Space OW",
         "appDisplayName_cn":"太空守望",
-        "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
-        "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
+        "admobBannerId": "ca-app-pub-5571113908507676/3181465951",
+        "admobInterstitialId": "ca-app-pub-5571113908507676/7228043241",
         "admobRewardVideoId": "test",
         "packageName":"com.yongwuart.spacefortress",
         "version":"1.0",
@@ -31,7 +31,7 @@
         ],
         "leaderboard":
         [
-            "luatemplate_rank_1"
+            "space_ow_high_score"
         ],
         "skuKeys":
         [
@@ -43,8 +43,8 @@
         "adsRequestAppName":"spacefortress_android",
         "appDisplayName":"Space OW",
         "appDisplayName_cn":"太空守望",
-        "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
-        "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
+        "admobBannerId": "ca-app-pub-5571113908507676/7874910500",
+        "admobInterstitialId": "ca-app-pub-5571113908507676/6426097468",
         "admobRewardVideoId": "test",
         "packageName":"com.yongwuart.spacefortress",
         "version":"1.0",

@@ -25,6 +25,7 @@ end
 
 function MyApp:onCreate()
     math.randomseed(os.time())
+    cc.load("sdk").Admob.getInstance():removeBanner()
 
     cc.load("sdk").Billing.init(dd.android.googleRSAKey, function (result)
         print("Billing init result ~ ", result) 
