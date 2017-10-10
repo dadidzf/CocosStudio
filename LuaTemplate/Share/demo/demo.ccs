@@ -106,9 +106,12 @@
           </PlistImageFolder>
         </Folder>
         <Folder Name="spacefortress">
-          <Folder Name="cn" />
+          <Folder Name="cn">
+            <Project Name="MainScene.csd" Type="Layer" />
+          </Folder>
           <Folder Name="en">
             <Project Name="MainScene.csd" Type="Layer" />
+            <Project Name="zanting.csd" Type="Layer" />
           </Folder>
           <Folder Name="fnt">
             <Fnt Name="score.fnt" />

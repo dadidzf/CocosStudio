@@ -1,5 +1,5 @@
 <GameFile>
-  <PropertyGroup Name="MainScene" Type="Layer" ID="b721320f-4282-4350-bc72-434b538f11b6" Version="3.10.0.0" />
+  <PropertyGroup Name="MainScene" Type="Layer" ID="bb0df42e-e0f5-41a2-bb55-e4d9723263de" Version="3.10.0.0" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
@@ -18,36 +18,36 @@
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="spacefortress_yingwenbiaoti_2" ActionTag="-1134484205" Tag="11" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="73.5000" RightMargin="73.5000" TopMargin="109.4680" BottomMargin="909.5320" ctype="SpriteObjectData">
-            <Size X="573.0000" Y="61.0000" />
+            <Size X="589.0000" Y="90.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="360.0000" Y="940.0320" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.8704" />
             <PreSize X="0.7958" Y="0.0565" />
-            <FileData Type="PlistSubImage" Path="spacefortress_yingwenbiaoti.png" Plist="spacefortress/spaceFortressGUI.plist" />
+            <FileData Type="PlistSubImage" Path="spacefortress_biaoti.png" Plist="spacefortress/spaceFortressGUI.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="spacefortress_diqiu_3" ActionTag="2113892231" Tag="12" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="362.1760" RightMargin="245.8240" TopMargin="83.9680" BottomMargin="884.0320" ctype="SpriteObjectData">
+          <AbstractNodeData Name="spacefortress_diqiu_3" ActionTag="2113892231" Tag="12" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="304.0000" RightMargin="304.0000" TopMargin="83.9680" BottomMargin="884.0320" ctype="SpriteObjectData">
             <Size X="112.0000" Y="112.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="418.1760" Y="940.0320" />
+            <Position X="360.0000" Y="940.0320" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5808" Y="0.8704" />
+            <PrePosition X="0.5000" Y="0.8704" />
             <PreSize X="0.1556" Y="0.1037" />
             <FileData Type="PlistSubImage" Path="spacefortress_diqiu.png" Plist="spacefortress/spaceFortressGUI.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_1" ActionTag="1348488922" Tag="13" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="210.0000" RightMargin="210.0000" TopMargin="309.9720" BottomMargin="470.0280" LeftEage="99" RightEage="99" TopEage="99" BottomEage="99" Scale9OriginX="99" Scale9OriginY="99" Scale9Width="202" Scale9Height="202" ctype="ImageViewObjectData">
-            <Size X="300.0000" Y="300.0000" />
+          <AbstractNodeData Name="Image_1" ActionTag="1348488922" Tag="13" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="160.0000" RightMargin="160.0000" TopMargin="259.9720" BottomMargin="420.0280" LeftEage="99" RightEage="99" TopEage="99" BottomEage="99" Scale9OriginX="99" Scale9OriginY="99" Scale9Width="202" Scale9Height="202" ctype="ImageViewObjectData">
+            <Size X="400.0000" Y="400.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="360.0000" Y="620.0280" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5741" />
-            <PreSize X="0.4167" Y="0.2778" />
-            <FileData Type="PlistSubImage" Path="spacefortress_yingwenkaishi.png" Plist="spacefortress/spaceFortressGUI.plist" />
+            <PreSize X="0.5556" Y="0.3704" />
+            <FileData Type="PlistSubImage" Path="spacefortress_kaishi.png" Plist="spacefortress/spaceFortressGUI.plist" />
           </AbstractNodeData>
           <AbstractNodeData Name="spacefortress_fengshudi_4" ActionTag="-2088463222" Tag="14" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" TopMargin="723.3920" BottomMargin="291.6080" ctype="SpriteObjectData">
             <Size X="720.0000" Y="65.0000" />
@@ -111,14 +111,14 @@
             <PreSize X="0.3667" Y="0.0667" />
             <LabelBMFontFile_CNB Type="Normal" Path="spacefortress/fnt/score.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="-1259382679" Tag="20" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="144.0000" RightMargin="144.0000" TopMargin="813.9600" BottomMargin="194.0400" LabelText="Best:999999" ctype="TextBMFontObjectData">
-            <Size X="432.0000" Y="72.0000" />
+          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="-1259382679" Tag="20" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="123.5000" RightMargin="123.5000" TopMargin="813.9600" BottomMargin="194.0400" LabelText="最高分:999999" ctype="TextBMFontObjectData">
+            <Size X="473.0000" Y="72.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="360.0000" Y="230.0400" />
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.2130" />
-            <PreSize X="0.6000" Y="0.0667" />
+            <PreSize X="0.6569" Y="0.0667" />
             <LabelBMFontFile_CNB Type="Normal" Path="spacefortress/fnt/score.fnt" Plist="" />
           </AbstractNodeData>
         </Children>
