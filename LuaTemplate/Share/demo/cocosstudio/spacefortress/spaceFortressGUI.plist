@@ -20,7 +20,7 @@
             <key>spacefortress_chongwan.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{343,1394},{180,180}}</string>
+                <string>{{1766,1366},{180,180}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -46,7 +46,7 @@
             <key>spacefortress_dianzan.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1868,1286},{100,100}}</string>
+                <string>{{475,1386},{100,100}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +59,7 @@
             <key>spacefortress_diqiu.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{463,1284},{108,108}}</string>
+                <string>{{161,1284},{108,108}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -98,7 +98,7 @@
             <key>spacefortress_fenxiang.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1766,1286},{100,100}}</string>
+                <string>{{373,1386},{100,100}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -124,20 +124,20 @@
             <key>spacefortress_kaishi.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{161,1586},{300,300}}</string>
+                <string>{{577,1634},{348,348}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{300,300}}</string>
+                <string>{{26,26},{348,348}}</string>
                 <key>sourceSize</key>
-                <string>{300,300}</string>
+                <string>{400,400}</string>
             </dict>
             <key>spacefortress_paihangbang.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1868,1184},{100,100}}</string>
+                <string>{{161,1394},{100,100}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -176,7 +176,7 @@
             <key>spacefortress_resume.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{161,1394},{180,180}}</string>
+                <string>{{1766,1184},{180,180}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -215,20 +215,20 @@
             <key>spacefortress_yingwenkaishi.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{577,1284},{300,300}}</string>
+                <string>{{577,1284},{348,348}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{300,300}}</string>
+                <string>{{26,26},{348,348}}</string>
                 <key>sourceSize</key>
-                <string>{300,300}</string>
+                <string>{400,400}</string>
             </dict>
             <key>spacefortress_yinxiao.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1766,1184},{100,100}}</string>
+                <string>{{271,1386},{100,100}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -241,7 +241,7 @@
             <key>spacefortress_yinxiaoguan.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{463,1576},{100,100}}</string>
+                <string>{{475,1284},{100,100}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -254,7 +254,7 @@
             <key>spacefortress_yinyue.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{263,1284},{100,100}}</string>
+                <string>{{373,1284},{100,100}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -267,7 +267,7 @@
             <key>spacefortress_yinyueguan.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{161,1284},{100,100}}</string>
+                <string>{{271,1284},{100,100}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -287,7 +287,7 @@
             <key>size</key>
             <string>{2048,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:1d257531e8262275a58e5d1faa6f274c:1/1$</string>
+            <string>$TexturePacker:SmartUpdate:a8aef26ddbaf1ecf15a46d373e335012:1/1$</string>
             <key>textureFileName</key>
             <string>spaceFortressGUI.png</string>
         </dict>
