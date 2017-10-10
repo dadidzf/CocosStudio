@@ -15,7 +15,7 @@
     "ios":
     {
         "adsRequestAppName":"spacefortress_ios",
-        "appDisplayName":"Space Overwatch",
+        "appDisplayName":"Space OW",
         "appDisplayName_cn":"太空守望",
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
         "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
@@ -41,7 +41,7 @@
 	"android":
 	{
         "adsRequestAppName":"spacefortress_android",
-        "appDisplayName":"Space Overwatch",
+        "appDisplayName":"Space OW",
         "appDisplayName_cn":"太空守望",
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
         "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",

@@ -4,7 +4,7 @@ local MODULE_PATH = ...
 function Plane:ctor(radius, angleSpeed, shootAngleSpeed)
     self:enableNodeEvents()
     self:createPlane(radius)
-    self.m_angleSpeed = angleSpeed or 180
+    self.m_angleSpeed = angleSpeed or 210
     self.m_shootAngleSpeed = shootAngleSpeed or 30
     self:startAction(true, self.m_angleSpeed)
 
@@ -83,6 +83,17 @@ function Plane:changeBulletTest()
 end
 
 function Plane:shoot()
+    if self.m_lastShootSoundHandler then
+        AudioEngine.getInstance():stopEffect(self.m_lastShootSoundHandler)
+    end
+
+    if self.m_bulletType == "SINGLE_LASER" then
+        --dd.PlaySound("laser.wav")
+        self.m_lastShootSoundHandler = dd.PlaySound("laser.wav")
+    else
+        self.m_lastShootSoundHandler = dd.PlaySound("shoot.mp3")
+    end
+
     self.m_bulletManager:createBullet(self.m_bulletType)
 end
 

@@ -38,15 +38,21 @@ OPTIONS = {
 }
 
 
-def packagePic(srcDir):
-	tpsfiles = getAllFiles(srcDir, ".tps")
+def packagePic(srcDir, destDir):
+	tpsfiles = getAllFiles(srcDir, ".tps", 2)
 	for filename in tpsfiles:
 		args = ["TexturePacker"]
 		for key, value in OPTIONS.iteritems():
 			args.append("--" + key)
 			args.append(value)
-		args.append(filename)
+		args.append(os.path.join(srcDir, filename))
 		os.system(" ".join(args))
+
+		plistFileName = "%s.plist"%os.path.splitext(filename)[0]
+		pngFileName = "%s.png"%os.path.splitext(filename)[0]
+
+        shutil.move(os.path.join(srcDir, plistFileName), os.path.join(destDir, plistFileName))
+        shutil.move(os.path.join(srcDir, pngFileName), os.path.join(destDir, pngFileName))
 	
 if __name__ == '__main__':
 	packagePic(sys.argv[1])

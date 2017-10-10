@@ -23,6 +23,28 @@ function GameScene:onCreate()
         :onClick(function ()
             self.m_gameNode:getPlane():changeBulletTest()
         end)
+
+    self.m_scoreLabel = ccui.Text:create("0", "", 64)
+        :setAnchorPoint(cc.p(0.5, 1))
+        :move(display.width/2, display.height)
+        :addTo(self, 1)
+
+    self.m_score = 0
+end
+
+function GameScene:getScore()
+    return self.m_score
+end
+
+function GameScene:increaseScore(incNum)
+    incNum = incNum or 1
+    self.m_score = self.m_score + incNum
+    
+    self:updateScoreLabel()
+end
+
+function GameScene:updateScoreLabel()
+    self.m_scoreLabel:setString(tostring(self.m_score))
 end
 
 function GameScene:showGameNode()
@@ -30,7 +52,7 @@ function GameScene:showGameNode()
         :move(display.cx, display.cy)
         :addTo(self)
 
-    self.m_gameNode = GameNode:create()
+    self.m_gameNode = GameNode:create(self)
         :move(0, 0)
         :addTo(gameNodeContainer)
 end

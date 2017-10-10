@@ -14,4 +14,25 @@ function MainScene:onCreate()
 		end)
 end
 
+function MainScene:onRank()
+    cc.load("sdk").GameCenter.openGameCenterLeaderboardsUI(1)
+end
+
+function MainScene:onRate()
+    dd.PlayBtnSound()
+    cc.load("sdk").Tools.rate()
+end
+
+function MainScene:onShare()
+    dd.PlayBtnSound()
+    cc.load("sdk").Tools.share(dd.GetTips(dd.Constants.SHARE_TIPS), 
+        cc.FileUtils:getInstance():fullPathForFilename("512.png"))
+end
+
+function MainScene:onSound()
+end
+
+function MainScene:onMusic()
+end
+
 return MainScene

@@ -2,7 +2,9 @@ local GameNode = class("GameNode", cc.Node)
 local Plane = import(".Plane")
 local MODULE_PATH = ...
 
-function GameNode:ctor()
+function GameNode:ctor(gameScene)
+    self.m_scene = gameScene
+
     self:enableNodeEvents()
     self:initUI()
     self:addTouch()
@@ -11,6 +13,7 @@ function GameNode:ctor()
 
     self:createPlane()
     self:createEnermyManger()
+    self:createEnermyTrack()
 end
 
 function GameNode:initUI()
@@ -30,6 +33,8 @@ function GameNode:createPlane()
     self.m_plane = Plane:create(planetCircle:getContentSize().width/2)
         :move(0, 0)
         :addTo(self, 3)
+
+    self.m_planetCircle = planetCircle
 end
 
 function GameNode:getPlane()
@@ -40,12 +45,39 @@ function GameNode:createEnermyManger()
     self.m_enermyManger = import(".EnermyManager", MODULE_PATH):create()
         :move(0, 0)
         :addTo(self, 4)
+
+    self.m_enermyManger:start()
+end
+
+function GameNode:createEnermyTrack()
+    local trackSize = display.newSprite("#enermyTrack.png"):getContentSize()
+    local trackWidth = trackSize.width
+
+    self.m_trackList = {}
+    for i = 1, 8 do
+        local radius = 250 + i*i*30 + math.random(50) - 25
+        local track = display.newSprite("#enermyTrack.png")
+            :move(0, 0)
+            :setScale(radius/800)
+            :addTo(self)
+        table.insert(self.m_trackList, track)
+
+        if math.random() > 0.3 then
+            local track = display.newSprite("#enermyTrack.png")
+                :move(0, 0)
+                :setScale((radius + i*5 + math.random(10) + 10)/800)
+                :addTo(self)
+            table.insert(self.m_trackList, track)
+        end
+    end
 end
 
 function GameNode:createPlanetCircle()
-    local planetCircle = display.newSprite("#planetCircle.png")
-        :move(0, 0)
-        :addTo(self, 2)
+    local planetCircleSprite = display.newSprite("#planetCircle.png")
+    local planetCircle = cc.ProgressTimer:create(planetCircleSprite)
+            :setType(cc.PROGRESS_TIMER_TYPE_RADIAL)
+            :setPosition(cc.p(0, 0))
+            :addTo(self, 2)
 
     local size = planetCircle:getContentSize()
 
@@ -56,7 +88,33 @@ function GameNode:createPlanetCircle()
     
     planetCircle:setPhysicsBody(edgeBody)
 
+    planetCircle:setPercentage(0)
+
+    local seq =  cc.Sequence:create(
+        cc.ProgressTo:create(dd.Constant.BULLET_CFG.SUPER_BULLET_CREATE_TIME, 100),
+        cc.CallFunc:create(function ( ... )
+            planetCircle:setReverseDirection(not planetCircle:isReverseDirection())
+            self:createSuperBullet()
+        end),
+        cc.ProgressTo:create(dd.Constant.BULLET_CFG.SUPER_BULLET_COLD_TIME, 0),
+        cc.CallFunc:create(function ( ... )
+            planetCircle:setReverseDirection(not planetCircle:isReverseDirection())
+            self:coldSuperBullet()
+        end)
+        )
+    planetCircle:runAction(cc.RepeatForever:create(seq))
+    
     return planetCircle
+end
+
+function GameNode:createSuperBullet()
+    print("GameNode:createSuperBullet")
+    self.m_plane:setBulletType(dd.Constant.BULLET_TYPE[math.random(2, 4)])
+end
+
+function GameNode:coldSuperBullet()
+    print("GameNode:coldSuperBullet")
+    self.m_plane:setBulletType("SINGLE_BULLET")
 end
 
 function GameNode:createSyncPosScheduler()
@@ -71,9 +129,16 @@ function GameNode:removeSyncPosScheduler()
 end
 
 function GameNode:syncPosUpdate()
+    print(#self.m_trackList)
     local planePos = self.m_plane:getPlanePos()
     local diffPos = cc.pMul(planePos, -0.5)
     self:setPosition(diffPos)
+
+    local tracks = #self.m_trackList
+    for i, track in ipairs(self.m_trackList) do
+        local pos = cc.pMul(diffPos, i*0.1)
+        track:setPosition(pos)
+    end
 end
 
 function GameNode:addTouch()
@@ -162,11 +227,17 @@ end
 
 function GameNode:dealLaserWithEnermy(laser, enermy)
     self.m_enermyManger:removeEnermy(enermy)
+    dd.PlaySound("bomb.mp3")
+    
+    self.m_scene:increaseScore()
 end
 
 function GameNode:dealBulletWithEnermy(bullet, enermy)
     self.m_plane:getBulletManager():removeBullet(bullet)
     self.m_enermyManger:removeEnermy(enermy)
+    dd.PlaySound("bomb.mp3")
+
+    self.m_scene:increaseScore()
 end
 
 function GameNode:dealEnermyWithFortress(enermy, fortress)

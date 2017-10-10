@@ -211,7 +211,12 @@ def excel2csv(name):
 
 def texturepack(name):
     curPath = get_current_path()
-    packagePic(os.path.join(curPath, "Share/%s"%name, "packageRes"))
+
+    destDir = os.path.join(curPath, "Share/demo/cocosstudio/%s"%name)
+    if not os.path.exists(destDir):
+        destDir = os.path.join(curPath, "res/%s"%name)
+
+    packagePic(os.path.join(curPath, "Share/%s"%name, "packageRes"), destDir)
 
 def applyGameIcon(name):
     curPath = get_current_path()
