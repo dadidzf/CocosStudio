@@ -1,35 +1,31 @@
 local GameScene = class("GameScene", cc.load("mvc").ViewBase)
 local GameNode = import(".GameNode")
+local GamePause = import(".GamePause")
 local MODULE_PATH = ...
 
 function GameScene:onCreate()
     self:showGameNode()
 
-    ccui.Text:create("Back", "", 64)
-        :setAnchorPoint(cc.p(0, 1))
-        :move(0, display.height)
-        :addTo(self, 1)
-        :setTouchEnabled(true)
-        :onClick(function ()
-            local mainScene = import(".MainScene", MODULE_PATH):create()
-            mainScene:showWithScene()
-        end)
-        
-    ccui.Text:create("Bullet", "", 64)
+    ccui.ImageView:create("spacefortress_zanting.png", ccui.TextureResType.plistType)
         :setAnchorPoint(cc.p(1, 1))
-        :move(display.width, display.height)
+        :move(display.width - 10, display.height - 10)
         :addTo(self, 1)
         :setTouchEnabled(true)
         :onClick(function ()
-            self.m_gameNode:getPlane():changeBulletTest()
+            dd.PlayBtnSound()
+            local gamePause = GamePause:create(self)
+                :addTo(self, 100)
         end)
 
-    self.m_scoreLabel = ccui.Text:create("0", "", 64)
+    self.m_scoreLabel = cc.Label:createWithBMFont("fnt/score.fnt", "0")
         :setAnchorPoint(cc.p(0.5, 1))
         :move(display.width/2, display.height)
         :addTo(self, 1)
 
     self.m_score = 0
+
+    self.m_startTime = os.time()
+    dd.PlayBgMusic()
 end
 
 function GameScene:getScore()
@@ -55,6 +51,25 @@ function GameScene:showGameNode()
     self.m_gameNode = GameNode:create(self)
         :move(0, 0)
         :addTo(gameNodeContainer)
+end
+
+function GameScene:onHome()
+    local mainScene = import(".MainScene", MODULE_PATH):create()
+    mainScene:showWithScene()
+    mainScene:setCurScore(self.m_score)
+
+    AudioEngine.getInstance():stopMusic()
+end
+
+function GameScene:onGameOver()
+    local duration = os.time() - self.m_startTime
+    if duration > 60 then 
+        cc.load("sdk").Admob.getInstance():showInterstitial()
+    end 
+
+    cc.load("sdk").GameCenter.submitScoreToLeaderboard(1, self.m_score)
+
+    self:onHome()
 end
 
 function GameScene:showWithScene(transition, time, more)

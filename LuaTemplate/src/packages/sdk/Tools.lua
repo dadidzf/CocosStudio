@@ -91,4 +91,26 @@ function Tools.getLanguageDependSpriteFrameName(fileName)
 	end
 end
 
+function Tools.btnScaleAction(btn, scale1, scale2)
+	scale1 = scale1 or 0.9
+	scale2 = scale2 or 1.0
+    btn:addTouchEventListener(function(sender, state)
+        local event = {x = 0, y = 0}
+        if state == 0 then
+            event.name = "began"
+            sender:setScale(scale1)
+        elseif state == 1 then
+            event.name = "moved"
+        elseif state == 2 then
+            sender:setScale(scale2)
+            event.name = "ended"
+        else
+            sender:setScale(scale2)
+            event.name = "cancelled"
+        end
+        event.target = sender
+    end)
+    return self
+end
+
 return Tools

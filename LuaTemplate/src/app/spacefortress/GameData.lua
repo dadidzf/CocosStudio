@@ -13,4 +13,17 @@ function GameData:setSoundEnable(val)
     cc.UserDefault:getInstance():setBoolForKey("isSoundEnable", val)
 end
 
+function GameData:isMusicEnable()
+    if nil == self.m_isMusicEnable then
+        self.m_isMusicEnable = cc.UserDefault:getInstance():getBoolForKey("isMusicEnable", true)
+    end
+
+    return self.m_isMusicEnable
+end
+
+function GameData:setMusicEnable(val)
+    self.m_isMusicEnable = val
+    cc.UserDefault:getInstance():setBoolForKey("isMusicEnable", val)
+end
+
 return GameData

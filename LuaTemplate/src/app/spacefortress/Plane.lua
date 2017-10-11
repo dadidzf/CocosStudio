@@ -20,7 +20,7 @@ function Plane:getBulletManager()
 end
 
 function Plane:createPlane(radius)
-    self.m_plane = display.newSprite("#plane.png")
+    self.m_plane = display.newSprite("#spacefortress_plane.png")
         :move(0, radius + 25)
         :addTo(self)
 

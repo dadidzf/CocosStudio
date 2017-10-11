@@ -138,6 +138,14 @@
             <PlistImageFile Name="spacefortress_yinxiaoguan.png" Key="spacefortress_yinxiaoguan.png" />
             <PlistImageFile Name="spacefortress_yinyue.png" Key="spacefortress_yinyue.png" />
             <PlistImageFile Name="spacefortress_yinyueguan.png" Key="spacefortress_yinyueguan.png" />
+            <PlistImageFile Name="spacefortress_yuan001.png" Key="spacefortress_yuan001.png" />
+            <PlistImageFile Name="spacefortress_yuan002.png" Key="spacefortress_yuan002.png" />
+            <PlistImageFile Name="spacefortress_yuan003.png" Key="spacefortress_yuan003.png" />
+            <PlistImageFile Name="spacefortress_yuan004.png" Key="spacefortress_yuan004.png" />
+            <PlistImageFile Name="spacefortress_yunshi03.png" Key="spacefortress_yunshi03.png" />
+            <PlistImageFile Name="spacefortress_yunshi04.png" Key="spacefortress_yunshi04.png" />
+            <PlistImageFile Name="spacefortress_zanting.png" Key="spacefortress_zanting.png" />
+            <PlistImageFile Name="spacefortress_zhuye.png" Key="spacefortress_zhuye.png" />
           </PlistImageFolder>
         </Folder>
         <Folder Name="trapballs">

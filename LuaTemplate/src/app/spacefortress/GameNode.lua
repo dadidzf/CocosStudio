@@ -17,11 +17,11 @@ function GameNode:ctor(gameScene)
 end
 
 function GameNode:initUI()
-    local bg = display.newSprite("#gameBg.png")
+    local bg = display.newSprite("#spacefortress_gameBg.png")
         :move(0, 0)
         :addTo(self)
 
-    local rotateLight = display.newSprite("#rotateLight.png")
+    local rotateLight = display.newSprite("#spacefortress_rotateLight.png")
         :move(0, 0)
         :addTo(self, 1)
 
@@ -50,30 +50,32 @@ function GameNode:createEnermyManger()
 end
 
 function GameNode:createEnermyTrack()
-    local trackSize = display.newSprite("#enermyTrack.png"):getContentSize()
+    local trackSize = display.newSprite("#spacefortress_enermyTrack.png"):getContentSize()
     local trackWidth = trackSize.width
 
     self.m_trackList = {}
     for i = 1, 8 do
-        local radius = 250 + i*i*30 + math.random(50) - 25
-        local track = display.newSprite("#enermyTrack.png")
+        local radius = 300 + i*i*30 + math.random(50) - 25
+        local track = display.newSprite("#spacefortress_enermyTrack.png")
             :move(0, 0)
             :setScale(radius/800)
             :addTo(self)
         table.insert(self.m_trackList, track)
 
+        local trackSize = track:getContentSize()
         if math.random() > 0.3 then
-            local track = display.newSprite("#enermyTrack.png")
-                :move(0, 0)
-                :setScale((radius + i*5 + math.random(10) + 10)/800)
-                :addTo(self)
-            table.insert(self.m_trackList, track)
+            local trackBrother = display.newSprite("#spacefortress_enermyTrack.png")
+                :move(trackSize.width/2, trackSize.height/2)
+                --:setScale((radius + i*5 + math.random(10) + 10)/800)
+                :setScale((trackSize.width + 30) / trackSize.width)
+                :addTo(track)
+            --table.insert(self.m_trackList, track)
         end
     end
 end
 
 function GameNode:createPlanetCircle()
-    local planetCircleSprite = display.newSprite("#planetCircle.png")
+    local planetCircleSprite = display.newSprite("#spacefortress_planetCircle.png")
     local planetCircle = cc.ProgressTimer:create(planetCircleSprite)
             :setType(cc.PROGRESS_TIMER_TYPE_RADIAL)
             :setPosition(cc.p(0, 0))
@@ -129,14 +131,13 @@ function GameNode:removeSyncPosScheduler()
 end
 
 function GameNode:syncPosUpdate()
-    print(#self.m_trackList)
     local planePos = self.m_plane:getPlanePos()
     local diffPos = cc.pMul(planePos, -0.5)
     self:setPosition(diffPos)
 
     local tracks = #self.m_trackList
     for i, track in ipairs(self.m_trackList) do
-        local pos = cc.pMul(diffPos, i*0.1)
+        local pos = cc.pMul(diffPos, i*0.18)
         track:setPosition(pos)
     end
 end
@@ -242,6 +243,7 @@ end
 
 function GameNode:dealEnermyWithFortress(enermy, fortress)
     print("GameNode:dealEnermyWithFortress")
+    self.m_scene:onGameOver()
 end
 
 function GameNode:onCleanup()
