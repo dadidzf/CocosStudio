@@ -113,14 +113,14 @@
             <PreSize X="0.3667" Y="0.0667" />
             <LabelBMFontFile_CNB Type="Normal" Path="spacefortress/fnt/score.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="-1259382679" Tag="20" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="144.0000" RightMargin="144.0000" TopMargin="813.9600" BottomMargin="194.0400" LabelText="Best:999999" ctype="TextBMFontObjectData">
-            <Size X="432.0000" Y="72.0000" />
+          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="-1259382679" Tag="20" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="276.5000" RightMargin="276.5000" TopMargin="813.9600" BottomMargin="194.0400" LabelText="Best:" ctype="TextBMFontObjectData">
+            <Size X="167.0000" Y="72.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="360.0000" Y="230.0400" />
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.2130" />
-            <PreSize X="0.6000" Y="0.0667" />
+            <PreSize X="0.2319" Y="0.0667" />
             <LabelBMFontFile_CNB Type="Normal" Path="spacefortress/fnt/score.fnt" Plist="" />
           </AbstractNodeData>
         </Children>

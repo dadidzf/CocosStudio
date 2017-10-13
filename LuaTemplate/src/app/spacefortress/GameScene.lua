@@ -63,9 +63,11 @@ end
 
 function GameScene:onGameOver()
     local duration = os.time() - self.m_startTime
-    if duration > 60 then 
+    print("GameScene:onGameOver", duration)
+
+    if cc.load("sdk").Tools.getGamePlayCount() > 1 and duration > 30 then
         cc.load("sdk").Admob.getInstance():showInterstitial()
-    end 
+    end
 
     cc.load("sdk").GameCenter.submitScoreToLeaderboard(1, self.m_score)
 

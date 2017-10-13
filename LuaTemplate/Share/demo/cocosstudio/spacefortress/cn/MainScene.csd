@@ -20,10 +20,10 @@
           <AbstractNodeData Name="spacefortress_yingwenbiaoti_2" ActionTag="-1134484205" Tag="11" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="65.5000" RightMargin="65.5000" TopMargin="94.9680" BottomMargin="895.0320" ctype="SpriteObjectData">
             <Size X="589.0000" Y="90.0000" />
             <Children>
-              <AbstractNodeData Name="spacefortress_diqiu_3" ActionTag="2113892231" Tag="12" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="242.5002" RightMargin="234.4998" TopMargin="-9.3377" BottomMargin="-12.6623" ctype="SpriteObjectData">
+              <AbstractNodeData Name="spacefortress_diqiu_3" ActionTag="2113892231" Tag="12" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="242.5052" RightMargin="234.4948" TopMargin="-9.3350" BottomMargin="-12.6650" ctype="SpriteObjectData">
                 <Size X="112.0000" Y="112.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="298.5002" Y="43.3377" />
+                <Position X="298.5052" Y="43.3350" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5068" Y="0.4815" />
@@ -113,14 +113,14 @@
             <PreSize X="0.3667" Y="0.0667" />
             <LabelBMFontFile_CNB Type="Normal" Path="spacefortress/fnt/score.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="-1259382679" Tag="20" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="123.5000" RightMargin="123.5000" TopMargin="813.9600" BottomMargin="194.0400" LabelText="最高分:999999" ctype="TextBMFontObjectData">
-            <Size X="473.0000" Y="72.0000" />
+          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="-1259382679" Tag="20" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="256.0000" RightMargin="256.0000" TopMargin="813.9600" BottomMargin="194.0400" LabelText="最高分:" ctype="TextBMFontObjectData">
+            <Size X="208.0000" Y="72.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="360.0000" Y="230.0400" />
             <Scale ScaleX="0.8000" ScaleY="0.8000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.2130" />
-            <PreSize X="0.6569" Y="0.0667" />
+            <PreSize X="0.2889" Y="0.0667" />
             <LabelBMFontFile_CNB Type="Normal" Path="spacefortress/fnt/score.fnt" Plist="" />
           </AbstractNodeData>
         </Children>

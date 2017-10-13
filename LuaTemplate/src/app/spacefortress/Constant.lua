@@ -2,8 +2,8 @@ local Constant = {}
 
 Constant.SHARE_TIPS = 
 {
-    en = "Snake VS Math ? What will happenned ? Just come to paly with me now !",
-    cn = "当贪吃蛇遇上数学会发生什么呢？赶紧来跟我一较高低吧！",
+    en = "Overwatch in the space, the super arc light game ! play with me now !",
+    cn = [[简单的几何学你懂吗？快来玩"太空守望"，跟我一起成为太空中的守望先锋吧 ！]],
 }
 
 Constant.CATEGORY = {

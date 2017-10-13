@@ -18,7 +18,6 @@ MainScene.RESOURCE_BINDING = {
 }
 
 function MainScene:ctor()
-    print("MainScene:ctor", curScore)
     self.super.ctor(self)
     
     local resourceNode = self:getResourceNode()
@@ -31,11 +30,15 @@ function MainScene:ctor()
     end
 
     self.m_labelScore:setString("0")
+    self.m_bestStr = self.m_labelBestScore:getString()
+    self.m_labelBestScore:setString(self.m_bestStr..tostring(dd.GameData:getBestScore()))
 end
 
 function MainScene:setCurScore(curScore)
     curScore = curScore or 0
+    dd.GameData:refreshBestScore(curScore)
     self.m_labelScore:setString(tostring(curScore))
+    self.m_labelBestScore:setString(self.m_bestStr..tostring(dd.GameData:getBestScore()))
 end
 
 function MainScene:onCreate()
@@ -62,7 +65,7 @@ end
 
 function MainScene:onShare()
     dd.PlayBtnSound()
-    cc.load("sdk").Tools.share(dd.GetTips(dd.Constants.SHARE_TIPS), 
+    cc.load("sdk").Tools.share(dd.GetTips(dd.Constant.SHARE_TIPS), 
         cc.FileUtils:getInstance():fullPathForFilename("512.png"))
 end
 

@@ -31,8 +31,11 @@ function GamePause:ctor(game)
     self.m_btnEffect:setPressedActionEnabled(true)
     self.m_btnEffectDisable:setPressedActionEnabled(true)
 
-    cc.load("sdk").Tools.btnScaleAction(self.m_btnResume)
-    cc.load("sdk").Tools.btnScaleAction(self.m_btnHome)
+    local btnList = {self.m_btnMusic, self.m_btnMusicDisable, self.m_btnEffect, 
+        self.m_btnEffectDisable, self.m_btnResume, self.m_btnHome}
+    for _, btn in ipairs(btnList) do
+        cc.load("sdk").Tools.btnScaleAction(btn)
+    end
 end
 
 function GamePause:updateSoundBtnStats()
@@ -60,15 +63,17 @@ function GamePause:onEnableMusic()
 end
 
 function GamePause:onDisableEffect()
-    dd.PlayBtnSound()
     dd.GameData:setSoundEnable(false)
     self:updateSoundBtnStats()
+
+    dd.PlayBtnSound()
 end
 
 function GamePause:onEnableEffect()
-    dd.PlayBtnSound()
     dd.GameData:setSoundEnable(true)
     self:updateSoundBtnStats()
+    
+    dd.PlayBtnSound()
 end
 
 function GamePause:onResume()
