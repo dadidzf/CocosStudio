@@ -8,6 +8,17 @@
         <Children>
           <AbstractNodeData Name="spacefortress_di_1" ActionTag="-1435824194" Tag="10" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" ctype="SpriteObjectData">
             <Size X="720.0000" Y="1080.0000" />
+            <Children>
+              <AbstractNodeData Name="shinningNode" ActionTag="-2024738371" Tag="45" IconVisible="True" RightMargin="720.0000" TopMargin="1080.0000" ctype="SingleNodeObjectData">
+                <Size X="0.0000" Y="0.0000" />
+                <AnchorPoint />
+                <Position />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="360.0000" Y="540.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
