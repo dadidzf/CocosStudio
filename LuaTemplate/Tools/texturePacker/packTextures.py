@@ -38,7 +38,7 @@ OPTIONS = {
 }
 
 
-def packagePic(srcDir, destDir):
+def packagePic(srcDir, destDir, cocostudioDir):
 	tpsfiles = getAllFiles(srcDir, ".tps", 2)
 	for filename in tpsfiles:
 		args = ["TexturePacker"]
@@ -50,6 +50,10 @@ def packagePic(srcDir, destDir):
 
 		plistFileName = "%s.plist"%os.path.splitext(filename)[0]
 		pngFileName = "%s.png"%os.path.splitext(filename)[0]
+
+        if cocostudioDir:
+	        shutil.copy(os.path.join(srcDir, plistFileName), os.path.join(cocostudioDir, plistFileName))
+	        shutil.copy(os.path.join(srcDir, pngFileName), os.path.join(cocostudioDir, pngFileName))
 
         shutil.move(os.path.join(srcDir, plistFileName), os.path.join(destDir, plistFileName))
         shutil.move(os.path.join(srcDir, pngFileName), os.path.join(destDir, pngFileName))
