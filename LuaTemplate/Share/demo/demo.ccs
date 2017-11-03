@@ -118,6 +118,12 @@
           </Folder>
           <PlistImageFolder Image="spaceFortressGUI.png" PListFile="spaceFortressGUI.plist" Name=".spaceFortressGUI_PList.Dir">
             <PlistImageFile Name="spacefortress_biaoti.png" Key="spacefortress_biaoti.png" />
+            <PlistImageFile Name="spacefortress_boss1.png" Key="spacefortress_boss1.png" />
+            <PlistImageFile Name="spacefortress_boss2.png" Key="spacefortress_boss2.png" />
+            <PlistImageFile Name="spacefortress_boss3.png" Key="spacefortress_boss3.png" />
+            <PlistImageFile Name="spacefortress_boss4.png" Key="spacefortress_boss4.png" />
+            <PlistImageFile Name="spacefortress_boss5.png" Key="spacefortress_boss5.png" />
+            <PlistImageFile Name="spacefortress_boss6.png" Key="spacefortress_boss6.png" />
             <PlistImageFile Name="spacefortress_chongwan.png" Key="spacefortress_chongwan.png" />
             <PlistImageFile Name="spacefortress_di.png" Key="spacefortress_di.png" />
             <PlistImageFile Name="spacefortress_dianzan.png" Key="spacefortress_dianzan.png" />
@@ -126,6 +132,7 @@
             <PlistImageFile Name="spacefortress_fengshudi.png" Key="spacefortress_fengshudi.png" />
             <PlistImageFile Name="spacefortress_fenxiang.png" Key="spacefortress_fenxiang.png" />
             <PlistImageFile Name="spacefortress_gameBg.png" Key="spacefortress_gameBg.png" />
+            <PlistImageFile Name="spacefortress_jineng.png" Key="spacefortress_jineng.png" />
             <PlistImageFile Name="spacefortress_kaishi.png" Key="spacefortress_kaishi.png" />
             <PlistImageFile Name="spacefortress_paihangbang.png" Key="spacefortress_paihangbang.png" />
             <PlistImageFile Name="spacefortress_plane.png" Key="spacefortress_plane.png" />
@@ -146,6 +153,8 @@
             <PlistImageFile Name="spacefortress_yunshi04.png" Key="spacefortress_yunshi04.png" />
             <PlistImageFile Name="spacefortress_zanting.png" Key="spacefortress_zanting.png" />
             <PlistImageFile Name="spacefortress_zhuye.png" Key="spacefortress_zhuye.png" />
+            <PlistImageFile Name="spacefortress_yunshi01.png" Key="spacefortress_yunshi01.png" />
+            <PlistImageFile Name="spacefortress_yunshi02.png" Key="spacefortress_yunshi02.png" />
           </PlistImageFolder>
         </Folder>
         <Folder Name="trapballs">

@@ -22,6 +22,7 @@ function GameScene:onCreate()
         :move(display.width/2, display.height)
         :addTo(self, 1)
 
+
     self.m_score = 0
 
     self.m_startTime = os.time()
@@ -46,7 +47,7 @@ end
 function GameScene:showGameNode()
     local gameNodeContainer = cc.Node:create()
         :move(display.cx, display.cy)
-        :addTo(self)
+        :addTo(self, 0)
 
     self.m_gameNode = GameNode:create(self)
         :move(0, 0)
@@ -55,23 +56,41 @@ end
 
 function GameScene:onHome()
     local mainScene = import(".MainScene", MODULE_PATH):create()
-    mainScene:showWithScene()
+    mainScene:showWithScene("FADE", 0.5)
     mainScene:setCurScore(self.m_score)
 
     AudioEngine.getInstance():stopMusic()
 end
 
 function GameScene:onGameOver()
-    local duration = os.time() - self.m_startTime
-    print("GameScene:onGameOver", duration)
-
-    if cc.load("sdk").Tools.getGamePlayCount() > 1 and duration > 30 then
-        cc.load("sdk").Admob.getInstance():showInterstitial()
-    end
+    self.m_overLabel = cc.Label:createWithBMFont("fnt/gameOver.fnt", dd.GetTips(dd.Constant.GAME_OVER_TIPS))
+        :move(display.width/2, display.height*0.4)
+        :setOpacity(0)
+        :addTo(self, 1000)
 
     cc.load("sdk").GameCenter.submitScoreToLeaderboard(1, self.m_score)
 
-    self:onHome()
+    dd.PlaySound("over.wav")
+    AudioEngine.getInstance():stopMusic()
+
+    self.m_overLabel:runAction(cc.Sequence:create(
+        cc.Spawn:create(
+            cc.FadeIn:create(1.0),
+            cc.MoveTo:create(1.0, cc.p(display.width/2, display.height*0.6))
+            ),
+        cc.DelayTime:create(1.0),
+        cc.FadeOut:create(0.5),
+        cc.CallFunc:create(function ( ... )
+            local duration = os.time() - self.m_startTime
+            print("GameScene:onGameOver", duration)
+
+            if cc.load("sdk").Tools.getGamePlayCount() > 1 and duration > 30 then
+                cc.load("sdk").Admob.getInstance():showInterstitial()
+            end
+
+            self:onHome()
+        end)
+        ))
 end
 
 function GameScene:showWithScene(transition, time, more)

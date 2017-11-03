@@ -7,25 +7,46 @@ end
 
 function BulletManger:createBullet(bulletType)
     local plane = self.m_plane
-    self.m_curPos = cc.p(plane:getPositionX(), plane:getPositionY())
-    self.m_curRotation = plane:getRotation()
+    local curPos = cc.p(plane:getPositionX(), plane:getPositionY())
+    local curRotation = plane:getRotation()
 
     if bulletType == "SINGLE_BULLET" or
         bulletType == "DOUBLE_BULLET" or
+        bulletType == "SIX_BULLET" or
+        bulletType == "FIVE_BULLET" or
         bulletType == "THREE_BULLET" then
-        self:createMultiBullet(dd.Constant.BULLET_CFG[bulletType].bulletList)
+        self:createMultiBullet(dd.Constant.BULLET_CFG[bulletType].bulletList, curPos, curRotation)
     elseif bulletType == "SINGLE_LASER" then
-        self:createMultiLaser(dd.Constant.BULLET_CFG[bulletType].bulletList) 
+        self:createMultiLaser(dd.Constant.BULLET_CFG[bulletType].bulletList, plane) 
+    elseif bulletType == "TRIANGLE_BULLET" then
+        self:createMultiBullet(dd.Constant.BULLET_CFG[bulletType].bulletList, curPos, curRotation)
+        local shadowList = {plane.m_shadow1, plane.m_shadow2}
+        for _, shadow in ipairs(shadowList) do
+            local planeWorldPos = plane:convertToWorldSpaceAR(cc.p(0, 0))
+            local shadowWorldPos = shadow:convertToWorldSpaceAR(cc.p(0, 0))
+            local diffPos = cc.pSub(shadowWorldPos, planeWorldPos)
+            local pos = cc.pAdd(curPos, diffPos)
+            local rotation = curRotation + shadow.m_diffAngle 
+
+            self:createMultiBullet(dd.Constant.BULLET_CFG[bulletType].bulletList, pos, rotation)
+        end
+    elseif bulletType == "TRIANGLE_LASER" then
+        self:createMultiLaser(dd.Constant.BULLET_CFG[bulletType].bulletList, plane) 
+        self:createMultiLaser(dd.Constant.BULLET_CFG[bulletType].bulletList, plane.m_shadow1) 
+        self:createMultiLaser(dd.Constant.BULLET_CFG[bulletType].bulletList, plane.m_shadow2) 
     end
+
+    self.m_plane = plane
 end
 
-function BulletManger:createMultiBullet(bulletCfg)
+function BulletManger:createMultiBullet(bulletCfg, nodePos, nodeRotation)
     for _, singleCfg in ipairs(bulletCfg) do
-        self:createSingleBullet(singleCfg.speed, singleCfg.distance, singleCfg.color, singleCfg.direction, singleCfg.xPos)
+        self:createSingleBullet(singleCfg.speed, singleCfg.distance, 
+            singleCfg.color, singleCfg.direction, singleCfg.xPos, nodePos, nodeRotation)
     end
 end
 
-function BulletManger:createSingleBullet(speed, distance, color, direction, xPos)
+function BulletManger:createSingleBullet(speed, distance, color, direction, xPos, nodePos, nodeRotation)
     speed = speed or 1000
     distance = distance or display.height
     direction = direction or 0
@@ -37,9 +58,9 @@ function BulletManger:createSingleBullet(speed, distance, color, direction, xPos
 
     -- ContainerNode
     local containerNode = cc.Node:create()
-        :move(self.m_curPos)
+        :move(nodePos)
         :addTo(self)
-        :setRotation(self.m_curRotation)
+        :setRotation(nodeRotation)
 
     local index = #self.m_bulletList + 1
     self.m_bulletList[index] = containerNode
@@ -53,12 +74,12 @@ function BulletManger:createSingleBullet(speed, distance, color, direction, xPos
 
     local edgeBody = cc.PhysicsBody:createBox(bulletHeadSize, cc.PhysicsMaterial(1, 1, 0), cc.p(0, 0))
     edgeBody:setCategoryBitmask(dd.Constant.CATEGORY.BULLET)
-    edgeBody:setContactTestBitmask(dd.Constant.CATEGORY.ENERMY)
+    edgeBody:setContactTestBitmask(dd.Constant.CATEGORY.ENERMY + dd.Constant.CATEGORY.SKILL + dd.Constant.CATEGORY.BOSS)
     edgeBody:setDynamic(false)
     bulletHead:setPhysicsBody(edgeBody)
 
     -- streak
-    local streak = cc.MotionStreak:create(0.8, bulletHeadSize.width/2, bulletHeadSize.width/2, cc.YELLOW, "bullet3.png")
+    local streak = cc.MotionStreak:create(0.8, bulletHeadSize.width/2, bulletHeadSize.width/2, color, "bullet3.png")
         :move(xPos, 0)
         :addTo(containerNode)
 
@@ -71,13 +92,13 @@ function BulletManger:createSingleBullet(speed, distance, color, direction, xPos
     end)))
 end
 
-function BulletManger:createMultiLaser(laserCfg)
+function BulletManger:createMultiLaser(laserCfg, node)
     for _, singleCfg in ipairs(laserCfg) do
-        self:createSingleLaser(singleCfg.color, singleCfg.direction, singleCfg.width, singleCfg.xPos, singleCfg.lifecycle)
+        self:createSingleLaser(singleCfg.color, singleCfg.direction, singleCfg.width, singleCfg.xPos, singleCfg.lifecycle, node)
     end
 end
 
-function BulletManger:createSingleLaser(color, direction, width, xPos, lifecycle)
+function BulletManger:createSingleLaser(color, direction, width, xPos, lifecycle, node)
     color = color or cc.RED 
     direction = direction or 0
     xPos = xPos or 0
@@ -85,7 +106,7 @@ function BulletManger:createSingleLaser(color, direction, width, xPos, lifecycle
 
     local planeSize = self.m_plane:getContentSize()
     local drawNode = cc.DrawNode:create()  
-        :addTo(self.m_plane)
+        :addTo(node)
         :move(planeSize.width/2, planeSize.height)
 
     local index = #self.m_bulletList + 1
@@ -99,7 +120,7 @@ function BulletManger:createSingleLaser(color, direction, width, xPos, lifecycle
         cc.PhysicsMaterial(1, 1, 0), cc.p(xPos, display.height/2))
 
     edgeBody:setCategoryBitmask(dd.Constant.CATEGORY.LASER)
-    edgeBody:setContactTestBitmask(dd.Constant.CATEGORY.ENERMY)
+    edgeBody:setContactTestBitmask(dd.Constant.CATEGORY.ENERMY + dd.Constant.CATEGORY.SKILL + dd.Constant.CATEGORY.BOSS)
     edgeBody:setDynamic(false)
     drawNode:setPhysicsBody(edgeBody)
 

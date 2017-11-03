@@ -2,6 +2,7 @@ local Plane = class("Plane", cc.Node)
 local MODULE_PATH = ...
 
 function Plane:ctor(radius, angleSpeed, shootAngleSpeed)
+    self.m_radius = radius
     self:enableNodeEvents()
     self:createPlane(radius)
     self.m_angleSpeed = angleSpeed or 210
@@ -21,11 +22,52 @@ end
 
 function Plane:createPlane(radius)
     self.m_plane = display.newSprite("#spacefortress_plane.png")
-        :move(0, radius + 25)
+        :move(0, radius)
         :addTo(self)
 
     self.m_plane:setAnchorPoint(cc.p(0.5, 1))
     local planeSize = self.m_plane:getContentSize()
+end
+
+function Plane:removeTriangleShadowPlane()
+    if self.m_shadow1 then
+        self.m_shadow1:removeFromParent()
+        self.m_shadow1 = nil
+    end
+
+    if self.m_shadow2 then
+        self.m_shadow2:removeFromParent()
+        self.m_shadow2 = nil
+    end
+end
+
+function Plane:showTriangleShadowPlane()
+    if self.m_shadow1 and self.m_shadow2 then
+        return
+    end
+
+    self:removeTriangleShadowPlane()
+    local shadow1 = display.newSprite("#spacefortress_plane.png")
+        :setOpacity(150)
+        :setAnchorPoint(cc.p(0.5, 1))
+        :setRotation(120)
+        :move(math.sqrt(3)*self.m_radius/2 + 30, -1.5*self.m_radius + 52)
+        :addTo(self.m_plane)
+
+    shadow1.m_diffAngle = 120
+    self.m_shadow1 = shadow1
+    self.m_plane.m_shadow1 = shadow1
+
+    local shadow2 = display.newSprite("#spacefortress_plane.png")
+        :setOpacity(150)
+        :setAnchorPoint(cc.p(0.5, 1))
+        :setRotation(-120)
+        :move(-math.sqrt(3)*self.m_radius/2 + 30, -1.5*self.m_radius + 52)
+        :addTo(self.m_plane)
+
+    shadow2.m_diffAngle = -120
+    self.m_shadow2 = shadow2
+    self.m_plane.m_shadow2 = shadow2
 end
 
 function Plane:startAction(isClockWise, angleSpeed)
@@ -87,11 +129,19 @@ function Plane:shoot()
         AudioEngine.getInstance():stopEffect(self.m_lastShootSoundHandler)
     end
 
-    if self.m_bulletType == "SINGLE_LASER" then
+    if self.m_bulletType == "SINGLE_LASER" or
+        self.m_bulletType == "TRIANGLE_LASER" then
         --dd.PlaySound("laser.wav")
         self.m_lastShootSoundHandler = dd.PlaySound("laser.wav")
     else
         self.m_lastShootSoundHandler = dd.PlaySound("shoot.mp3")
+    end
+
+    if self.m_bulletType == "TRIANGLE_LASER" 
+        or self.m_bulletType == "TRIANGLE_BULLET" then
+        self:showTriangleShadowPlane()
+    else
+        self:removeTriangleShadowPlane()
     end
 
     self.m_bulletManager:createBullet(self.m_bulletType)
@@ -99,6 +149,14 @@ end
 
 function Plane:removeBullet(index)
     self.m_bulletList[index] = nil
+end
+
+
+function Plane:destory()
+    self:removeTriangleShadowPlane()
+    self:stopShoot()
+    self.m_plane:stopAllActions()
+    self.m_plane:runAction(cc.FadeOut:create(1.0))
 end
 
 function Plane:stopShoot()
