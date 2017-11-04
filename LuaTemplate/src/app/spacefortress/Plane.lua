@@ -131,8 +131,8 @@ function Plane:shoot()
 
     if self.m_bulletType == "SINGLE_LASER" or
         self.m_bulletType == "TRIANGLE_LASER" then
-        --dd.PlaySound("laser.wav")
-        self.m_lastShootSoundHandler = dd.PlaySound("laser.wav")
+        --dd.PlaySound("laser.mp3")
+        self.m_lastShootSoundHandler = dd.PlaySound("laser.mp3")
     else
         self.m_lastShootSoundHandler = dd.PlaySound("shoot.mp3")
     end
@@ -145,10 +145,6 @@ function Plane:shoot()
     end
 
     self.m_bulletManager:createBullet(self.m_bulletType)
-end
-
-function Plane:removeBullet(index)
-    self.m_bulletList[index] = nil
 end
 
 

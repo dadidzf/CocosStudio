@@ -162,7 +162,7 @@ Constant.ENERMY_CFG = {
         50, 55, 60
     },
     LEVEL_FREQUENCY = {
-        1, 0.95, 0.9
+        2, 0.95, 0.9
     },
     ROTATE_PROB = 0.2,
     ROTATE_SPEED_MIN = 90,

@@ -20,6 +20,7 @@ function EnermyManager:startEnermySheduler()
     self:removeEnermySheduler()
     local frequency = dd.Constant.ENERMY_CFG.LEVEL_FREQUENCY[self.m_curLevel]
     self.m_enermySheduler = dd.scheduler:scheduleScriptFunc(handler(self, self.createEnermy), frequency, false)
+    self:createEnermy()
 end
 
 function EnermyManager:startSkillSheduler()
@@ -312,6 +313,7 @@ end
 function EnermyManager:onCleanup()
     self:removeEnermySheduler()
     self:removeSkillScheduler()
+    self:removeBossScheduler()
 end
 
 return EnermyManager

@@ -13,7 +13,7 @@ dd.PlaySound = function (fileName)
 end
 
 dd.PlayBtnSound = function ()
-    dd.PlaySound("button.wav")
+    dd.PlaySound("button.mp3")
 end
 
 dd.PlayBgMusic = function ()
@@ -38,6 +38,14 @@ function MyApp:onCreate()
     cc.load("sdk").Billing.init(dd.android.googleRSAKey, function (result)
         print("Billing init result ~ ", result) 
     end)
+end
+
+function MyApp:run()
+    if device.platform == "android" then
+        self.super.run(self, "Splash")
+    else
+        self.super.run(self)
+    end
 end
 
 return MyApp

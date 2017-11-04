@@ -78,7 +78,7 @@ end
 
 function GamePause:onResume()
     dd.PlayBtnSound()
-    dd.PlaySound("button.wav")
+    dd.PlaySound("button.mp3")
     cc.Director:getInstance():resume()
 
     self:removeFromParent()
@@ -87,7 +87,7 @@ end
 
 function GamePause:onHome()
     dd.PlayBtnSound()
-    dd.PlaySound("button.wav")
+    dd.PlaySound("button.mp3")
     cc.Director:getInstance():resume()
     
     self.m_game:onHome()

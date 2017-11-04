@@ -136,6 +136,11 @@ end
 function BulletManger:removeBullet(bullet)
     local containerNode = self.m_bulletList[bullet.m_index]
     self.m_bulletList[bullet.m_index] = nil
+    if containerNode == nil then
+        print("BulletManger:removeBullet, why here ? tell me why !")
+        print(debug.traceback())
+        return
+    end
     containerNode:removeFromParent()
 end
 

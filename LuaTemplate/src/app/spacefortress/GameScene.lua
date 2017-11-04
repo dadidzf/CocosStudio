@@ -27,6 +27,25 @@ function GameScene:onCreate()
 
     self.m_startTime = os.time()
     dd.PlayBgMusic()
+
+    self:initKeyBingdings()
+end
+
+function GameScene:initKeyBingdings()
+    local function onrelease(code, event)
+        if code == cc.KeyCode.KEY_BACK then
+            dd.PlayBtnSound()
+            local gamePause = GamePause:create(self)
+                :addTo(self, 100)
+        elseif code == cc.KeyCode.KEY_HOME then
+        end
+    end
+
+    local listener = cc.EventListenerKeyboard:create()
+    listener:registerScriptHandler(onrelease, cc.Handler.EVENT_KEYBOARD_RELEASED)
+
+    local eventDispatcher = self:getEventDispatcher()
+    eventDispatcher:addEventListenerWithSceneGraphPriority(listener, self)
 end
 
 function GameScene:getScore()
@@ -60,6 +79,7 @@ function GameScene:onHome()
     mainScene:setCurScore(self.m_score)
 
     AudioEngine.getInstance():stopMusic()
+    cc.load("sdk").GameCenter.submitScoreToLeaderboard(1, self.m_score)
 end
 
 function GameScene:onGameOver()
@@ -68,9 +88,8 @@ function GameScene:onGameOver()
         :setOpacity(0)
         :addTo(self, 1000)
 
-    cc.load("sdk").GameCenter.submitScoreToLeaderboard(1, self.m_score)
 
-    dd.PlaySound("over.wav")
+    dd.PlaySound("over.mp3")
     AudioEngine.getInstance():stopMusic()
 
     self.m_overLabel:runAction(cc.Sequence:create(

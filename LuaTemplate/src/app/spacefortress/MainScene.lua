@@ -50,7 +50,7 @@ function MainScene:ctor()
 
     if isFirstTime then
         dd.PlaySound("myvoice.mp3")
-        dd.PlaySound("robot.wav")
+        dd.PlaySound("robot.mp3")
         isFirstTime = false
     end
 end
@@ -111,7 +111,7 @@ function MainScene:onPlay()
     local gameScene = GameScene:create()
     gameScene:showWithScene("FADE", 0.5)
 
-    cc.load("sdk").Admob.getInstance():showBanner()
+    cc.load("sdk").Admob.getInstance():showBanner(0, 0)
 end
 
 function MainScene:onRank()

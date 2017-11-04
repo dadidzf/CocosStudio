@@ -55,13 +55,13 @@ function GameNode:createEnermyManger()
         cc.CallFunc:create(function ( ... )
             print("GameNode:createEnermyManger - level up 2 !")
             self.m_enermyManger:setLevel(2)
-            dd.PlaySound("warning.wav")
+            dd.PlaySound("warning.mp3")
         end),
         cc.DelayTime:create(60),
         cc.CallFunc:create(function ( ... )
             print("GameNode:createEnermyManger - level up 3 !")
             self.m_enermyManger:setLevel(3)
-            dd.PlaySound("warning.wav")
+            dd.PlaySound("warning.mp3")
         end)
         ))
 end
@@ -71,11 +71,16 @@ function GameNode:createEnermyTrack()
     local trackWidth = trackSize.width
 
     self.m_trackList = {}
-    for i = 1, 16 do
+    local tracksCount = 16
+    if device.platform == "android" then
+        tracksCount = 7
+    end
+
+    for i = 1, tracksCount do
         local radius = 300 + i*i*30 + math.random(50) - 25
         local track = display.newSprite("#spacefortress_enermyTrack.png")
             :move(0, 0)
-            :setScale(radius/800)
+            :setScale(radius/trackWidth)
             :addTo(self)
         table.insert(self.m_trackList, track)
 
@@ -83,10 +88,8 @@ function GameNode:createEnermyTrack()
         if math.random() > 0.3 then
             local trackBrother = display.newSprite("#spacefortress_enermyTrack.png")
                 :move(trackSize.width/2, trackSize.height/2)
-                --:setScale((radius + i*5 + math.random(10) + 10)/800)
                 :setScale((trackSize.width + 30) / trackSize.width)
                 :addTo(track)
-            --table.insert(self.m_trackList, track)
         end
     end
 end
@@ -152,7 +155,7 @@ function GameNode:createSuperBullet()
     local bulletIndex = math.random(2, table.nums(dd.Constant.BULLET_TYPE))
     local bulletType = dd.Constant.BULLET_TYPE[bulletIndex]
     print("GameNode:createSuperBullet", bulletType)
-    dd.PlaySound("fullpower.wav")
+    dd.PlaySound("fullpower.mp3")
 
     self.m_plane:setBulletType(bulletType)
 
@@ -287,6 +290,8 @@ function GameNode:onContactBegin(contact)
         else
             self:dealSkillWithBullet(nodeB, nodeA)
         end
+
+        return false
     end
 
     if cateGoryAdd == dd.Constant.CATEGORY.SKILL + dd.Constant.CATEGORY.LASER then
@@ -295,6 +300,8 @@ function GameNode:onContactBegin(contact)
         else
             self:dealSkillWithLaser(nodeB, nodeA)
         end
+
+        return false
     end
 
     if cateGoryAdd == dd.Constant.CATEGORY.BOSS + dd.Constant.CATEGORY.LASER then
@@ -303,6 +310,8 @@ function GameNode:onContactBegin(contact)
         else
             self:dealBossWithLaser(nodeB, nodeA)
         end
+
+        return false
     end
 
     if cateGoryAdd == dd.Constant.CATEGORY.BOSS + dd.Constant.CATEGORY.BULLET then
@@ -311,6 +320,8 @@ function GameNode:onContactBegin(contact)
         else
             self:dealBossWithBullet(nodeB, nodeA)
         end
+
+        return false
     end
 
     if cateGoryAdd == dd.Constant.CATEGORY.BOSS + dd.Constant.CATEGORY.FORTRESS then
@@ -319,6 +330,8 @@ function GameNode:onContactBegin(contact)
         else
             self:dealBossWithFortress(nodeB, nodeA)
         end
+
+        return false
     end
 end
 
