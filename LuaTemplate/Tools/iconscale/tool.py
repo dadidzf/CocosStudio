@@ -6,7 +6,7 @@ from PIL import Image
 iosSizes = ['Icon-29', 'Icon-40', 'Icon-50', 'Icon-57', 
 			'Icon-58', 'Icon-72', 'Icon-76', 'Icon-80', 
 			'Icon-87', 'Icon-100','Icon-114', 'Icon-120', 
-			'Icon-144', 'Icon-152', 'Icon-180']
+			'Icon-144', 'Icon-152', 'Icon-180', 'Icon-1024']
 androidSizes = [512]
 androidNames = ['ic_launcher']
 
@@ -101,9 +101,10 @@ def produceImage(filename, platform, destPath):
         index = index + 1
 
 def image_produce_run(iconPath, screenshotPath, destAndroidIconPath, destIosIconPath, destIosSplashPath):
-	processIcon(iconPath, 'ios', destIosIconPath)	
-	processIcon(iconPath, 'android', destAndroidIconPath)	
-	produceImage(screenshotPath, 'ios', destIosSplashPath)
+    processIcon(iconPath, 'ios', destIosIconPath)
+    processIcon(iconPath, 'android', destAndroidIconPath)	
+    shutil.copy(screenshotPath, os.path.join(destIosSplashPath, "LaunchScreenBackground.png"))
+	#produceImage(screenshotPath, 'ios', destIosSplashPath)
 
 # test
 # image_produce_run('512.png', 'splash.png', 'temp', 'temp', 'temp')

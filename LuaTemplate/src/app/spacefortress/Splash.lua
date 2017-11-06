@@ -10,8 +10,12 @@ function Splash:ctor()
         :addTo(self)
         :move(display.cx, display.cy)
 
-    if display.height > 960 then
-        loadingBg:setScale(display.height/960)
+    local bgSize = loadingBg:getContentSize()
+
+    if display.height/display.width > bgSize.height/bgSize.width then
+        loadingBg:setScale(display.height/bgSize.height)
+    else
+        loadingBg:setScale(display.width/bgSize.width)
     end
 
     self:loadingBegin()

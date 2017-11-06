@@ -53,6 +53,8 @@ elseif target == cc.PLATFORM_OS_IPHONE or target == cc.PLATFORM_OS_IPAD then
         device.model = "ipad"
     elseif w == 1536 and h == 2048 then
         device.model = "ipad retina"
+    elseif w == 1125 and h == 2436 then
+        device.model = "iphone X"
     end
 elseif target == cc.PLATFORM_OS_WINRT then
     device.platform = "winrt"

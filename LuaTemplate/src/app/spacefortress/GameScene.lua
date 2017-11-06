@@ -22,6 +22,10 @@ function GameScene:onCreate()
         :move(display.width/2, display.height)
         :addTo(self, 1)
 
+    if device.model == "iphone X" then
+        self.m_scoreLabel:setAnchorPoint(cc.p(0, 1))
+        self.m_scoreLabel:move(0, display.height)
+    end
 
     self.m_score = 0
 
