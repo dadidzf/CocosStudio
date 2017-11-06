@@ -28,6 +28,7 @@
 		29C1B7361EAC9C4100813C76 /* ToolsController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29C1B7351EAC9C4100813C76 /* ToolsController.mm */; };
 		29C5BE641EBD824D00774F6A /* GameCenterHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29C5BE631EBD824D00774F6A /* GameCenterHelper.mm */; };
 		29C5BE661EBD91F100774F6A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C5BE651EBD91F100774F6A /* GameKit.framework */; };
+		29C9C38E1F77486B00A931CF /* libPods-LuaTemplate-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B0F0AE1EA30A1F0060750C /* libPods-LuaTemplate-mobile.a */; };
 		29D231521EA3993C009ED9CF /* AdmobController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29D231511EA3993C009ED9CF /* AdmobController.mm */; };
 		29F54CE21EF8FD5900B6D36B /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CD31EF8FD5900B6D36B /* Icon-29.png */; };
 		29F54CE31EF8FD5900B6D36B /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CD41EF8FD5900B6D36B /* Icon-40.png */; };
@@ -233,6 +234,8 @@
 		29C5BE631EBD824D00774F6A /* GameCenterHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameCenterHelper.mm; sourceTree = "<group>"; };
 		29C5BE651EBD91F100774F6A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		29C5BE6D1EBE02CD00774F6A /* GameCenterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterHelper.h; sourceTree = "<group>"; };
+		29C9C38B1F7747EF00A931CF /* libnanopb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libnanopb.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		29C9C38D1F7747FE00A931CF /* libGoogleToolboxForMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libGoogleToolboxForMac.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D231401EA379FC009ED9CF /* libPods-LuaTemplate-mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-LuaTemplate-mobile.a"; path = "Pods/../build/Debug-iphoneos/libPods-LuaTemplate-mobile.a"; sourceTree = "<group>"; };
 		29D231501EA3993C009ED9CF /* AdmobController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdmobController.h; sourceTree = "<group>"; };
 		29D231511EA3993C009ED9CF /* AdmobController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AdmobController.mm; sourceTree = "<group>"; };
@@ -342,6 +345,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29C9C38E1F77486B00A931CF /* libPods-LuaTemplate-mobile.a in Frameworks */,
 				29C5BE661EBD91F100774F6A /* GameKit.framework in Frameworks */,
 				2927B5F01E9D0373001985D9 /* GameController.framework in Frameworks */,
 				294D0D721D0D572600F7F5D4 /* CoreText.framework in Frameworks */,
@@ -550,6 +554,8 @@
 		F293B3CB15EB7BE500256477 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				29C9C38D1F7747FE00A931CF /* libGoogleToolboxForMac.a */,
+				29C9C38B1F7747EF00A931CF /* libnanopb.a */,
 				29ED48FA1EF3803C0013D8B1 /* libPods-LuaTemplate-desktop.a */,
 				29ED48F51EF37FFE0013D8B1 /* libSVProgressHUD.a */,
 				29C5BE651EBD91F100774F6A /* GameKit.framework */,
@@ -675,7 +681,7 @@
 				TargetAttributes = {
 					F293B3C715EB7BE500256477 = {
 						DevelopmentTeam = 9TBCJ8NLC3;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1128,7 +1134,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../cocos2d-x $(SRCROOT)/../../cocos2d-x/cocos/audio/include $(SRCROOT)/../../cocos2d-x/cocos $(SRCROOT)/../../cocos2d-x/extensions $(SRCROOT)/../../cocos2d-x/external $(SRCROOT)/../../cocos2d-x/external/chipmunk/include/chipmunk $(SRCROOT)/../../cocos2d-x/external/lua/lua $(SRCROOT)/../../cocos2d-x/external/lua/tolua $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib/protobuf-lite";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../cocos2d-x $(SRCROOT)/../../cocos2d-x/cocos/audio/include $(SRCROOT)/../../cocos2d-x/cocos $(SRCROOT)/../../cocos2d-x/extensions $(SRCROOT)/../../cocos2d-x/external $(SRCROOT)/../../cocos2d-x/external/chipmunk/include/chipmunk $(SRCROOT)/../../cocos2d-x/external/lua/tolua $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib/protobuf-lite $(SRCROOT)/../../cocos2d-x/external/lua/luajit/include";
 			};
 			name = Debug;
 		};
@@ -1152,7 +1158,7 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../cocos2d-x $(SRCROOT)/../../cocos2d-x/cocos/audio/include $(SRCROOT)/../../cocos2d-x/cocos $(SRCROOT)/../../cocos2d-x/extensions $(SRCROOT)/../../cocos2d-x/external $(SRCROOT)/../../cocos2d-x/external/chipmunk/include/chipmunk $(SRCROOT)/../../cocos2d-x/external/lua/lua $(SRCROOT)/../../cocos2d-x/external/lua/tolua $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib/protobuf-lite";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../cocos2d-x $(SRCROOT)/../../cocos2d-x/cocos/audio/include $(SRCROOT)/../../cocos2d-x/cocos $(SRCROOT)/../../cocos2d-x/extensions $(SRCROOT)/../../cocos2d-x/external $(SRCROOT)/../../cocos2d-x/external/chipmunk/include/chipmunk $(SRCROOT)/../../cocos2d-x/external/lua/tolua $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib/protobuf-lite $(SRCROOT)/../../cocos2d-x/external/lua/luajit/include";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1165,7 +1171,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = NO;
 				DEVELOPMENT_TEAM = 9TBCJ8NLC3;
 				ENABLE_BITCODE = NO;
@@ -1202,8 +1209,8 @@
 					"-image_base",
 					100000000,
 				);
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "0e60e770-407d-4db0-b1ab-85d108f76773";
+				PROVISIONING_PROFILE_SPECIFIER = "space fortress_distribution";
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1220,7 +1227,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = NO;
 				DEVELOPMENT_TEAM = 9TBCJ8NLC3;
 				ENABLE_BITCODE = NO;
@@ -1260,8 +1268,8 @@
 					"-image_base",
 					100000000,
 				);
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "0e60e770-407d-4db0-b1ab-85d108f76773";
+				PROVISIONING_PROFILE_SPECIFIER = "space fortress_distribution";
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
