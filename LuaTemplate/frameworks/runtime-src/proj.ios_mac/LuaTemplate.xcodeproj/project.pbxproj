@@ -16,6 +16,7 @@
 		1AF4C403178663F200122817 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C402178663F200122817 /* libz.dylib */; };
 		2927B5F01E9D0373001985D9 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2927B5EF1E9D0373001985D9 /* GameController.framework */; };
 		294D0D721D0D572600F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D711D0D572600F7F5D4 /* CoreText.framework */; };
+		2993775B1FB09E4B001E8E27 /* Icon-167.png in Resources */ = {isa = PBXBuildFile; fileRef = 2993775A1FB09E4B001E8E27 /* Icon-167.png */; };
 		2996AD771F289E5A001A34B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2996AD791F289E5A001A34B2 /* InfoPlist.strings */; };
 		29B40A271EFE0EE600238ACB /* lua_binding_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A1E1EFE0EE600238ACB /* lua_binding_manual.cpp */; };
 		29B40A281EFE0EE600238ACB /* lua_scripting_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A201EFE0EE600238ACB /* lua_scripting_auto.cpp */; };
@@ -24,11 +25,11 @@
 		29B40A301EFE0EFB00238ACB /* YWStrUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A2D1EFE0EFB00238ACB /* YWStrUtil.cpp */; };
 		29B95D201E9E59DC00567316 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29B95D1F1E9E59DC00567316 /* GoogleService-Info.plist */; };
 		29B9865A1FB04A620040EB56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29B986581FB04A620040EB56 /* LaunchScreen.storyboard */; };
-		29B9865B1FB04A620040EB56 /* LaunchScreenBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B986591FB04A620040EB56 /* LaunchScreenBackground.png */; };
 		29B9865D1FB04C8F0040EB56 /* Icon-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9865C1FB04C8E0040EB56 /* Icon-1024.png */; };
 		29BB9CEA1F0CE69C00F3240B /* Triangulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29BB9CE81F0CE69C00F3240B /* Triangulate.cpp */; };
 		29BE40791F75603100AB2603 /* ActionMore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29BE40781F75603100AB2603 /* ActionMore.cpp */; };
 		29C1B7361EAC9C4100813C76 /* ToolsController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29C1B7351EAC9C4100813C76 /* ToolsController.mm */; };
+		29C1B8201FB05AF200A9F241 /* LaunchScreenBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B986591FB04A620040EB56 /* LaunchScreenBackground.png */; };
 		29C5BE641EBD824D00774F6A /* GameCenterHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29C5BE631EBD824D00774F6A /* GameCenterHelper.mm */; };
 		29C5BE661EBD91F100774F6A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C5BE651EBD91F100774F6A /* GameKit.framework */; };
 		29C9C38E1F77486B00A931CF /* libPods-LuaTemplate-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B0F0AE1EA30A1F0060750C /* libPods-LuaTemplate-mobile.a */; };
@@ -205,6 +206,7 @@
 		2927B5EF1E9D0373001985D9 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		29399F4D1E9A1EF9003D5267 /* libGoogleToolboxForMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleToolboxForMac.a; path = "Pods/../build/Debug-iphoneos/GoogleToolboxForMac/libGoogleToolboxForMac.a"; sourceTree = "<group>"; };
 		294D0D711D0D572600F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		2993775A1FB09E4B001E8E27 /* Icon-167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-167.png"; sourceTree = "<group>"; };
 		2996AD781F289E5A001A34B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		2996AD7A1F289E62001A34B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2996AD7B1F289F0A001A34B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 				29F54CDD1EF8FD5900B6D36B /* Icon-114.png */,
 				29F54CDE1EF8FD5900B6D36B /* Icon-120.png */,
 				29F54CDF1EF8FD5900B6D36B /* Icon-144.png */,
+				2993775A1FB09E4B001E8E27 /* Icon-167.png */,
 				29F54CE01EF8FD5900B6D36B /* Icon-152.png */,
 				29F54CE11EF8FD5900B6D36B /* Icon-180.png */,
 			);
@@ -787,6 +790,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29C1B8201FB05AF200A9F241 /* LaunchScreenBackground.png in Resources */,
 				29B9865A1FB04A620040EB56 /* LaunchScreen.storyboard in Resources */,
 				29F54CE51EF8FD5900B6D36B /* Icon-57.png in Resources */,
 				29F54CE81EF8FD5900B6D36B /* Icon-76.png in Resources */,
@@ -805,11 +809,11 @@
 				29F54CE71EF8FD5900B6D36B /* Icon-72.png in Resources */,
 				29F54CE91EF8FD5900B6D36B /* Icon-80.png in Resources */,
 				29F54CEE1EF8FD5900B6D36B /* Icon-144.png in Resources */,
+				2993775B1FB09E4B001E8E27 /* Icon-167.png in Resources */,
 				29F54CE31EF8FD5900B6D36B /* Icon-40.png in Resources */,
 				29F54CE21EF8FD5900B6D36B /* Icon-29.png in Resources */,
 				29F54CF01EF8FD5900B6D36B /* Icon-180.png in Resources */,
 				29F54CEA1EF8FD5900B6D36B /* Icon-87.png in Resources */,
-				29B9865B1FB04A620040EB56 /* LaunchScreenBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1162,7 +1166,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMPRESS_PNG_FILES = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9TBCJ8NLC3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1218,7 +1222,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMPRESS_PNG_FILES = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9TBCJ8NLC3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
