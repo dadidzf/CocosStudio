@@ -225,7 +225,7 @@ def applyGameIcon(name):
         os.path.join(curPath, "res/%s/512.png"%name), 
         os.path.join(curPath, "res/%s/splash.png"%name),
         os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app/res/mipmap-xxhdpi/ic_launcher.png"),
-        os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios"),
+        os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/LuaTemplate-mobile/Images.xcassets/AppIcon.appiconset"),
         os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios"))
 
 def applyGame(name):

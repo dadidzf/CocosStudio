@@ -3,10 +3,9 @@ import sys
 import shutil
 from PIL import Image
 
-iosSizes = ['Icon-29', 'Icon-40', 'Icon-50', 'Icon-57', 
-			'Icon-58', 'Icon-72', 'Icon-76', 'Icon-80', 
-			'Icon-87', 'Icon-100','Icon-114', 'Icon-120', 
-			'Icon-144', 'Icon-152', 'Icon-167', 'Icon-180', 'Icon-1024']
+iosSizes = ['Icon-40', 'Icon-60', 'Icon-58', 'Icon-87', 'Icon-80', 'Icon-120', 
+			'Icon-180', 'Icon-20', 'Icon-29', 'Icon-76', 
+			'Icon-152', 'Icon-167','Icon-1024']
 androidSizes = [512]
 androidNames = ['ic_launcher']
 

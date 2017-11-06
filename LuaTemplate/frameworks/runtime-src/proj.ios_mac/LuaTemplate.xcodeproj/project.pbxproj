@@ -16,7 +16,7 @@
 		1AF4C403178663F200122817 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C402178663F200122817 /* libz.dylib */; };
 		2927B5F01E9D0373001985D9 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2927B5EF1E9D0373001985D9 /* GameController.framework */; };
 		294D0D721D0D572600F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D711D0D572600F7F5D4 /* CoreText.framework */; };
-		2993775B1FB09E4B001E8E27 /* Icon-167.png in Resources */ = {isa = PBXBuildFile; fileRef = 2993775A1FB09E4B001E8E27 /* Icon-167.png */; };
+		2993775D1FB0ADA6001E8E27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2993775C1FB0ADA6001E8E27 /* Images.xcassets */; };
 		2996AD771F289E5A001A34B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2996AD791F289E5A001A34B2 /* InfoPlist.strings */; };
 		29B40A271EFE0EE600238ACB /* lua_binding_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A1E1EFE0EE600238ACB /* lua_binding_manual.cpp */; };
 		29B40A281EFE0EE600238ACB /* lua_scripting_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A201EFE0EE600238ACB /* lua_scripting_auto.cpp */; };
@@ -25,7 +25,6 @@
 		29B40A301EFE0EFB00238ACB /* YWStrUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A2D1EFE0EFB00238ACB /* YWStrUtil.cpp */; };
 		29B95D201E9E59DC00567316 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29B95D1F1E9E59DC00567316 /* GoogleService-Info.plist */; };
 		29B9865A1FB04A620040EB56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29B986581FB04A620040EB56 /* LaunchScreen.storyboard */; };
-		29B9865D1FB04C8F0040EB56 /* Icon-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9865C1FB04C8E0040EB56 /* Icon-1024.png */; };
 		29BB9CEA1F0CE69C00F3240B /* Triangulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29BB9CE81F0CE69C00F3240B /* Triangulate.cpp */; };
 		29BE40791F75603100AB2603 /* ActionMore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29BE40781F75603100AB2603 /* ActionMore.cpp */; };
 		29C1B7361EAC9C4100813C76 /* ToolsController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29C1B7351EAC9C4100813C76 /* ToolsController.mm */; };
@@ -34,21 +33,6 @@
 		29C5BE661EBD91F100774F6A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C5BE651EBD91F100774F6A /* GameKit.framework */; };
 		29C9C38E1F77486B00A931CF /* libPods-LuaTemplate-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B0F0AE1EA30A1F0060750C /* libPods-LuaTemplate-mobile.a */; };
 		29D231521EA3993C009ED9CF /* AdmobController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29D231511EA3993C009ED9CF /* AdmobController.mm */; };
-		29F54CE21EF8FD5900B6D36B /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CD31EF8FD5900B6D36B /* Icon-29.png */; };
-		29F54CE31EF8FD5900B6D36B /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CD41EF8FD5900B6D36B /* Icon-40.png */; };
-		29F54CE41EF8FD5900B6D36B /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CD51EF8FD5900B6D36B /* Icon-50.png */; };
-		29F54CE51EF8FD5900B6D36B /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CD61EF8FD5900B6D36B /* Icon-57.png */; };
-		29F54CE61EF8FD5900B6D36B /* Icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CD71EF8FD5900B6D36B /* Icon-58.png */; };
-		29F54CE71EF8FD5900B6D36B /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CD81EF8FD5900B6D36B /* Icon-72.png */; };
-		29F54CE81EF8FD5900B6D36B /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CD91EF8FD5900B6D36B /* Icon-76.png */; };
-		29F54CE91EF8FD5900B6D36B /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CDA1EF8FD5900B6D36B /* Icon-80.png */; };
-		29F54CEA1EF8FD5900B6D36B /* Icon-87.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CDB1EF8FD5900B6D36B /* Icon-87.png */; };
-		29F54CEB1EF8FD5900B6D36B /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CDC1EF8FD5900B6D36B /* Icon-100.png */; };
-		29F54CEC1EF8FD5900B6D36B /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CDD1EF8FD5900B6D36B /* Icon-114.png */; };
-		29F54CED1EF8FD5900B6D36B /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CDE1EF8FD5900B6D36B /* Icon-120.png */; };
-		29F54CEE1EF8FD5900B6D36B /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CDF1EF8FD5900B6D36B /* Icon-144.png */; };
-		29F54CEF1EF8FD5900B6D36B /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CE01EF8FD5900B6D36B /* Icon-152.png */; };
-		29F54CF01EF8FD5900B6D36B /* Icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 29F54CE11EF8FD5900B6D36B /* Icon-180.png */; };
 		3EEEDB61197107C0006A9FF8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EEEDB60197107C0006A9FF8 /* MediaPlayer.framework */; };
 		5023811817EBBCAC00990C9B /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5023810817EBBCAC00990C9B /* AppController.mm */; };
 		5023812417EBBCAC00990C9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5023811417EBBCAC00990C9B /* main.m */; };
@@ -206,7 +190,7 @@
 		2927B5EF1E9D0373001985D9 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		29399F4D1E9A1EF9003D5267 /* libGoogleToolboxForMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleToolboxForMac.a; path = "Pods/../build/Debug-iphoneos/GoogleToolboxForMac/libGoogleToolboxForMac.a"; sourceTree = "<group>"; };
 		294D0D711D0D572600F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
-		2993775A1FB09E4B001E8E27 /* Icon-167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-167.png"; sourceTree = "<group>"; };
+		2993775C1FB0ADA6001E8E27 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "LuaTemplate-mobile/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		2996AD781F289E5A001A34B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		2996AD7A1F289E62001A34B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2996AD7B1F289F0A001A34B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -226,7 +210,6 @@
 		29B95D1F1E9E59DC00567316 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		29B986581FB04A620040EB56 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29B986591FB04A620040EB56 /* LaunchScreenBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreenBackground.png; sourceTree = "<group>"; };
-		29B9865C1FB04C8E0040EB56 /* Icon-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-1024.png"; sourceTree = "<group>"; };
 		29BB9CE81F0CE69C00F3240B /* Triangulate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangulate.cpp; sourceTree = "<group>"; };
 		29BB9CE91F0CE69C00F3240B /* Triangulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangulate.h; sourceTree = "<group>"; };
 		29BE40751F75603100AB2603 /* ActionMore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionMore.h; sourceTree = "<group>"; };
@@ -244,21 +227,6 @@
 		29D231531EA39F6E009ED9CF /* GoogleMobileAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = GoogleMobileAds.a; path = "Build/Products/Debug-iphonesimulator/GoogleMobileAds.a"; sourceTree = "<group>"; };
 		29ED48F51EF37FFE0013D8B1 /* libSVProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSVProgressHUD.a; path = "Build/Products/Debug-iphonesimulator/SVProgressHUD/libSVProgressHUD.a"; sourceTree = "<group>"; };
 		29ED48FA1EF3803C0013D8B1 /* libPods-LuaTemplate-desktop.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-LuaTemplate-desktop.a"; path = "Build/Products/Debug-iphonesimulator/libPods-LuaTemplate-desktop.a"; sourceTree = "<group>"; };
-		29F54CD31EF8FD5900B6D36B /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
-		29F54CD41EF8FD5900B6D36B /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
-		29F54CD51EF8FD5900B6D36B /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
-		29F54CD61EF8FD5900B6D36B /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
-		29F54CD71EF8FD5900B6D36B /* Icon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-58.png"; sourceTree = "<group>"; };
-		29F54CD81EF8FD5900B6D36B /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		29F54CD91EF8FD5900B6D36B /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
-		29F54CDA1EF8FD5900B6D36B /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
-		29F54CDB1EF8FD5900B6D36B /* Icon-87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-87.png"; sourceTree = "<group>"; };
-		29F54CDC1EF8FD5900B6D36B /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-100.png"; sourceTree = "<group>"; };
-		29F54CDD1EF8FD5900B6D36B /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-114.png"; sourceTree = "<group>"; };
-		29F54CDE1EF8FD5900B6D36B /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
-		29F54CDF1EF8FD5900B6D36B /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-144.png"; sourceTree = "<group>"; };
-		29F54CE01EF8FD5900B6D36B /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-152.png"; sourceTree = "<group>"; };
-		29F54CE11EF8FD5900B6D36B /* Icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-180.png"; sourceTree = "<group>"; };
 		3A08751EAD40865CE888BD71 /* Pods-LuaTemplate-desktop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LuaTemplate-desktop.release.xcconfig"; path = "Pods/Target Support Files/Pods-LuaTemplate-desktop/Pods-LuaTemplate-desktop.release.xcconfig"; sourceTree = "<group>"; };
 		3EEEDB60197107C0006A9FF8 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		5023810717EBBCAC00990C9B /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
@@ -469,23 +437,6 @@
 		5091734A17ECE18300D62437 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				29F54CD31EF8FD5900B6D36B /* Icon-29.png */,
-				29F54CD41EF8FD5900B6D36B /* Icon-40.png */,
-				29F54CD51EF8FD5900B6D36B /* Icon-50.png */,
-				29F54CD61EF8FD5900B6D36B /* Icon-57.png */,
-				29F54CD71EF8FD5900B6D36B /* Icon-58.png */,
-				29F54CD81EF8FD5900B6D36B /* Icon-72.png */,
-				29F54CD91EF8FD5900B6D36B /* Icon-76.png */,
-				29F54CDA1EF8FD5900B6D36B /* Icon-80.png */,
-				29F54CDB1EF8FD5900B6D36B /* Icon-87.png */,
-				29F54CDC1EF8FD5900B6D36B /* Icon-100.png */,
-				29B9865C1FB04C8E0040EB56 /* Icon-1024.png */,
-				29F54CDD1EF8FD5900B6D36B /* Icon-114.png */,
-				29F54CDE1EF8FD5900B6D36B /* Icon-120.png */,
-				29F54CDF1EF8FD5900B6D36B /* Icon-144.png */,
-				2993775A1FB09E4B001E8E27 /* Icon-167.png */,
-				29F54CE01EF8FD5900B6D36B /* Icon-152.png */,
-				29F54CE11EF8FD5900B6D36B /* Icon-180.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -606,6 +557,7 @@
 		F293BC4615EB859D00256477 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2993775C1FB0ADA6001E8E27 /* Images.xcassets */,
 				C05D1C111923449100B808A4 /* config.json */,
 				C03781B718BF655400FE4F13 /* res */,
 				C03781B818BF655400FE4F13 /* src */,
@@ -675,7 +627,7 @@
 				TargetAttributes = {
 					F293B3C715EB7BE500256477 = {
 						DevelopmentTeam = 9TBCJ8NLC3;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -791,29 +743,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				29C1B8201FB05AF200A9F241 /* LaunchScreenBackground.png in Resources */,
+				2993775D1FB0ADA6001E8E27 /* Images.xcassets in Resources */,
 				29B9865A1FB04A620040EB56 /* LaunchScreen.storyboard in Resources */,
-				29F54CE51EF8FD5900B6D36B /* Icon-57.png in Resources */,
-				29F54CE81EF8FD5900B6D36B /* Icon-76.png in Resources */,
 				2996AD771F289E5A001A34B2 /* InfoPlist.strings in Resources */,
-				29F54CEC1EF8FD5900B6D36B /* Icon-114.png in Resources */,
 				C03781B918BF655400FE4F13 /* res in Resources */,
-				29F54CED1EF8FD5900B6D36B /* Icon-120.png in Resources */,
-				29B9865D1FB04C8F0040EB56 /* Icon-1024.png in Resources */,
-				29F54CE41EF8FD5900B6D36B /* Icon-50.png in Resources */,
-				29F54CE61EF8FD5900B6D36B /* Icon-58.png in Resources */,
 				C03781BB18BF655400FE4F13 /* src in Resources */,
-				29F54CEF1EF8FD5900B6D36B /* Icon-152.png in Resources */,
 				29B95D201E9E59DC00567316 /* GoogleService-Info.plist in Resources */,
-				29F54CEB1EF8FD5900B6D36B /* Icon-100.png in Resources */,
 				C05D1C121923449100B808A4 /* config.json in Resources */,
-				29F54CE71EF8FD5900B6D36B /* Icon-72.png in Resources */,
-				29F54CE91EF8FD5900B6D36B /* Icon-80.png in Resources */,
-				29F54CEE1EF8FD5900B6D36B /* Icon-144.png in Resources */,
-				2993775B1FB09E4B001E8E27 /* Icon-167.png in Resources */,
-				29F54CE31EF8FD5900B6D36B /* Icon-40.png in Resources */,
-				29F54CE21EF8FD5900B6D36B /* Icon-29.png in Resources */,
-				29F54CF01EF8FD5900B6D36B /* Icon-180.png in Resources */,
-				29F54CEA1EF8FD5900B6D36B /* Icon-87.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1161,10 +1097,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = NO;
 				DEVELOPMENT_TEAM = 9TBCJ8NLC3;
 				ENABLE_BITCODE = NO;
@@ -1201,8 +1138,8 @@
 					"-image_base",
 					100000000,
 				);
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "0e60e770-407d-4db0-b1ab-85d108f76773";
+				PROVISIONING_PROFILE_SPECIFIER = "space fortress_distribution";
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1217,10 +1154,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = NO;
 				DEVELOPMENT_TEAM = 9TBCJ8NLC3;
 				ENABLE_BITCODE = NO;
@@ -1260,8 +1198,8 @@
 					"-image_base",
 					100000000,
 				);
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "0e60e770-407d-4db0-b1ab-85d108f76773";
+				PROVISIONING_PROFILE_SPECIFIER = "space fortress_distribution";
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
