@@ -20,9 +20,9 @@
         "admobBannerId": "ca-app-pub-5571113908507676/6725246919",
         "admobInterstitialId": "ca-app-pub-5571113908507676/3794819480",
         "packageName":"com.yongwuart.snakevsmath",
-        "version":"1.1",
-        "versionCode":3,
-        "rateUrl":"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1262964255&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",
+        "version":"1.2",
+        "versionCode":5,
+        "rateUrl":"https://itunes.apple.com/app/id1262964255",
         "shareUrl":"https://itunes.apple.com/app/id1262964255",
         "achievement":
         [ 

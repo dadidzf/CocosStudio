@@ -21,9 +21,9 @@
         "admobInterstitialId": "ca-app-pub-5571113908507676/7228043241",
         "admobRewardVideoId": "test",
         "packageName":"com.yongwuart.spacefortress",
-        "version":"1.0",
-        "versionCode":3,
-        "rateUrl":"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1273728417&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",
+        "version":"1.1",
+        "versionCode":4,
+        "rateUrl":"https://itunes.apple.com/app/id1273728417",
         "shareUrl":"https://itunes.apple.com/app/id1273728417",
         "achievement":
         [ 

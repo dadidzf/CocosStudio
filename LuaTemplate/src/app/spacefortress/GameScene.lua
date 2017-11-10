@@ -6,12 +6,13 @@ local MODULE_PATH = ...
 function GameScene:onCreate()
     self:showGameNode()
 
-    ccui.ImageView:create("spacefortress_zanting.png", ccui.TextureResType.plistType)
+    local pauseBtn = ccui.ImageView:create("spacefortress_zanting.png", ccui.TextureResType.plistType)
         :setAnchorPoint(cc.p(1, 1))
         :move(display.width - 10, display.height - 10)
         :addTo(self, 1)
         :setTouchEnabled(true)
-        :onClick(function ()
+        
+    pauseBtn:onClick(function ()
             dd.PlayBtnSound()
             local gamePause = GamePause:create(self)
                 :addTo(self, 100)
@@ -24,7 +25,8 @@ function GameScene:onCreate()
 
     if device.model == "iphone X" then
         self.m_scoreLabel:setAnchorPoint(cc.p(0, 1))
-        self.m_scoreLabel:move(0, display.height)
+        self.m_scoreLabel:move(20, display.height - 20)
+        pauseBtn:move(display.width - 30, display.height - 30)
     end
 
     self.m_score = 0
