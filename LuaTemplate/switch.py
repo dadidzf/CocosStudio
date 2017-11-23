@@ -9,6 +9,8 @@ import os
 import shutil
 import json
 import re
+import plistlib
+
 from Tools.iconscale.tool import image_produce_run
 from Tools.excel2csv.excel2csv import excel2csvDir
 from Tools.texturePacker.packTextures import packagePic
@@ -45,26 +47,28 @@ def replaceRegularString(filepath, reStr, dstString):
     f2.write(content.encode('utf8'))
     f2.close()
 
-def replacePlistKeyValue(filepath, key, reSrcValueStr, dstvalueStr):
-    content = ""
-    nextReplace = False
-    f1 = open(filepath, "rb")
-    reInfo = re.compile(reSrcValueStr)
+def replacePlistWithConfig(filepath, gameConfig):
+    p = plistlib.readPlist(filepath)
 
-    for line in f1:
-        strline = line.decode('utf8')
-        if key in strline:
-            nextReplace = True
-        else:
-            if nextReplace == True:
-                strline = reInfo.sub(dstvalueStr, strline)
-                nextReplace = False
+    p["CFBundleShortVersionString"] = str(gameConfig['ios']['versionCode'])
+    p["CFBundleVersion"] = gameConfig['ios']['version']
+    p["CFBundleIdentifier"] = gameConfig['ios']['packageName']
+    p["CFBundleDisplayName"] = gameConfig['ios']['appDisplayName']
 
-        content += strline
-    f1.close()
-    f2 = open(filepath, "wb")
-    f2.write(content.encode('utf8'))
-    f2.close()
+    if gameConfig['orientation'] == None or gameConfig['orientation'] == "portrait" :
+        array = [
+        'UIInterfaceOrientationPortrait'
+        ]
+        p["UISupportedInterfaceOrientations"] = array
+    else:
+        array = [
+        'UIInterfaceOrientationLandscapeRight',
+        'UIInterfaceOrientationPortraitUpsideDown',
+        'UIInterfaceOrientationLandscapeLeft'
+        ]
+        p["UISupportedInterfaceOrientations"] = array
+
+    plistlib.writePlist(p, filepath)
 
 def get_current_path():
     return os.path.split(os.path.realpath(__file__))[0]
@@ -180,14 +184,7 @@ def applayGameConfigToProject(name):
             os.path.join(curPath, "frameworks/runtime-src/proj.android-studio/app"))
 
     ## ios
-    replacePlistKeyValue(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios/Info.plist"),
-        "CFBundleShortVersionString", '<string>.*$', '<string>%d</string>'%gameConfig['ios']['versionCode'])
-    replacePlistKeyValue(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios/Info.plist"),
-        "CFBundleVersion", '<string>.*$', '<string>%s</string>'%gameConfig['ios']['version'])
-    replacePlistKeyValue(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios/Info.plist"),
-        "CFBundleIdentifier", '<string>.*$', '<string>%s</string>'%gameConfig['ios']['packageName'])
-    replacePlistKeyValue(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios/Info.plist"),
-        "CFBundleDisplayName", '<string>.*$', '<string>%s</string>'%gameConfig['ios']['appDisplayName'])
+    replacePlistWithConfig(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/ios/Info.plist"), gameConfig)
 
     replaceRegularString(os.path.join(curPath, "frameworks/runtime-src/proj.ios_mac/en.lproj/InfoPlist.strings"),
         'CFBundleDisplayName = .*$', 'CFBundleDisplayName = "%s";'%gameConfig['ios']['appDisplayName'])
