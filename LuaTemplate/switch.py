@@ -88,9 +88,11 @@ def isGameDirExistBoth(name):
 def newGame(name, packageName):
     curPath = get_current_path()
     if not isGameDirExist(name):
-        os.mkdir(os.path.join(curPath, "res", name))
+        ##os.mkdir(os.path.join(curPath, "res", name))
         shutil.copytree(os.path.join(curPath, "src", "app", "template"), 
             os.path.join(curPath, "src", "app", name))
+        shutil.copytree(os.path.join(curPath, "res", "template"), 
+            os.path.join(curPath, "res", name))
         if isGameDirExistBoth(name):
             os.rename(os.path.join(curPath, "src", "app", name, "template_config.json"), 
                 os.path.join(curPath, "src", "app", name, '%s_config.json'%name))

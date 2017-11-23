@@ -1,0 +1,72 @@
+{
+    "serverConfig": {
+        "serverHost": "https://www.yongwuart.com/flask/",
+        "adsVerURL": "ads/version",
+        "adsConfURL": "ads/conf/",
+        "adsPicURL": "ads/pic/"
+    },
+    "appName":"herochess",
+    "luaCompileKey":"dzf",
+    "luaCompileSign":"hhh",
+    "width":640,
+    "height":960,
+    "autoScale1":"FIXED_HEIGHT",
+    "autoScale2":"FIXED_WIDTH",
+    "ios":
+    {
+        "adsRequestAppName":"template_ios",
+        "appDisplayName":"Template",
+        "appDisplayName_cn":"模板",
+        "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
+        "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
+        "admobRewardVideoId": "test",
+        "packageName":"com.yongwuart.herochess",
+        "version":"1.0",
+        "versionCode":1,
+        "rateUrl":"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1182004800&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8",
+        "shareUrl":"https://itunes.apple.com/app/id1182004800",
+        "achievement":
+        [ 
+            "luatemplate_achievement_1"
+        ],
+        "leaderboard":
+        [
+            "luatemplate_rank_1"
+        ],
+        "skuKeys":
+        [
+            "template_remove_ads"
+        ]
+	},
+	"android":
+	{
+        "adsRequestAppName":"template_android",
+        "appDisplayName":"Template",
+        "appDisplayName_cn":"模板",
+        "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
+        "admobInterstitialId": "ca-app-pub-3940256099942544/4411468910",
+        "admobRewardVideoId": "test",
+        "packageName":"com.yongwuart.herochess",
+        "version":"1.0",
+        "versionCode":1,
+        "rateUrl":"https://play.google.com/store/apps/details?id=com.yongwuart.tetris099",
+        "shareUrl":"https://play.google.com/store/apps/details?id=com.yongwuart.tetris099",
+        "achievement":
+        [ 
+            "CgkImebwqYofEAIQAQ"
+        ],
+        "leaderboard":
+        [
+            "CgkImebwqYofEAIQAg"
+        ],
+        "skuKeys":
+        [
+            "android.test.purchased",
+            "test_ads"
+        ],
+
+
+        "googlePlayAppId":"1067924075289",
+        "googleRSAKey":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2plP27WUDdVAK0l8mbn1rJQIA/yfXyCuB5LELiHju3Wq5TMaTxT8nqmYrx24z2eHbMqjUD+1R24CQH7Mykb3/iif5w1hXv5/aHjaT4pbByeE8EpXhShIQfQ9EL2trW1/zV8/dD/4oF5wjtPN+ErtFGdWHXy9AYMa9cFdh/5N689V8QEnOI6mPPhKB4FJ5QEOVO04TjvD9CmTVvonVFsS8KSwC5oo1Liid0vYs3gg8ZU3O7TkyINlAPcTm5ZXHVSO10jykwCy9hhTazIvCDYEqFnt0EEEUh98hiSjnGZpnF5dYK2iC71L5tP+h+e3QNds2Y+KidXJQn/rIr1L0+sS1QIDAQAB"
+    }
+}
