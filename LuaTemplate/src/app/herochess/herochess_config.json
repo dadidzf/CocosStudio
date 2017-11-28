@@ -5,16 +5,16 @@
         "adsConfURL": "ads/conf/",
         "adsPicURL": "ads/pic/"
     },
+    "orientation":"landscape",
     "appName":"herochess",
     "luaCompileKey":"dzf",
     "luaCompileSign":"hhh",
-    "width":640,
-    "height":960,
+    "width":1280,
+    "height":720,
     "autoScale1":"FIXED_HEIGHT",
     "autoScale2":"FIXED_WIDTH",
     "ios":
     {
-        "adsRequestAppName":"herochess_ios",
         "appDisplayName":"Hero Chess",
         "appDisplayName_cn":"英雄棋牌",
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",
@@ -40,7 +40,6 @@
 	},
 	"android":
 	{
-        "adsRequestAppName":"herochess_android",
         "appDisplayName":"Hero Chess",
         "appDisplayName_cn":"英雄棋牌",
         "admobBannerId": "ca-app-pub-3940256099942544/2934735716",

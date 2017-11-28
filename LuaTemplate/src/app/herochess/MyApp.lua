@@ -10,4 +10,6 @@ function MyApp:onCreate()
     end)
 end
 
+dd.NetworkClient = import(".network.Client").new()
+
 return MyApp
