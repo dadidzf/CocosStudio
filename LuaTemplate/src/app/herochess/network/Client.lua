@@ -1,5 +1,9 @@
 local Socket = require "socket"
 local Packer = import ".Packer"
+local Mask = import ".Mask"
+local MsgDefine = import ".MsgDefine"
+
+local _maskInst = nil
 
 local Client = {}
 
@@ -17,6 +21,41 @@ function Client:init()
 	self.m_packList = {}
 	self.m_head = nil
 	self.m_callbackTbl = {}
+    self.m_protoNameMapMasks = {}
+end
+
+function Client:showMask(protoName)
+    if _maskInst == nil or tolua.isnull(_maskInst) then
+        _maskInst = Mask:create()
+    end
+
+    local curVal = self.m_protoNameMapMasks[protoName]
+    if curVal then
+        self.m_protoNameMapMasks[protoName] = curVal + 1
+    else
+        self.m_protoNameMapMasks[protoName] = 1
+    end
+end
+
+function Client:hideMask(protoName)
+    local curVal = self.m_protoNameMapMasks[protoName] 
+    if curVal then
+        curVal = curVal - 1
+        if curVal <= 0 then
+            self.m_protoNameMapMasks[protoName] = nil
+
+            if next(self.m_protoNameMapMasks) == nil then
+                if _maskInst then
+                    if not tolua.isnull(_maskInst) then
+                        _maskInst:removeFromParent()
+                    end
+                    _maskInst = nil
+                end
+            end
+        else
+            self.m_protoNameMapMasks[protoName] = curVal
+        end
+    end
 end
 
 function Client:connect(ip, port)
@@ -38,6 +77,7 @@ function Client:connect(ip, port)
         self.m_tcp = socket.tcp()
     end
 
+    self.m_tcp:settimeout(3)
     local n, e = self.m_tcp:connect(ip, port)
     self.m_tcp:settimeout(0)
 
@@ -45,10 +85,13 @@ function Client:connect(ip, port)
     self.m_port = port
 
     self:startRecvSheduler()
+
+    return n
 end
 
 function Client:sendBlockMsg(proto_name, msg, callback)
     self:sendQuickMsg(proto_name, msg)
+    self:showMask(proto_name)
 
     if callback then
         if self.m_callbackTbl[proto_name] then
@@ -153,7 +196,8 @@ function Client:dispatchOne()
 	local callback = self.m_callbackTbl[proto_name]
 
     if callback then
-	   callback(params)
+        self:hideMask(proto_name)
+        callback(params)
     end
 	return
 end
@@ -170,7 +214,6 @@ function Client:close()
 end
 
 function Client:onClose()
-    print("Client:onClose")
 end
 
 return Client

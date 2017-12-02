@@ -12,4 +12,9 @@ end
 
 dd.NetworkClient = import(".network.Client").new()
 
+dd.SceneLayerOrder = 
+{
+    netMask = 1
+}
+
 return MyApp
