@@ -84,7 +84,9 @@ function Client:connect(ip, port)
     self.m_ip = ip
     self.m_port = port
 
-    self:startRecvSheduler()
+    if n then
+        self:startRecvSheduler()
+    end
 
     return n
 end
@@ -211,9 +213,13 @@ function Client:unregister(name)
 end
 
 function Client:close()
+    self.m_tcp:close()
+    self:removeRecvSheduler()
 end
 
 function Client:onClose()
+    print("Client:onClose")
+    self:close()
 end
 
 return Client
