@@ -90,25 +90,32 @@ def gen_png_from_plist(plist_filename, png_filename):
 def get_current_path():
     return os.path.split(os.path.realpath(__file__))[0]
 
-def getPlistFileNameList():
-    curDir = get_current_path()
+def unPackone(curDir, filename):
+    plist_filename = os.path.join(curDir, filename + '.plist')
+    png_filename = os.path.join(curDir, filename + '.png')
+    dir_name = os.path.join(curDir, filename)
+    if os.path.exists(dir_name):
+        print 'the plist file %s is already unpacked, the dir %s is already exist !' % (plist_filename, dir_name)
+    elif (os.path.exists(plist_filename) and os.path.exists(png_filename)):
+        gen_png_from_plist(plist_filename, png_filename)
+    else:
+        print 'make sure you have both plist %s \
+        and png %s files in the same directory' % (plist_filename, png_filename)
+
+def process(curDir):
     plistFileList = []
-    print(os.listdir(curDir))
     for filename in os.listdir(curDir):
         f = os.path.join(curDir, filename)
         if os.path.isfile(f):
             if os.path.splitext(f)[1] == ".plist" :
-                plistFileList.append(os.path.splitext(filename)[0])
-
-    return plistFileList
+                name = os.path.splitext(filename)[0]
+                unPackone(curDir, name)
+        elif os.path.isdir(f):
+            process(f)
 
 if __name__ == '__main__':
-    fileList = getPlistFileNameList()
-    print(fileList)
-    for filename in fileList:
-        plist_filename = filename + '.plist'
-        png_filename = filename + '.png'
-        if (os.path.exists(plist_filename) and os.path.exists(png_filename)) and not os.path.exists(filename):
-            gen_png_from_plist( plist_filename, png_filename)
-        else:
-            print "make sure you have both plist and png files in the same directory"
+    curDir = get_current_path()
+    if len(sys.argv) > 1 and os.path.isdir(sys.argv[1]):
+        process(os.path.abspath(sys.argv[1]))
+    else:
+        process(curDir) 
