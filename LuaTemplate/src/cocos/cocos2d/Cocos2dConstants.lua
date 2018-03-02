@@ -644,4 +644,5 @@ cc.BLUE = cc.c3b(0,0,255)
 cc.BLACK = cc.c3b(0,0,0)
 cc.WHITE = cc.c3b(255,255,255)
 cc.YELLOW = cc.c3b(255,255,0)
+cc.GRAY = cc.c3b(166,166,166)
 
