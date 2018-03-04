@@ -149,12 +149,12 @@
             <PlistImageFile Name="spacefortress_yuan002.png" Key="spacefortress_yuan002.png" />
             <PlistImageFile Name="spacefortress_yuan003.png" Key="spacefortress_yuan003.png" />
             <PlistImageFile Name="spacefortress_yuan004.png" Key="spacefortress_yuan004.png" />
+            <PlistImageFile Name="spacefortress_yunshi01.png" Key="spacefortress_yunshi01.png" />
+            <PlistImageFile Name="spacefortress_yunshi02.png" Key="spacefortress_yunshi02.png" />
             <PlistImageFile Name="spacefortress_yunshi03.png" Key="spacefortress_yunshi03.png" />
             <PlistImageFile Name="spacefortress_yunshi04.png" Key="spacefortress_yunshi04.png" />
             <PlistImageFile Name="spacefortress_zanting.png" Key="spacefortress_zanting.png" />
             <PlistImageFile Name="spacefortress_zhuye.png" Key="spacefortress_zhuye.png" />
-            <PlistImageFile Name="spacefortress_yunshi01.png" Key="spacefortress_yunshi01.png" />
-            <PlistImageFile Name="spacefortress_yunshi02.png" Key="spacefortress_yunshi02.png" />
           </PlistImageFolder>
         </Folder>
         <Folder Name="trapballs">
@@ -318,6 +318,60 @@
             <PlistImageFile Name="zhangai_nengliangqiu3.png" Key="zhangai_nengliangqiu3.png" />
             <PlistImageFile Name="zhangai_nengliangqiu4.png" Key="zhangai_nengliangqiu4.png" />
           </PlistImageFolder>
+        </Folder>
+        <Folder Name="herochess">
+          <Folder Name="fnt">
+            <Fnt Name="herochess_InputRoomNumber.fnt" />
+            <Image Name="herochess_InputRoomNumber.png" />
+          </Folder>
+          <PlistImageFolder Image="gui.png" PListFile="gui.plist" Name=".gui_PList.Dir">
+            <PlistImageFile Name="herochess_addMoney.png" Key="herochess_addMoney.png" />
+            <PlistImageFile Name="herochess_bg.jpg" Key="herochess_bg.jpg" />
+            <PlistImageFile Name="herochess_createRoom.png" Key="herochess_createRoom.png" />
+            <PlistImageFile Name="herochess_exit.png" Key="herochess_exit.png" />
+            <PlistImageFile Name="herochess_indexBottom.png" Key="herochess_indexBottom.png" />
+            <PlistImageFile Name="herochess_info.png" Key="herochess_info.png" />
+            <PlistImageFile Name="herochess_joinGame.png" Key="herochess_joinGame.png" />
+            <PlistImageFile Name="herochess_kgOff.png" Key="herochess_kgOff.png" />
+            <PlistImageFile Name="herochess_kgOn.png" Key="herochess_kgOn.png" />
+            <PlistImageFile Name="herochess_l_tips_bg.png" Key="herochess_l_tips_bg.png" />
+            <PlistImageFile Name="herochess_other_uimg_bg.png" Key="herochess_other_uimg_bg.png" />
+            <PlistImageFile Name="herochess_voice.png" Key="herochess_voice.png" />
+            <PlistImageFile Name="herochess_lobby_TopLogo_Di.png" Key="herochess_lobby_TopLogo_Di.png" />
+            <PlistImageFile Name="herochess_bigarea.png" Key="herochess_bigarea.png" />
+            <PlistImageFile Name="herochess_newDialog0.png" Key="herochess_newDialog0.png" />
+            <PlistImageFile Name="herochess_newDialog1.png" Key="herochess_newDialog1.png" />
+            <PlistImageFile Name="herochess_newDialog2.png" Key="herochess_newDialog2.png" />
+            <PlistImageFile Name="herochess_newDialog3.png" Key="herochess_newDialog3.png" />
+            <PlistImageFile Name="herochess_newDialog4.png" Key="herochess_newDialog4.png" />
+            <PlistImageFile Name="herochess_newDialog5.png" Key="herochess_newDialog5.png" />
+            <PlistImageFile Name="herochess_newDialog6.png" Key="herochess_newDialog6.png" />
+            <PlistImageFile Name="herochess_newDialog7.png" Key="herochess_newDialog7.png" />
+            <PlistImageFile Name="herochess_newDialog8.png" Key="herochess_newDialog8.png" />
+            <PlistImageFile Name="herochess_newDialog9.png" Key="herochess_newDialog9.png" />
+            <PlistImageFile Name="herochess_newDialogBack.png" Key="herochess_newDialogBack.png" />
+            <PlistImageFile Name="herochess_newDialogCancel.png" Key="herochess_newDialogCancel.png" />
+            <PlistImageFile Name="herochess_newDialogInput_0.png" Key="herochess_newDialogInput_0.png" />
+            <PlistImageFile Name="herochess_closeButton.png" Key="herochess_closeButton.png" />
+          </PlistImageFolder>
+          <PlistImageFolder Image="login.png" PListFile="login.plist" Name=".login_PList.Dir">
+            <PlistImageFile Name="herochess_agreement_bg.png" Key="herochess_agreement_bg.png" />
+            <PlistImageFile Name="herochess_btn_agreement_1.png" Key="herochess_btn_agreement_1.png" />
+            <PlistImageFile Name="herochess_btn_agreement_2.png" Key="herochess_btn_agreement_2.png" />
+            <PlistImageFile Name="herochess_btn_close.png" Key="herochess_btn_close.png" />
+            <PlistImageFile Name="herochess_btn_wechat_1.png" Key="herochess_btn_wechat_1.png" />
+            <PlistImageFile Name="herochess_btn_wechat_2.png" Key="herochess_btn_wechat_2.png" />
+            <PlistImageFile Name="herochess_login_bg.png" Key="herochess_login_bg.png" />
+            <PlistImageFile Name="herochess_logo_product.png" Key="herochess_logo_product.png" />
+            <PlistImageFile Name="herochess_text_agreement.png" Key="herochess_text_agreement.png" />
+            <PlistImageFile Name="herochess_Create_anniu_suiji.png" Key="herochess_Create_anniu_suiji.png" />
+            <PlistImageFile Name="herochess_btn_login_0.png" Key="herochess_btn_login_0.png" />
+            <PlistImageFile Name="herochess_btn_login_1.png" Key="herochess_btn_login_1.png" />
+            <PlistImageFile Name="herochess_input_box.png" Key="herochess_input_box.png" />
+          </PlistImageFolder>
+          <Project Name="InputRoomNumber.csd" Type="Node" />
+          <Project Name="LoginScene.csd" Type="Layer" />
+          <Project Name="MainScene.csd" Type="Layer" />
         </Folder>
       </RootFolder>
     </Group>
