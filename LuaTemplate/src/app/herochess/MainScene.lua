@@ -1,6 +1,6 @@
 local MainScene = class("MainScene", cc.load("mvc").ViewBase)
-local Client = import ".network.Client"
 local InputRoomNumber = import ".common.InputRoomNumber"
+local PdkScene = import ".pdk.PdkScene"
 
 MainScene.RESOURCE_FILENAME = "MainScene.csb"
 MainScene.RESOURCE_BINDING = {
@@ -12,15 +12,12 @@ function MainScene:onCreate()
     local resourceNode = self:getResourceNode()
     resourceNode:setContentSize(display.size)
     ccui.Helper:doLayout(resourceNode)
-
-	dd.NetworkClient:register("room.user_enter", function ( ... )
-		dump({...})
-	end)
 end
 
 function MainScene:onCreateRoom()
 	dd.NetworkClient:sendBlockMsg("room.create_room", {game_id = 1}, function ( ... )
-		dump({...})
+		local pdkScene = PdkScene:create(...)
+		pdkScene:showWithScene()
 	end)
 end
 
@@ -28,7 +25,8 @@ function MainScene:onJoinRoom()
 	local inputNode = InputRoomNumber:create(function (roomNumber)
 		if roomNumber then
 			dd.NetworkClient:sendBlockMsg("room.join_room", {room_id = roomNumber}, function ( ... )
-				dump({...})
+				local pdkScene = PdkScene:create(...)
+				pdkScene:showWithScene()
 			end)
 		end
 	end)

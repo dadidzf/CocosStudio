@@ -1,6 +1,5 @@
 local LoginScene = class("LoginScene", cc.load("mvc").ViewBase)
 local MainScene = import(".MainScene")
-local Client = import ".network.Client"
 
 LoginScene.RESOURCE_FILENAME = "LoginScene.csb"
 LoginScene.RESOURCE_BINDING = {
@@ -114,9 +113,9 @@ function LoginScene:onLogin()
             else
                 dd.NetworkClient:close()
                 dd.NetworkClient:connect("192.168.0.104", 16802)
-                dd.NetworkClient:sendBlockMsg("login.login_baseapp", {account = ret.user.account, username = userName, token = "token"}, function ( ... )
+                dd.NetworkClient:sendBlockMsg("login.login_baseapp", {account = ret.user.account, username = userName, token = "token"}, function (info)
                     self:recordInfo(userName, passwd)
-                    dump({...})
+                    dd.PlayersInfo:initMyInfo(info.info)
 
                     local mainScene = MainScene:create()
                     mainScene:showWithScene()
