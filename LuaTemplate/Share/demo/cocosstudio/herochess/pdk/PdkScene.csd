@@ -27,7 +27,7 @@
             <PreSize X="1.0000" Y="0.0625" />
             <FileData Type="PlistSubImage" Path="herochess_pdk_bottomboard.png" Plist="herochess/pdk.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="bg_head_mine" ActionTag="498698568" Tag="80" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BottomEdge" LeftMargin="15.0002" RightMargin="1174.9998" TopMargin="620.8322" BottomMargin="9.1679" LeftEage="29" RightEage="29" TopEage="29" BottomEage="29" Scale9OriginX="29" Scale9OriginY="29" Scale9Width="32" Scale9Height="32" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="bg_head_mine" ActionTag="498698568" Tag="80" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BottomEdge" LeftMargin="15.0002" RightMargin="1174.9998" TopMargin="620.8321" BottomMargin="9.1679" LeftEage="29" RightEage="29" TopEage="29" BottomEage="29" Scale9OriginX="29" Scale9OriginY="29" Scale9Width="32" Scale9Height="32" ctype="ImageViewObjectData">
             <Size X="90.0000" Y="90.0000" />
             <Children>
               <AbstractNodeData Name="nickname" ActionTag="-1086371712" Tag="129" IconVisible="False" LeftMargin="96.7096" RightMargin="-98.7096" TopMargin="64.1679" BottomMargin="2.8321" FontSize="20" LabelText="Text Label" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -76,10 +76,10 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="btn_invite_mine" ActionTag="-1934192325" Tag="121" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="554.5000" RightMargin="554.5000" TopMargin="363.5000" BottomMargin="283.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="141" Scale9Height="51" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="btn_invite_mine" ActionTag="-1934192325" Tag="121" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="554.5000" RightMargin="554.5000" TopMargin="363.5320" BottomMargin="283.4680" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="141" Scale9Height="51" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="171.0000" Y="73.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="640.0000" Y="320.0000" />
+            <Position X="640.0000" Y="319.9680" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.4444" />
@@ -174,7 +174,7 @@
             <PreSize X="0.0703" Y="0.1250" />
             <FileData Type="PlistSubImage" Path="herochess_other_uimg_bg.png" Plist="herochess/pdk.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="node_mine_out_card" ActionTag="-1103212403" Tag="83" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="639.9999" RightMargin="640.0001" TopMargin="520.0000" BottomMargin="200.0000" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="node_mine_out_card" ActionTag="-1103212403" Tag="83" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="640.0000" RightMargin="640.0000" TopMargin="510.0000" BottomMargin="210.0000" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
               <AbstractNodeData Name="img_pass" ActionTag="1434256913" Tag="86" IconVisible="False" LeftMargin="-93.0000" RightMargin="-93.0000" TopMargin="-30.5000" BottomMargin="-30.5000" ctype="SpriteObjectData">
@@ -218,10 +218,10 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="node_card" ActionTag="239906173" Tag="127" IconVisible="True" TopMargin="1.9999" BottomMargin="-1.9999" ctype="SingleNodeObjectData">
+              <AbstractNodeData Name="node_card" ActionTag="-370743823" Tag="191" IconVisible="True" ctype="SingleNodeObjectData">
                 <Size X="0.0000" Y="0.0000" />
                 <AnchorPoint />
-                <Position Y="-1.9999" />
+                <Position />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition />
@@ -229,10 +229,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint />
-            <Position X="639.9999" Y="200.0000" />
+            <Position X="640.0000" Y="210.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.2778" />
+            <PrePosition X="0.5000" Y="0.2917" />
             <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
           <AbstractNodeData Name="node_left_out_card" ActionTag="-89419026" Tag="81" IconVisible="True" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="180.0000" RightMargin="1100.0000" TopMargin="220.0000" BottomMargin="500.0000" ctype="SingleNodeObjectData">
@@ -344,13 +344,13 @@
             <FileData Type="PlistSubImage" Path="herochess_pdk_titleboard.png" Plist="herochess/pdk.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="node_hand_card" ActionTag="-1230918754" Tag="128" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="640.0000" RightMargin="640.0000" TopMargin="635.2660" BottomMargin="84.7340" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="node_hand_card" ActionTag="-1230918754" Tag="128" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="640.0000" RightMargin="640.0000" TopMargin="678.6467" BottomMargin="41.3533" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
-            <Position X="640.0000" Y="84.7340" />
+            <Position X="640.0000" Y="41.3533" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.1177" />
+            <PrePosition X="0.5000" Y="0.0574" />
             <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
         </Children>

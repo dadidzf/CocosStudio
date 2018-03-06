@@ -1,5 +1,5 @@
 local PdkScene = class("PdkScene", cc.load("mvc").ViewBase)
-local Client = import("..network.Client")
+local HandCardLayer = import(".HandCardLayer")
 
 PdkScene.RESOURCE_FILENAME = "pdk/PdkScene.csb"
 PdkScene.RESOURCE_BINDING = {
@@ -23,6 +23,7 @@ PdkScene.RESOURCE_BINDING = {
     ["node_mine_out_card.node_card"] = {varname = "m_nodeCardMine"},
     ["node_mine_out_card.btn_out_card"] = {varname = "m_btnOutCard", events = {{ event = "click", method = "onOutCard" }}},
     ["node_mine_out_card.btn_ready"] = {varname = "m_btnReady", events = {{ event = "click", method = "onReady" }}},
+    ["node_hand_card"] = {varname = "m_nodeHandCardMine"},
 
     ["node_left_out_card.img_pass"] = {varname = "m_imgPassLeft"},
     ["node_left_out_card.node_card"] = {varname = "m_nodeCardLeft"},
@@ -131,6 +132,21 @@ function PdkScene:initUI()
     self.m_txtRoomNumber:setString("房间号:"..tostring(self.m_roomInfo.room_id))
     print("PdkScene:initUI", self.m_myInfo.nick_name)
     self.m_txtNickNameMine:setString(self.m_myInfo.nick_name)
+
+    self:test()
+end
+
+function PdkScene:test()
+    local handCard = HandCardLayer:create()
+        :addTo(self.m_nodeHandCardMine)
+    handCard:initCards(
+        {
+            0x03, 0x04, 0x05, 0x06, 
+            0x11, 0x13, 0x14, 0x15, 
+            0x2a, 0x2b, 0x2c, 0x2d, 
+            0x31, 0x32, 0x33, 0x34,
+        }
+    )
 end
 
 function PdkScene:resetDisplay()
