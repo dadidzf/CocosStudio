@@ -465,12 +465,8 @@ function logic.is_bigger_t_32_exist(out_card, counts, cards)
     end
 
     local count3 = counts[3]
-    if cards[3][count3] > out_card then
-        if counts[2]*2 + counts[1] <= 2 then
-            return true
-        else
-            return false
-        end
+    if count3 > 0 and cards[3][count3] > out_card then
+        return true
     else
         return false
     end
