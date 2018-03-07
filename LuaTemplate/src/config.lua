@@ -13,8 +13,8 @@ CC_DISABLE_GLOBAL = true
 
 -- for module display
 CC_DESIGN_RESOLUTION = {
-    width = 640,
-    height = 960,
+    width = 1280,
+    height = 720,
     autoscale = "FIXED_HEIGHT",
     callback = function(framesize)
         local ratio = framesize.height / framesize.width
@@ -28,4 +28,4 @@ CC_DESIGN_RESOLUTION = {
 }
 
 -- name of current game, it's also the working directory for current game
-DD_WORKING_GAME_NAME = "trapballs"
+DD_WORKING_GAME_NAME = "herochess"
