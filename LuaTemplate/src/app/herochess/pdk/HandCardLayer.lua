@@ -4,13 +4,15 @@ local logic = import(".logic")
 
 local _CARD_X_DISTANCE_RATIO = 0.5
 
-function HandCardLayer:ctor()
+function HandCardLayer:ctor(selectCardscallBack)
     self:initTouch()
     self.m_cardSprites = {}
     local cardContentSize = CardSprite:create(0x1):getContentSize()
     self.m_cardWidth = cardContentSize.width
     self.m_cardHeight = cardContentSize.height
     self.m_xDistance = self.m_cardWidth*_CARD_X_DISTANCE_RATIO
+
+    self.m_selectCardsCallBack = selectCardscallBack
 end
 
 function HandCardLayer:initCards(handCards)
@@ -79,7 +81,16 @@ function HandCardLayer:onOutCard(outCards)
     self:resortCards()
 end
 
-function HandCardLayer:getOutCards()
+function HandCardLayer:getHandCards()
+    local handCards = {}
+    for _, cardSprite in ipairs(self.m_cardSprites) do
+        table.insert(handCards, cardSprite:getCard())
+    end
+
+    return handCards
+end
+
+function HandCardLayer:getStandCards()
     local outCards = {}
     for _, cardSprite in ipairs(self.m_cardSprites) do
         if cardSprite:isStandOut() then
@@ -91,7 +102,6 @@ function HandCardLayer:getOutCards()
 end
 
 function HandCardLayer:getCardSpriteByPosX(x)
-    print("HandCardLayer:getCardSpriteByPosX", x)
     local index = 0
     local cardCounts = #self.m_cardSprites
     if x >= (self.m_xDistance*(cardCounts - 1) + self.m_beginXPos) and 
@@ -114,7 +124,6 @@ function HandCardLayer:onTouchBegin(touch, event)
         return true
     end 
 
-    self:onOutCard(self:getOutCards())
     return false
 end
 
@@ -136,6 +145,10 @@ function HandCardLayer:onTouchEnded(touch, event)
                 cardSprite:standOut()
             end
         end
+    end
+
+    if self.m_selectCardsCallBack then
+        self.m_selectCardsCallBack()
     end
 end
 

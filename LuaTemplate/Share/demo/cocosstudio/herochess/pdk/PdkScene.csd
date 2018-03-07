@@ -76,10 +76,10 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="btn_invite_mine" ActionTag="-1934192325" Tag="121" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="554.5000" RightMargin="554.5000" TopMargin="363.5320" BottomMargin="283.4680" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="141" Scale9Height="51" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="btn_invite_mine" ActionTag="-1934192325" Tag="121" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="554.5000" RightMargin="554.5000" TopMargin="363.5000" BottomMargin="283.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="141" Scale9Height="51" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="171.0000" Y="73.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="640.0000" Y="319.9680" />
+            <Position X="640.0000" Y="320.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.4444" />
@@ -174,7 +174,16 @@
             <PreSize X="0.0703" Y="0.1250" />
             <FileData Type="PlistSubImage" Path="herochess_other_uimg_bg.png" Plist="herochess/pdk.plist" />
           </AbstractNodeData>
-          <AbstractNodeData Name="node_mine_out_card" ActionTag="-1103212403" Tag="83" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="640.0000" RightMargin="640.0000" TopMargin="510.0000" BottomMargin="210.0000" ctype="SingleNodeObjectData">
+          <AbstractNodeData Name="node_card" ActionTag="-370743823" Tag="191" IconVisible="True" LeftMargin="640.0000" RightMargin="640.0000" TopMargin="400.0000" BottomMargin="320.0000" ctype="SingleNodeObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="640.0000" Y="320.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5000" Y="0.4444" />
+            <PreSize X="0.0000" Y="0.0000" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="node_mine_out_card" ActionTag="-1103212403" Tag="83" IconVisible="True" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="640.0000" RightMargin="640.0000" TopMargin="500.0000" BottomMargin="220.0000" ctype="SingleNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <Children>
               <AbstractNodeData Name="img_pass" ActionTag="1434256913" Tag="86" IconVisible="False" LeftMargin="-93.0000" RightMargin="-93.0000" TopMargin="-30.5000" BottomMargin="-30.5000" ctype="SpriteObjectData">
@@ -197,8 +206,8 @@
                 <PrePosition />
                 <PreSize X="0.0000" Y="0.0000" />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-                <PressedFileData Type="PlistSubImage" Path="herochess_outcards2.png" Plist="herochess/pdk.plist" />
+                <DisabledFileData Type="PlistSubImage" Path="herochess_outcards2.png" Plist="herochess/pdk.plist" />
+                <PressedFileData Type="PlistSubImage" Path="herochess_outcards.png" Plist="herochess/pdk.plist" />
                 <NormalFileData Type="PlistSubImage" Path="herochess_outcards.png" Plist="herochess/pdk.plist" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
@@ -218,21 +227,12 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="node_card" ActionTag="-370743823" Tag="191" IconVisible="True" ctype="SingleNodeObjectData">
-                <Size X="0.0000" Y="0.0000" />
-                <AnchorPoint />
-                <Position />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition />
-                <PreSize X="0.0000" Y="0.0000" />
-              </AbstractNodeData>
             </Children>
             <AnchorPoint />
-            <Position X="640.0000" Y="210.0000" />
+            <Position X="640.0000" Y="220.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.2917" />
+            <PrePosition X="0.5000" Y="0.3056" />
             <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
           <AbstractNodeData Name="node_left_out_card" ActionTag="-89419026" Tag="81" IconVisible="True" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="180.0000" RightMargin="1100.0000" TopMargin="220.0000" BottomMargin="500.0000" ctype="SingleNodeObjectData">
