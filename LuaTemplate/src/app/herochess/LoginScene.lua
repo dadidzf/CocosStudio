@@ -22,7 +22,7 @@ LoginScene.RESOURCE_BINDING = {
 
 function LoginScene:onCreate()
     print("LoginScene:onCreate....")
-    dd.NetworkClient:connect("192.168.0.104", 16800)
+    dd.NetworkClient:connect(dd.serverConfig.loginServer, 16800)
     self:initUI()
     self:initRegisterStatus()
 end
@@ -112,7 +112,7 @@ function LoginScene:onLogin()
                 print(ret.errmsg)
             else
                 dd.NetworkClient:close()
-                dd.NetworkClient:connect("192.168.0.104", 16802)
+                dd.NetworkClient:connect(ret.ip, ret.port)
                 dd.NetworkClient:sendBlockMsg("login.login_baseapp", {account = ret.user.account, username = userName, token = "token"}, function (info)
                     self:recordInfo(userName, passwd)
                     dd.PlayersInfo:initMyInfo(info.info)

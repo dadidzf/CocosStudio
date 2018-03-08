@@ -3,7 +3,8 @@
         "serverHost": "https://www.yongwuart.com/flask/",
         "adsVerURL": "ads/version",
         "adsConfURL": "ads/conf/",
-        "adsPicURL": "ads/pic/"
+        "adsPicURL": "ads/pic/",
+        "loginServer": "www.yongwuart.com"
     },
     "orientation":"landscape",
     "appName":"herochess",

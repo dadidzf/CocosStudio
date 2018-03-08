@@ -61,6 +61,7 @@ function MsgDealLogic:msgPass(info)
     else
         self.m_gameScene:checkPass()
     end
+    self.m_gameScene:updateInGameDisplay()
 end
 
 return MsgDealLogic
