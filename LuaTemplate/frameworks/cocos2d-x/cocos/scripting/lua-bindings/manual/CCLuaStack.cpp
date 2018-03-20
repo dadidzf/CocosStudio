@@ -873,9 +873,10 @@ int LuaStack::luaLoadBuffer(lua_State *L, const char *chunk, int chunkSize, cons
                                               (unsigned char*)_xxteaKey,
                                               (xxtea_long)_xxteaKeyLen,
                                               &len);
+        unsigned char* result_start = result;
         skipBOM((const char*&)result, (int&)len);
         r = luaL_loadbuffer(L, (char*)result, len, chunkName);
-        free(result);
+        free(result_start);
     }
     else
     {

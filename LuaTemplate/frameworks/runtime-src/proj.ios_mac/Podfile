@@ -15,6 +15,7 @@ target 'LuaTemplate-mobile' do
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
   pod 'SVProgressHUD'
+  pod 'WechatOpenSDK'
   #pod 'Google-Mobile-Ads-SDK'
 
   # Pods for LuaTemplate-mobile

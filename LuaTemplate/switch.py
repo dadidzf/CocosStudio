@@ -121,15 +121,17 @@ def recoverGameDir():
     curPath = get_current_path()
 
     if len(os.listdir(os.path.join(curPath, "temp", "src"))) > 0 :
-        for f in os.listdir(os.path.join(curPath, "src", "app")):
-            if os.path.isdir(os.path.join(curPath, "src", "app", f)):
-                shutil.rmtree(os.path.join(curPath, "src", "app", f))
+        for f in os.listdir(os.path.join(curPath, "src")):
+            if os.path.isdir(os.path.join(curPath, "src", f)):
+                shutil.rmtree(os.path.join(curPath, "src", f))
+            else:
+                os.remove(os.path.join(curPath, "src", f))
 
         for f in os.listdir(os.path.join(curPath, "res")):
             if os.path.isdir(os.path.join(curPath, "res", f)):
                 shutil.rmtree(os.path.join(curPath, "res", f))
 
-        mergeDir(os.path.join(curPath, "temp", "src"), os.path.join(curPath, "src", "app"))
+        mergeDir(os.path.join(curPath, "temp", "src"), os.path.join(curPath, "src"))
         mergeDir(os.path.join(curPath, "temp", "res"), os.path.join(curPath, "res"))
     else:
         print('Nothing to recover !')
@@ -240,16 +242,15 @@ def beforePackageGame(name):
     curPath = get_current_path()
 
     ## move all games src and res to temp dir
-    for f in os.listdir(os.path.join(curPath, "src", "app")):
-        if os.path.isdir(os.path.join(curPath, "src", "app", f)):
-            shutil.move(os.path.join(curPath, "src", "app", f), os.path.join(curPath, "temp", "src"))
+    for f in os.listdir(os.path.join(curPath, "src")):
+        shutil.move(os.path.join(curPath, "src", f), os.path.join(curPath, "temp", 'src'))
 
     for f in os.listdir(os.path.join(curPath, "res")):
         if os.path.isdir(os.path.join(curPath, "res", f)):
             shutil.move(os.path.join(curPath, "res", f), os.path.join(curPath, "temp", "res"))
 
     ## get lua encrypt key and sign
-    f = open(os.path.join(curPath, "temp", "src", name, "%s_config.json"%name))
+    f = open(os.path.join(curPath, "temp", "src", 'app', name, "%s_config.json"%name))
     gameConfig = json.load(f)
     f.close()
     luaKey = gameConfig.pop('luaCompileKey')
@@ -257,10 +258,13 @@ def beforePackageGame(name):
 
     ## encode lua code
     os.system('cocos luacompile -s %s -d %s -e -k %s -b %s --disable-compile'%
-        (os.path.join(curPath, 'temp', 'src', name), os.path.join(curPath, 'src', 'app', name), luaKey, luaSign))
+        (os.path.join(curPath, 'temp', 'src'), os.path.join(curPath, 'src'), luaKey, luaSign))
+    for f in os.listdir(os.path.join(curPath, "src", "app")):
+        if f != name:
+            shutil.rmtree(os.path.join(curPath, "src", "app", f))
 
     ## copy name_config.json
-    shutil.copy(os.path.join(curPath, 'temp', 'src', name, '%s_config.json'%name), 
+    shutil.copy(os.path.join(curPath, 'temp', 'src', 'app', name, '%s_config.json'%name), 
         os.path.join(curPath, 'src', 'app', name, '%s_config.json'%name))
     gameConfig['packageVersion'] = True
     packageJson = json.dumps(gameConfig, encoding = 'utf8')
