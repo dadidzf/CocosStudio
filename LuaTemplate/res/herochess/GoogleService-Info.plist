@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>567922992853-fpv0he1dn1l00k30pk28cnusu4t7g9ei.apps.googleusercontent.com</string>
+	<string>820347766422-hmeb52aic2guu9ffegre6m4lpns0jgsd.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.567922992853-fpv0he1dn1l00k30pk28cnusu4t7g9ei</string>
+	<string>com.googleusercontent.apps.820347766422-hmeb52aic2guu9ffegre6m4lpns0jgsd</string>
 	<key>API_KEY</key>
-	<string>AIzaSyC9-0QdHxZ1u_b0BDDP2Xm9SE9E0F1DEcQ</string>
+	<string>AIzaSyAD3mpaYeZRXDgN_SDOWZUODS1rIejE4mU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>567922992853</string>
+	<string>820347766422</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.yongwuart.herochess</string>
+	<string>cn.herofight.herochess</string>
 	<key>PROJECT_ID</key>
-	<string>hero-chess</string>
+	<string>herochess-f6ec4</string>
 	<key>STORAGE_BUCKET</key>
-	<string>hero-chess.appspot.com</string>
+	<string>herochess-f6ec4.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:567922992853:ios:5c4af4174cd3338e</string>
+	<string>1:820347766422:ios:54bf3c0c520f3e62</string>
 	<key>DATABASE_URL</key>
-	<string>https://hero-chess.firebaseio.com</string>
+	<string>https://herochess-f6ec4.firebaseio.com</string>
 </dict>
 </plist>

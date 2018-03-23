@@ -14,8 +14,13 @@
 		15A8A4881834C90F00142BE0 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A8A4871834C90E00142BE0 /* libcurl.dylib */; };
 		16E0F6C8CF5695E572B2D2C4 /* libPods-LuaTemplate-desktop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A1A901BBE5436195D8BB4A /* libPods-LuaTemplate-desktop.a */; };
 		1AF4C403178663F200122817 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C402178663F200122817 /* libz.dylib */; };
+		1EACFA482BE5155372AD91D4 /* libPods-LuaTemplate-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB304189848B3E6AAC308544 /* libPods-LuaTemplate-mobile.a */; };
 		2927B5F01E9D0373001985D9 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2927B5EF1E9D0373001985D9 /* GameController.framework */; };
 		294D0D721D0D572600F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D711D0D572600F7F5D4 /* CoreText.framework */; };
+		295AE4072063DC6100429055 /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 295AE4052063DC6100429055 /* WXApiManager.m */; };
+		295AE40A2063DE5000429055 /* WXApiRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 295AE4092063DE4F00429055 /* WXApiRequestHandler.m */; };
+		295AE40D2063DFC300429055 /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 295AE40B2063DFC300429055 /* SendMessageToWXReq+requestWithTextOrMediaMessage.m */; };
+		295AE4102063E00E00429055 /* SendMsgToWeChatViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 295AE40E2063E00E00429055 /* SendMsgToWeChatViewController.mm */; };
 		2993775D1FB0ADA6001E8E27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2993775C1FB0ADA6001E8E27 /* Images.xcassets */; };
 		2996AD771F289E5A001A34B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2996AD791F289E5A001A34B2 /* InfoPlist.strings */; };
 		29B40A271EFE0EE600238ACB /* lua_binding_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A1E1EFE0EE600238ACB /* lua_binding_manual.cpp */; };
@@ -189,6 +194,15 @@
 		2927B5EF1E9D0373001985D9 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		29399F4D1E9A1EF9003D5267 /* libGoogleToolboxForMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleToolboxForMac.a; path = "Pods/../build/Debug-iphoneos/GoogleToolboxForMac/libGoogleToolboxForMac.a"; sourceTree = "<group>"; };
 		294D0D711D0D572600F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		295AE4052063DC6100429055 /* WXApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiManager.m; sourceTree = "<group>"; };
+		295AE4062063DC6100429055 /* WXApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiManager.h; sourceTree = "<group>"; };
+		295AE4082063DE4F00429055 /* WXApiRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiRequestHandler.h; sourceTree = "<group>"; };
+		295AE4092063DE4F00429055 /* WXApiRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiRequestHandler.m; sourceTree = "<group>"; };
+		295AE40B2063DFC300429055 /* SendMessageToWXReq+requestWithTextOrMediaMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SendMessageToWXReq+requestWithTextOrMediaMessage.m"; sourceTree = "<group>"; };
+		295AE40C2063DFC300429055 /* SendMessageToWXReq+requestWithTextOrMediaMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SendMessageToWXReq+requestWithTextOrMediaMessage.h"; sourceTree = "<group>"; };
+		295AE40E2063E00E00429055 /* SendMsgToWeChatViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SendMsgToWeChatViewController.mm; sourceTree = "<group>"; };
+		295AE40F2063E00E00429055 /* SendMsgToWeChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMsgToWeChatViewController.h; sourceTree = "<group>"; };
+		295AE4122064736600429055 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		2993775C1FB0ADA6001E8E27 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "LuaTemplate-mobile/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		2996AD781F289E5A001A34B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		2996AD7A1F289E62001A34B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -328,6 +342,7 @@
 				F293B3D515EB7BE500256477 /* AVFoundation.framework in Frameworks */,
 				F293B3D915EB7BE500256477 /* Foundation.framework in Frameworks */,
 				F293B3DB15EB7BE500256477 /* CoreGraphics.framework in Frameworks */,
+				1EACFA482BE5155372AD91D4 /* libPods-LuaTemplate-mobile.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +357,21 @@
 				29DF4BC91E618D2F00E99001 /* libcocos2d tvOS.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		295AE4022063DC0000429055 /* WX */ = {
+			isa = PBXGroup;
+			children = (
+				295AE40F2063E00E00429055 /* SendMsgToWeChatViewController.h */,
+				295AE40E2063E00E00429055 /* SendMsgToWeChatViewController.mm */,
+				295AE40C2063DFC300429055 /* SendMessageToWXReq+requestWithTextOrMediaMessage.h */,
+				295AE40B2063DFC300429055 /* SendMessageToWXReq+requestWithTextOrMediaMessage.m */,
+				295AE4082063DE4F00429055 /* WXApiRequestHandler.h */,
+				295AE4092063DE4F00429055 /* WXApiRequestHandler.m */,
+				295AE4062063DC6100429055 /* WXApiManager.h */,
+				295AE4052063DC6100429055 /* WXApiManager.m */,
+			);
+			path = WX;
 			sourceTree = "<group>";
 		};
 		29B40A191EFE0EE600238ACB /* LuaUserBindings */ = {
@@ -397,6 +427,8 @@
 		5023810617EBBCAC00990C9B /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				295AE4122064736600429055 /* Constant.h */,
+				295AE4022063DC0000429055 /* WX */,
 				29C1B7331EAC9C4100813C76 /* Tools */,
 				29D2314F1EA3993C009ED9CF /* Ads */,
 				29B95D1F1E9E59DC00567316 /* GoogleService-Info.plist */,
@@ -884,18 +916,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				295AE40A2063DE5000429055 /* WXApiRequestHandler.m in Sources */,
 				29B40A281EFE0EE600238ACB /* lua_scripting_auto.cpp in Sources */,
 				29B40A2F1EFE0EFB00238ACB /* YWCsvparser.cpp in Sources */,
 				29B40A271EFE0EE600238ACB /* lua_binding_manual.cpp in Sources */,
+				295AE4072063DC6100429055 /* WXApiManager.m in Sources */,
 				29D231521EA3993C009ED9CF /* AdmobController.mm in Sources */,
 				5023812517EBBCAC00990C9B /* RootViewController.mm in Sources */,
 				F293BB9C15EB831F00256477 /* AppDelegate.cpp in Sources */,
 				29B40A291EFE0EE600238ACB /* LuaCustomConversions.cpp in Sources */,
 				5023812417EBBCAC00990C9B /* main.m in Sources */,
 				29BE40791F75603100AB2603 /* ActionMore.cpp in Sources */,
+				295AE40D2063DFC300429055 /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */,
 				29BB9CEA1F0CE69C00F3240B /* Triangulate.cpp in Sources */,
 				5023811817EBBCAC00990C9B /* AppController.mm in Sources */,
 				29B40A301EFE0EFB00238ACB /* YWStrUtil.cpp in Sources */,
+				295AE4102063E00E00429055 /* SendMsgToWeChatViewController.mm in Sources */,
 				29C5BE641EBD824D00774F6A /* GameCenterHelper.mm in Sources */,
 				29C1B7361EAC9C4100813C76 /* ToolsController.mm in Sources */,
 			);
@@ -1139,11 +1175,11 @@
 					"$(inherited)",
 				);
 				"OTHER_LDFLAGS[sdk=iphonesimulator*][arch=x86_64]" = (
-					"$(inherited)",
 					"-pagezero_size",
 					10000,
 					"-image_base",
 					100000000,
+					"$(inherited)",
 				);
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

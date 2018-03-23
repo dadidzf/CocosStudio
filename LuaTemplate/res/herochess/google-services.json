@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "567922992853",
-    "firebase_url": "https://hero-chess.firebaseio.com",
-    "project_id": "hero-chess",
-    "storage_bucket": "hero-chess.appspot.com"
+    "project_number": "820347766422",
+    "firebase_url": "https://herochess-f6ec4.firebaseio.com",
+    "project_id": "herochess-f6ec4",
+    "storage_bucket": "herochess-f6ec4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:567922992853:android:5c4af4174cd3338e",
+        "mobilesdk_app_id": "1:820347766422:android:54bf3c0c520f3e62",
         "android_client_info": {
-          "package_name": "com.yongwuart.herochess"
+          "package_name": "cn.herofight.herochess"
         }
       },
       "oauth_client": [
         {
-          "client_id": "567922992853-v93qk48ec86nhkqklqovnj2lmhu2ta9f.apps.googleusercontent.com",
+          "client_id": "820347766422-o9tn2uj6sk1e4h649rp90dtf0b9smv6f.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCpM6beh6XT72LoITOcH5BEnPjFo55P--g"
+          "current_key": "AIzaSyCLMi8zgQm2D2Ov-bmMT-df_3ntmZ0bRe8"
         }
       ],
       "services": {

@@ -8,5 +8,6 @@ _M.Billing = import(".Billing")
 _M.CsvUtil = import(".CsvUtil")
 _M.BindingUtil = import(".BindingUtil")
 _M.ScreenShake = import(".ScreenShake")
+_M.WX= import(".WX")
 
 return _M

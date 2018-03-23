@@ -30,6 +30,8 @@
 #import "Ads/AdmobController.h"
 #import "Tools/ToolsController.h"
 #import "Tools/GameCenterHelper.h"
+#import "WX/SendMsgToWeChatViewController.h"
+#import "Constant.h"
 
 @implementation RootViewController
 
@@ -66,10 +68,16 @@
     [super viewDidLoad];
     [[AdmobController getInstance] setRootViewController:self];
     [[ToolsController getInstance] setRootViewController:self];
-    [[GameCenterDelegate getInstance] setRootViewController:self];
+    [[SendMsgToWeChatViewController getInstance] setViewController:self];
+    
+    if ([DevMode isEqualToString:@"APP_STORE"])
+    {
+        [[GameCenterDelegate getInstance] setRootViewController:self];
+    }
     
     _billingFunctionId = 0;
     [SVProgressHUD setViewForExtension:self.view];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {

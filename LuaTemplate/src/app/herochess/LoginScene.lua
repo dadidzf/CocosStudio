@@ -41,9 +41,9 @@ function LoginScene:initUI()
     self.m_txtPassword = self:createTextField("用户密码(仅限6位数字)")
     self.m_bgPassWord:addChild(self.m_txtPassword)
 
-    self.m_willShowWechatLogin = false
-
+    self.m_willShowWechatLogin = true
     self:loadRecordedInfo()
+    self:showPanel()
 end
 
 function LoginScene:loadRecordedInfo()
@@ -66,11 +66,8 @@ function LoginScene:initRegisterStatus()
 end
 
 function LoginScene:showPanel()
-    if self.m_willShowWechatLogin then
-        self.m_panelWechat:setVisible(true)
-    else
-        self.m_panelRegister:setVisible(true)
-    end
+    self.m_panelWechat:setVisible(self.m_willShowWechatLogin)
+    self.m_panelRegister:setVisible(not self.m_willShowWechatLogin)
 end
 
 function LoginScene:onRegister()
@@ -130,6 +127,12 @@ function LoginScene:onCheckBoxAgreement()
 end
 
 function LoginScene:onWechat()
+    cc.load("sdk").WX.getInstance():auth(function (isSuccess, code)
+        if isSuccess then
+        else
+            -- do nothing
+        end
+    end)
 end
 
 function LoginScene:onAgreement()

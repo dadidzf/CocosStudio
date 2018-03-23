@@ -28,6 +28,9 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 #import "Firebase.h"
+#import "WX/WXApiManager.h"
+#import "WX/SendMsgToWeChatViewController.h"
+#import "Constant.h"
 
 @implementation AppController
 
@@ -70,6 +73,7 @@ static AppDelegate s_sharedApplication;
         [window setRootViewController:_viewController];
     }
 
+    [self initWX];
     [window makeKeyAndVisible];
 
     [[UIApplication sharedApplication] setStatusBarHidden:true];
@@ -84,6 +88,23 @@ static AppDelegate s_sharedApplication;
     return YES;
 }
 
+- (void)initWX
+{
+    [WXApi startLogByLevel:WXLogLevelNormal logBlock:^(NSString *log) {
+        NSLog(@"log : %@", log);
+    }];
+    
+    //向微信注册
+    [WXApi registerApp:wxAppId enableMTA:YES];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return  [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*
