@@ -21,4 +21,9 @@
 -- @field [parent=#dd] CircleBy#CircleBy CircleBy preloaded module
 
 
+--------------------------------------------------------
+-- the dd YWPlatform
+-- @field [parent=#dd] YWPlatform#YWPlatform YWPlatform preloaded module
+
+
 return nil

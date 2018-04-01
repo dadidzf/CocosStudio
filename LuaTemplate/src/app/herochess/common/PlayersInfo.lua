@@ -1,13 +1,60 @@
 local PlayersInfo = class("PlayersInfo")
 
 function PlayersInfo:ctor()
-    self.accountMapPlayerInfoList = {}
+    self.m_accountMapPlayerInfoList = {}
+    self.m_accountMapInfoCallBackList = {}
+    self.m_accountMapHeadImgPath = {}
+
+    self.m_headImgsDir = dd.WritablePath..'HeadImgs/'
+
+    if not dd.fileUtils:isDirectoryExist(self.m_headImgsDir) then
+        dd.fileUtils:createDirectory(self.m_headImgsDir)
+    end
+
+    dd.NetworkClient:register("system.get_user_info", handler(self, self.onUserInfo))
+end
+
+function PlayersInfo:onUserInfo(info)
+    self:addPlayerInfo(info)
+    if self.m_accountMapInfoCallBackList[info.account] then
+        self.m_accountMapInfoCallBackList[info.account](info)
+    end
 end
 
 function PlayersInfo:initMyInfo(info)
-    dump(info, "......")
     self.m_myInfo = info
-    self.accountMapPlayerInfoList[info.account] = info
+    self:addPlayerInfo(info)
+end
+
+function PlayersInfo:addPlayerInfo(info)
+    self.m_accountMapPlayerInfoList[info.account] = info
+    if string.sub(info.headimgurl, 1, 6) == "system" then
+        self.m_accountMapHeadImgPath[account] = info.headimgurl
+    else
+        self:downloadHeadImg(info)
+    end
+end
+
+function PlayersInfo:downloadHeadImg(info, callBack)
+    local headFileName = self.m_headImgsDir ..  dd.YWPlatform:getStringMD5(info.headimgurl) .. ".jpg"
+    if not dd.fileUtils:isFileExist(headFileName) then
+        cc.load("http").Downloader.downloadFile(
+            info.headimgurl,
+            headFileName,
+            function (result)
+                if result then
+                    print("down load headimg succes", info.headimgurl) 
+                    self.m_accountMapHeadImgPath[info.account] = headFileName
+
+                    if callBack then
+                        callBack(headFileName)
+                    end
+                end
+            end
+        )
+    else
+        self.m_accountMapHeadImgPath[info.account] = headFileName
+    end
 end
 
 function PlayersInfo:getMyInfo()
@@ -15,12 +62,24 @@ function PlayersInfo:getMyInfo()
 end
 
 function PlayersInfo:getInfoByAccount(account, callBack)
-    if self.accountMapPlayerInfoList[account] then
-        callBack(clone(self.accountMapPlayerInfoList[account]))
+    if self.m_accountMapPlayerInfoList[account] then
+        callBack(clone(self.m_accountMapPlayerInfoList[account]))
     else
-        callBack({account = account, exp = 0, golds = 0, nick_name = "To Be Done !"})
+        self.m_accountMapInfoCallBackList[account] = callBack
+        dd.NetworkClient:sendQuickMsg("system.get_user_info", {account = account})
     end
 end
 
+function PlayersInfo:getHeadImgPath(account, callBack)
+    if self.m_accountMapHeadImgPath[account] then
+        callBack(self.m_accountMapHeadImgPath[account])
+    else
+        self:getInfoByAccount(account, function (info)
+            self:downloadHeadImg(info, function (headFileName)
+                callBack(headFileName)
+            end) 
+        end)
+    end
+end
 
 return PlayersInfo

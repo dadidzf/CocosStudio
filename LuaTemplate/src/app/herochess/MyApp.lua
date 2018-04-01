@@ -22,6 +22,8 @@ end
 
 dd.NetworkClient = import(".network.Client").new()
 dd.CommonClass = {}
+dd.WritablePath = cc.FileUtils:getInstance():getWritablePath()
+
 dd.PlayersInfo = import(".common.PlayersInfo").new()
 
 dd.SceneLayerOrder = 

@@ -22,6 +22,7 @@ local function initBeforeGame()
     dd.director = cc.Director:getInstance():getScheduler()
     dd.scheduler = cc.Director:getInstance():getScheduler()
     dd.eventDispatcher = cc.Director:getInstance():getEventDispatcher()
+    dd.fileUtils = cc.FileUtils:getInstance()
 
     if not cc.load("sdk").Tools.verifyPackage() then
         print("verifyPackage Error !")

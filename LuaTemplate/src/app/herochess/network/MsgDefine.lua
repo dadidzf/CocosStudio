@@ -6,10 +6,14 @@ local _idTbl = {
     "login.register",
     "login.login_baseapp",
 
+    -- 微信登录消息
+    "login.wechat_login",
+
     -- 系统消息
     "system.update_exp",
     "system.update_golds",
     "system.game_reconnect",
+    "system.get_user_info",
 
     -- 房间消息
     "room.create_room",

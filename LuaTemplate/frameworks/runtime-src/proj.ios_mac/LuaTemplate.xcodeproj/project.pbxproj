@@ -23,6 +23,9 @@
 		295AE4102063E00E00429055 /* SendMsgToWeChatViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 295AE40E2063E00E00429055 /* SendMsgToWeChatViewController.mm */; };
 		2993775D1FB0ADA6001E8E27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2993775C1FB0ADA6001E8E27 /* Images.xcassets */; };
 		2996AD771F289E5A001A34B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2996AD791F289E5A001A34B2 /* InfoPlist.strings */; };
+		29A3E15E206F2A270073B304 /* YWPlatformAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29A3E15B206F2A270073B304 /* YWPlatformAPI.mm */; };
+		29A3E163206F2A770073B304 /* YWPlatform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29A3E160206F2A770073B304 /* YWPlatform.cpp */; };
+		29A3E166206F4C250073B304 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A3E165206F4C250073B304 /* Reachability.m */; };
 		29B40A271EFE0EE600238ACB /* lua_binding_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A1E1EFE0EE600238ACB /* lua_binding_manual.cpp */; };
 		29B40A281EFE0EE600238ACB /* lua_scripting_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A201EFE0EE600238ACB /* lua_scripting_auto.cpp */; };
 		29B40A291EFE0EE600238ACB /* LuaCustomConversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29B40A221EFE0EE600238ACB /* LuaCustomConversions.cpp */; };
@@ -207,6 +210,12 @@
 		2996AD781F289E5A001A34B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		2996AD7A1F289E62001A34B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2996AD7B1F289F0A001A34B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		29A3E15B206F2A270073B304 /* YWPlatformAPI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YWPlatformAPI.mm; sourceTree = "<group>"; };
+		29A3E160206F2A770073B304 /* YWPlatform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YWPlatform.cpp; sourceTree = "<group>"; };
+		29A3E161206F2A770073B304 /* YWPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWPlatform.h; sourceTree = "<group>"; };
+		29A3E162206F2A770073B304 /* YWPlatformAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWPlatformAPI.h; sourceTree = "<group>"; };
+		29A3E164206F4C250073B304 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		29A3E165206F4C250073B304 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		29B0F0AE1EA30A1F0060750C /* libPods-LuaTemplate-mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-LuaTemplate-mobile.a"; path = "Build/Products/Debug-iphonesimulator/libPods-LuaTemplate-mobile.a"; sourceTree = "<group>"; };
 		29B0F0B61EA34CEA0060750C /* libPods-LuaTemplate-mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-LuaTemplate-mobile.a"; path = "Build/Products/Debug-iphoneos/libPods-LuaTemplate-mobile.a"; sourceTree = "<group>"; };
 		29B40A1E1EFE0EE600238ACB /* lua_binding_manual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_binding_manual.cpp; sourceTree = "<group>"; };
@@ -374,6 +383,17 @@
 			path = WX;
 			sourceTree = "<group>";
 		};
+		29A3E15F206F2A770073B304 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				29A3E160206F2A770073B304 /* YWPlatform.cpp */,
+				29A3E161206F2A770073B304 /* YWPlatform.h */,
+				29A3E162206F2A770073B304 /* YWPlatformAPI.h */,
+			);
+			name = Platform;
+			path = ../Classes/Platform;
+			sourceTree = "<group>";
+		};
 		29B40A191EFE0EE600238ACB /* LuaUserBindings */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +456,9 @@
 				29B986591FB04A620040EB56 /* LaunchScreenBackground.png */,
 				5023810717EBBCAC00990C9B /* AppController.h */,
 				5023810817EBBCAC00990C9B /* AppController.mm */,
+				29A3E164206F4C250073B304 /* Reachability.h */,
+				29A3E165206F4C250073B304 /* Reachability.m */,
+				29A3E15B206F2A270073B304 /* YWPlatformAPI.mm */,
 				5091734A17ECE18300D62437 /* Icons */,
 				5023811317EBBCAC00990C9B /* Info.plist */,
 				2996AD791F289E5A001A34B2 /* InfoPlist.strings */,
@@ -575,6 +598,7 @@
 		F293BB7C15EB830F00256477 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				29A3E15F206F2A770073B304 /* Platform */,
 				29B40A2A1EFE0EFB00238ACB /* Utils */,
 				29B40A191EFE0EE600238ACB /* LuaUserBindings */,
 				15427CE2198F237300DC375D /* lua_module_register.h */,
@@ -922,8 +946,11 @@
 				29B40A271EFE0EE600238ACB /* lua_binding_manual.cpp in Sources */,
 				295AE4072063DC6100429055 /* WXApiManager.m in Sources */,
 				29D231521EA3993C009ED9CF /* AdmobController.mm in Sources */,
+				29A3E15E206F2A270073B304 /* YWPlatformAPI.mm in Sources */,
 				5023812517EBBCAC00990C9B /* RootViewController.mm in Sources */,
+				29A3E163206F2A770073B304 /* YWPlatform.cpp in Sources */,
 				F293BB9C15EB831F00256477 /* AppDelegate.cpp in Sources */,
+				29A3E166206F4C250073B304 /* Reachability.m in Sources */,
 				29B40A291EFE0EE600238ACB /* LuaCustomConversions.cpp in Sources */,
 				5023812417EBBCAC00990C9B /* main.m in Sources */,
 				29BE40791F75603100AB2603 /* ActionMore.cpp in Sources */,
@@ -1158,6 +1185,7 @@
 					"$(SRCROOT)/../Classes/protobuf-lite",
 					"$(SRCROOT)/../Classes",
 					"$(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib",
+					"$(SRCROOT)/../../cocos2d-x/cocos/scripting/lua-bindings/manual",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
@@ -1214,6 +1242,7 @@
 					"$(SRCROOT)/../Classes/protobuf-lite",
 					"$(SRCROOT)/../Classes",
 					"$(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib",
+					"$(SRCROOT)/../../cocos2d-x/cocos/scripting/lua-bindings/manual",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = ios/Info.plist;

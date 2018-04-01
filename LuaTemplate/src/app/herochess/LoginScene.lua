@@ -104,13 +104,12 @@ function LoginScene:onLogin()
         local passwd = self.m_txtPassword:getText()
         dd.NetworkClient:sendBlockMsg("login.login", {username = userName, passwd = passwd}, function ( ... )
             local ret = ...
-            dump(...)
             if ret.errmsg then
                 print(ret.errmsg)
             else
                 dd.NetworkClient:close()
                 dd.NetworkClient:connect(ret.ip, ret.port)
-                dd.NetworkClient:sendBlockMsg("login.login_baseapp", {account = ret.user.account, username = userName, token = "token"}, function (info)
+                dd.NetworkClient:sendBlockMsg("login.login_baseapp", {account = ret.account, token = ret.token}, function (info)
                     self:recordInfo(userName, passwd)
                     dd.PlayersInfo:initMyInfo(info.info)
 
@@ -129,6 +128,26 @@ end
 function LoginScene:onWechat()
     cc.load("sdk").WX.getInstance():auth(function (isSuccess, code)
         if isSuccess then
+            dd.NetworkClient:sendBlockMsg("login.wechat_login", {code = code}, function (ret)
+                if ret.errmsg then
+                    print(ret.errmsg)
+                else
+                    dump(ret)
+                    dd.NetworkClient:close()
+                    dd.NetworkClient:connect(ret.ip, ret.port)
+                    dd.NetworkClient:sendBlockMsg("login.login_baseapp", {account = ret.account, token = ret.token}, function (info)
+                        dump(info)
+                        if info.errmsg then
+                            print(info.errmsg)
+                        else
+                            dd.PlayersInfo:initMyInfo(info)
+
+                            local mainScene = MainScene:create()
+                            mainScene:showWithScene()
+                        end
+                    end)
+                end
+            end)
         else
             -- do nothing
         end

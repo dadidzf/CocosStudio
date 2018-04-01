@@ -113,4 +113,16 @@ function Tools.btnScaleAction(btn, scale1, scale2)
     return self
 end
 
+function Tools.scaleSpriteToBox(sprite, box)
+    local sizeToScale
+    if iskindof(box, "cc.Node") then
+        sizeToScale = box:getContentSize()
+    else
+        sizeToScale = box
+    end
+
+    local spriteSize = sprite:getContentSize()
+    sprite:setScale(sizeToScale.width/spriteSize.width, sizeToScale.height/spriteSize.height)
+end
+
 return Tools

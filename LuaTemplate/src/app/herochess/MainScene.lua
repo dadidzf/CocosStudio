@@ -1,17 +1,31 @@
 local MainScene = class("MainScene", cc.load("mvc").ViewBase)
 local InputRoomNumber = import ".common.InputRoomNumber"
 local PdkScene = import ".pdk.PdkScene"
+local PlayersInfo = import ".common.PlayersInfo"
 
 MainScene.RESOURCE_FILENAME = "MainScene.csb"
 MainScene.RESOURCE_BINDING = {
 	["button_create_room"] = {varname = "m_btnCreateRoom", events = {{ event = "click", method = "onCreateRoom" }}},
 	["button_join_room"] = {varname = "m_btnJoinRoom", events = {{ event = "click", method = "onJoinRoom" }}},
+	["herochess_other_uimg_bg_5"] = {varname = "m_imgBgHead"}
 }
 
 function MainScene:onCreate()
     local resourceNode = self:getResourceNode()
     resourceNode:setContentSize(display.size)
     ccui.Helper:doLayout(resourceNode)
+
+    self.m_myInfo = dd.PlayersInfo:getMyInfo()
+    dd.PlayersInfo:getHeadImgPath(self.m_myInfo.account, function (headFile)
+    	print("xxx -", headFile)
+    	if not tolua.isnull(self.m_imgBgHead) then
+    		local bgSize = self.m_imgBgHead:getContentSize()
+			local headImg = ccui.ImageView:create(headFile)	
+				:move(bgSize.width/2, bgSize.height/2)
+				:addTo(self.m_imgBgHead, -1)
+			cc.load("sdk").Tools.scaleSpriteToBox(headImg, bgSize)
+		end
+    end)
 end
 
 function MainScene:onCreateRoom()
