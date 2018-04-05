@@ -62,6 +62,7 @@ PdkScene._LOCAL_SEATS = {
 
 
 function PdkScene:ctor(roomInfo)
+    dump(roomInfo)
     self.super.ctor(self)
 
     self.m_roomInfo = roomInfo
@@ -111,9 +112,6 @@ function PdkScene:updateLocalSeats()
             self.m_serverSeatMapLocalSeat[serverSeat] = i
         end
 
-        dump(self.m_localSeatMapServerSeat)
-        dump(self.m_serverSeatMapLocalSeat)
-
         local player_list = self.m_roomInfo.player_list
         for serverSeat = 1, 3 do
             local player = player_list[serverSeat]
@@ -122,12 +120,18 @@ function PdkScene:updateLocalSeats()
                 self.m_accountMapLocalSeat[player.account] = localSeat
                 dd.PlayersInfo:getInfoByAccount(player.account, function (info)
                     self.m_localSeatMapPlayerInfo[localSeat] = info
+                    self:updateBeforeGameDisplay()
                 end)
             end
         end
     else
         assert(false)
     end
+
+    -- dump(self.m_localSeatMapServerSeat)
+    -- dump(self.m_serverSeatMapLocalSeat)
+    -- dump(self.m_localSeatMapPlayerInfo)
+    -- dump(self.m_accountMapLocalSeat)
 end
 
 function PdkScene:initUI()
@@ -136,11 +140,12 @@ function PdkScene:initUI()
     ccui.Helper:doLayout(resourceNode)
 
     self:resetDisplay()
-    self:updateBeforeGameDisplay()
+    self:updateLocalSeats()
 
     self.m_txtRoomNumber:setString("房间号:"..tostring(self.m_roomInfo.room_id))
     print("PdkScene:initUI", self.m_myInfo.nick_name)
     self.m_txtNickNameMine:setString(self.m_myInfo.nick_name)
+    self:showHeadImg(self.m_bgHeadMine, self.m_myInfo)
 end
 
 function PdkScene:resetDisplay()
@@ -172,8 +177,6 @@ function PdkScene:resetDisplay()
 end
 
 function PdkScene:updateBeforeGameDisplay()
-    self:updateLocalSeats()
-
     local leftPlayer = self.m_roomInfo.player_list[self.m_localSeatMapServerSeat[self._LOCAL_SEATS.LEFT]]
     local rightPlayer = self.m_roomInfo.player_list[self.m_localSeatMapServerSeat[self._LOCAL_SEATS.RIGHT]]
     local leftAccount = leftPlayer and leftPlayer.account
@@ -182,10 +185,12 @@ function PdkScene:updateBeforeGameDisplay()
     local rightPlayerInfo = self.m_localSeatMapPlayerInfo[self._LOCAL_SEATS.RIGHT]
 
     self.m_bgHeadLeft:setVisible(leftPlayerInfo ~= nil)
+    self:showHeadImg(self.m_bgHeadLeft, leftPlayerInfo)
     self.m_btnInviteLeft:setVisible(leftPlayerInfo == nil)
     self.m_txtNickNameLeft:setString(leftPlayerInfo and leftPlayerInfo.nick_name)
 
     self.m_bgHeadRight:setVisible(rightPlayerInfo ~= nil) 
+    self:showHeadImg(self.m_bgHeadRight, rightPlayerInfo)
     self.m_btnInviteRight:setVisible(rightPlayerInfo == nil)
     self.m_txtNickNameRight:setString(rightPlayerInfo and rightPlayerInfo.nick_name)
 
@@ -197,6 +202,27 @@ function PdkScene:updateBeforeGameDisplay()
     self.m_btnReady:setVisible(not ready_list[self.m_myAccount])
 
     self.m_btnInviteMine:setVisible(#self.m_roomInfo.player_list < 3)
+end
+
+function PdkScene:showHeadImg(bg, playerInfo)
+    print("PdkScene:showHeadImg - 1")
+    if bg and playerInfo and bg:isVisible() then
+        print("PdkScene:showHeadImg - 2")
+        if bg:getChildByName("headimg") then
+            bg:removeChildByName("headimg")
+        end
+        dd.PlayersInfo:getHeadImgPath(playerInfo, function (headFile)
+        print("PdkScene:showHeadImg - 3")
+            if not tolua.isnull(bg) then
+                local bgSize = bg:getContentSize()
+                local headImg = ccui.ImageView:create(headFile) 
+                    :move(bgSize.width/2, bgSize.height/2)
+                    :setName("headimg")
+                bg:addChild(headImg, -1)
+                cc.load("sdk").Tools.scaleSpriteToBox(headImg, bgSize)
+            end
+        end)
+    end
 end
 
 function PdkScene:updateOutCardBtnStatus()

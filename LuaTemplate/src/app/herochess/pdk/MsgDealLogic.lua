@@ -13,20 +13,20 @@ end
 
 function MsgDealLogic:msgUserReady(roomInfo)
     self.m_gameScene:updateRoomInfo(roomInfo)
-    self.m_gameScene:updateBeforeGameDisplay()
+    self.m_gameScene:updateLocalSeats()
 end
 
 function MsgDealLogic:msgUserExit(roomInfo)
     self.m_gameScene:updateRoomInfo(roomInfo)
     if self.m_gameScene:getGameStatus() == self.m_gameScene._GAME_STATUS.BEFORE_GAME then
-        self.m_gameScene:updateBeforeGameDisplay()
+        self.m_gameScene:updateLocalSeats()
     end
 end
 
 function MsgDealLogic:msgUserEnter(roomInfo)
     self.m_gameScene:updateRoomInfo(roomInfo)
     if self.m_gameScene:getGameStatus() == self.m_gameScene._GAME_STATUS.BEFORE_GAME then
-        self.m_gameScene:updateBeforeGameDisplay()
+        self.m_gameScene:updateLocalSeats()
     end
 end
 

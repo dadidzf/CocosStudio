@@ -2,22 +2,12 @@ local PlayersInfo = class("PlayersInfo")
 
 function PlayersInfo:ctor()
     self.m_accountMapPlayerInfoList = {}
-    self.m_accountMapInfoCallBackList = {}
     self.m_accountMapHeadImgPath = {}
 
     self.m_headImgsDir = dd.WritablePath..'HeadImgs/'
 
     if not dd.fileUtils:isDirectoryExist(self.m_headImgsDir) then
         dd.fileUtils:createDirectory(self.m_headImgsDir)
-    end
-
-    dd.NetworkClient:register("system.get_user_info", handler(self, self.onUserInfo))
-end
-
-function PlayersInfo:onUserInfo(info)
-    self:addPlayerInfo(info)
-    if self.m_accountMapInfoCallBackList[info.account] then
-        self.m_accountMapInfoCallBackList[info.account](info)
     end
 end
 
@@ -30,8 +20,6 @@ function PlayersInfo:addPlayerInfo(info)
     self.m_accountMapPlayerInfoList[info.account] = info
     if string.sub(info.headimgurl, 1, 6) == "system" then
         self.m_accountMapHeadImgPath[account] = info.headimgurl
-    else
-        self:downloadHeadImg(info)
     end
 end
 
@@ -46,14 +34,13 @@ function PlayersInfo:downloadHeadImg(info, callBack)
                     print("down load headimg succes", info.headimgurl) 
                     self.m_accountMapHeadImgPath[info.account] = headFileName
 
-                    if callBack then
-                        callBack(headFileName)
-                    end
+                    callBack(headFileName)
                 end
             end
         )
     else
         self.m_accountMapHeadImgPath[info.account] = headFileName
+        callBack(headFileName)
     end
 end
 
@@ -65,20 +52,19 @@ function PlayersInfo:getInfoByAccount(account, callBack)
     if self.m_accountMapPlayerInfoList[account] then
         callBack(clone(self.m_accountMapPlayerInfoList[account]))
     else
-        self.m_accountMapInfoCallBackList[account] = callBack
-        dd.NetworkClient:sendQuickMsg("system.get_user_info", {account = account})
+        dd.NetworkClient:sendBlockMsg("system.get_user_info", {account = account}, function (info)
+            self:addPlayerInfo(info)
+            callBack(clone(self.m_accountMapPlayerInfoList[account]))
+        end)
     end
 end
 
-function PlayersInfo:getHeadImgPath(account, callBack)
+function PlayersInfo:getHeadImgPath(playerInfo, callBack)
+    local account = playerInfo.account
     if self.m_accountMapHeadImgPath[account] then
         callBack(self.m_accountMapHeadImgPath[account])
     else
-        self:getInfoByAccount(account, function (info)
-            self:downloadHeadImg(info, function (headFileName)
-                callBack(headFileName)
-            end) 
-        end)
+        self:downloadHeadImg(playerInfo, callBack)
     end
 end
 

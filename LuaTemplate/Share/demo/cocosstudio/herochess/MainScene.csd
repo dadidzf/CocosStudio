@@ -28,7 +28,7 @@
             <FileData Type="PlistSubImage" Path="herochess_lobby_TopLogo_Di.png" Plist="herochess/gui.plist" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="button_join_room" ActionTag="134200560" Tag="199" IconVisible="False" LeftMargin="787.0079" RightMargin="253.9922" TopMargin="243.2716" BottomMargin="203.7284" TouchEnable="True" FontSize="14" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="209" Scale9Height="251" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="button_join_room" ActionTag="134200560" Tag="199" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="787.0079" RightMargin="253.9922" TopMargin="243.2716" BottomMargin="203.7284" TouchEnable="True" FontSize="14" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="209" Scale9Height="251" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="239.0000" Y="273.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="906.5079" Y="340.2284" />
@@ -43,7 +43,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="button_create_room" ActionTag="100031557" Tag="200" IconVisible="False" LeftMargin="330.2519" RightMargin="710.7481" TopMargin="243.2716" BottomMargin="203.7284" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="209" Scale9Height="251" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="button_create_room" ActionTag="100031557" Tag="200" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="330.2519" RightMargin="710.7481" TopMargin="243.2716" BottomMargin="203.7284" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="209" Scale9Height="251" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="239.0000" Y="273.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="449.7519" Y="340.2284" />

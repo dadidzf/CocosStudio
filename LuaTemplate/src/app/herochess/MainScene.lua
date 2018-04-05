@@ -16,7 +16,7 @@ function MainScene:onCreate()
     ccui.Helper:doLayout(resourceNode)
 
     self.m_myInfo = dd.PlayersInfo:getMyInfo()
-    dd.PlayersInfo:getHeadImgPath(self.m_myInfo.account, function (headFile)
+    dd.PlayersInfo:getHeadImgPath(self.m_myInfo, function (headFile)
     	print("xxx -", headFile)
     	if not tolua.isnull(self.m_imgBgHead) then
     		local bgSize = self.m_imgBgHead:getContentSize()

@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>1064061288843-lve912gk2qin77rbbkc6bo2bgpdaeheu.apps.googleusercontent.com</string>
+	<string>820347766422-hmeb52aic2guu9ffegre6m4lpns0jgsd.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1064061288843-lve912gk2qin77rbbkc6bo2bgpdaeheu</string>
+	<string>com.googleusercontent.apps.820347766422-hmeb52aic2guu9ffegre6m4lpns0jgsd</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCbAp9wROvuBWm5ZpTaVYqEHykeEkb9dyo</string>
+	<string>AIzaSyAD3mpaYeZRXDgN_SDOWZUODS1rIejE4mU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1064061288843</string>
+	<string>820347766422</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.yongwuart.trapballs</string>
+	<string>cn.herofight.herochess</string>
 	<key>PROJECT_ID</key>
-	<string>trap-balls</string>
+	<string>herochess-f6ec4</string>
 	<key>STORAGE_BUCKET</key>
-	<string>trap-balls.appspot.com</string>
+	<string>herochess-f6ec4.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1064061288843:ios:3930df2dfb5960d9</string>
+	<string>1:820347766422:ios:54bf3c0c520f3e62</string>
 	<key>DATABASE_URL</key>
-	<string>https://trap-balls.firebaseio.com</string>
+	<string>https://herochess-f6ec4.firebaseio.com</string>
 </dict>
 </plist>

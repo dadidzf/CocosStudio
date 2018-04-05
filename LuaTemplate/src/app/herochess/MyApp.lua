@@ -31,6 +31,14 @@ dd.SceneLayerOrder =
     netMask = 1
 }
 
+dd.WXScene = {
+    WXSceneSession  = 0,
+    WXSceneTimeline = 1, 
+    WXSceneFavorite = 2
+}
+
+dd.WX = cc.load("sdk").WX.getInstance()
+
 return MyApp
 
 

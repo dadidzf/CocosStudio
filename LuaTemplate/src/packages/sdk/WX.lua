@@ -25,6 +25,7 @@ function WXIos:ctor()
 end
 
 function WXIos:auth(callBack)
+    self.super.auth(self) 
     local kAuthState = "dzf"..os.time()
     if callBack then
         _iosCallBackFunc = function (isSuccess, state, code) 
@@ -41,6 +42,28 @@ function WXIos:auth(callBack)
     }
 
     getLuaBridge().callStaticMethod("SendMsgToWeChatViewController", "sendAuthRequestLua", args)    
+end
+
+function WXIos:sendImageContent(filePath, thumbPath, scene)
+    local args = {
+        path = filePath,
+        thumbPath = thumbPath,
+        scene = scene
+    }
+
+    getLuaBridge().callStaticMethod("SendMsgToWeChatViewController", "sendImageContentLua", args)
+end
+
+function WXIos:sendLinkContent(linkURL, title, description, imgPath, scene)
+    local args = {
+        linkURL = linkURL,
+        title = title,
+        imgPath = imgPath,
+        description = description,
+        scene = scene
+    }
+
+    getLuaBridge().callStaticMethod("SendMsgToWeChatViewController", "sendLinkContentLua", args)
 end
 
 --[[

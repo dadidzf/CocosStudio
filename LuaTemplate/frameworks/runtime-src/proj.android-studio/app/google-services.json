@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "1064061288843",
-    "firebase_url": "https://trap-balls.firebaseio.com",
-    "project_id": "trap-balls",
-    "storage_bucket": "trap-balls.appspot.com"
+    "project_number": "820347766422",
+    "firebase_url": "https://herochess-f6ec4.firebaseio.com",
+    "project_id": "herochess-f6ec4",
+    "storage_bucket": "herochess-f6ec4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1064061288843:android:3930df2dfb5960d9",
+        "mobilesdk_app_id": "1:820347766422:android:54bf3c0c520f3e62",
         "android_client_info": {
-          "package_name": "com.yongwuart.trapballs"
+          "package_name": "cn.herofight.herochess"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1064061288843-jbjrhbm4lqn9rqsbbqejjs6auoe2lonu.apps.googleusercontent.com",
+          "client_id": "820347766422-o9tn2uj6sk1e4h649rp90dtf0b9smv6f.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDarkfZhvx3Pz-pCawYoUAE5vsFDMPEmuM"
+          "current_key": "AIzaSyCLMi8zgQm2D2Ov-bmMT-df_3ntmZ0bRe8"
         }
       ],
       "services": {

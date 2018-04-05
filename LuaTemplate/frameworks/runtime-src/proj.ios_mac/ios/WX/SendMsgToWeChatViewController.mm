@@ -36,9 +36,45 @@ static SendMsgToWeChatViewController* _instance = nil;
     [_instance sendAuthRequest:[dict objectForKey:@"kAuthState"]];
 }
 
++ (void)sendImageContentLua:(NSDictionary *)dict
+{
+    WXScene scene = [_instance convertIntValueToScene:[[dict objectForKey:@"scene"] intValue]];
+    [_instance sendImageContent:[dict objectForKey:@"path"]
+                               thumbPath:[dict objectForKey:@"thumbPath"]
+                               scene:scene];
+}
+
++ (void) sendLinkContentLua:(NSDictionary*) dict
+{
+    WXScene scene = [_instance convertIntValueToScene:[[dict objectForKey:@"scene"] intValue]];
+    [_instance sendLinkContent:[dict objectForKey:@"linkURL"]
+                               title:[dict objectForKey:@"title"]
+                               img:[dict objectForKey:@"imgPath"]
+                               desc:[dict objectForKey:@"description"]
+                               scene:scene];
+}
+
 /*
  *
  */
+- (WXScene) convertIntValueToScene: (int) intScene
+{
+    WXScene scene = WXSceneSession;
+    switch (intScene) {
+        case WXSceneSession:
+            scene = WXSceneSession;
+            break;
+        case WXSceneTimeline:
+            scene = WXSceneTimeline;
+            break;
+        case WXSceneFavorite:
+            scene = WXSceneFavorite;
+            break;
+    }
+    
+    return scene;
+}
+
 - (void)initCallBackFunc:(int) functionId
 {
     _functionId = functionId;
@@ -55,6 +91,34 @@ static SendMsgToWeChatViewController* _instance = nil;
                                         State: kAuthState
                                         OpenID: kAuthOpenID
                              InViewController:_viewController];
+}
+
+- (void)sendImageContent:(NSString*) path thumbPath:(NSString*) thumbPath scene:(WXScene) scene
+{
+    NSData *imageData = [NSData dataWithContentsOfFile:path];
+    
+    UIImage *thumbImage = [UIImage imageNamed:thumbPath];
+    [WXApiRequestHandler sendImageData:imageData
+                               TagName:kImageTagName
+                            MessageExt:kMessageExt
+                                Action:kMessageAction
+                            ThumbImage:thumbImage
+                               InScene:scene];
+}
+
+- (void)sendLinkContent :(NSString*)linkURL
+        title:(NSString*) title
+        img:(NSString*) imgPath
+        desc:(NSString*) description 
+        scene:(WXScene) scene
+{
+    UIImage *thumbImage = [UIImage imageNamed:imgPath];
+    [WXApiRequestHandler sendLinkURL:linkURL
+                             TagName:kLinkTagName
+                               Title:title
+                         Description:description
+                          ThumbImage:thumbImage
+                             InScene:scene];
 }
 
 #pragma mark - WXApiManagerDelegate

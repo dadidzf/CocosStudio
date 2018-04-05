@@ -16,4 +16,17 @@
                       OpenID:(NSString *)openID
             InViewController:(UIViewController *)viewController;
 
++ (BOOL)sendImageData:(NSData *)imageData
+              TagName:(NSString *)tagName
+           MessageExt:(NSString *)messageExt
+               Action:(NSString *)action
+           ThumbImage:(UIImage *)thumbImage
+              InScene:(enum WXScene)scene;
+
++ (BOOL)sendLinkURL:(NSString *)urlString
+            TagName:(NSString *)tagName
+              Title:(NSString *)title
+        Description:(NSString *)description
+         ThumbImage:(UIImage *)thumbImage
+            InScene:(enum WXScene)scene;
 @end
