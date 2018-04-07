@@ -92,8 +92,10 @@ def payNotify():
 
 trade_no_now = 0
 def getTradeNo():
+    global trade_no_now
     trade_no_now += 1
     timeNow = time.strftime('%Y%m%d%H%M%S',time.localtime(time.time())) + str(trade_no_now)
+    return timeNow
 
 
 if (const.IS_WSGI_CALL == False):
