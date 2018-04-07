@@ -39,6 +39,7 @@ import random
 import urllib2
 import hashlib
 import threading
+import logging
 from urllib import quote
 import xml.etree.ElementTree as ET
 
@@ -385,9 +386,10 @@ class UnifiedOrder_pub(Wxpay_client_pub):
         self.result = self.xmlToArray(self.response)
 
         print '----------------getPrepayId--------------------------'
-        if (self.result['return_code'] == 'SUCCESS'):
+        if (self.result['return_code'] == 'SUCCESS') and (self.result['result_code'] == 'SUCCESS'):
             return self.createRetJson(self.result['prepay_id'])
         else:
+            logging.debug(self.result)
             print self.result['return_msg']
             return 'FAIL'
 

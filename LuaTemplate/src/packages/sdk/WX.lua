@@ -70,7 +70,7 @@ end
 function WXIos:bizpay(fee)
     assert(type(fee) == "number")
     cc.load("http").Downloader.downloadData(
-        "http://192.168.0.102:5000/herochess/wxpay/unifyorder/" .. tostring(math.floor(fee)), 
+        "https://www.yongwuart.com/herochess/wxpay/unifyorder/" .. tostring(math.floor(fee)), 
             function (result, data)
                 if result then
                     getLuaBridge().callStaticMethod("SendMsgToWeChatViewController", "bizpayLua", cjson.decode(data))
