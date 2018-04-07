@@ -85,11 +85,11 @@ def unifyOrder(fee):
         print e.message
         return e.message, 400
 
-@app.route('/herochess/wxpay/notify')
+@app.route('/herochess/wxpay/notify', methods=['POST'])
 def payNotify():
     logging.debug("payNotify")
     logging.debug(request.data)
-    return  
+    logging.debug(request.form)
 
 trade_no_now = 0
 def getTradeNo():
