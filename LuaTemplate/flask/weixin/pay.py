@@ -67,7 +67,7 @@ class WxPayConf_pub(object):
 
     #=======【异步通知url设置】===================================
     #异步通知url，商户根据实际开发过程设定
-    NOTIFY_URL = "http://www.yongwuart.com/flask/herochess/wxpay/notify"
+    NOTIFY_URL = "https://www.yongwuart.com/flask/herochess/wxpay/notify"
 
     #=======【JSAPI路径设置】===================================
     #获取access_token过程中的跳转uri，通过跳转将code传入jsapi支付页面
