@@ -29,4 +29,6 @@
         Description:(NSString *)description
          ThumbImage:(UIImage *)thumbImage
             InScene:(enum WXScene)scene;
+
++ (NSString *)jumpToBizPay:(NSDictionary*) dict;
 @end

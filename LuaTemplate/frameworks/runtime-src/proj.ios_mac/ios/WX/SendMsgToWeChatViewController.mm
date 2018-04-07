@@ -54,6 +54,11 @@ static SendMsgToWeChatViewController* _instance = nil;
                                scene:scene];
 }
 
++ (void) bizpayLua:(NSDictionary*) dict
+{
+    [_instance bizPay:dict];
+}
+
 /*
  *
  */
@@ -119,6 +124,11 @@ static SendMsgToWeChatViewController* _instance = nil;
                          Description:description
                           ThumbImage:thumbImage
                              InScene:scene];
+}
+
+- (void)bizPay :(NSDictionary*) dict
+{
+    NSString *res = [WXApiRequestHandler jumpToBizPay:dict];
 }
 
 #pragma mark - WXApiManagerDelegate

@@ -1,3 +1,4 @@
+#-*-coding:utf-8 -*-
 import const
 if __name__ == '__main__':
 	const.IS_WSGI_CALL = False
@@ -6,11 +7,14 @@ else:
 	const.IS_WSGI_CALL = True
 	const.LOG_FILE = "/var/www/game/game.log"
 
-from flask import Flask, url_for, Response
 import sys
 import os
 import adsConf
 import uuid
+
+from flask import Flask, url_for, Response, request, jsonify
+from datetime import datetime, timedelta
+from weixin.pay import UnifiedOrder_pub
 
 app = Flask(__name__)
 
@@ -49,7 +53,7 @@ def get_ads_conf(packageName):
 		return strConf
 
 def _initAdsConf():
-	adsConf.init(os.path.join(sys.path[0], 'static/adsPic'))
+    adsConf.init(os.path.join(sys.path[0], 'static/adsPic'))
 
 def get_mac_address(): 
     mac=uuid.UUID(int = uuid.getnode()).hex[-12:] 
@@ -57,6 +61,35 @@ def get_mac_address():
 
 _initAdsConf()
 
+
+###############################################################################################
+#####################################  WeiXin Pay #############################################
+###############################################################################################
+
+@app.route('/herochess/wxpay/unifyorder/<int:fee>')
+def unifyOrder(fee):
+    print 'unifyOrder' + str(fee)
+    try:
+        unifiedOrder_pub = UnifiedOrder_pub()
+        unifiedOrder_pub.setParameter('out_trade_no', '123456')
+        unifiedOrder_pub.setParameter('body', '英雄棋牌-游戏充值')
+        unifiedOrder_pub.setParameter('total_fee', fee)
+        unifiedOrder_pub.setParameter('trade_type', 'APP')
+        ret = unifiedOrder_pub.getPrepayId()
+        print '-----' + ret
+        return ret
+
+    except ValueError, e:
+        print e.message
+        return e.message, 400
+
+@app.route('/herochess/wxpay/notify')
+def payNotify():
+    logging.debug("payNotify")
+    logging.debug(request.data)
+    return  
+
 if (const.IS_WSGI_CALL == False):
-	app.run(debug=True, host = '192.168.0.100')
+    print 'local running'
+    app.run(debug=True, host = '192.168.0.102')
 

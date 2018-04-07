@@ -70,4 +70,27 @@
                                                           InScene:scene];
     return [WXApi sendReq:req];
 }
+
++ (NSString *)jumpToBizPay :(NSDictionary*) dict
+{
+    if(dict != nil){
+        NSMutableString *stamp  = [dict objectForKey:@"timestamp"];
+        
+        //调起微信支付
+        PayReq* req             = [[[PayReq alloc] init]autorelease];
+        req.partnerId           = [dict objectForKey:@"partnerid"];
+        req.prepayId            = [dict objectForKey:@"prepayid"];
+        req.nonceStr            = [dict objectForKey:@"noncestr"];
+        req.timeStamp           = stamp.intValue;
+        req.package             = [dict objectForKey:@"package"];
+        req.sign                = [dict objectForKey:@"sign"];
+        [WXApi sendReq:req];
+        //日志输出
+        NSLog(@"appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",[dict objectForKey:@"appid"],req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
+        return @"";
+    }else{
+        return @"dict is null !";
+    }
+}
+
 @end
