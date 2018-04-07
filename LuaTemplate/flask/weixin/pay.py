@@ -40,6 +40,7 @@ import urllib2
 import hashlib
 import threading
 import logging
+from flask import request 
 from urllib import quote
 import xml.etree.ElementTree as ET
 
@@ -361,7 +362,8 @@ class UnifiedOrder_pub(Wxpay_client_pub):
         self.parameters["appid"] = WxPayConf_pub.APPID  #公众账号ID
         self.parameters["mch_id"] = WxPayConf_pub.MCHID  #商户号
         self.parameters["notify_url"] = WxPayConf_pub.NOTIFY_URL
-        self.parameters["spbill_create_ip"] = "127.0.0.1"  #终端ip      
+        self.parameters["spbill_create_ip"] = request.remote_addr
+        logging.debug("remote ip addr", request.remote_addr)
         self.parameters["nonce_str"] = self.createNoncestr()  #随机字符串
         self.parameters["sign"] = self.getSign(self.parameters)  #签名
         print(self.parameters)
@@ -628,7 +630,6 @@ def test():
     assert c.get("http://www.baidu.com")[:15] == "<!DOCTYPE html>"
     c2 = HttpClient()
     assert id(c) == id(c2)
-
 
 
 if __name__ == "__main__":
