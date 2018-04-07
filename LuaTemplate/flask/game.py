@@ -90,6 +90,7 @@ def payNotify():
     logging.debug("payNotify")
     logging.debug(request.data)
     logging.debug(request.form)
+    return "OK"
 
 trade_no_now = 0
 def getTradeNo():
