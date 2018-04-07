@@ -93,6 +93,7 @@ def payNotify():
         logging.debug(request.data)
         serverPub.saveData(request.data)
         if (serverPub.checkSign()):
+            logging.debug("checkSign OK")
             serverPub.setReturnParameter("return_cde", 'SUCCESS')
             return serverPub.returnXml()
 
