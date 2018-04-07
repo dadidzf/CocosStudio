@@ -11,6 +11,7 @@ import sys
 import os
 import adsConf
 import uuid
+import time
 
 from flask import Flask, url_for, Response, request, jsonify
 from datetime import datetime, timedelta
@@ -71,7 +72,7 @@ def unifyOrder(fee):
     print 'unifyOrder' + str(fee)
     try:
         unifiedOrder_pub = UnifiedOrder_pub()
-        unifiedOrder_pub.setParameter('out_trade_no', '123456')
+        unifiedOrder_pub.setParameter('out_trade_no', getTradeNo())
         unifiedOrder_pub.setParameter('body', '英雄棋牌-游戏充值')
         unifiedOrder_pub.setParameter('total_fee', fee)
         unifiedOrder_pub.setParameter('trade_type', 'APP')
@@ -88,6 +89,12 @@ def payNotify():
     logging.debug("payNotify")
     logging.debug(request.data)
     return  
+
+trade_no_now = 0
+def getTradeNo():
+    trade_no_now += 1
+    timeNow = time.strftime('%Y%m%d%H%M%S',time.localtime(time.time())) + str(trade_no_now)
+
 
 if (const.IS_WSGI_CALL == False):
     print 'local running'
