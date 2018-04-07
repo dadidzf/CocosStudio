@@ -363,7 +363,7 @@ class UnifiedOrder_pub(Wxpay_client_pub):
         self.parameters["mch_id"] = WxPayConf_pub.MCHID  #商户号
         self.parameters["notify_url"] = WxPayConf_pub.NOTIFY_URL
         self.parameters["spbill_create_ip"] = request.remote_addr
-        logging.debug("remote ip addr", request.remote_addr)
+        logging.debug("remote ip addr---" + request.remote_addr)
         self.parameters["nonce_str"] = self.createNoncestr()  #随机字符串
         self.parameters["sign"] = self.getSign(self.parameters)  #签名
         print(self.parameters)

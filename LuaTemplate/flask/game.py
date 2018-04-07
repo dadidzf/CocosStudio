@@ -70,6 +70,7 @@ _initAdsConf()
 @app.route('/herochess/wxpay/unifyorder/<int:fee>')
 def unifyOrder(fee):
     print 'unifyOrder' + str(fee)
+    logging.debug("unifyOrder --- " + str(fee))
     try:
         unifiedOrder_pub = UnifiedOrder_pub()
         unifiedOrder_pub.setParameter('out_trade_no', getTradeNo())
