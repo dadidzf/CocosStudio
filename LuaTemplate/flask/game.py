@@ -15,7 +15,7 @@ import time
 
 from flask import Flask, url_for, Response, request, jsonify
 from datetime import datetime, timedelta
-from weixin.pay import UnifiedOrder_pub
+from weixin.pay import UnifiedOrder_pub, Wxpay_server_pub
 
 app = Flask(__name__)
 
@@ -88,9 +88,17 @@ def unifyOrder(fee):
 @app.route('/herochess/wxpay/notify', methods=['POST'])
 def payNotify():
     logging.debug("payNotify")
-    logging.debug(request.data)
-    logging.debug(request.form)
-    return "OK"
+    serverPub = Wxpay_server_pub()
+    if (request.data):
+        logging.debug(request.data)
+        serverPub.saveData(request.data)
+        if (serverPub.checkSign()):
+            serverPub.setReturnParameter("return_cde", 'SUCCESS')
+            return serverPub.returnXml()
+
+    serverPub.setReturnParameter("return_code", 'FAIL')
+    return serverPub.returnXml()
+
 
 trade_no_now = 0
 def getTradeNo():
