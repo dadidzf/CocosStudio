@@ -54,8 +54,8 @@
             <PlistImageFile Name="herochess_text_agreement.png" Key="herochess_text_agreement.png" />
           </PlistImageFolder>
           <Folder Name="pdk">
-            <Project Name="PdkScene.csd" Type="Layer" />
             <Project Name="CardSprite.csd" Type="Node" />
+            <Project Name="PdkScene.csd" Type="Layer" />
           </Folder>
           <PlistImageFolder Image="pdk.png" PListFile="pdk.plist" Name=".pdk_PList.Dir">
             <PlistImageFile Name="herochess_0_0.png" Key="herochess_0_0.png" />

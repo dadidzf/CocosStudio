@@ -15,7 +15,8 @@ import time
 
 from flask import Flask, url_for, Response, request, jsonify
 from datetime import datetime, timedelta
-from weixin.pay import UnifiedOrder_pub, Wxpay_server_pub
+from weixin.pay import Process_Pay 
+from weixin.db import MongoConn
 
 app = Flask(__name__)
 
@@ -69,44 +70,11 @@ _initAdsConf()
 
 @app.route('/herochess/wxpay/unifyorder/<int:fee>')
 def unifyOrder(fee):
-    print 'unifyOrder' + str(fee)
-    logging.debug("unifyOrder --- " + str(fee))
-    try:
-        unifiedOrder_pub = UnifiedOrder_pub()
-        unifiedOrder_pub.setParameter('out_trade_no', getTradeNo())
-        unifiedOrder_pub.setParameter('body', '英雄棋牌-游戏充值')
-        unifiedOrder_pub.setParameter('total_fee', fee)
-        unifiedOrder_pub.setParameter('trade_type', 'APP')
-        ret = unifiedOrder_pub.getPrepayId()
-        print '-----' + ret
-        return ret
-
-    except ValueError, e:
-        print e.message
-        return e.message, 400
+    return Process_Pay().pay(fee)
 
 @app.route('/herochess/wxpay/notify', methods=['POST'])
 def payNotify():
-    logging.debug("payNotify")
-    serverPub = Wxpay_server_pub()
-    if (request.data):
-        logging.debug(request.data)
-        serverPub.saveData(request.data)
-        if (serverPub.checkSign()):
-            logging.debug("checkSign OK")
-            serverPub.setReturnParameter("return_code", 'SUCCESS')
-            return serverPub.returnXml()
-
-    serverPub.setReturnParameter("return_code", 'FAIL')
-    return serverPub.returnXml()
-
-
-trade_no_now = 0
-def getTradeNo():
-    global trade_no_now
-    trade_no_now += 1
-    timeNow = time.strftime('%Y%m%d%H%M%S',time.localtime(time.time())) + str(trade_no_now)
-    return timeNow
+    return Process_Pay().notify(request.data)
 
 
 if (const.IS_WSGI_CALL == False):

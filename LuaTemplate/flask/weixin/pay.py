@@ -43,6 +43,7 @@ import logging
 from flask import request 
 from urllib import quote
 import xml.etree.ElementTree as ET
+from db import MongoConn
 
 try:
     import pycurl
@@ -624,6 +625,49 @@ class NativeLink_pub(Common_util_pub):
         self.createLink()
         return self.url
 
+trade_no_now = 0
+class Process_Pay(object):
+    def pay(self, fee):
+        print 'unifyOrder' + str(fee)
+        logging.debug("unifyOrder --- " + str(fee))
+        try:
+            unifiedOrder_pub = UnifiedOrder_pub()
+            unifiedOrder_pub.setParameter('out_trade_no', self.getTradeNo())
+            unifiedOrder_pub.setParameter('body', '英雄棋牌-游戏充值')
+            unifiedOrder_pub.setParameter('total_fee', fee)
+            unifiedOrder_pub.setParameter('trade_type', 'APP')
+            ret = unifiedOrder_pub.getPrepayId()
+            print '-----' + ret
+            return ret
+
+        except ValueError, e:
+            print e.message
+            return e.message, 400
+
+    def notify(self, data):
+        logging.debug("payNotify")
+        serverPub = Wxpay_server_pub()
+        if (data):
+            logging.debug(data)
+            if (data['return_code'] == 'SUCCESS') and (data['result_code'] == 'SUCCESS'):
+                serverPub.saveData(data)
+                if (serverPub.checkSign()):
+                    logging.debug("checkSign OK")
+                    tradeData = serverPub.getData()
+                    mongoConn = MongoConn()
+                    mongoConn.record_success_trade(tradeData)
+                    mongoConn.update_golds_for_fee(tradeData.openid, tradeData.total_fee)
+                    serverPub.setReturnParameter("return_code", 'SUCCESS')
+                    return serverPub.returnXml()
+
+        serverPub.setReturnParameter("return_code", 'FAIL')
+        return serverPub.returnXml()
+
+    def getTradeNo(self):
+        global trade_no_now
+        trade_no_now += 1
+        timeNow = 'herochess' + time.strftime('%Y%m%d%H%M%S',time.localtime(time.time())) + str(trade_no_now)
+        return timeNow
 
 def test():
     c = HttpClient()

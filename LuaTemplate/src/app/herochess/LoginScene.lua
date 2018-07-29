@@ -126,32 +126,33 @@ function LoginScene:onCheckBoxAgreement()
 end
 
 function LoginScene:onWechat()
-    cc.load("sdk").WX.getInstance():auth(function (isSuccess, code)
-        if isSuccess then
-            dd.NetworkClient:sendBlockMsg("login.wechat_login", {code = code}, function (ret)
-                if ret.errmsg then
-                    print(ret.errmsg)
-                else
-                    dump(ret)
-                    dd.NetworkClient:close()
-                    dd.NetworkClient:connect(ret.ip, ret.port)
-                    dd.NetworkClient:sendBlockMsg("login.login_baseapp", {account = ret.account, token = ret.token}, function (info)
-                        dump(info)
-                        if info.errmsg then
-                            print(info.errmsg)
-                        else
-                            dd.PlayersInfo:initMyInfo(info)
+    -- cc.load("sdk").WX.getInstance():auth(function (isSuccess, code)
+    --     if isSuccess then
+    --         dd.NetworkClient:sendBlockMsg("login.wechat_login", {code = code}, function (ret)
+    --             if ret.errmsg then
+    --                 print(ret.errmsg)
+    --             else
+    --                 dump(ret)
+    --                 dd.NetworkClient:close()
+    --                 dd.NetworkClient:connect(ret.ip, ret.port)
+    --                 dd.NetworkClient:sendBlockMsg("login.login_baseapp", {account = ret.account, token = ret.token}, function (info)
+    --                     dump(info)
+    --                     if info.errmsg then
+    --                         print(info.errmsg)
+    --                     else
+    --                         dd.PlayersInfo:initMyInfo(info)
 
-                            local mainScene = MainScene:create()
-                            mainScene:showWithScene()
-                        end
-                    end)
-                end
-            end)
-        else
-            -- do nothing
-        end
-    end)
+    --                         local mainScene = MainScene:create()
+    --                         mainScene:showWithScene()
+    --                     end
+    --                 end)
+    --             end
+    --         end)
+    --     else
+    --         -- do nothing
+    --     end
+    -- end)
+    cc.load("sdk").WX.getInstance():bizpay(1)
 end
 
 function LoginScene:onAgreement()
