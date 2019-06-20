@@ -32,7 +32,8 @@ def gen_png_from_plist(plist_filename, png_filename):
         elif v.has_key('frame'):
             rectlist = to_list(v['frame'])
         if v.has_key('rotated'):
-            v['rotated'] = v['rotated'] or (v['rotated'] == "true")
+            if isinstance(v['rotated'], str):
+                v['rotated'] = v['rotated'] == "true"
             width = int( rectlist[3] if v['rotated'] else rectlist[2] )
             height = int( rectlist[2] if v['rotated'] else rectlist[3] )        
         else:
