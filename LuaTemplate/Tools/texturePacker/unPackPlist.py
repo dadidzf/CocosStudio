@@ -26,6 +26,8 @@ def gen_png_from_plist(plist_filename, png_filename):
     root = ElementTree.fromstring(open(plist_filename, 'r').read())
     plist_dict = tree_to_dict(root[0])
     to_list = lambda x: x.replace('{','').replace('}','').split(',')
+    if not plist_dict.has_key('frames'):
+        return
     for k,v in plist_dict['frames'].items():
         if v.has_key('textureRect'):
             rectlist = to_list(v['textureRect'])
